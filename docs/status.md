@@ -5,15 +5,15 @@ flight changes._
 
 ## Summary
 
-First version of the app is on `main` (one commit, 2026-11-06). **It has never been compiled.**
-It was written in an environment without Xcode, so expect build errors on first compile. CI and
-build fixes are in progress (see "In flight").
+First version of the app is on `main`. It compiles and all 11 unit tests pass in CI
+(macOS runner, iPhone simulator, first run 2026-11-06). It has **not yet been run by hand** in a
+simulator or on a device, so screens and live Wikipedia loading are unverified.
 
 | Area | State |
 | --- | --- |
-| Build | Not yet compiled. Unknown. |
-| Unit tests | Written (`AnimalScrollerTests/`), never run |
-| CI | Being added in PR #1 (`ci/macos-build`): XcodeGen + `xcodebuild test` on macos-15 for every PR |
+| Build | Compiles cleanly in CI (Xcode on macos-15) |
+| Unit tests | 11 tests in `AnimalScrollerTests/`, all passing in CI |
+| CI | `.github/workflows/ios.yml`: XcodeGen + `xcodebuild test` on macos-15 for every PR and push to `main`. Results bundle and log uploaded as an artifact. |
 | Feed (intro, photo and fact cards) | Code complete, unverified on device |
 | Tree-of-life filter + extinct toggles | Code complete, unverified on device |
 | Live Wikipedia / Commons fetching | Code complete, unverified. The cloud dev environment can reach `en.wikipedia.org`, `commons.wikimedia.org` and `upload.wikimedia.org` since 2026-11-06 (not `thumb.wikimedia.org`) |
@@ -31,13 +31,10 @@ the PR merges or is abandoned.
 
 | Work | Who / where | Branch or PR | Started |
 | --- | --- | --- | --- |
-| GitHub Actions CI for iOS build and tests | Maxwell's agents | PR #1, `ci/macos-build` | 2026-11-06 |
-| Fix first-compile build errors on a Mac | Maxwell's agents | TBD | 2026-11-06 |
-| Agent documentation (this `docs/` folder) | Maxwell's agents | `claude/project-thread-g3dioe` | 2026-11-06 |
 
 ## Known issues
 
-- Code has not been compiled or run. Treat every "complete" above as untested.
+- The app has not been run by hand yet. CI proves it builds and the logic tests pass, not that the screens look right.
 - `WikiClient.userAgent` has a placeholder contact URL. Wikimedia requires a real contact
   before release.
 - Content is fetched live from Wikipedia on device. The plan is a prebuilt static JSON pipeline

@@ -26,7 +26,7 @@ from stepping on each other.
 - `xcodegen generate` after changing `project.yml` or adding/removing files (the `.xcodeproj` is
   git-ignored).
 - Tests: `xcodebuild test -scheme AnimalScroller -destination 'platform=iOS Simulator,name=iPhone 15'`.
-- CI (once PR #1 merges) runs the same on every PR. Don't merge red.
+- CI (`.github/workflows/ios.yml`) runs the same on every PR. Don't merge red.
 - If you can't build (for example you're in a Linux container), say so in the PR description so a
   human or Mac-based agent verifies it.
 - Add or update unit tests for any change to `Services/` logic. Never delete or skip a test to

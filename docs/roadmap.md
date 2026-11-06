@@ -11,7 +11,7 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
 - [x] Tree-of-life filter with extinct toggles
 - [x] Live Wikipedia / Commons content with licence filtering
 - [x] 77 seed species
-- [ ] CI: build and test on every PR (PR #1)
+- [x] CI: build and test on every PR (PR #1)
 - [ ] First successful compile and test run; fix build errors
 - [ ] Run on a device and fix layout / behaviour issues
 - [ ] Grow to a few hundred reviewed species (likely generated from Wikidata, then human-reviewed)

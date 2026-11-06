@@ -19,7 +19,7 @@ AnimalScroller/
   Features/Picker/          Tree-of-life filter screen and persisted preferences
   Resources/taxonomy.json   Bundled tree of life + species list (generated, do not hand-edit)
 AnimalScrollerTests/        XCTest unit tests for the pure-logic services
-.github/                    CI workflow (PR #1) and PR template
+.github/                    CI workflow (`workflows/ios.yml`) and PR template
 ```
 
 ## File map
