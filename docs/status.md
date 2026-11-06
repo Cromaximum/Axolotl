@@ -5,18 +5,18 @@ flight changes._
 
 ## Summary
 
-First version of the app is on `main`. It compiles and all 11 unit tests pass in CI
-(macOS runner, iPhone simulator, first run 2026-11-06). It has **not yet been run by hand** in a
-simulator or on a device, so screens and live Wikipedia loading are unverified.
+First version of the app is on `main`. It was first compiled and run by hand on 2026-11-06
+(Xcode 26.6, iPhone 17 simulator, iOS 26): it builds without errors, all unit tests pass after a
+test-target fix, and the feed loads live Wikipedia content. CI also builds and tests every PR.
 
 | Area | State |
 | --- | --- |
-| Build | Compiles cleanly in CI (Xcode on macos-15) |
-| Unit tests | 11 tests in `AnimalScrollerTests/`, all passing in CI |
-| CI | `.github/workflows/ios.yml`: XcodeGen + `xcodebuild test` on macos-15 for every PR and push to `main`. Results bundle and log uploaded as an artifact. |
-| Feed (intro, photo and fact cards) | Code complete, unverified on device |
-| Tree-of-life filter + extinct toggles | Code complete, unverified on device |
-| Live Wikipedia / Commons fetching | Code complete, unverified. The cloud dev environment can reach `en.wikipedia.org`, `commons.wikimedia.org` and `upload.wikimedia.org` since 2026-11-06 (not `thumb.wikimedia.org`) |
+| Build | Builds clean with Xcode 26.6 locally and in CI (macos-15) |
+| Unit tests | 11 tests in `AnimalScrollerTests/`, all passing on the simulator and in CI |
+| CI | `.github/workflows/ios.yml`: XcodeGen + `xcodebuild test` on macos-15 (first available iPhone simulator) for every PR and push to `main`. Results bundle and log uploaded as an artifact. |
+| Feed (intro, photo and fact cards) | Works in the iPhone 17 simulator. Not yet tried on a real device |
+| Tree-of-life filter + extinct toggles | Sheet opens and lists the tree in the simulator. Filtering not yet tested by hand |
+| Live Wikipedia / Commons fetching | Works in the simulator. The cloud dev environment can reach `en.wikipedia.org`, `commons.wikimedia.org` and `upload.wikimedia.org` since 2026-11-06 (not `thumb.wikimedia.org`) |
 | Species data | 77 species (20 extinct) in `taxonomy.json`. Launch target is a few hundred. |
 | IUCN statuses | Filled in by hand, must be checked against the Red List before launch |
 | Fonts (Fredoka, Nunito Sans) | Not bundled. App falls back to the system font. |
@@ -34,9 +34,11 @@ the PR merges or is abandoned.
 
 ## Known issues
 
-- The app has not been run by hand yet. CI proves it builds and the logic tests pass, not that the screens look right.
+- Only tested in the simulator so far, not on a physical iPhone.
 - `WikiClient.userAgent` has a placeholder contact URL. Wikimedia requires a real contact
   before release.
 - Content is fetched live from Wikipedia on device. The plan is a prebuilt static JSON pipeline
   (see [roadmap.md](roadmap.md)).
 - Artwork detection (`ContentPolicy.isArtwork`) is keyword-based and will misclassify some files.
+  It now includes Spanish, French, German, Italian and Portuguese stems, but other languages or
+  undescribed files can still slip through unlabelled.

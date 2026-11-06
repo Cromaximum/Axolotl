@@ -10,11 +10,15 @@ struct PhotoCardView: View {
             AsyncImage(url: card.image.url, transaction: .init(animation: .easeIn)) { phase in
                 switch phase {
                 case .success(let image):
-                    ZStack {
-                        // Blurred fill behind letterboxed images, so portrait and landscape both look full-screen.
-                        image.resizable().scaledToFill().blur(radius: 30).opacity(0.5).clipped()
-                        image.resizable().scaledToFit()
-                    }
+                    // Blurred fill behind letterboxed images, so portrait and landscape both look full-screen.
+                    // The fill lives in a background so its natural (wider than the screen) size can't
+                    // stretch the card; the scaledToFit image sets the layout size.
+                    image.resizable().scaledToFit()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background {
+                            image.resizable().scaledToFill().blur(radius: 30).opacity(0.5)
+                        }
+                        .clipped()
                 case .failure:
                     Image(systemName: "photo").font(.largeTitle).foregroundStyle(.secondary)
                 default:

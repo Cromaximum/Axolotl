@@ -12,7 +12,7 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
 - [x] Live Wikipedia / Commons content with licence filtering
 - [x] 77 seed species
 - [x] CI: build and test on every PR (PR #1)
-- [ ] First successful compile and test run; fix build errors
+- [x] First successful compile and test run; fix build errors (#5)
 - [ ] Run on a device and fix layout / behaviour issues
 - [ ] Grow to a few hundred reviewed species (likely generated from Wikidata, then human-reviewed)
 - [ ] Verify IUCN statuses against the Red List
