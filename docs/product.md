@@ -35,8 +35,8 @@ format of an endless vertical feed. Every item is about **one specific species**
      credit sit at the top. Tapping the sign opens the species detail sheet.
   2. Then **3 to 8 items**, alternating photos and fact cards. Two fact cards never sit next to
      each other. Leftover photos may run together at the end; leftover facts are dropped.
-     - **Photo card**: animal only, with a "Name · n of N" pill, a credit chip and a Save / Info /
-       Share rail. Extinct species add a media tag and a caption on the scrim.
+     - **Photo card**: animal only, with a "Name · n of N" pill, a credit chip and a Like / Save /
+       Info / Share rail. Extinct species add a media tag and a caption on the scrim.
      - **Fact card**: a photo of the species on the top half, and a board below with "Did you
        know? · Topic", the fact's stand-out number in large type (years are skipped), the
        sentence, and the source line.
@@ -45,6 +45,9 @@ format of an endless vertical feed. Every item is about **one specific species**
 - Then the next species. The feed prefetches so it never runs dry (keeps about 6 cards queued).
 - Every card has an attribution chip; tapping it opens a credit sheet (author, licence, source).
 - **Save** a species with the bookmark on the rail or by long-pressing any card.
+- **Like** a species with the heart (on the photo rail, the intro card's top row and the fact
+  card's top row) or by double-tapping any card, which pops an amber heart. Double-tap only
+  likes; tap the heart again to unlike. Likes steer the feed (see below) and persist.
 
 ### Species detail sheet
 
@@ -63,7 +66,16 @@ Saved / Extinct. Tap a tile for the detail sheet. Persisted across launches.
   families, orders and classes they linger on (dwell time, capped at 60 seconds per species).
 - About **30% discovery**: random species from outside the user's branches ("Surprise me").
   Turning Surprise off makes it 100% tailored.
+- **Likes** (D-013) add interest to the liked species' genus, family, order and class, on top of
+  dwell time. Tailored picks then favour its relatives; the liked species itself isn't repeated
+  more. Discovery picks ignore likes.
 - Strongly favours species the user hasn't seen. Never repeats a species within the last 12.
+- **Full species catalogue** (D-012, default on): besides the bundled hand-picked list, the feed
+  finds species from the GBIF Backbone Taxonomy under the same branches (and, for discovery
+  picks, outside them), keeping only species with a substantial, illustrated English Wikipedia
+  article. About half of picks are live while bundled species in scope are unseen; all are
+  live after that. Live species show their Wikipedia article title as the common name and
+  their Wikidata IUCN status (Not Evaluated if none). Their detail sheet credits GBIF.
 - If nothing is selected, the whole animal kingdom is in scope.
 
 ### Filters (tree-of-life picker)
@@ -77,6 +89,7 @@ Saved / Extinct. Tap a tile for the detail sheet. Persisted across launches.
   - **Show artist reconstructions** (default on; only affects extinct species; hidden when
     Living only)
   - **Surprise picks** (default on)
+  - **Explore the full species catalogue** (default on)
 - Preferences persist across launches.
 
 ### Extinct species

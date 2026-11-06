@@ -17,7 +17,9 @@ test-target fix, and the feed loads live Wikipedia content. CI also builds and t
 | Feed (intro, photo and fact cards) | The original cards worked in the iPhone 17 simulator. The cards rebuilt to the concept art (`feature/concept-screens`) pass CI but have not been checked by hand yet |
 | Tree-of-life filter + extinct toggles | Now the Tree tab. The earlier sheet version listed the tree in the simulator; filtering not yet tested by hand |
 | Live Wikipedia / Commons fetching | Works in the simulator. The cloud dev environment can reach `en.wikipedia.org`, `commons.wikimedia.org` and `upload.wikimedia.org` since 2026-11-06 (not `thumb.wikimedia.org`) |
-| Species data | 77 species (20 extinct) in `taxonomy.json`. Launch target is a few hundred. |
+| Species data | 77 bundled species (20 extinct) in `taxonomy.json`. Launch target is a few hundred. |
+| Live species catalogue (D-012, proposed) | Written on `claude/project-thread-x4qt08`, unit-tested in CI only. Not yet run against the live GBIF API: the cloud dev environment and the Mac VM can't reach `api.gbif.org` or `www.wikidata.org`. Needs a simulator check |
+| Likes (D-013) | Written on `claude/project-thread-x4qt08`, unit-tested in CI only; needs a simulator check |
 | IUCN statuses, common names, group names | **Typed in by an AI agent, which breaks D-011 (zero AI content).** Must be regenerated from Wikidata. See [ai-content-audit.md](ai-content-audit.md) |
 | AI-image filter | Missing: `ContentPolicy` doesn't yet reject AI-generated Commons files |
 | Fonts (Fredoka, Nunito Sans) | Not bundled. App falls back to the system font. |

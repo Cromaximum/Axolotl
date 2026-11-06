@@ -31,6 +31,7 @@ struct IntroCardView: View {
             }
             Spacer()
             if let hero = card.hero { CreditChip(attribution: hero.attribution) }
+            LikeButton(isLiked: context.isLiked, action: context.onLike)
         }
         .padding(.horizontal, CardInsets.side)
         .padding(.top, CardInsets.top)

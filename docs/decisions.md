@@ -23,6 +23,22 @@ Template:
 
 ---
 
+## D-013 · Likes steer the tailored picks
+- Status: Decided (feature); weights Proposed
+- Date: 2026-11-06
+- Decided by: Maxwell Rhinelander asked for "a like feature that drives what content the user sees". Weights proposed by the live catalog agent.
+- Context: Dwell time alone is a weak, invisible signal.
+- Decision: A heart on every card (and double-tap anywhere) likes a species. Likes are stored separately from saves (`likes.v1`). Each like adds interest to the species' genus (2.5), family (2.0), order (1.0) and class (0.4). That interest is added to dwell-time affinity for tailored picks of bundled species, for choosing which branch the live catalogue searches, and for choosing among live candidates. Interest is capped (6) so the feed never collapses onto one family. Discovery picks ignore likes, so the ~30% surprise share of D-001 is unchanged. Novelty still wins: liked species themselves aren't repeated more, their relatives are.
+- Consequences: Likes persist across launches; dwell affinity still resets on launch.
+
+## D-012 · Live species catalogue from the GBIF Backbone Taxonomy
+- Status: Proposed (Maxwell asked for a live master species list; the source choice and quality gates are an agent proposal)
+- Date: 2026-11-06
+- Decided by: proposed by the live catalog agent
+- Context: Maxwell asked for "an algorithm pulling from a reputable master species list, then search and populate cards as the user goes". Options were Catalogue of Life (ChecklistBank API), the GBIF Backbone (built on CoL plus other expert checklists) and Wikidata's taxonomy.
+- Decision: Use the GBIF Backbone. It has one clean kingdom › … › genus classification per accepted species, a fast keyless search API with "species under this taxon" and an extinct filter, and CC BY 4.0. CoL is authoritative but its API is slower and less suited to random sampling; Wikidata's parent-taxon tree is inconsistent and its SPARQL endpoint times out on large subtrees. For each load the app picks a branch of the bundled tree (weighted by likes and dwell), pulls a random page of ~40 accepted species from GBIF, checks all 40 against English Wikipedia in one request, keeps species with a real article (≥ 5,000 bytes, free lead image, not a redirect to a group), picks one favouring unseen and better-covered species, and builds its cards from Wikipedia and Commons as before. While bundled species in scope are unseen, about half of picks are live; after that, all are. Users can turn it off ("Explore the full species catalogue").
+- Consequences: Relaxes D-006 ("a few hundred reviewed species"): live species are checked automatically, not by a person. Needs a human to confirm. Adds `api.gbif.org` and `www.wikidata.org` to the hosts the app calls. Live species only reach branches present in the bundled tree, so growing the tree widens the catalogue.
+
 ## D-011 · Zero AI-generated content
 - Status: Decided
 - Date: 2026-11-06

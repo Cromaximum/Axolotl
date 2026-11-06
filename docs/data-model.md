@@ -39,7 +39,11 @@ Notes:
 | --- | --- | --- |
 | `Taxon` | `Models/Taxon.swift` | `Codable` tree node. `allSpecies()`, `species(selectedIDs:)` (empty selection = everything), `descendantIDs`, `find(_:)`. |
 | `Taxon.Rank` | same | String enum matching JSON `rank`. |
-| `Species` | same | `Codable`. `id = wikiTitle`. |
+| `Species` | same | `Codable`. `id = wikiTitle`. `gbifKey: Int?` is set only for live-catalogue species (`isLive`); absent in `taxonomy.json`. |
+| `Taxon` (GBIF-only node) | `Services/LiveCatalogRules.swift` | Live species' lineage reuses bundled nodes where GBIF's classification matches by scientific name, then adds nodes with id `gbif-<rank>-<name>` (e.g. `gbif-genus-panthera`) and `name` = scientific name. Never persisted except as ids in `likes.v1`. |
+| `LiveCandidate` | `Services/SpeciesCatalog.swift` | A live species plus article length (popularity weight), Wikidata id and GBIF extinct flag. Not persisted. |
+| `GBIFClient.NameUsage` | `Services/GBIFClient.swift` | Subset of GBIF's species search result: key, canonical name, rank, status, classification names, `extinct`. |
+| `WikiClient.ArticleProbe` | `Services/WikiClient.swift` | Result of the batched Wikipedia check: final title, redirect flag, length, free lead image, short description, Wikidata id. |
 | `ConservationStatus` | same | IUCN codes; `scale` is the 7-step LC → EX bar. |
 | `SpeciesEntry` | same | Species + lineage (root → parent). Not persisted. |
 | `Attribution` | `Models/FeedCard.swift` | Required on every card. `wikipediaText(...)` builds the CC BY-SA text credit. |
@@ -62,10 +66,26 @@ Key: `preferences.v1`. JSON-encoded `PreferencesStore.Stored`:
 | `showArtwork` | `Bool` | `true` |
 | `surpriseMe` | `Bool` | `true` |
 | `hasOnboarded` | `Bool` | `false` (added with the concept screens) |
+| `liveCatalog` | `Bool` | `true` ("Explore the full species catalogue", D-012) |
 
 Every field is decoded with `decodeIfPresent`, so data saved before a field existed still loads.
 `PreferencesStore.extinctMode` (Living only / Include extinct / Extinct only) is a computed view
 over `includeExtinct` + `extinctOnly`; it is not stored separately.
+
+## Likes (`UserDefaults`)
+
+Key: `likes.v1`. JSON array of `LikesStore.Entry`, newest first:
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | `Species.wikiTitle` |
+| `commonName`, `scientificName` | `String` | Copied at like time |
+| `isExtinct` | `Bool` | |
+| `lineage` | `[LikeAffinity.Step]` | `{id, rank}` for each ancestor, so live species (not in the bundled tree) still steer the feed after relaunch. Ids may be bundled ids (`felidae`) or GBIF-only ids (`gbif-genus-panthera`) |
+| `imageURL` | `URL?` | Hero image at like time |
+| `likedAt` | `Date` | |
+
+Separate from saves (`met.v1`): a save is a bookmark, a like is a feed signal.
 
 ## Species met (`UserDefaults`)
 
@@ -85,5 +105,6 @@ bump the key (`preferences.v2`) and note the migration here.
 
 ## Not persisted
 
-Seen counts, dwell affinity and the recent-species window in `SpeciesPicker` live in memory and
-reset on launch. (The species-met collection above is persisted; picker weighting is not yet.)
+Seen counts, dwell affinity, live-branch misses and the recent-species window in `SpeciesPicker`
+live in memory and reset on launch. Like affinity is rebuilt from `likes.v1` at launch. The live
+catalogue caches GBIF keys and counts per branch in memory only. (The species-met collection above is persisted; picker weighting is not yet.)

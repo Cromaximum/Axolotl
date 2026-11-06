@@ -5,6 +5,9 @@ struct FeedView: View {
     let taxonomy: Taxon
     @Environment(PreferencesStore.self) private var prefs
     @Environment(MetStore.self) private var met
+    @Environment(LikesStore.self) private var likes
+    /// Species id that just got a double-tap like, for the heart burst.
+    @State private var burstID: String?
     @State private var model: FeedViewModel
     @State private var detailEntry: SpeciesEntry?
 
@@ -21,6 +24,8 @@ struct FeedView: View {
                         .containerRelativeFrame([.horizontal, .vertical])
                         .clipped()
                         .onAppear { cardAppeared(card) }
+                        .onTapGesture(count: 2) { doubleTapLike(card) }
+                        .overlay { if burstID == card.id { LikeBurst() } }
                         .onLongPressGesture { toggleSaved(card) }
                 }
                 if model.isLoading || model.cards.isEmpty {
@@ -33,9 +38,9 @@ struct FeedView: View {
         .scrollIndicators(.hidden)
         .ignoresSafeArea(edges: .top)
         .background(Theme.forest)
-        .refreshable { model.restart(with: prefs) }
-        .task { if model.cards.isEmpty { model.restart(with: prefs) } }
-        .onChange(of: prefs.feedSignature) { model.restart(with: prefs) }
+        .refreshable { model.restart(with: prefs, likes: likes) }
+        .task { if model.cards.isEmpty { model.restart(with: prefs, likes: likes) } }
+        .onChange(of: prefs.feedSignature) { model.restart(with: prefs, likes: likes) }
         .sheet(item: $detailEntry) { entry in
             SpeciesDetailView(entry: entry)
                 .presentationDetents([.large])
@@ -49,15 +54,27 @@ struct FeedView: View {
             position: pos.position,
             count: pos.count,
             isSaved: met.isSaved(card.entry.id),
+            isLiked: likes.isLiked(card.entry.id),
             onSave: { toggleSaved(card) },
+            onLike: { likes.toggle(card.entry, imageURL: heroURL(for: card)) },
             onInfo: { detailEntry = card.entry }
         )
     }
 
     private func cardAppeared(_ card: FeedCard) {
-        model.cardAppeared(card, prefs: prefs)
+        model.cardAppeared(card, prefs: prefs, likes: likes)
         if case .intro(let intro) = card {
             met.recordMet(intro.entry.species, imageURL: intro.hero?.url)
+        }
+    }
+
+    /// Double-tap anywhere on a card likes the species (never unlikes), with a heart burst.
+    private func doubleTapLike(_ card: FeedCard) {
+        likes.like(card.entry, imageURL: heroURL(for: card))
+        burstID = card.id
+        Task {
+            try? await Task.sleep(for: .milliseconds(700))
+            if burstID == card.id { burstID = nil }
         }
     }
 

@@ -15,6 +15,8 @@ final class PreferencesStore {
     var surpriseMe: Bool { didSet { save() } }
     /// Set once the welcome and starting-point screens have been completed.
     var hasOnboarded: Bool { didSet { save() } }
+    /// Look beyond the bundled list: find species in the GBIF Backbone and build their cards live.
+    var liveCatalog: Bool { didSet { save() } }
 
     private let defaults: UserDefaults
     private static let key = "preferences.v1"
@@ -26,6 +28,7 @@ final class PreferencesStore {
         var showArtwork = true
         var surpriseMe = true
         var hasOnboarded = false
+        var liveCatalog = true
 
         init() {}
 
@@ -39,6 +42,7 @@ final class PreferencesStore {
             showArtwork = try c.decodeIfPresent(Bool.self, forKey: .showArtwork) ?? d.showArtwork
             surpriseMe = try c.decodeIfPresent(Bool.self, forKey: .surpriseMe) ?? d.surpriseMe
             hasOnboarded = try c.decodeIfPresent(Bool.self, forKey: .hasOnboarded) ?? d.hasOnboarded
+            liveCatalog = try c.decodeIfPresent(Bool.self, forKey: .liveCatalog) ?? d.liveCatalog
         }
     }
 
@@ -52,6 +56,7 @@ final class PreferencesStore {
         showArtwork = stored.showArtwork
         surpriseMe = stored.surpriseMe
         hasOnboarded = stored.hasOnboarded
+        liveCatalog = stored.liveCatalog
     }
 
     /// The three-way switch on the Tree screen, stored as the two existing flags.
@@ -80,7 +85,15 @@ final class PreferencesStore {
 
     /// A value that changes whenever anything affecting the feed changes.
     var feedSignature: String {
-        "\(selectedTaxonIDs.sorted())|\(includeExtinct)|\(extinctOnly)|\(showArtwork)|\(surpriseMe)"
+        "\(selectedTaxonIDs.sorted())|\(includeExtinct)|\(extinctOnly)|\(showArtwork)|\(surpriseMe)|\(liveCatalog)"
+    }
+
+    var catalogFilter: CatalogExtinctFilter {
+        switch extinctMode {
+        case .livingOnly: .livingOnly
+        case .includeExtinct: .any
+        case .extinctOnly: .extinctOnly
+        }
     }
 
     func allowsExtinctStatus(_ species: Species) -> Bool {
@@ -107,6 +120,7 @@ final class PreferencesStore {
         stored.showArtwork = showArtwork
         stored.surpriseMe = surpriseMe
         stored.hasOnboarded = hasOnboarded
+        stored.liveCatalog = liveCatalog
         if let data = try? JSONEncoder().encode(stored) { defaults.set(data, forKey: Self.key) }
     }
 }

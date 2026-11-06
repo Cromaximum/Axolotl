@@ -4,6 +4,7 @@ import SwiftUI
 struct AnimalScrollerApp: App {
     @State private var preferences = PreferencesStore()
     @State private var met = MetStore()
+    @State private var likes = LikesStore()
     private let taxonomy = TaxonomyLoader.loadBundled()
 
     init() {
@@ -17,6 +18,7 @@ struct AnimalScrollerApp: App {
             RootView(taxonomy: taxonomy)
                 .environment(preferences)
                 .environment(met)
+                .environment(likes)
                 .preferredColorScheme(.dark)
         }
     }

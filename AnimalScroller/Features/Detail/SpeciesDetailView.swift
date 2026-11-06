@@ -112,6 +112,12 @@ struct SpeciesDetailView: View {
             Text("SOURCES").font(Theme.label(11)).tracking(1.2).foregroundStyle(Theme.amber)
             Link("Text: Wikipedia, \"\(content.title)\", CC BY-SA 4.0", destination: content.pageURL)
                 .font(Theme.body(13))
+            if let key = species.gbifKey, let url = URL(string: "https://www.gbif.org/species/\(key)") {
+                Link("Name and classification: GBIF Backbone Taxonomy, CC BY 4.0", destination: url)
+                    .font(Theme.body(13))
+                Text("Conservation status: Wikidata (CC0), when listed. Otherwise shown as Not Evaluated.")
+                    .font(Theme.body(12)).foregroundStyle(Theme.mist)
+            }
             ForEach(content.images.filter { !$0.isArtwork || species.isExtinct }) { image in
                 CreditChip(attribution: image.attribution)
             }

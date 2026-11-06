@@ -20,8 +20,9 @@ struct TaxonomyPickerView: View {
                         Toggle("Show artist reconstructions", isOn: $prefs.showArtwork)
                     }
                     Toggle("Surprise picks", isOn: $prefs.surpriseMe)
+                    Toggle("Explore the full species catalogue", isOn: $prefs.liveCatalog)
                 } footer: {
-                    Text("Extinct animals show fossils, specimens and photos, plus labelled reconstructions vetted on Wikipedia when that's on. Surprise picks mix in about 3 in 10 species from outside your branches.")
+                    Text("Extinct animals show fossils, specimens and photos, plus labelled reconstructions vetted on Wikipedia when that's on. Surprise picks mix in about 3 in 10 species from outside your branches. The full catalogue finds more species in your branches from the GBIF Backbone Taxonomy, keeping only ones with a well-illustrated Wikipedia article. Species you like steer which ones come next.")
                 }
 
                 Section {
@@ -33,7 +34,9 @@ struct TaxonomyPickerView: View {
                 } footer: {
                     Text(prefs.selectedTaxonIDs.isEmpty
                          ? "Nothing picked: you'll see species from the whole animal kingdom."
-                         : "\(root.species(selectedIDs: prefs.selectedTaxonIDs).count) species in your branches.")
+                         : prefs.liveCatalog
+                            ? "\(root.species(selectedIDs: prefs.selectedTaxonIDs).count) hand-picked species in your branches, plus the full catalogue."
+                            : "\(root.species(selectedIDs: prefs.selectedTaxonIDs).count) species in your branches.")
                 }
             }
             .scrollContentBackground(.hidden)

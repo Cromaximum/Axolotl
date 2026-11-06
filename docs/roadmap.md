@@ -17,6 +17,10 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
 - [x] First successful compile and test run; fix build errors (#5)
 - [ ] Run on a device and fix layout / behaviour issues
 - [ ] Grow to a few hundred reviewed species (likely generated from Wikidata, then human-reviewed)
+- [x] Live species catalogue from the GBIF Backbone with on-the-fly cards (D-012, proposed; needs a simulator check against the live APIs)
+- [x] Likes that steer tailored picks (D-013)
+- [ ] Widen the live catalogue: add more class/order/family branches to the bundled tree so GBIF is searched in more places
+- [ ] Liked filter in the Met tab
 - [ ] Remove all AI-written content (D-011): regenerate species data from Wikidata, add an
       AI-image filter, see [ai-content-audit.md](ai-content-audit.md)
 - [ ] Static content pipeline: batch job builds one JSON file per species (taxonomy from GBIF or
@@ -32,7 +36,7 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
 
 - Commons video clips and animal sounds (needs licensing rules update first)
 - ~~Saves and a "species seen" collection (persisted)~~ Pulled into Phase 1 with the concept screens.
-- Feed learns from time spent (persist affinity)
+- Feed learns from time spent (persist dwell affinity; likes are already persisted)
 - Ads SDK integration
 - App Store launch
 
