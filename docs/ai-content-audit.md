@@ -6,8 +6,7 @@ Update this file as items are fixed: tick them off and add the PR number.
 ## Summary
 
 The app's runtime content (facts, lead text, taglines, photos) is pulled live from Wikipedia and
-Commons and shown verbatim, so it already follows the rule, with one gap: nothing stops an
-AI-generated image hosted on Commons. The **bundled species data** and the **mockup text** were
+Commons and shown verbatim, so it already follows the rule. The **bundled species data** and the **mockup text** were
 written by an AI agent and must be replaced with sourced values.
 
 ## Findings
@@ -19,7 +18,7 @@ written by an AI agent and must be replaced with sourced values.
 | 3 | same | **Group names** for the 122 tree nodes (e.g. "Elephants and kin", "Even-toed ungulates", "Turritopsids") | Medium: shown in the filter and lineage line | Use Wikidata English labels for each taxon, falling back to the scientific name. |
 | 4 | same | **Tree structure** (which species sit under which family/order/class) | Medium: affects filtering, and some placements are simplified | Build the tree from Wikidata P171 (parent taxon) up to the kingdom, keeping only the ranks we show. |
 | 5 | same | **Species selection** (which 77 animals) | Low: a curation choice, not content | Fine to keep as a human-reviewed list of Wikidata QIDs; Maxwell or the collaborator should approve the list. |
-| 6 | `Services/ContentPolicy.swift` | No check for **AI-generated images** on Commons | High: an AI image used on an article could reach the feed | Ask the API for file categories (`prop=categories` or `iiprop=extmetadata` `Categories`) and reject files in "AI-generated images" (and subcategories) or whose description mentions AI generation (e.g. "Midjourney", "Stable Diffusion", "DALL-E", "AI-generated"). Add tests. |
+| 6 | `Services/ContentPolicy.swift` | No check for **AI-generated images** on Commons | Not needed | **Won't do** (Maxwell, 2026-11-06): images come only from the species' own Wikipedia article, and Wikipedia doesn't allow AI images. Keep it that way (content-and-licensing rule 4). |
 | 7 | `docs/design/concept-art/` (prototype, screens) | **Fact text** on the mockups was "written from" Wikipedia, i.e. paraphrased, e.g. "It can't roar. It chuffs, hisses and yowls instead." | Low: design docs, not the app, but could be copied into it | Replace with verbatim sentences from each article, with the article credited on screen. |
 | 8 | UI strings in `Features/` and mockups (onboarding lines, footers, button labels) | Interface copy drafted by AI | Low: not animal content | Covered by rule 6 in [content-and-licensing.md](content-and-licensing.md#zero-ai-generated-content): a human writes or approves interface copy before release. |
 
@@ -47,8 +46,8 @@ a Mac.
 
 ## Checklist
 
-- [ ] 1 to 4: Regenerate `taxonomy.json` from Wikidata
+- [x] 1 to 4: Regenerated `taxonomy.json` from Wikidata and Wikipedia (#9)
 - [ ] 5: Species list approved by a human
-- [ ] 6: AI-image filter in `ContentPolicy`, with tests
+- [x] 6: Not needed; images only from the species' Wikipedia article
 - [ ] 7: Verbatim text in concept mockups
 - [ ] 8: Interface copy reviewed by a human before TestFlight

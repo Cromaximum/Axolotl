@@ -18,10 +18,10 @@ test-target fix, and the feed loads live Wikipedia content. CI also builds and t
 | Tree-of-life filter + extinct toggles | Now the Tree tab. The earlier sheet version listed the tree in the simulator; filtering not yet tested by hand |
 | Live Wikipedia / Commons fetching | Works in the simulator. The cloud dev environment can reach `en.wikipedia.org`, `commons.wikimedia.org` and `upload.wikimedia.org` since 2026-11-06 (not `thumb.wikimedia.org`) |
 | Species data | 77 species (20 extinct) in `taxonomy.json`. Launch target is a few hundred. |
-| IUCN statuses, common names, group names | **Typed in by an AI agent, which breaks D-011 (zero AI content).** Must be regenerated from Wikidata. See [ai-content-audit.md](ai-content-audit.md) |
-| AI-image filter | Missing: `ContentPolicy` doesn't yet reject AI-generated Commons files |
+| IUCN statuses, common names, group names | Generated from Wikidata and Wikipedia (D-011, #9). 9 species have no IUCN status in either source and show NE |
 | Fonts (Fredoka, Nunito Sans) | Not bundled. App falls back to the system font. |
-| Concept screens | Twelve screens in `docs/design/` (D-010). App views rebuilt to match in `feature/concept-screens` (see In flight); not yet checked on a simulator. |
+| Concept screens | Twelve screens in `docs/design/` (D-010). App views rebuilt to match (#4); layout still needs a hand check on a simulator. |
+| Architecture review gate | Rules in [architecture-rules.md](architecture-rules.md) (D-014). Every design and PR needs architect sign-off. |
 | App name | Working title only. Must change before App Store (trademark). |
 | Ads, privacy manifest, App Store assets | Not started |
 
@@ -32,11 +32,11 @@ the PR merges or is abandoned.
 
 | Work | Who / where | Branch or PR | Started |
 | --- | --- | --- | --- |
-| Rebuild screens to the concept art (D-010) | Maxwell's agents (iOS programmer thread) | `feature/concept-screens` | 2026-11-06 |
 
 ## Known issues
 
 - Only tested in the simulator so far, not on a physical iPhone.
+- App-wide stores (`PreferencesStore`, and `MetStore` from PR #4) live under `Features/` instead of `Stores/`. One small move PR after #4 merges (see [architecture-rules.md](architecture-rules.md#layers)).
 - Bundled species data and mockup text were written by AI and must be replaced with sourced
   values (D-011). Full list in [ai-content-audit.md](ai-content-audit.md).
 - `WikiClient.userAgent` has a placeholder contact URL. Wikimedia requires a real contact

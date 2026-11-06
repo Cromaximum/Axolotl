@@ -1,0 +1,83 @@
+# Species shown in the app, one English Wikipedia article title per line.
+# This list is the only hand-made input: it chooses WHICH animals appear.
+# Every value shown about them (names, scientific names, conservation status,
+# place in the tree of life) is pulled from Wikidata by tools/gen_taxonomy.py.
+# Never add names, statuses or groupings here or in the script by hand (D-011).
+# Lines starting with # are ignored.
+Snow leopard
+Fishing cat
+Pallas's cat
+Sand cat
+Smilodon
+Maned wolf
+Fennec fox
+Dhole
+Falkland Islands wolf
+Sea otter
+Wolverine
+Sea mink
+African forest elephant
+Woolly mammoth
+Okapi
+Saola
+Saiga antelope
+Aurochs
+Vaquita
+Narwhal
+Aye-aye
+Philippine tarsier
+Sunda pangolin
+Thylacine
+Tasmanian devil
+Numbat
+Platypus
+Dodo
+Passenger pigeon
+Nicobar pigeon
+Kākāpō
+Kea
+Great auk
+Atlantic puffin
+Shoebill
+Helmeted hornbill
+South Island giant moa
+Komodo dragon
+Panther chameleon
+Texas horned lizard
+Tuatara
+Alligator snapping turtle
+Pinta Island tortoise
+Gharial
+Tyrannosaurus
+Triceratops
+Stegosaurus
+Axolotl
+Chinese giant salamander
+Golden poison frog
+Golden toad
+Hyalinobatrachium fleischmanni
+Striated frogfish
+Ocean sunfish
+Leafy seadragon
+Megalodon
+Goblin shark
+Largetooth sawfish
+Attacus atlas
+Xerces blue
+Hymenopus coronatus
+Dryococelus
+Meganeuropsis
+Maratus volans
+Diving bell spider
+Odontodactylus scyllarus
+Coconut crab
+Jaekelopterus
+Blanket octopus
+Opisthoteuthis californiana
+Chambered nautilus
+Parapuzosia seppenradensis
+Glaucus atlanticus
+Scaly-foot gastropod
+Portuguese man o' war
+Turritopsis dohrnii
+Hypsibius dujardini

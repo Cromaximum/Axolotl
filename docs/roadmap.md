@@ -22,12 +22,12 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
       `MetStore.Entry` (look names up when shown); put set position/count on the card payload
       instead of `FeedViewModel.positions`
 - [ ] Grow to a few hundred reviewed species (likely generated from Wikidata, then human-reviewed)
-- [ ] Remove all AI-written content (D-011): regenerate species data from Wikidata, add an
-      AI-image filter, see [ai-content-audit.md](ai-content-audit.md)
+- [ ] Remove all AI-written content (D-011), see [ai-content-audit.md](ai-content-audit.md)
 - [ ] Static content pipeline: batch job builds one JSON file per species (taxonomy from GBIF or
       Catalogue of Life linked to Wikidata ids → fetch Commons/Wikipedia/IUCN → licence and
       quality filter → facts drafted from Wikipedia, cited, reviewed by a person → publish to a
       CDN). Only species that pass every check ship. Plug in as a new `SpeciesContentProvider`.
+- [ ] Move app-wide stores to `Stores/` and inject the content provider from `App/` (architecture-rules.md)
 - [ ] Bundle Fredoka and Nunito Sans fonts
 - [ ] Real support contact in the Wikimedia `User-Agent`
 - [ ] Choose the shipping name (must not use "Instagram")
