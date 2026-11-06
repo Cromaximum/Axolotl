@@ -12,7 +12,7 @@ test-target fix, and the feed loads live Wikipedia content. CI also builds and t
 | Area | State |
 | --- | --- |
 | Build | Builds clean with Xcode 26.6 locally and in CI (macos-15) |
-| Unit tests | 124 tests in `AnimalScrollerTests/` (counted 2026-11-06, including `PhotoQualityTests`), run in CI on every PR |
+| Unit tests | 137 tests in `AnimalScrollerTests/` (counted 2026-11-06, including the achievements and `PhotoQuality` tests), run in CI on every PR |
 | CI | `.github/workflows/ios.yml`: XcodeGen + `xcodebuild test` on macos-15 (first available iPhone simulator) for every PR and push to `main`. Results bundle and log uploaded as an artifact. |
 | Feed (intro, photo and fact cards) | The original cards worked in the iPhone 17 simulator. The cards rebuilt to the concept art (`feature/concept-screens`) pass CI but have not been checked by hand yet |
 | Tree-of-life filter + extinct toggles | Now the Tree tab, with search, species counts per branch, a "Showing" summary and "Reset to everything" (W3, #11; CI only, not yet checked by hand). The earlier sheet version listed the tree in the simulator |
@@ -21,6 +21,7 @@ test-target fix, and the feed loads live Wikipedia content. CI also builds and t
 | Species data | 361 bundled species (29 extinct) in `taxonomy.json`, across 27 classes (W4, #12). Every entry is a Wikidata species or subspecies; `gen_taxonomy.py --lint` checks the files in CI. |
 | Live species catalogue (D-012) | Merged (#7), unit-tested in CI only. Not yet run against the live GBIF API: the cloud dev environment and the Mac VM can't reach `api.gbif.org` or `www.wikidata.org`. Needs a simulator check |
 | Likes (D-013) | Merged (#7), unit-tested in CI only; needs a simulator check |
+| Achievements (D-016) | Awards tab, tier banner and tab badge. Unit-tested in CI only; needs a simulator check |
 | IUCN statuses, common names, group names | Generated from Wikidata and Wikipedia (D-011, #9). 52 of 361 species have no IUCN status in either source and show NE (mostly invertebrates and fossils the IUCN never assessed) |
 | Fonts (Fredoka, Nunito Sans) | Bundled (latin subsets, OFL) in `Resources/Fonts/`; `ThemeFontTests` checks they load. Scientific names use the system italic. |
 | Concept screens | Twelve screens in `docs/design/` (D-010). App views rebuilt to match (#4); layout still needs a hand check on a simulator. |

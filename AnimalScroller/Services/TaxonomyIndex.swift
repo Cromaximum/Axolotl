@@ -76,6 +76,14 @@ struct TaxonomyIndex: Sendable {
     func entry(forSpecies id: String) -> SpeciesEntry? { species[id] }
     func speciesCount(_ id: String) -> Int { nodes[id]?.speciesCount ?? 0 }
 
+    /// Every bundled species with its lineage, in tree order.
+    var allEntries: [SpeciesEntry] { speciesOrder.compactMap { species[$0] } }
+
+    /// Tree nodes of one rank, in tree order.
+    func taxa(rank: Taxon.Rank) -> [Taxon] {
+        nodes.values.filter { $0.taxon.rank == rank }.sorted { $0.order < $1.order }.map(\.taxon)
+    }
+
     /// Nodes from the root down to `id`, inclusive. Empty when the id is unknown.
     func path(to id: String) -> [Taxon] {
         var out: [Taxon] = []

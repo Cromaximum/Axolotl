@@ -124,6 +124,9 @@ Owns: `Services/FactExtractor.swift`, `Services/ContentPolicy.swift`,
 
 ### Not assigned yet
 
+- [x] Achievements: tiered awards for species met per branch and status (Awards tab, 2026-11-06)
+- [ ] Achievements: check the Awards tab and toast by hand in the simulator
+
 - [ ] Run on a physical iPhone and fix device-only issues
 - [ ] Real support contact in the Wikimedia `User-Agent`
 - [ ] Choose the shipping name; privacy manifest, app icon, TestFlight build

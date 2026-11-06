@@ -84,6 +84,7 @@ old ids.
 | `FeedCard` | same | `.intro(IntroCard)`, `.fact(FactCard)`, `.photo(PhotoCard)`. Ids include species id and session `sequence` so a species can reappear. `placement` and `primaryImage` are computed; `placed(_:)` returns a copy with its placement set. |
 | `CardPlacement` | same | `position` (1-based) and `count` of a card in its species set. A `placement` field on each payload, default `.single` (1 of 1); `FeedViewModel` stamps it. Not part of the card id. Not persisted. |
 | `SpeciesContent` | `Services/SpeciesContent.swift` | `Codable`. The contract between any content source and the feed. A future static JSON file per species should decode straight into this. Also stored in the disk cache below: changing its shape means bumping the cache schema. |
+| `Achievement`, `AchievementProgress` | `Models/Achievement.swift` | Not persisted; rebuilt from `met.v2` and the bundled tree. `Achievement.id` is `overall`, `taxon:<taxon id>` (e.g. `taxon:aves`) or `status:<IUCN code>` (e.g. `status:EX`); these ids are the keys of `achievements.v1`, so keep them stable. |
 | `FactExtractor.Fact` | `Services/FactExtractor.swift` | `topic` (section heading) + `text`. |
 
 ## Saved preferences (`UserDefaults`)
@@ -147,6 +148,15 @@ migration.
 
 If you add a field, give it a default so old data still decodes. If you make a breaking change,
 bump the key (`preferences.v2`) and note the migration here.
+
+## Achievements seen (`UserDefaults`)
+
+Key: `achievements.v1`. JSON object `{ "<achievement id>": <highest tier seen> }`, for example
+`{"overall": 3, "taxon:aves": 2, "status:EX": 1}`. Written by `AchievementsStore.markSeen` when
+the Awards tab opens; a tier never goes down. Only drives the tab badge and the "NEW" tags.
+Progress is never stored: it is recomputed from `met.v2` and `taxonomy.json`, so a bigger species
+list or new tier rules just change the numbers. An id that no longer exists (a taxon renamed in a
+regeneration) is ignored. Unreadable data starts fresh (no awards are lost, only "seen" marks).
 
 ## Species content cache (Caches directory)
 

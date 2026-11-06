@@ -24,8 +24,9 @@ AnimalScroller/
   Features/Components/       Shared card pieces: full-bleed image, chips, rail, status bar
   Features/Feed/            Feed screen and card views
   Features/Detail/          Species detail sheet
-  Stores/                   App-wide persisted state: PreferencesStore, MetStore, LikesStore
+  Stores/                   App-wide persisted state: PreferencesStore, MetStore, LikesStore, AchievementsStore
   Features/Met/             "Species met" collection
+  Features/Achievements/    Awards tab (tiered achievements for species met) and the tier toast
   Features/Onboarding/      Welcome and starting-point screens
   Features/Picker/          Tree-of-life filter screen (Tree tab)
   Resources/taxonomy.json   Bundled tree of life + species list (generated, do not hand-edit)
@@ -38,9 +39,10 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | File | Responsibility |
 | --- | --- |
 | `App/AnimalScrollerApp.swift` | `@main`. Loads taxonomy, creates the stores, the live catalogue, one `URLSession` (16 MB / 512 MB `URLCache`), one `ImagePipeline` and one `CachingContentProvider` over `WikipediaContentProvider`, injects them (`.environment(\.imageLoader)`, `.environment(\.speciesContentProvider)`), forces dark mode. |
-| `App/RootView.swift` | Onboarding until `hasOnboarded`, then the Feed / Tree / Met `TabView`. Builds the `TaxonomyIndex` once and passes it to the Tree, Met and onboarding screens; on appear, drops stored copies of live species the bundled tree now covers (`MetStore.forgetCopies`). |
+| `App/RootView.swift` | Onboarding until `hasOnboarded`, then the Feed / Tree / Met / Awards `TabView`. Builds the `TaxonomyIndex` once and passes it to the Tree, Met, Awards and onboarding screens; on appear, drops stored copies of live species the bundled tree now covers (`MetStore.forgetCopies`). Owns the `AchievementsViewModel`: refreshes it on appear and whenever the number of species met changes, shows its toast over the tabs and the unseen-tier badge on the Awards tab. |
 | `App/Theme.swift` | Palette, bundled font names and helpers (`Theme.FontName`, `heading`, `body(size, weight:)`, `label`, `scientific`), `Theme.Motion` animation constants, `Color(hex:)`. |
 | `Models/Taxon.swift` | `Taxon` tree node, `Species`, `ConservationStatus`, `SpeciesEntry` (species + lineage), tree queries, `TaxonomyLoader`. |
+| `Models/Achievement.swift` | `Achievement` (kind: overall, a tree node, or an IUCN status; name from the taxonomy or the status label; bundled group size; `group` for sectioning) and `AchievementProgress` (met count, reached targets = tier, next target). |
 | `Models/FeedCard.swift` | `Attribution`, `LicensedImage`, `FeedCard` enum (`intro` / `fact` / `photo`) and card payloads. |
 | `Services/WikiClient.swift` | Raw HTTP to Wikipedia REST (summary) and Action API (plain-text extract, article images with `extmetadata`). |
 | `Services/SpeciesContent.swift` | `SpeciesContent` value type, `SpeciesContentProvider` protocol, `WikipediaContentProvider` (live fetch only, client injected). `.shared` is deprecated and still used by onboarding tiles and the detail sheet until W3 switches them to the environment provider; delete it then. |
@@ -57,8 +59,10 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Services/LiveCatalogRules.swift` | Pure rules for live species: article quality gate (`accepts`), content quality gate (`isShowable`), common name from the article title, status mapping, lineage building (bundled nodes + `gbif-…` nodes), searchable branches, inside/outside split, random offset, popularity weight. Also `Taxon.path(to:)` and `Taxon.Rank.depth`. |
 | `Services/FeedSourcePlanner.swift` | Pure: for each load attempt, which source to try (bundled list, live catalogue, or live then bundled). About half live while bundled species in scope are unseen; live-only after that; the last attempt is always bundled. |
 | `Services/LikeAffinity.swift` | Pure: liked lineages → interest per taxon id (genus 2.5, family 2, order 1, class 0.4). |
-| `Services/TaxonomyIndex.swift` | Pure, built once from the bundled tree: node and species lookup by id, `path(to:)`, species count per branch, selection state (selected / covered by a parent / partly selected), selection summary in tree order, and case- and accent-insensitive name search (exact, prefix, word prefix, substring; branches before species on a tie). |
+| `Services/TaxonomyIndex.swift` | Pure, built once from the bundled tree: node and species lookup by id, `path(to:)`, species count per branch, nodes by rank and all species in tree order (`taxa(rank:)`, `allEntries`), selection state (selected / covered by a parent / partly selected), selection summary in tree order, and case- and accent-insensitive name search (exact, prefix, word prefix, substring; branches before species on a tie). |
 | `Services/HeroImage.swift` | Pure: which licensed image stands for a species outside the feed (lead image, else first real photo, else any usable; artwork only for extinct species when allowed). Same rule as `FeedComposer`'s intro hero. |
+| `Services/AchievementTiers.swift` | Pure: tier targets for a group size. Ladder 1, 5, 10, 25, 50, then every 50; starts at about a twentieth of the group; adds the group size as a "met them all" target unless a ladder value is within 20%; never runs out. |
+| `Services/AchievementBoard.swift` | Pure: the achievements the bundled tree offers (every species; each phylum, class and order with 3+ bundled species; each IUCN status from EX to LC that some bundled species has), progress from a list of met `SpeciesEntry`s (counted by lineage node id, so live species count through their bundled branches), sections, newly reached tiers, unseen tiers. |
 | `Services/MetCollection.swift` | Pure: resolves stored Met records to `SpeciesEntry` values (bundled data wins; live records only for species not in the tree), then filters (All / Saved / Liked / Extinct) and sorts (recently seen, first met, name, group). |
 | `Services/FeedComposer.swift` | Turns one species' content into intro + up to 8 alternating photo/fact cards. |
 | `Features/Feed/FeedViewModel.swift` | `@MainActor` feed state: restart on filter change, up to two species loads in flight, image prefetch for the next 3 cards, dwell tracking, retry up to 4 species per load, stamps `CardPlacement` on each set, `FeedNotice` (no matches / offline). Logs time to first card and a signpost per species fetch (`os`, category `feed`). |
@@ -84,6 +88,9 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Stores/LikesStore.swift` | `@Observable` liked species persisted to `UserDefaults` (`likes.v1`); exposes `affinity` for the picker. Injected into the environment by `AnimalScrollerApp`. |
 | `Features/Met/MetView.swift` | "Species met" grid with All / Saved / Liked / Extinct and a sort menu; any tile, live species included, opens the detail sheet. |
 | `Features/Met/MetViewModel.swift` | Filter and sort state; maps `MetStore` entries to `MetCollection` records. |
+| `Features/Achievements/AchievementsView.swift` | Awards tab: tiers reached, sections (All species, Conservation status, Phyla, Classes, Orders), a row per achievement with an SF Symbol rosette medal (bronze, silver, gold, then amber), progress bar and "NEW" tag. Also `AchievementMedal`, `AchievementText` (UI wording) and `AchievementToastView`. |
+| `Features/Achievements/AchievementsViewModel.swift` | Resolves `MetStore` entries (through `MetCollection.resolve`) and builds the board; shows a 3-second toast when a tier goes up after the first refresh; on tab open, remembers which achievements are new and marks every tier seen in `AchievementsStore`. |
+| `Stores/AchievementsStore.swift` | `@Observable` highest tier seen per achievement id, persisted to `UserDefaults` (`achievements.v1`). Never lowers a tier. Progress itself is not stored. |
 | `Features/Onboarding/OnboardingView.swift` | Welcome (full-bleed hero with credit), starting-point tiles (`StartingPoint`, `SpeciesThumbnail`), photo-credits sheet. Looks names up in the `TaxonomyIndex`. |
 | `Features/Onboarding/OnboardingViewModel.swift` | Step, picked tiles, hero images for the welcome screen and credits (injected provider), and the pure tiles → preferences mapping. |
 | `Stores/PreferencesStore.swift` | `@Observable` filter state persisted to `UserDefaults`, `ExtinctMode`, `hasOnboarded`. |
@@ -126,6 +133,10 @@ LikesStore.affinity ──────────────────┤
                      and ImageLoading.prefetch()es the next cards' photos
                      FullBleedImage ◀─ ImagePipeline (decoded, downsampled, memory-cached)
                      heart / double-tap ─▶ LikesStore (steers the next pick)
+
+MetStore.entries ──(count changes)──▶ RootView ─▶ AchievementsViewModel.refresh()
+      MetCollection.resolve ─▶ AchievementBoard.progress (AchievementTiers per group)
+      ─▶ toast over the tabs + Awards tab; AchievementsStore keeps the tiers already seen
 ```
 
 ## Design principles
