@@ -29,8 +29,15 @@ struct Species: Identifiable, Codable, Hashable {
     let scientificName: String
     /// IUCN Red List category: LC, NT, VU, EN, CR, EW, EX, or DD/NE.
     let status: ConservationStatus
+    /// GBIF Backbone key, set only for species that came from the live catalogue.
+    var gbifKey: Int? = nil
 
     var id: String { wikiTitle }
+    var isLive: Bool { gbifKey != nil }
+    /// False for a live species with no sourced status (Wikidata P141 or GBIF's extinct flag).
+    /// Then the IUCN bar is left out and the status reads "Unknown" (Maxwell, 2026-11-06).
+    var hasKnownStatus: Bool { !(isLive && status == .notEvaluated) }
+    var statusLabel: String { hasKnownStatus ? status.label : "Unknown" }
     var isExtinct: Bool { status == .extinct }
 }
 

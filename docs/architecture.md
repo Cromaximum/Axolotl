@@ -45,7 +45,12 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Services/SpeciesContent.swift` | `SpeciesContent` value type, `SpeciesContentProvider` protocol, `WikipediaContentProvider` actor (live fetch + in-memory cache; `.shared` is used by the feed, onboarding tiles and detail sheet). |
 | `Services/ContentPolicy.swift` | Licence allowlist, junk-image filter, artwork detection, `HTMLText.plain`. |
 | `Services/FactExtractor.swift` | Splits article into sections, scores sentences, picks up to 8 standalone facts (max 2 per section). |
-| `Services/SpeciesPicker.swift` | Chooses the next species: tailored vs discovery, novelty and dwell-time affinity weighting, recent-repeat window. |
+| `Services/SpeciesPicker.swift` | Chooses the next species: tailored vs discovery, novelty, dwell-time and like affinity weighting, recent-repeat window. For the live catalogue: `pickBranch` (which tree branch to search, fewer tries on branches that came back empty) and `choose` (among live candidates, also weighted by article length). |
+| `Services/GBIFClient.swift` | Raw HTTP to the GBIF species API: match a bundled taxon name to a backbone key, page through accepted species under a key. |
+| `Services/SpeciesCatalog.swift` | `SpeciesCatalog` protocol, `LiveCandidate`, and the `LiveSpeciesCatalog` actor: random GBIF page → one batched Wikipedia check → candidates; `finalize` adds the Wikidata IUCN status for the pick. One instance is created in `AnimalScrollerApp` and injected through `RootView` → `FeedView` → `FeedViewModel` (no singleton). |
+| `Services/LiveCatalogRules.swift` | Pure rules for live species: article quality gate (`accepts`), content quality gate (`isShowable`), common name from the article title, status mapping, lineage building (bundled nodes + `gbif-…` nodes), searchable branches, inside/outside split, random offset, popularity weight. Also `Taxon.path(to:)` and `Taxon.Rank.depth`. |
+| `Services/FeedSourcePlanner.swift` | Pure: for each load attempt, which source to try (bundled list, live catalogue, or live then bundled). About half live while bundled species in scope are unseen; live-only after that; the last attempt is always bundled. |
+| `Services/LikeAffinity.swift` | Pure: liked lineages → interest per taxon id (genus 2.5, family 2, order 1, class 0.4). |
 | `Services/FeedComposer.swift` | Turns one species' content into intro + up to 8 alternating photo/fact cards. |
 | `Features/Feed/FeedViewModel.swift` | `@MainActor` feed state: restart on filter change, prefetch, dwell tracking, retry up to 4 species per load, each card's position in its set. |
 | `Features/Feed/FeedView.swift` | Paging `ScrollView` under the status bar, pull to refresh, records species met, save (rail or long-press), opens the detail sheet. |
@@ -56,6 +61,7 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Features/Components/CardComponents.swift` | `FullBleedImage` (top-anchored fill, or shown whole over blur when wide), `CreditChip` + `AttributionDetail`, `MediaTagChip`, `NamePill`, `ProgressDashes`, `ActionRail`, `DidYouKnowBox`, `ConservationScale`, `LowerThirdScrim`, `CardInsets`. |
 | `Features/Detail/SpeciesDetailView.swift` | Species detail sheet; loads `SpeciesContent` through the shared provider. |
 | `Features/Met/MetStore.swift` | `@Observable` species-met collection persisted to `UserDefaults` (`met.v1`). |
+| `Features/Likes/LikesStore.swift` | `@Observable` liked species persisted to `UserDefaults` (`likes.v1`); exposes `affinity` for the picker. Injected into the environment by `AnimalScrollerApp`. |
 | `Features/Met/MetView.swift` | "Species met" grid with All / Saved / Extinct. |
 | `Features/Onboarding/OnboardingView.swift` | Welcome, starting-point tiles (`StartingPoint`), `SpeciesPhoto` (licensed hero for a species). |
 | `Features/Picker/PreferencesStore.swift` | `@Observable` filter state persisted to `UserDefaults`, `ExtinctMode`, `hasOnboarded`. |
@@ -68,10 +74,20 @@ taxonomy.json ──TaxonomyLoader──▶ Taxon tree
                                      │
 PreferencesStore (filters) ──────────┤
                                      ▼
-                     FeedViewModel.loadMore()
-                                     │ tailored + everything lists
+LikesStore.affinity ──────────────────┤
                                      ▼
-                     SpeciesPicker.next()  ──▶ SpeciesEntry
+                     FeedViewModel.loadMore()  (follows FeedSourcePlanner)
+                    ┌────────────────┴─────────────────┐
+     bundled pick (about half while         live pick (liveCatalog on)
+     bundled species are unseen)            SpeciesPicker.pickBranch() ─▶ bundled Taxon branch
+     SpeciesPicker.next()                   LiveSpeciesCatalog.candidates()
+                    │                          ├─ GBIFClient.key / species (random page of ~40)
+                    │                          └─ WikiClient.probeArticles (one batched query)
+                    │                       LiveCatalogRules.accepts / lineage
+                    │                       SpeciesPicker.choose() ─▶ LiveCandidate
+                    │                       LiveSpeciesCatalog.finalize() (Wikidata P141 status)
+                    └────────────────┬─────────────────┘
+                                     ▼ SpeciesEntry
                                      │
                                      ▼
             SpeciesContentProvider.content(for:)   (WikipediaContentProvider today)
@@ -83,6 +99,7 @@ PreferencesStore (filters) ──────────┤
                      FeedComposer.cards() ──▶ [FeedCard] appended to feed
                                      │
                      FeedView renders; cardAppeared() records dwell + triggers prefetch
+                     heart / double-tap ─▶ LikesStore (steers the next pick)
 ```
 
 ## Design principles

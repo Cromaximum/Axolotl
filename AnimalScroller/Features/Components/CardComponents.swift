@@ -137,15 +137,54 @@ struct ProgressDashes: View {
     }
 }
 
-/// Save, info and share on the right edge of photo cards.
+/// Heart button. Liked species steer the feed toward their relatives (see `LikeAffinity`).
+struct LikeButton: View {
+    let isLiked: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Image(systemName: isLiked ? "heart.fill" : "heart")
+                .font(.system(size: 18, weight: .semibold))
+                .frame(width: 42, height: 42)
+                .background(.black.opacity(0.5), in: Circle())
+                .foregroundStyle(isLiked ? Theme.amber : Theme.parchment)
+                .contentTransition(.symbolEffect(.replace))
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(isLiked ? "Unlike" : "Like")
+        .accessibilityHint("Likes show you more animals like this one")
+    }
+}
+
+/// The heart that pops up after a double-tap like.
+struct LikeBurst: View {
+    @State private var shown = false
+    var body: some View {
+        Image(systemName: "heart.fill")
+            .font(.system(size: 96))
+            .foregroundStyle(Theme.amber)
+            .shadow(color: .black.opacity(0.4), radius: 10)
+            .scaleEffect(shown ? 1 : 0.4)
+            .opacity(shown ? 1 : 0)
+            .onAppear { withAnimation(.spring(duration: 0.35)) { shown = true } }
+            .allowsHitTesting(false)
+            .accessibilityHidden(true)
+    }
+}
+
+/// Like, save, info and share on the right edge of photo cards.
 struct ActionRail: View {
+    let isLiked: Bool
     let isSaved: Bool
     let shareURL: URL
+    let onLike: () -> Void
     let onSave: () -> Void
     let onInfo: () -> Void
 
     var body: some View {
         VStack(spacing: 14) {
+            LikeButton(isLiked: isLiked, action: onLike)
             railButton(isSaved ? "bookmark.fill" : "bookmark", label: isSaved ? "Unsave" : "Save", action: onSave)
             railButton("info.circle", label: "Species details", action: onInfo)
             ShareLink(item: shareURL) {

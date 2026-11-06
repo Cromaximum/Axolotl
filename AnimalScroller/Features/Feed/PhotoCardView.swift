@@ -16,8 +16,9 @@ struct PhotoCardView: View {
         }
         .overlay(alignment: .top) { topRow }
         .overlay(alignment: .trailing) {
-            ActionRail(isSaved: context.isSaved, shareURL: card.image.attribution.sourceURL,
-                       onSave: context.onSave, onInfo: context.onInfo)
+            ActionRail(isLiked: context.isLiked, isSaved: context.isSaved,
+                       shareURL: card.image.attribution.sourceURL,
+                       onLike: context.onLike, onSave: context.onSave, onInfo: context.onInfo)
                 .padding(.trailing, 12)
                 .padding(.top, 160)
         }

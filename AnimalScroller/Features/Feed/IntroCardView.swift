@@ -31,6 +31,7 @@ struct IntroCardView: View {
             }
             Spacer()
             if let hero = card.hero { CreditChip(attribution: hero.attribution) }
+            LikeButton(isLiked: context.isLiked, action: context.onLike)
         }
         .padding(.horizontal, CardInsets.side)
         .padding(.top, CardInsets.top)
@@ -54,7 +55,7 @@ struct IntroCardView: View {
             } else if !card.lead.isEmpty {
                 Text(card.lead).font(Theme.body(15)).foregroundStyle(Theme.parchment).lineLimit(4)
             }
-            ConservationScale(status: species.status)
+            if species.hasKnownStatus { ConservationScale(status: species.status) }
         }
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)

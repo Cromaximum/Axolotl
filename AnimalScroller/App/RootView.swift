@@ -3,12 +3,13 @@ import SwiftUI
 /// Onboarding on first run, then the Feed / Tree / Met tabs.
 struct RootView: View {
     let taxonomy: Taxon
+    let catalog: SpeciesCatalog
     @Environment(PreferencesStore.self) private var prefs
 
     var body: some View {
         if prefs.hasOnboarded {
             TabView {
-                FeedView(taxonomy: taxonomy)
+                FeedView(taxonomy: taxonomy, catalog: catalog)
                     .tabItem { Label("Feed", systemImage: "rectangle.portrait") }
                 TaxonomyPickerView(root: taxonomy)
                     .tabItem { Label("Tree", systemImage: "point.3.connected.trianglepath.dotted") }

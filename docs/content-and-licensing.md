@@ -51,6 +51,17 @@ The current audit of AI-written material in the repo, and the plan to replace it
 | Images | Wikimedia Commons files used on the species' English Wikipedia article | Per file (see allowlist) |
 | Conservation status | IUCN Red List category via Wikidata (P141) | CC0. **Currently typed in by hand; must be replaced, see [ai-content-audit.md](ai-content-audit.md)** |
 | Taxonomy and common names | Wikidata (parent taxon P171, English labels / common names P1843) | CC0. **Currently typed in by hand; must be replaced** |
+| Live catalogue: species list, scientific names, classification | GBIF Backbone Taxonomy (`api.gbif.org`, built on the Catalogue of Life) | CC BY 4.0. Credited on the species detail sheet with a link to the GBIF species page |
+| Live catalogue: common name | The species' English Wikipedia article title, verbatim (a trailing "(animal)"-style disambiguator is dropped) | CC BY-SA 4.0 (part of the article credit) |
+| Live catalogue: conservation status | Wikidata P141 on the article's Wikidata item, else Extinct only if GBIF flags the species extinct | CC0. No sourced value → the IUCN bar is left out and the status reads "Unknown". Never guessed from keywords; Extinct only when Wikidata or GBIF states it (Maxwell, D-012) Never GBIF's `iucnRedListCategory` endpoint: that IUCN data is NonCommercial |
+
+The live catalogue (D-012) never adds a new content source: GBIF supplies only which species
+exist and where they sit in the tree. Every live species must have an English Wikipedia article
+with a freely licensed lead image, and its cards are built from that article and the Commons
+files used on it, exactly like bundled species. Live species whose article is a stub
+(< 5,000 bytes), redirects to a genus or family, or yields no usable photo or fewer than two
+facts are skipped. Images used on Wikipedia articles are treated as real photographs, because
+Wikipedia does not allow AI-generated images (Maxwell, 2026-11-06).
 
 No other sources in Phase 1. In particular: no scraping of other websites, no stock photo
 sites, no YouTube, no social media, no AI-generated anything (see above).

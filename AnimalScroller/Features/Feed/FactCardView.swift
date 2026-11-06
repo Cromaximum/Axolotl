@@ -27,10 +27,14 @@ struct FactCardView: View {
             }
         }
         .background(Theme.forest)
-        .overlay(alignment: .topLeading) {
-            NamePill(name: card.entry.species.commonName, position: context.position, count: context.count)
-                .padding(.horizontal, CardInsets.side)
-                .padding(.top, CardInsets.top)
+        .overlay(alignment: .top) {
+            HStack(alignment: .top) {
+                NamePill(name: card.entry.species.commonName, position: context.position, count: context.count)
+                Spacer()
+                LikeButton(isLiked: context.isLiked, action: context.onLike)
+            }
+            .padding(.horizontal, CardInsets.side)
+            .padding(.top, CardInsets.top)
         }
     }
 

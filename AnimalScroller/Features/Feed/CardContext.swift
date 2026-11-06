@@ -6,6 +6,9 @@ struct CardContext {
     let position: Int
     let count: Int
     let isSaved: Bool
+    let isLiked: Bool
     let onSave: () -> Void
+    /// Heart button: likes or unlikes the species. Likes steer the tailored picks.
+    let onLike: () -> Void
     let onInfo: () -> Void
 }
