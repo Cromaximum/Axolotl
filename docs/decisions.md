@@ -39,19 +39,6 @@ Template:
   repeat an image, and highlight a fact's number inside its sentence instead of showing it alone
   (same feedback round).
 
-## D-016 · Architecture review gate suspended
-- Status: Decided
-- Date: 2026-11-06
-- Decided by: Maxwell Rhinelander
-- Context: Maxwell: "remove the architect role for now, have bots just proceed with best
-  intentions".
-- Decision: D-014's design-note-and-sign-off gate is paused. Agents proceed on their best
-  judgment and merge their own PRs once CI is green. The rules in architecture-rules.md
-  (layers, no hard-coded animal content, tests) still apply, as do zero AI content (D-011) and
-  keeping the docs current.
-- Consequences: Design notes in `docs/designs/` are still welcome for bigger changes but don't
-  block. Supersedes the gate part of D-014 until Maxwell turns it back on.
-
 ## D-015 · Subspecies count as one specific animal
 - Status: Proposed (agent, W4 content quality, 2026-11-06)
 - Date: 2026-11-06
@@ -66,7 +53,7 @@ Template:
   Wikipedia has a species article for them.
 
 ## D-014 · Architecture review gate: design before code, sign-off before merge
-- Status: Decided; gate suspended by D-016 (2026-11-06)
+- Status: Suspended (Maxwell Rhinelander, 2026-11-06: "remove the architect role for now, have bots just proceed with best intentions"). No design-note wait or sign-off; PR authors merge once CI is green. The rules in architecture-rules.md still apply.
 - Date: 2026-11-06
 - Decided by: Maxwell Rhinelander
 - Context: Several people's AI agents write code in this repo. Maxwell asked for "a bot that functions as the programming architect" so that new code is confirmed to fit the program's architecture before it starts and before it reaches `main`, "to avoid any long term AI spaghetti code difficulties".

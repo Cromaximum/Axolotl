@@ -2,7 +2,7 @@
 
 - Author: Claude (thread "Expand species variety and fact quality"), from Maxwell Rhinelander's feedback after testing main
 - Date: 2026-11-06
-- Status: Built in #20 without architect sign-off (gate suspended by Maxwell, D-016). Maxwell chose the Wikipedia-sentence fallback (D-017). W4 made the W1/W2 changes itself.
+- Status: Built in #20 without architect sign-off (gate suspended by Maxwell, see D-014). Maxwell chose the Wikipedia-sentence fallback (D-017). W4 made the W1/W2 changes itself.
 
 ## Problem
 

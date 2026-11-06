@@ -37,11 +37,12 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
 
 Maxwell got the app running on 2026-11-06 and asked for a round of optimisation and UX work. The
 architect split it into four workstreams that **own separate files**, so they can run in
-parallel without merge conflicts. Each one still follows the gate (design note before code,
-`Architecture review: Approved` before merge; see [architecture-rules.md](architecture-rules.md)).
+parallel without merge conflicts. The review gate is suspended since 2026-11-06 (D-014), so each
+stream merges its own PRs once CI is green, still following
+[architecture-rules.md](architecture-rules.md).
 
 **File ownership rule:** only edit files your workstream owns. If you need a change in another
-stream's file, ask that stream (or the architect) instead of editing it. Shared docs
+stream's file, ask that stream instead of editing it. Shared docs
 (`changelog.md`, `status.md`, `roadmap.md`) are open to everyone: keep both sides when they
 conflict. Every stream owns accessibility (VoiceOver labels, Dynamic Type, Reduce Motion,
 contrast) for its own files.
