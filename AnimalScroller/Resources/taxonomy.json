@@ -1,30 +1,30 @@
 {
   "id": "animalia",
-  "name": "Animals",
+  "name": "Animal",
   "scientificName": "Animalia",
   "rank": "kingdom",
   "children": [
     {
       "id": "chordata",
-      "name": "Chordates",
+      "name": "Chordate",
       "scientificName": "Chordata",
       "rank": "phylum",
       "children": [
         {
           "id": "mammalia",
-          "name": "Mammals",
+          "name": "Mammal",
           "scientificName": "Mammalia",
           "rank": "class",
           "children": [
             {
               "id": "carnivora",
-              "name": "Carnivorans",
+              "name": "Carnivora",
               "scientificName": "Carnivora",
               "rank": "order",
               "children": [
                 {
                   "id": "felidae",
-                  "name": "Cats",
+                  "name": "Felidae",
                   "scientificName": "Felidae",
                   "rank": "family",
                   "species": [
@@ -55,14 +55,14 @@
                     {
                       "wikiTitle": "Smilodon",
                       "commonName": "Smilodon",
-                      "scientificName": "Smilodon fatalis",
+                      "scientificName": "Smilodon",
                       "status": "EX"
                     }
                   ]
                 },
                 {
                   "id": "canidae",
-                  "name": "Dogs",
+                  "name": "Canidae",
                   "scientificName": "Canidae",
                   "rank": "family",
                   "species": [
@@ -94,7 +94,7 @@
                 },
                 {
                   "id": "mustelidae",
-                  "name": "Mustelids",
+                  "name": "Mustelidae",
                   "scientificName": "Mustelidae",
                   "rank": "family",
                   "species": [
@@ -113,7 +113,7 @@
                     {
                       "wikiTitle": "Sea mink",
                       "commonName": "Sea mink",
-                      "scientificName": "Neogale macrodon",
+                      "scientificName": "Neovison macrodon",
                       "status": "EX"
                     }
                   ]
@@ -122,13 +122,13 @@
             },
             {
               "id": "proboscidea",
-              "name": "Elephants and kin",
+              "name": "Proboscidea",
               "scientificName": "Proboscidea",
               "rank": "order",
               "children": [
                 {
                   "id": "elephantidae",
-                  "name": "Elephants",
+                  "name": "Elephantidae",
                   "scientificName": "Elephantidae",
                   "rank": "family",
                   "species": [
@@ -150,13 +150,13 @@
             },
             {
               "id": "artiodactyla",
-              "name": "Even-toed ungulates",
+              "name": "Artiodactyla",
               "scientificName": "Artiodactyla",
               "rank": "order",
               "children": [
                 {
                   "id": "giraffidae",
-                  "name": "Giraffids",
+                  "name": "Giraffidae",
                   "scientificName": "Giraffidae",
                   "rank": "family",
                   "species": [
@@ -170,7 +170,7 @@
                 },
                 {
                   "id": "bovidae",
-                  "name": "Bovids",
+                  "name": "Bovidae",
                   "scientificName": "Bovidae",
                   "rank": "family",
                   "species": [
@@ -193,18 +193,10 @@
                       "status": "EX"
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "id": "cetacea",
-              "name": "Whales and dolphins",
-              "scientificName": "Cetacea",
-              "rank": "order",
-              "children": [
+                },
                 {
                   "id": "phocoenidae",
-                  "name": "Porpoises",
+                  "name": "Porpoise",
                   "scientificName": "Phocoenidae",
                   "rank": "family",
                   "species": [
@@ -218,7 +210,7 @@
                 },
                 {
                   "id": "monodontidae",
-                  "name": "Narwhals and belugas",
+                  "name": "Monodontidae",
                   "scientificName": "Monodontidae",
                   "rank": "family",
                   "species": [
@@ -234,13 +226,13 @@
             },
             {
               "id": "primates",
-              "name": "Primates",
+              "name": "Primate",
               "scientificName": "Primates",
               "rank": "order",
               "children": [
                 {
                   "id": "daubentoniidae",
-                  "name": "Aye-ayes",
+                  "name": "Daubentoniidae",
                   "scientificName": "Daubentoniidae",
                   "rank": "family",
                   "species": [
@@ -254,7 +246,7 @@
                 },
                 {
                   "id": "tarsiidae",
-                  "name": "Tarsiers",
+                  "name": "Tarsier",
                   "scientificName": "Tarsiidae",
                   "rank": "family",
                   "species": [
@@ -270,13 +262,13 @@
             },
             {
               "id": "pholidota",
-              "name": "Pangolins",
+              "name": "Pangolin",
               "scientificName": "Pholidota",
               "rank": "order",
               "children": [
                 {
                   "id": "manidae",
-                  "name": "Pangolins",
+                  "name": "Manidae",
                   "scientificName": "Manidae",
                   "rank": "family",
                   "species": [
@@ -292,13 +284,13 @@
             },
             {
               "id": "dasyuromorphia",
-              "name": "Dasyuromorphs",
+              "name": "Dasyuromorphia",
               "scientificName": "Dasyuromorphia",
               "rank": "order",
               "children": [
                 {
                   "id": "thylacinidae",
-                  "name": "Thylacines",
+                  "name": "Thylacinidae",
                   "scientificName": "Thylacinidae",
                   "rank": "family",
                   "species": [
@@ -312,7 +304,7 @@
                 },
                 {
                   "id": "dasyuridae",
-                  "name": "Dasyurids",
+                  "name": "Dasyuridae",
                   "scientificName": "Dasyuridae",
                   "rank": "family",
                   "species": [
@@ -321,12 +313,20 @@
                       "commonName": "Tasmanian devil",
                       "scientificName": "Sarcophilus harrisii",
                       "status": "EN"
-                    },
+                    }
+                  ]
+                },
+                {
+                  "id": "myrmecobiidae",
+                  "name": "Myrmecobiidae",
+                  "scientificName": "Myrmecobiidae",
+                  "rank": "family",
+                  "species": [
                     {
                       "wikiTitle": "Numbat",
                       "commonName": "Numbat",
                       "scientificName": "Myrmecobius fasciatus",
-                      "status": "EN"
+                      "status": "NT"
                     }
                   ]
                 }
@@ -334,13 +334,13 @@
             },
             {
               "id": "monotremata",
-              "name": "Monotremes",
+              "name": "Monotreme",
               "scientificName": "Monotremata",
               "rank": "order",
               "children": [
                 {
                   "id": "ornithorhynchidae",
-                  "name": "Platypus",
+                  "name": "Ornithorhynchidae",
                   "scientificName": "Ornithorhynchidae",
                   "rank": "family",
                   "species": [
@@ -357,184 +357,200 @@
           ]
         },
         {
-          "id": "aves",
-          "name": "Birds",
-          "scientificName": "Aves",
-          "rank": "class",
-          "children": [
-            {
-              "id": "columbiformes",
-              "name": "Pigeons and doves",
-              "scientificName": "Columbiformes",
-              "rank": "order",
-              "children": [
-                {
-                  "id": "columbidae",
-                  "name": "Pigeons and doves",
-                  "scientificName": "Columbidae",
-                  "rank": "family",
-                  "species": [
-                    {
-                      "wikiTitle": "Dodo",
-                      "commonName": "Dodo",
-                      "scientificName": "Raphus cucullatus",
-                      "status": "EX"
-                    },
-                    {
-                      "wikiTitle": "Passenger pigeon",
-                      "commonName": "Passenger pigeon",
-                      "scientificName": "Ectopistes migratorius",
-                      "status": "EX"
-                    },
-                    {
-                      "wikiTitle": "Nicobar pigeon",
-                      "commonName": "Nicobar pigeon",
-                      "scientificName": "Caloenas nicobarica",
-                      "status": "NT"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "psittaciformes",
-              "name": "Parrots",
-              "scientificName": "Psittaciformes",
-              "rank": "order",
-              "children": [
-                {
-                  "id": "strigopidae",
-                  "name": "New Zealand parrots",
-                  "scientificName": "Strigopidae",
-                  "rank": "family",
-                  "species": [
-                    {
-                      "wikiTitle": "Kākāpō",
-                      "commonName": "Kākāpō",
-                      "scientificName": "Strigops habroptilus",
-                      "status": "CR"
-                    },
-                    {
-                      "wikiTitle": "Kea",
-                      "commonName": "Kea",
-                      "scientificName": "Nestor notabilis",
-                      "status": "EN"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "charadriiformes",
-              "name": "Shorebirds and auks",
-              "scientificName": "Charadriiformes",
-              "rank": "order",
-              "children": [
-                {
-                  "id": "alcidae",
-                  "name": "Auks",
-                  "scientificName": "Alcidae",
-                  "rank": "family",
-                  "species": [
-                    {
-                      "wikiTitle": "Great auk",
-                      "commonName": "Great auk",
-                      "scientificName": "Pinguinus impennis",
-                      "status": "EX"
-                    },
-                    {
-                      "wikiTitle": "Atlantic puffin",
-                      "commonName": "Atlantic puffin",
-                      "scientificName": "Fratercula arctica",
-                      "status": "VU"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "pelecaniformes",
-              "name": "Pelicans and kin",
-              "scientificName": "Pelecaniformes",
-              "rank": "order",
-              "children": [
-                {
-                  "id": "balaenicipitidae",
-                  "name": "Shoebill",
-                  "scientificName": "Balaenicipitidae",
-                  "rank": "family",
-                  "species": [
-                    {
-                      "wikiTitle": "Shoebill",
-                      "commonName": "Shoebill",
-                      "scientificName": "Balaeniceps rex",
-                      "status": "VU"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "bucerotiformes",
-              "name": "Hornbills and hoopoes",
-              "scientificName": "Bucerotiformes",
-              "rank": "order",
-              "children": [
-                {
-                  "id": "bucerotidae",
-                  "name": "Hornbills",
-                  "scientificName": "Bucerotidae",
-                  "rank": "family",
-                  "species": [
-                    {
-                      "wikiTitle": "Helmeted hornbill",
-                      "commonName": "Helmeted hornbill",
-                      "scientificName": "Rhinoplax vigil",
-                      "status": "CR"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "dinornithiformes",
-              "name": "Moa",
-              "scientificName": "Dinornithiformes",
-              "rank": "order",
-              "children": [
-                {
-                  "id": "dinornithidae",
-                  "name": "Giant moa",
-                  "scientificName": "Dinornithidae",
-                  "rank": "family",
-                  "species": [
-                    {
-                      "wikiTitle": "South Island giant moa",
-                      "commonName": "South Island giant moa",
-                      "scientificName": "Dinornis robustus",
-                      "status": "EX"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
           "id": "reptilia",
-          "name": "Reptiles",
+          "name": "Reptile",
           "scientificName": "Reptilia",
           "rank": "class",
           "children": [
             {
+              "id": "aves",
+              "name": "Bird",
+              "scientificName": "Aves",
+              "rank": "class",
+              "children": [
+                {
+                  "id": "columbiformes",
+                  "name": "Columbiformes",
+                  "scientificName": "Columbiformes",
+                  "rank": "order",
+                  "children": [
+                    {
+                      "id": "raphidae",
+                      "name": "Raphina",
+                      "scientificName": "Raphidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Dodo",
+                          "commonName": "Dodo",
+                          "scientificName": "Raphus cucullatus",
+                          "status": "EX"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "columbidae",
+                      "name": "Columbidae",
+                      "scientificName": "Columbidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Passenger pigeon",
+                          "commonName": "Passenger pigeon",
+                          "scientificName": "Ectopistes migratorius",
+                          "status": "EX"
+                        },
+                        {
+                          "wikiTitle": "Nicobar pigeon",
+                          "commonName": "Nicobar pigeon",
+                          "scientificName": "Caloenas nicobarica",
+                          "status": "NT"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "psittaciformes",
+                  "name": "Parrot",
+                  "scientificName": "Psittaciformes",
+                  "rank": "order",
+                  "children": [
+                    {
+                      "id": "strigopidae",
+                      "name": "New Zealand parrot",
+                      "scientificName": "Strigopidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Kākāpō",
+                          "commonName": "Kākāpō",
+                          "scientificName": "Strigops habroptila",
+                          "status": "CR"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "nestoridae",
+                      "name": "Nestoridae",
+                      "scientificName": "Nestoridae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Kea",
+                          "commonName": "Kea",
+                          "scientificName": "Nestor notabilis",
+                          "status": "EN"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "charadriiformes",
+                  "name": "Charadriiformes",
+                  "scientificName": "Charadriiformes",
+                  "rank": "order",
+                  "children": [
+                    {
+                      "id": "alcidae",
+                      "name": "Auk",
+                      "scientificName": "Alcidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Great auk",
+                          "commonName": "Great auk",
+                          "scientificName": "Pinguinus impennis",
+                          "status": "EX"
+                        },
+                        {
+                          "wikiTitle": "Atlantic puffin",
+                          "commonName": "Atlantic puffin",
+                          "scientificName": "Fratercula arctica",
+                          "status": "VU"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "pelecaniformes",
+                  "name": "Pelecaniformes",
+                  "scientificName": "Pelecaniformes",
+                  "rank": "order",
+                  "children": [
+                    {
+                      "id": "balaenicipitidae",
+                      "name": "Balaenicipitidae",
+                      "scientificName": "Balaenicipitidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Shoebill",
+                          "commonName": "Shoebill",
+                          "scientificName": "Balaeniceps rex",
+                          "status": "VU"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "bucerotiformes",
+                  "name": "Bucerotiformes",
+                  "scientificName": "Bucerotiformes",
+                  "rank": "order",
+                  "children": [
+                    {
+                      "id": "bucerotidae",
+                      "name": "Hornbill",
+                      "scientificName": "Bucerotidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Helmeted hornbill",
+                          "commonName": "Helmeted hornbill",
+                          "scientificName": "Rhinoplax vigil",
+                          "status": "CR"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "dinornithiformes",
+                  "name": "Moa",
+                  "scientificName": "Dinornithiformes",
+                  "rank": "order",
+                  "children": [
+                    {
+                      "id": "dinornithidae",
+                      "name": "Dinornithidae",
+                      "scientificName": "Dinornithidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "South Island giant moa",
+                          "commonName": "South Island giant moa",
+                          "scientificName": "Dinornis robustus",
+                          "status": "EX"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "id": "squamata",
-              "name": "Lizards and snakes",
+              "name": "Squamata",
               "scientificName": "Squamata",
               "rank": "order",
               "children": [
                 {
                   "id": "varanidae",
-                  "name": "Monitor lizards",
+                  "name": "Varanidae",
                   "scientificName": "Varanidae",
                   "rank": "family",
                   "species": [
@@ -548,7 +564,7 @@
                 },
                 {
                   "id": "chamaeleonidae",
-                  "name": "Chameleons",
+                  "name": "Chameleon",
                   "scientificName": "Chamaeleonidae",
                   "rank": "family",
                   "species": [
@@ -562,7 +578,7 @@
                 },
                 {
                   "id": "phrynosomatidae",
-                  "name": "Horned lizards",
+                  "name": "Phrynosomatidae",
                   "scientificName": "Phrynosomatidae",
                   "rank": "family",
                   "species": [
@@ -578,21 +594,21 @@
             },
             {
               "id": "rhynchocephalia",
-              "name": "Tuatara",
+              "name": "Rhynchocephalia",
               "scientificName": "Rhynchocephalia",
               "rank": "order",
               "children": [
                 {
                   "id": "sphenodontidae",
-                  "name": "Tuatara",
+                  "name": "Sphenodontidae",
                   "scientificName": "Sphenodontidae",
                   "rank": "family",
                   "species": [
                     {
                       "wikiTitle": "Tuatara",
                       "commonName": "Tuatara",
-                      "scientificName": "Sphenodon punctatus",
-                      "status": "LC"
+                      "scientificName": "Sphenodon",
+                      "status": "NE"
                     }
                   ]
                 }
@@ -600,13 +616,13 @@
             },
             {
               "id": "testudines",
-              "name": "Turtles",
+              "name": "Turtle",
               "scientificName": "Testudines",
               "rank": "order",
               "children": [
                 {
                   "id": "chelydridae",
-                  "name": "Snapping turtles",
+                  "name": "Chelydridae",
                   "scientificName": "Chelydridae",
                   "rank": "family",
                   "species": [
@@ -614,13 +630,13 @@
                       "wikiTitle": "Alligator snapping turtle",
                       "commonName": "Alligator snapping turtle",
                       "scientificName": "Macrochelys temminckii",
-                      "status": "VU"
+                      "status": "EN"
                     }
                   ]
                 },
                 {
                   "id": "testudinidae",
-                  "name": "Tortoises",
+                  "name": "Tortoise",
                   "scientificName": "Testudinidae",
                   "rank": "family",
                   "species": [
@@ -636,13 +652,13 @@
             },
             {
               "id": "crocodilia",
-              "name": "Crocodilians",
+              "name": "Crocodylia",
               "scientificName": "Crocodilia",
               "rank": "order",
               "children": [
                 {
                   "id": "gavialidae",
-                  "name": "Gharials",
+                  "name": "Gavialidae",
                   "scientificName": "Gavialidae",
                   "rank": "family",
                   "species": [
@@ -657,49 +673,49 @@
               ]
             },
             {
-              "id": "dinosauria",
-              "name": "Dinosaurs",
-              "scientificName": "Dinosauria",
+              "id": "tyrannosauridae",
+              "name": "Tyrannosauridae",
+              "scientificName": "Tyrannosauridae",
+              "rank": "family",
+              "species": [
+                {
+                  "wikiTitle": "Tyrannosaurus",
+                  "commonName": "Tyrannosaurus",
+                  "scientificName": "Tyrannosaurus",
+                  "status": "EX"
+                }
+              ]
+            },
+            {
+              "id": "ornithischia",
+              "name": "Ornithischia",
+              "scientificName": "Ornithischia",
               "rank": "order",
               "children": [
                 {
-                  "id": "tyrannosauridae",
-                  "name": "Tyrannosaurids",
-                  "scientificName": "Tyrannosauridae",
-                  "rank": "family",
-                  "species": [
-                    {
-                      "wikiTitle": "Tyrannosaurus",
-                      "commonName": "Tyrannosaurus",
-                      "scientificName": "Tyrannosaurus rex",
-                      "status": "EX"
-                    }
-                  ]
-                },
-                {
                   "id": "ceratopsidae",
-                  "name": "Ceratopsids",
+                  "name": "Ceratopsidae",
                   "scientificName": "Ceratopsidae",
                   "rank": "family",
                   "species": [
                     {
                       "wikiTitle": "Triceratops",
                       "commonName": "Triceratops",
-                      "scientificName": "Triceratops horridus",
+                      "scientificName": "Triceratops",
                       "status": "EX"
                     }
                   ]
                 },
                 {
                   "id": "stegosauridae",
-                  "name": "Stegosaurids",
+                  "name": "Stegosauridae",
                   "scientificName": "Stegosauridae",
                   "rank": "family",
                   "species": [
                     {
                       "wikiTitle": "Stegosaurus",
                       "commonName": "Stegosaurus",
-                      "scientificName": "Stegosaurus stenops",
+                      "scientificName": "Stegosaurus",
                       "status": "EX"
                     }
                   ]
@@ -710,19 +726,19 @@
         },
         {
           "id": "amphibia",
-          "name": "Amphibians",
+          "name": "Amphibian",
           "scientificName": "Amphibia",
           "rank": "class",
           "children": [
             {
-              "id": "urodela",
-              "name": "Salamanders",
-              "scientificName": "Urodela",
+              "id": "caudata",
+              "name": "Salamander",
+              "scientificName": "Caudata",
               "rank": "order",
               "children": [
                 {
                   "id": "ambystomatidae",
-                  "name": "Mole salamanders",
+                  "name": "Ambystomatidae",
                   "scientificName": "Ambystomatidae",
                   "rank": "family",
                   "species": [
@@ -736,7 +752,7 @@
                 },
                 {
                   "id": "cryptobranchidae",
-                  "name": "Giant salamanders",
+                  "name": "Giant salamander",
                   "scientificName": "Cryptobranchidae",
                   "rank": "family",
                   "species": [
@@ -752,13 +768,13 @@
             },
             {
               "id": "anura",
-              "name": "Frogs and toads",
+              "name": "Frog",
               "scientificName": "Anura",
               "rank": "order",
               "children": [
                 {
                   "id": "dendrobatidae",
-                  "name": "Poison dart frogs",
+                  "name": "Poison dart frog",
                   "scientificName": "Dendrobatidae",
                   "rank": "family",
                   "species": [
@@ -772,7 +788,7 @@
                 },
                 {
                   "id": "bufonidae",
-                  "name": "True toads",
+                  "name": "True toad",
                   "scientificName": "Bufonidae",
                   "rank": "family",
                   "species": [
@@ -786,13 +802,13 @@
                 },
                 {
                   "id": "centrolenidae",
-                  "name": "Glass frogs",
+                  "name": "Glass frog",
                   "scientificName": "Centrolenidae",
                   "rank": "family",
                   "species": [
                     {
                       "wikiTitle": "Hyalinobatrachium fleischmanni",
-                      "commonName": "Fleischmann's glass frog",
+                      "commonName": "Hyalinobatrachium fleischmanni",
                       "scientificName": "Hyalinobatrachium fleischmanni",
                       "status": "LC"
                     }
@@ -803,72 +819,80 @@
           ]
         },
         {
-          "id": "actinopterygii",
-          "name": "Ray-finned fishes",
-          "scientificName": "Actinopterygii",
+          "id": "lophiiformes",
+          "name": "Anglerfish",
+          "scientificName": "Lophiiformes",
+          "rank": "order",
+          "children": [
+            {
+              "id": "antennariidae",
+              "name": "Frogfish",
+              "scientificName": "Antennariidae",
+              "rank": "family",
+              "species": [
+                {
+                  "wikiTitle": "Striated frogfish",
+                  "commonName": "Striated frogfish",
+                  "scientificName": "Antennarius striatus",
+                  "status": "LC"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tetraodontiformes",
+          "name": "Tetraodontiformes",
+          "scientificName": "Tetraodontiformes",
+          "rank": "order",
+          "children": [
+            {
+              "id": "molidae",
+              "name": "Molidae",
+              "scientificName": "Molidae",
+              "rank": "family",
+              "species": [
+                {
+                  "wikiTitle": "Ocean sunfish",
+                  "commonName": "Ocean sunfish",
+                  "scientificName": "Mola mola",
+                  "status": "VU"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "actinopteri",
+          "name": "Actinopteri",
+          "scientificName": "Actinopteri",
           "rank": "class",
           "children": [
             {
-              "id": "lophiiformes",
-              "name": "Anglerfishes",
-              "scientificName": "Lophiiformes",
-              "rank": "order",
+              "id": "teleostei",
+              "name": "Teleost",
+              "scientificName": "Teleostei",
+              "rank": "class",
               "children": [
                 {
-                  "id": "antennariidae",
-                  "name": "Frogfishes",
-                  "scientificName": "Antennariidae",
-                  "rank": "family",
-                  "species": [
+                  "id": "syngnathiformes",
+                  "name": "Syngnathiformes",
+                  "scientificName": "Syngnathiformes",
+                  "rank": "order",
+                  "children": [
                     {
-                      "wikiTitle": "Hairy frogfish",
-                      "commonName": "Hairy frogfish",
-                      "scientificName": "Antennarius striatus",
-                      "status": "LC"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "tetraodontiformes",
-              "name": "Pufferfishes and kin",
-              "scientificName": "Tetraodontiformes",
-              "rank": "order",
-              "children": [
-                {
-                  "id": "molidae",
-                  "name": "Molas",
-                  "scientificName": "Molidae",
-                  "rank": "family",
-                  "species": [
-                    {
-                      "wikiTitle": "Ocean sunfish",
-                      "commonName": "Ocean sunfish",
-                      "scientificName": "Mola mola",
-                      "status": "VU"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "syngnathiformes",
-              "name": "Seahorses and kin",
-              "scientificName": "Syngnathiformes",
-              "rank": "order",
-              "children": [
-                {
-                  "id": "syngnathidae",
-                  "name": "Seahorses and pipefishes",
-                  "scientificName": "Syngnathidae",
-                  "rank": "family",
-                  "species": [
-                    {
-                      "wikiTitle": "Leafy seadragon",
-                      "commonName": "Leafy seadragon",
-                      "scientificName": "Phycodurus eques",
-                      "status": "LC"
+                      "id": "syngnathidae",
+                      "name": "Syngnathidae",
+                      "scientificName": "Syngnathidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Leafy seadragon",
+                          "commonName": "Leafy seadragon",
+                          "scientificName": "Phycodurus eques",
+                          "status": "LC"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -878,24 +902,24 @@
         },
         {
           "id": "chondrichthyes",
-          "name": "Cartilaginous fishes",
+          "name": "Chondrichthyes",
           "scientificName": "Chondrichthyes",
           "rank": "class",
           "children": [
             {
               "id": "lamniformes",
-              "name": "Mackerel sharks",
+              "name": "Lamniformes",
               "scientificName": "Lamniformes",
               "rank": "order",
               "children": [
                 {
                   "id": "otodontidae",
-                  "name": "Megatooth sharks",
+                  "name": "Otodontidae",
                   "scientificName": "Otodontidae",
                   "rank": "family",
                   "species": [
                     {
-                      "wikiTitle": "Otodus megalodon",
+                      "wikiTitle": "Megalodon",
                       "commonName": "Megalodon",
                       "scientificName": "Otodus megalodon",
                       "status": "EX"
@@ -904,7 +928,7 @@
                 },
                 {
                   "id": "mitsukurinidae",
-                  "name": "Goblin sharks",
+                  "name": "Mitsukurinidae",
                   "scientificName": "Mitsukurinidae",
                   "rank": "family",
                   "species": [
@@ -920,13 +944,13 @@
             },
             {
               "id": "rhinopristiformes",
-              "name": "Sawfishes",
+              "name": "Rhinopristiformes",
               "scientificName": "Rhinopristiformes",
               "rank": "order",
               "children": [
                 {
                   "id": "pristidae",
-                  "name": "Sawfishes",
+                  "name": "Sawfish",
                   "scientificName": "Pristidae",
                   "rank": "family",
                   "species": [
@@ -946,31 +970,31 @@
     },
     {
       "id": "arthropoda",
-      "name": "Arthropods",
+      "name": "Arthropod",
       "scientificName": "Arthropoda",
       "rank": "phylum",
       "children": [
         {
           "id": "insecta",
-          "name": "Insects",
+          "name": "Insect",
           "scientificName": "Insecta",
           "rank": "class",
           "children": [
             {
               "id": "lepidoptera",
-              "name": "Butterflies and moths",
+              "name": "Lepidoptera",
               "scientificName": "Lepidoptera",
               "rank": "order",
               "children": [
                 {
                   "id": "saturniidae",
-                  "name": "Silk moths",
+                  "name": "Saturniidae",
                   "scientificName": "Saturniidae",
                   "rank": "family",
                   "species": [
                     {
-                      "wikiTitle": "Atlas moth",
-                      "commonName": "Atlas moth",
+                      "wikiTitle": "Attacus atlas",
+                      "commonName": "Attacus atlas",
                       "scientificName": "Attacus atlas",
                       "status": "NE"
                     }
@@ -978,7 +1002,7 @@
                 },
                 {
                   "id": "lycaenidae",
-                  "name": "Gossamer-winged butterflies",
+                  "name": "Lycaenidae",
                   "scientificName": "Lycaenidae",
                   "rank": "family",
                   "species": [
@@ -994,19 +1018,19 @@
             },
             {
               "id": "mantodea",
-              "name": "Mantises",
+              "name": "Mantis",
               "scientificName": "Mantodea",
               "rank": "order",
               "children": [
                 {
                   "id": "hymenopodidae",
-                  "name": "Flower mantises",
+                  "name": "Hymenopodidae",
                   "scientificName": "Hymenopodidae",
                   "rank": "family",
                   "species": [
                     {
-                      "wikiTitle": "Orchid mantis",
-                      "commonName": "Orchid mantis",
+                      "wikiTitle": "Hymenopus coronatus",
+                      "commonName": "Hymenopus coronatus",
                       "scientificName": "Hymenopus coronatus",
                       "status": "NE"
                     }
@@ -1015,22 +1039,22 @@
               ]
             },
             {
-              "id": "phasmatodea",
-              "name": "Stick insects",
-              "scientificName": "Phasmatodea",
+              "id": "phasmida",
+              "name": "Phasmatodea",
+              "scientificName": "Phasmida",
               "rank": "order",
               "children": [
                 {
                   "id": "phasmatidae",
-                  "name": "Phasmatids",
+                  "name": "Phasmatidae",
                   "scientificName": "Phasmatidae",
                   "rank": "family",
                   "species": [
                     {
-                      "wikiTitle": "Dryococelus australis",
-                      "commonName": "Lord Howe Island stick insect",
-                      "scientificName": "Dryococelus australis",
-                      "status": "CR"
+                      "wikiTitle": "Dryococelus",
+                      "commonName": "Dryococelus",
+                      "scientificName": "Dryococelus",
+                      "status": "NE"
                     }
                   ]
                 }
@@ -1038,20 +1062,20 @@
             },
             {
               "id": "meganisoptera",
-              "name": "Griffinflies",
+              "name": "Meganisoptera",
               "scientificName": "Meganisoptera",
               "rank": "order",
               "children": [
                 {
                   "id": "meganeuridae",
-                  "name": "Meganeurids",
+                  "name": "Meganeuridae",
                   "scientificName": "Meganeuridae",
                   "rank": "family",
                   "species": [
                     {
                       "wikiTitle": "Meganeuropsis",
                       "commonName": "Meganeuropsis",
-                      "scientificName": "Meganeuropsis permiana",
+                      "scientificName": "Meganeuropsis",
                       "status": "EX"
                     }
                   ]
@@ -1062,34 +1086,34 @@
         },
         {
           "id": "arachnida",
-          "name": "Arachnids",
+          "name": "Arachnid",
           "scientificName": "Arachnida",
           "rank": "class",
           "children": [
             {
               "id": "araneae",
-              "name": "Spiders",
+              "name": "Spider",
               "scientificName": "Araneae",
               "rank": "order",
               "children": [
                 {
                   "id": "salticidae",
-                  "name": "Jumping spiders",
+                  "name": "Jumping spider",
                   "scientificName": "Salticidae",
                   "rank": "family",
                   "species": [
                     {
                       "wikiTitle": "Maratus volans",
-                      "commonName": "Peacock spider",
+                      "commonName": "Maratus volans",
                       "scientificName": "Maratus volans",
                       "status": "NE"
                     }
                   ]
                 },
                 {
-                  "id": "dictynidae",
-                  "name": "Diving bell spiders",
-                  "scientificName": "Dictynidae",
+                  "id": "cybaeidae",
+                  "name": "Cybaeidae",
+                  "scientificName": "Cybaeidae",
                   "rank": "family",
                   "species": [
                     {
@@ -1106,25 +1130,25 @@
         },
         {
           "id": "malacostraca",
-          "name": "Crustaceans",
+          "name": "Malacostraca",
           "scientificName": "Malacostraca",
           "rank": "class",
           "children": [
             {
               "id": "stomatopoda",
-              "name": "Mantis shrimps",
+              "name": "Mantis shrimp",
               "scientificName": "Stomatopoda",
               "rank": "order",
               "children": [
                 {
                   "id": "odontodactylidae",
-                  "name": "Odontodactylids",
+                  "name": "Odontodactylidae",
                   "scientificName": "Odontodactylidae",
                   "rank": "family",
                   "species": [
                     {
                       "wikiTitle": "Odontodactylus scyllarus",
-                      "commonName": "Peacock mantis shrimp",
+                      "commonName": "Odontodactylus scyllarus",
                       "scientificName": "Odontodactylus scyllarus",
                       "status": "NE"
                     }
@@ -1134,13 +1158,13 @@
             },
             {
               "id": "decapoda",
-              "name": "Decapods",
+              "name": "Decapod",
               "scientificName": "Decapoda",
               "rank": "order",
               "children": [
                 {
                   "id": "coenobitidae",
-                  "name": "Land hermit crabs",
+                  "name": "Coenobitidae",
                   "scientificName": "Coenobitidae",
                   "rank": "family",
                   "species": [
@@ -1158,29 +1182,21 @@
         },
         {
           "id": "eurypterida",
-          "name": "Sea scorpions",
+          "name": "Eurypterid",
           "scientificName": "Eurypterida",
-          "rank": "class",
+          "rank": "order",
           "children": [
             {
-              "id": "eurypterida-2",
-              "name": "Sea scorpions",
-              "scientificName": "Eurypterida",
-              "rank": "order",
-              "children": [
+              "id": "pterygotidae",
+              "name": "Pterygotidae",
+              "scientificName": "Pterygotidae",
+              "rank": "family",
+              "species": [
                 {
-                  "id": "pterygotidae",
-                  "name": "Pterygotids",
-                  "scientificName": "Pterygotidae",
-                  "rank": "family",
-                  "species": [
-                    {
-                      "wikiTitle": "Jaekelopterus",
-                      "commonName": "Jaekelopterus",
-                      "scientificName": "Jaekelopterus rhenaniae",
-                      "status": "EX"
-                    }
-                  ]
+                  "wikiTitle": "Jaekelopterus",
+                  "commonName": "Jaekelopterus",
+                  "scientificName": "Jaekelopterus",
+                  "status": "EX"
                 }
               ]
             }
@@ -1190,45 +1206,45 @@
     },
     {
       "id": "mollusca",
-      "name": "Molluscs",
+      "name": "Mollusca",
       "scientificName": "Mollusca",
       "rank": "phylum",
       "children": [
         {
           "id": "cephalopoda",
-          "name": "Cephalopods",
+          "name": "Cephalopod",
           "scientificName": "Cephalopoda",
           "rank": "class",
           "children": [
             {
               "id": "octopoda",
-              "name": "Octopuses",
+              "name": "Octopus",
               "scientificName": "Octopoda",
               "rank": "order",
               "children": [
                 {
                   "id": "tremoctopodidae",
-                  "name": "Blanket octopuses",
+                  "name": "Tremoctopodidae",
                   "scientificName": "Tremoctopodidae",
                   "rank": "family",
                   "species": [
                     {
                       "wikiTitle": "Blanket octopus",
                       "commonName": "Blanket octopus",
-                      "scientificName": "Tremoctopus violaceus",
-                      "status": "LC"
+                      "scientificName": "Tremoctopus",
+                      "status": "NE"
                     }
                   ]
                 },
                 {
                   "id": "opisthoteuthidae",
-                  "name": "Umbrella octopuses",
+                  "name": "Umbrella octopus",
                   "scientificName": "Opisthoteuthidae",
                   "rank": "family",
                   "species": [
                     {
                       "wikiTitle": "Opisthoteuthis californiana",
-                      "commonName": "Flapjack octopus",
+                      "commonName": "Opisthoteuthis californiana",
                       "scientificName": "Opisthoteuthis californiana",
                       "status": "DD"
                     }
@@ -1238,13 +1254,13 @@
             },
             {
               "id": "nautilida",
-              "name": "Nautiluses",
+              "name": "Nautilida",
               "scientificName": "Nautilida",
               "rank": "order",
               "children": [
                 {
                   "id": "nautilidae",
-                  "name": "Nautiluses",
+                  "name": "Nautilus",
                   "scientificName": "Nautilidae",
                   "rank": "family",
                   "species": [
@@ -1252,7 +1268,7 @@
                       "wikiTitle": "Chambered nautilus",
                       "commonName": "Chambered nautilus",
                       "scientificName": "Nautilus pompilius",
-                      "status": "VU"
+                      "status": "NE"
                     }
                   ]
                 }
@@ -1260,19 +1276,19 @@
             },
             {
               "id": "ammonitida",
-              "name": "Ammonites",
+              "name": "Ammonitida",
               "scientificName": "Ammonitida",
               "rank": "order",
               "children": [
                 {
-                  "id": "pachydiscidae",
-                  "name": "Pachydiscids",
-                  "scientificName": "Pachydiscidae",
+                  "id": "desmoceratidae",
+                  "name": "Desmoceratidae",
+                  "scientificName": "Desmoceratidae",
                   "rank": "family",
                   "species": [
                     {
                       "wikiTitle": "Parapuzosia seppenradensis",
-                      "commonName": "Giant ammonite",
+                      "commonName": "Parapuzosia seppenradensis",
                       "scientificName": "Parapuzosia seppenradensis",
                       "status": "EX"
                     }
@@ -1284,25 +1300,25 @@
         },
         {
           "id": "gastropoda",
-          "name": "Gastropods",
+          "name": "Gastropod",
           "scientificName": "Gastropoda",
           "rank": "class",
           "children": [
             {
               "id": "nudibranchia",
-              "name": "Sea slugs",
+              "name": "Nudibranch",
               "scientificName": "Nudibranchia",
               "rank": "order",
               "children": [
                 {
                   "id": "glaucidae",
-                  "name": "Glaucids",
+                  "name": "Glaucidae",
                   "scientificName": "Glaucidae",
                   "rank": "family",
                   "species": [
                     {
                       "wikiTitle": "Glaucus atlanticus",
-                      "commonName": "Blue dragon",
+                      "commonName": "Glaucus atlanticus",
                       "scientificName": "Glaucus atlanticus",
                       "status": "NE"
                     }
@@ -1311,20 +1327,20 @@
               ]
             },
             {
-              "id": "neomphalina",
-              "name": "Neomphalines",
-              "scientificName": "Neomphalina",
+              "id": "neomphalida",
+              "name": "Neomphalida",
+              "scientificName": "Neomphalida",
               "rank": "order",
               "children": [
                 {
                   "id": "peltospiridae",
-                  "name": "Peltospirids",
+                  "name": "Peltospiridae",
                   "scientificName": "Peltospiridae",
                   "rank": "family",
                   "species": [
                     {
-                      "wikiTitle": "Chrysomallon squamiferum",
-                      "commonName": "Scaly-foot snail",
+                      "wikiTitle": "Scaly-foot gastropod",
+                      "commonName": "Scaly-foot gastropod",
                       "scientificName": "Chrysomallon squamiferum",
                       "status": "EN"
                     }
@@ -1338,25 +1354,25 @@
     },
     {
       "id": "cnidaria",
-      "name": "Cnidarians",
+      "name": "Cnidaria",
       "scientificName": "Cnidaria",
       "rank": "phylum",
       "children": [
         {
           "id": "hydrozoa",
-          "name": "Hydrozoans",
+          "name": "Hydrozoa",
           "scientificName": "Hydrozoa",
           "rank": "class",
           "children": [
             {
               "id": "siphonophorae",
-              "name": "Siphonophores",
+              "name": "Siphonophore",
               "scientificName": "Siphonophorae",
               "rank": "order",
               "children": [
                 {
                   "id": "physaliidae",
-                  "name": "Man o' wars",
+                  "name": "Physaliidae",
                   "scientificName": "Physaliidae",
                   "rank": "family",
                   "species": [
@@ -1372,19 +1388,19 @@
             },
             {
               "id": "anthoathecata",
-              "name": "Anthoathecates",
+              "name": "Anthoathecata",
               "scientificName": "Anthoathecata",
               "rank": "order",
               "children": [
                 {
                   "id": "oceaniidae",
-                  "name": "Turritopsids",
+                  "name": "Oceaniidae",
                   "scientificName": "Oceaniidae",
                   "rank": "family",
                   "species": [
                     {
                       "wikiTitle": "Turritopsis dohrnii",
-                      "commonName": "Immortal jellyfish",
+                      "commonName": "Turritopsis dohrnii",
                       "scientificName": "Turritopsis dohrnii",
                       "status": "NE"
                     }
@@ -1398,13 +1414,13 @@
     },
     {
       "id": "tardigrada",
-      "name": "Tardigrades",
+      "name": "Tardigrade",
       "scientificName": "Tardigrada",
       "rank": "phylum",
       "children": [
         {
           "id": "eutardigrada",
-          "name": "Eutardigrades",
+          "name": "Eutardigrade",
           "scientificName": "Eutardigrada",
           "rank": "class",
           "children": [
@@ -1416,14 +1432,14 @@
               "children": [
                 {
                   "id": "hypsibiidae",
-                  "name": "Hypsibiids",
+                  "name": "Hypsibiidae",
                   "scientificName": "Hypsibiidae",
                   "rank": "family",
                   "species": [
                     {
-                      "wikiTitle": "Hypsibius exemplaris",
-                      "commonName": "Water bear",
-                      "scientificName": "Hypsibius exemplaris",
+                      "wikiTitle": "Hypsibius dujardini",
+                      "commonName": "Hypsibius dujardini",
+                      "scientificName": "Hypsibius dujardini",
                       "status": "NE"
                     }
                   ]

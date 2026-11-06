@@ -28,8 +28,8 @@ Template:
 - Date: 2026-11-06
 - Decided by: Maxwell Rhinelander
 - Context: The app is for education, so everything in it must be real and traceable. Maxwell: "zero AI generated content, words, pictures, anything. All content is pulled from open source, creative commons, whatever."
-- Decision: No AI-generated, AI-rewritten or AI-edited text, images, audio or video in the app. All content comes verbatim from open sources (Wikipedia, Commons, Wikidata, or other approved free sources) with attribution. AI-generated files on Commons are rejected. Agents may write code and docs but never content.
-- Consequences: Hand-typed species data (common names, group names, IUCN statuses) must be regenerated from Wikidata; `ContentPolicy` needs an AI-image filter; mockup text should be verbatim. See [ai-content-audit.md](ai-content-audit.md). Strengthens D-005 (paleoart must be human-made).
+- Decision: No AI-generated, AI-rewritten or AI-edited text, images, audio or video in the app. All content comes verbatim from open sources (Wikipedia, Commons, Wikidata, or other approved free sources) with attribution. Images come only from the species' English Wikipedia article, where AI images are not allowed, so no separate AI-image filter is needed (Maxwell, 2026-11-06). Agents may write code and docs but never content.
+- Consequences: Hand-typed species data (common names, group names, IUCN statuses) must be regenerated from Wikidata; mockup text should be verbatim. See [ai-content-audit.md](ai-content-audit.md). Strengthens D-005 (paleoart must be human-made).
 
 ## D-010 · Species first, information second
 - Status: Decided

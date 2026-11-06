@@ -1,228 +1,327 @@
-import json, re, sys
-# (name, scientific, rank, children) ; species tuples: (wikiTitle, common, scientific, status)
-def T(name, sci, rank, *kids):
-    return dict(name=name, sci=sci, rank=rank, kids=list(kids))
-def S(title, common, sci, status):
-    return dict(title=title, common=common, sci=sci, status=status)
+#!/usr/bin/env python3
+"""Build AnimalScroller/Resources/taxonomy.json from Wikidata (CC0) and English Wikipedia.
 
-tree = T("Animals","Animalia","kingdom",
- T("Chordates","Chordata","phylum",
-  T("Mammals","Mammalia","class",
-   T("Carnivorans","Carnivora","order",
-    T("Cats","Felidae","family",
-      S("Snow leopard","Snow leopard","Panthera uncia","VU"),
-      S("Fishing cat","Fishing cat","Prionailurus viverrinus","VU"),
-      S("Pallas's cat","Pallas's cat","Otocolobus manul","LC"),
-      S("Sand cat","Sand cat","Felis margarita","LC"),
-      S("Smilodon","Smilodon","Smilodon fatalis","EX")),
-    T("Dogs","Canidae","family",
-      S("Maned wolf","Maned wolf","Chrysocyon brachyurus","NT"),
-      S("Fennec fox","Fennec fox","Vulpes zerda","LC"),
-      S("Dhole","Dhole","Cuon alpinus","EN"),
-      S("Falkland Islands wolf","Falkland Islands wolf","Dusicyon australis","EX")),
-    T("Mustelids","Mustelidae","family",
-      S("Sea otter","Sea otter","Enhydra lutris","EN"),
-      S("Wolverine","Wolverine","Gulo gulo","LC"),
-      S("Sea mink","Sea mink","Neogale macrodon","EX"))),
-   T("Elephants and kin","Proboscidea","order",
-    T("Elephants","Elephantidae","family",
-      S("African forest elephant","African forest elephant","Loxodonta cyclotis","CR"),
-      S("Woolly mammoth","Woolly mammoth","Mammuthus primigenius","EX"))),
-   T("Even-toed ungulates","Artiodactyla","order",
-    T("Giraffids","Giraffidae","family",
-      S("Okapi","Okapi","Okapia johnstoni","EN")),
-    T("Bovids","Bovidae","family",
-      S("Saola","Saola","Pseudoryx nghetinhensis","CR"),
-      S("Saiga antelope","Saiga antelope","Saiga tatarica","NT"),
-      S("Aurochs","Aurochs","Bos primigenius","EX"))),
-   T("Whales and dolphins","Cetacea","order",
-    T("Porpoises","Phocoenidae","family",
-      S("Vaquita","Vaquita","Phocoena sinus","CR")),
-    T("Narwhals and belugas","Monodontidae","family",
-      S("Narwhal","Narwhal","Monodon monoceros","LC"))),
-   T("Primates","Primates","order",
-    T("Aye-ayes","Daubentoniidae","family",
-      S("Aye-aye","Aye-aye","Daubentonia madagascariensis","EN")),
-    T("Tarsiers","Tarsiidae","family",
-      S("Philippine tarsier","Philippine tarsier","Carlito syrichta","NT"))),
-   T("Pangolins","Pholidota","order",
-    T("Pangolins","Manidae","family",
-      S("Sunda pangolin","Sunda pangolin","Manis javanica","CR"))),
-   T("Dasyuromorphs","Dasyuromorphia","order",
-    T("Thylacines","Thylacinidae","family",
-      S("Thylacine","Thylacine","Thylacinus cynocephalus","EX")),
-    T("Dasyurids","Dasyuridae","family",
-      S("Tasmanian devil","Tasmanian devil","Sarcophilus harrisii","EN"),
-      S("Numbat","Numbat","Myrmecobius fasciatus","EN"))),
-   T("Monotremes","Monotremata","order",
-    T("Platypus","Ornithorhynchidae","family",
-      S("Platypus","Platypus","Ornithorhynchus anatinus","NT")))),
-  T("Birds","Aves","class",
-   T("Pigeons and doves","Columbiformes","order",
-    T("Pigeons and doves","Columbidae","family",
-      S("Dodo","Dodo","Raphus cucullatus","EX"),
-      S("Passenger pigeon","Passenger pigeon","Ectopistes migratorius","EX"),
-      S("Nicobar pigeon","Nicobar pigeon","Caloenas nicobarica","NT"))),
-   T("Parrots","Psittaciformes","order",
-    T("New Zealand parrots","Strigopidae","family",
-      S("Kākāpō","Kākāpō","Strigops habroptilus","CR"),
-      S("Kea","Kea","Nestor notabilis","EN"))),
-   T("Shorebirds and auks","Charadriiformes","order",
-    T("Auks","Alcidae","family",
-      S("Great auk","Great auk","Pinguinus impennis","EX"),
-      S("Atlantic puffin","Atlantic puffin","Fratercula arctica","VU"))),
-   T("Pelicans and kin","Pelecaniformes","order",
-    T("Shoebill","Balaenicipitidae","family",
-      S("Shoebill","Shoebill","Balaeniceps rex","VU"))),
-   T("Hornbills and hoopoes","Bucerotiformes","order",
-    T("Hornbills","Bucerotidae","family",
-      S("Helmeted hornbill","Helmeted hornbill","Rhinoplax vigil","CR"))),
-   T("Moa","Dinornithiformes","order",
-    T("Giant moa","Dinornithidae","family",
-      S("South Island giant moa","South Island giant moa","Dinornis robustus","EX")))),
-  T("Reptiles","Reptilia","class",
-   T("Lizards and snakes","Squamata","order",
-    T("Monitor lizards","Varanidae","family",
-      S("Komodo dragon","Komodo dragon","Varanus komodoensis","EN")),
-    T("Chameleons","Chamaeleonidae","family",
-      S("Panther chameleon","Panther chameleon","Furcifer pardalis","LC")),
-    T("Horned lizards","Phrynosomatidae","family",
-      S("Texas horned lizard","Texas horned lizard","Phrynosoma cornutum","LC"))),
-   T("Tuatara","Rhynchocephalia","order",
-    T("Tuatara","Sphenodontidae","family",
-      S("Tuatara","Tuatara","Sphenodon punctatus","LC"))),
-   T("Turtles","Testudines","order",
-    T("Snapping turtles","Chelydridae","family",
-      S("Alligator snapping turtle","Alligator snapping turtle","Macrochelys temminckii","VU")),
-    T("Tortoises","Testudinidae","family",
-      S("Pinta Island tortoise","Pinta Island tortoise","Chelonoidis abingdonii","EX"))),
-   T("Crocodilians","Crocodilia","order",
-    T("Gharials","Gavialidae","family",
-      S("Gharial","Gharial","Gavialis gangeticus","CR"))),
-   T("Dinosaurs","Dinosauria","order",
-    T("Tyrannosaurids","Tyrannosauridae","family",
-      S("Tyrannosaurus","Tyrannosaurus","Tyrannosaurus rex","EX")),
-    T("Ceratopsids","Ceratopsidae","family",
-      S("Triceratops","Triceratops","Triceratops horridus","EX")),
-    T("Stegosaurids","Stegosauridae","family",
-      S("Stegosaurus","Stegosaurus","Stegosaurus stenops","EX")))),
-  T("Amphibians","Amphibia","class",
-   T("Salamanders","Urodela","order",
-    T("Mole salamanders","Ambystomatidae","family",
-      S("Axolotl","Axolotl","Ambystoma mexicanum","CR")),
-    T("Giant salamanders","Cryptobranchidae","family",
-      S("Chinese giant salamander","Chinese giant salamander","Andrias davidianus","CR"))),
-   T("Frogs and toads","Anura","order",
-    T("Poison dart frogs","Dendrobatidae","family",
-      S("Golden poison frog","Golden poison frog","Phyllobates terribilis","EN")),
-    T("True toads","Bufonidae","family",
-      S("Golden toad","Golden toad","Incilius periglenes","EX")),
-    T("Glass frogs","Centrolenidae","family",
-      S("Hyalinobatrachium fleischmanni","Fleischmann's glass frog","Hyalinobatrachium fleischmanni","LC")))),
-  T("Ray-finned fishes","Actinopterygii","class",
-   T("Anglerfishes","Lophiiformes","order",
-    T("Frogfishes","Antennariidae","family",
-      S("Hairy frogfish","Hairy frogfish","Antennarius striatus","LC"))),
-   T("Pufferfishes and kin","Tetraodontiformes","order",
-    T("Molas","Molidae","family",
-      S("Ocean sunfish","Ocean sunfish","Mola mola","VU"))),
-   T("Seahorses and kin","Syngnathiformes","order",
-    T("Seahorses and pipefishes","Syngnathidae","family",
-      S("Leafy seadragon","Leafy seadragon","Phycodurus eques","LC")))),
-  T("Cartilaginous fishes","Chondrichthyes","class",
-   T("Mackerel sharks","Lamniformes","order",
-    T("Megatooth sharks","Otodontidae","family",
-      S("Otodus megalodon","Megalodon","Otodus megalodon","EX")),
-    T("Goblin sharks","Mitsukurinidae","family",
-      S("Goblin shark","Goblin shark","Mitsukurina owstoni","LC"))),
-   T("Sawfishes","Rhinopristiformes","order",
-    T("Sawfishes","Pristidae","family",
-      S("Largetooth sawfish","Largetooth sawfish","Pristis pristis","CR"))))),
- T("Arthropods","Arthropoda","phylum",
-  T("Insects","Insecta","class",
-   T("Butterflies and moths","Lepidoptera","order",
-    T("Silk moths","Saturniidae","family",
-      S("Atlas moth","Atlas moth","Attacus atlas","NE")),
-    T("Gossamer-winged butterflies","Lycaenidae","family",
-      S("Xerces blue","Xerces blue","Glaucopsyche xerces","EX"))),
-   T("Mantises","Mantodea","order",
-    T("Flower mantises","Hymenopodidae","family",
-      S("Orchid mantis","Orchid mantis","Hymenopus coronatus","NE"))),
-   T("Stick insects","Phasmatodea","order",
-    T("Phasmatids","Phasmatidae","family",
-      S("Dryococelus australis","Lord Howe Island stick insect","Dryococelus australis","CR"))),
-   T("Griffinflies","Meganisoptera","order",
-    T("Meganeurids","Meganeuridae","family",
-      S("Meganeuropsis","Meganeuropsis","Meganeuropsis permiana","EX")))),
-  T("Arachnids","Arachnida","class",
-   T("Spiders","Araneae","order",
-    T("Jumping spiders","Salticidae","family",
-      S("Maratus volans","Peacock spider","Maratus volans","NE")),
-    T("Diving bell spiders","Dictynidae","family",
-      S("Diving bell spider","Diving bell spider","Argyroneta aquatica","NE")))),
-  T("Crustaceans","Malacostraca","class",
-   T("Mantis shrimps","Stomatopoda","order",
-    T("Odontodactylids","Odontodactylidae","family",
-      S("Odontodactylus scyllarus","Peacock mantis shrimp","Odontodactylus scyllarus","NE"))),
-   T("Decapods","Decapoda","order",
-    T("Land hermit crabs","Coenobitidae","family",
-      S("Coconut crab","Coconut crab","Birgus latro","VU")))),
-  T("Sea scorpions","Eurypterida","class",
-   T("Sea scorpions","Eurypterida","order",
-    T("Pterygotids","Pterygotidae","family",
-      S("Jaekelopterus","Jaekelopterus","Jaekelopterus rhenaniae","EX"))))),
- T("Molluscs","Mollusca","phylum",
-  T("Cephalopods","Cephalopoda","class",
-   T("Octopuses","Octopoda","order",
-    T("Blanket octopuses","Tremoctopodidae","family",
-      S("Blanket octopus","Blanket octopus","Tremoctopus violaceus","LC")),
-    T("Umbrella octopuses","Opisthoteuthidae","family",
-      S("Opisthoteuthis californiana","Flapjack octopus","Opisthoteuthis californiana","DD"))),
-   T("Nautiluses","Nautilida","order",
-    T("Nautiluses","Nautilidae","family",
-      S("Chambered nautilus","Chambered nautilus","Nautilus pompilius","VU"))),
-   T("Ammonites","Ammonitida","order",
-    T("Pachydiscids","Pachydiscidae","family",
-      S("Parapuzosia seppenradensis","Giant ammonite","Parapuzosia seppenradensis","EX")))),
-  T("Gastropods","Gastropoda","class",
-   T("Sea slugs","Nudibranchia","order",
-    T("Glaucids","Glaucidae","family",
-      S("Glaucus atlanticus","Blue dragon","Glaucus atlanticus","NE"))),
-   T("Neomphalines","Neomphalina","order",
-    T("Peltospirids","Peltospiridae","family",
-      S("Chrysomallon squamiferum","Scaly-foot snail","Chrysomallon squamiferum","EN"))))),
- T("Cnidarians","Cnidaria","phylum",
-  T("Hydrozoans","Hydrozoa","class",
-   T("Siphonophores","Siphonophorae","order",
-    T("Man o' wars","Physaliidae","family",
-      S("Portuguese man o' war","Portuguese man o' war","Physalia physalis","NE"))),
-   T("Anthoathecates","Anthoathecata","order",
-    T("Turritopsids","Oceaniidae","family",
-      S("Turritopsis dohrnii","Immortal jellyfish","Turritopsis dohrnii","NE"))))),
- T("Tardigrades","Tardigrada","phylum",
-  T("Eutardigrades","Eutardigrada","class",
-   T("Parachela","Parachela","order",
-    T("Hypsibiids","Hypsibiidae","family",
-      S("Hypsibius exemplaris","Water bear","Hypsibius exemplaris","NE"))))),
-)
+The only hand-made input is tools/species.txt, the list of English Wikipedia article titles
+that decides WHICH species appear. Everything shown about them comes from open sources, so no
+value is typed in by a person or an AI (decision D-011):
 
-used=set()
-def slug(sci):
-    s=re.sub(r'[^a-z0-9]+','-',sci.lower()).strip('-')
-    base=s; i=2
-    while s in used: s=f"{base}-{i}"; i+=1
-    used.add(s); return s
+    common name       English Wikipedia article title (after redirects)
+    scientific name   Wikidata P225 (taxon name)
+    status            Wikidata P141 (IUCN conservation status); if absent and the item is a
+                      fossil taxon (P31 = Q23038290), EX; otherwise NE
+    tree              Wikidata P171 (parent taxon) chain, keeping kingdom, phylum, class, order
+                      and family (P105 taxon rank)
+    group names       English Wikipedia article title of each taxon, else its P225
 
-def conv(node):
-    out={"id":slug(node["sci"]),"name":node["name"],"scientificName":node["sci"],"rank":node["rank"]}
-    kids=[k for k in node["kids"] if "rank" in k]
-    sp=[k for k in node["kids"] if "title" in k]
-    if kids: out["children"]=[conv(k) for k in kids]
-    if sp: out["species"]=[{"wikiTitle":s["title"],"commonName":s["common"],"scientificName":s["sci"],"status":s["status"]} for s in sp]
+It also writes tools/taxonomy-sources.json, which records the Wikidata item behind every value.
+
+Usage:
+    python3 tools/gen_taxonomy.py                # writes the two files above
+    python3 tools/gen_taxonomy.py --check        # exits 1 if taxonomy.json is out of date
+
+Responses are cached in tools/.cache/ (git-ignored) so re-runs don't hit the APIs again.
+Delete that folder to refresh from live data.
+"""
+import hashlib
+import json
+import os
+import re
+import sys
+import time
+import urllib.parse
+import urllib.request
+import urllib.error
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SPECIES_LIST = os.path.join(ROOT, "tools", "species.txt")
+OUT_TAXONOMY = os.path.join(ROOT, "AnimalScroller", "Resources", "taxonomy.json")
+OUT_SOURCES = os.path.join(ROOT, "tools", "taxonomy-sources.json")
+CACHE = os.path.join(ROOT, "tools", ".cache")
+
+USER_AGENT = "AnimalScrollerTaxonomyBuilder/0.2 (https://github.com/Cromaximum/Axolotl)"
+WIKIDATA_API = "https://www.wikidata.org/w/api.php"
+ENWIKI_API = "https://en.wikipedia.org/w/api.php"
+
+# Wikidata items this script relies on. Their English labels are checked against Wikidata at
+# run time, so a wrong id stops the build instead of silently mislabelling data.
+RANKS = {  # P105 value -> (rank name in taxonomy.json, expected Wikidata label)
+    "Q36732": ("kingdom", "kingdom"),
+    "Q38348": ("phylum", "phylum"),
+    "Q37517": ("class", "class"),
+    "Q36602": ("order", "order"),
+    "Q35409": ("family", "family"),
+}
+STATUSES = {  # P141 value -> (code used by the app, expected Wikidata label)
+    "Q211005": ("LC", "Least Concern"),
+    "Q719675": ("NT", "Near Threatened"),
+    "Q278113": ("VU", "Vulnerable"),
+    "Q11394": ("EN", "endangered species"),  # older item still used on some species
+    "Q96377276": ("EN", "endangered"),  # current IUCN "Endangered" item
+    "Q219127": ("CR", "Critically Endangered"),
+    "Q239509": ("EW", "Extinct in the Wild"),
+    "Q237350": ("EX", "Extinct"),
+    "Q3245245": ("DD", "Data Deficient"),
+}
+FOSSIL_TAXON = ("Q23038290", "fossil taxon")
+ANIMALIA = ("Q729", "animal")  # P225 of this item is also checked to be "Animalia"
+
+_last_request = 0.0
+
+
+def fetch(url, params):
+    """GET a MediaWiki API URL as JSON, with caching, pacing and backoff on rate limits."""
+    global _last_request
+    params = dict(params, format="json", formatversion="2")
+    full = url + "?" + urllib.parse.urlencode(sorted(params.items()))
+    key = hashlib.sha256(full.encode()).hexdigest()[:32]
+    path = os.path.join(CACHE, key + ".json")
+    if os.path.exists(path):
+        with open(path) as f:
+            return json.load(f)
+
+    delay = 5.0
+    for attempt in range(10):
+        wait = 1.0 - (time.time() - _last_request)
+        if wait > 0:
+            time.sleep(wait)
+        _last_request = time.time()
+        req = urllib.request.Request(full, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                body = resp.read().decode()
+            data = json.loads(body)
+            if "error" in data:
+                raise RuntimeError(f"API error for {full}: {data['error']}")
+            os.makedirs(CACHE, exist_ok=True)
+            with open(path, "w") as f:
+                json.dump(data, f)
+            return data
+        except (urllib.error.HTTPError, json.JSONDecodeError, urllib.error.URLError) as e:
+            code = getattr(e, "code", None)
+            retry_after = getattr(e, "headers", {}) and e.headers.get("Retry-After")
+            sleep_for = float(retry_after) if retry_after and retry_after.isdigit() else delay
+            print(f"  request failed ({code or e}); retrying in {sleep_for:.0f}s", file=sys.stderr)
+            time.sleep(sleep_for)
+            delay = min(delay * 2, 300)
+    raise RuntimeError(f"Giving up on {full}")
+
+
+def chunks(items, n):
+    for i in range(0, len(items), n):
+        yield items[i:i + n]
+
+
+def best_values(entity, prop):
+    """Item/string values of a claim, preferred-rank statements first, deprecated ones dropped."""
+    claims = entity.get("claims", {}).get(prop, [])
+    preferred = [c for c in claims if c.get("rank") == "preferred"]
+    normal = [c for c in claims if c.get("rank") == "normal"]
+    out = []
+    for c in preferred or normal:
+        snak = c.get("mainsnak", {})
+        if snak.get("snaktype") != "value":
+            continue
+        v = snak["datavalue"]["value"]
+        out.append(v["id"] if isinstance(v, dict) and "id" in v else v)
     return out
 
-root=conv(tree)
-def count(n): return len(n.get("species",[]))+sum(count(c) for c in n.get("children",[]))
-def ext(n): return sum(1 for s in n.get("species",[]) if s["status"]=="EX")+sum(ext(c) for c in n.get("children",[]))
-json.dump(root, open(sys.argv[1],"w"), indent=2, ensure_ascii=False)
-print(count(root),"species,",ext(root),"extinct")
+
+def get_entities(qids, props="claims|sitelinks|labels"):
+    out = {}
+    for batch in chunks(sorted(set(qids)), 25):
+        data = fetch(WIKIDATA_API, {
+            "action": "wbgetentities", "ids": "|".join(batch), "props": props,
+            "languages": "en", "sitefilter": "enwiki",
+        })
+        for qid, ent in data.get("entities", {}).items():
+            if "missing" not in ent:
+                out[qid] = ent
+    return out
+
+
+def verify_reference_items():
+    expected = {q: label for q, (_, label) in RANKS.items()}
+    expected.update({q: label for q, (_, label) in STATUSES.items()})
+    expected[FOSSIL_TAXON[0]] = FOSSIL_TAXON[1]
+    expected[ANIMALIA[0]] = ANIMALIA[1]
+    ents = get_entities(list(expected), props="labels")
+    bad = []
+    for qid, label in expected.items():
+        got = ents.get(qid, {}).get("labels", {}).get("en", {}).get("value", "")
+        if got.lower() != label.lower():
+            bad.append(f"{qid}: expected '{label}', Wikidata says '{got}'")
+    animalia = get_entities([ANIMALIA[0]], props="claims")
+    if best_values(animalia.get(ANIMALIA[0], {}), "P225") != ["Animalia"]:
+        bad.append(f"{ANIMALIA[0]}: P225 is not 'Animalia'")
+    if bad:
+        sys.exit("Reference items don't match Wikidata, fix the ids in this script:\n  " + "\n  ".join(bad))
+
+
+def resolve_titles(titles):
+    """English Wikipedia title -> (canonical title, Wikidata QID)."""
+    out = {}
+    for batch in chunks(titles, 50):
+        data = fetch(ENWIKI_API, {
+            "action": "query", "titles": "|".join(batch), "redirects": "1",
+            "prop": "pageprops", "ppprop": "wikibase_item",
+        })
+        q = data["query"]
+        mapping = {t: t for t in batch}
+        for n in q.get("normalized", []):
+            mapping = {k: (n["to"] if v == n["from"] else v) for k, v in mapping.items()}
+        for r in q.get("redirects", []):
+            mapping = {k: (r["to"] if v == r["from"] else v) for k, v in mapping.items()}
+        pages = {p["title"]: p for p in q.get("pages", [])}
+        for original, final in mapping.items():
+            page = pages.get(final, {})
+            qid = page.get("pageprops", {}).get("wikibase_item")
+            if qid:
+                out[original] = (final, qid)
+    return out
+
+
+def enwiki_title(entity):
+    return entity.get("sitelinks", {}).get("enwiki", {}).get("title")
+
+
+def strip_disambiguation(title):
+    return re.sub(r"\s*\([^)]*\)$", "", title)
+
+
+def main():
+    check = "--check" in sys.argv
+    titles = []
+    with open(SPECIES_LIST) as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#"):
+                titles.append(line)
+
+    verify_reference_items()
+
+    resolved = resolve_titles(titles)
+    missing = [t for t in titles if t not in resolved]
+    if missing:
+        sys.exit("No Wikipedia article / Wikidata item for: " + ", ".join(missing))
+
+    entities = get_entities([q for _, q in resolved.values()])
+
+    # Walk P171 (parent taxon) up from every species until each chain reaches a kingdom.
+    parent_of = {}
+    frontier = set(entities)
+    for _ in range(80):
+        need = set()
+        for qid in frontier:
+            ent = entities[qid]
+            ranks = best_values(ent, "P105")
+            parents = best_values(ent, "P171")
+            if qid != ANIMALIA[0] and "Q36732" not in ranks and parents:
+                parent_of[qid] = parents[0]
+                if parents[0] not in entities:
+                    need.add(parents[0])
+        if not need:
+            break
+        entities.update(get_entities(list(need)))
+        frontier = need & set(entities)
+
+    def lineage(qid):
+        chain, seen = [], set()
+        while qid in parent_of and qid not in seen:
+            seen.add(qid)
+            qid = parent_of[qid]
+            chain.append(qid)
+        return list(reversed(chain))  # root first
+
+    used_ids = set()
+
+    def slug(text):
+        s = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+        base, i = s, 2
+        while s in used_ids:
+            s, i = f"{base}-{i}", i + 1
+        used_ids.add(s)
+        return s
+
+    nodes = {}  # qid -> taxon dict
+    sources = {"generatedFrom": "Wikidata (CC0) and English Wikipedia", "taxa": {}, "species": {}}
+    root = None
+    problems = []
+
+    def node_for(qid):
+        nonlocal root
+        if qid in nodes:
+            return nodes[qid]
+        ent = entities[qid]
+        rank = RANKS[next(r for r in best_values(ent, "P105") if r in RANKS)][0]
+        sci = (best_values(ent, "P225") or [ent.get("labels", {}).get("en", {}).get("value", qid)])[0]
+        title = enwiki_title(ent)
+        name = strip_disambiguation(title) if title else sci
+        node = {"id": slug(sci), "name": name, "scientificName": sci, "rank": rank}
+        nodes[qid] = node
+        sources["taxa"][node["id"]] = {"qid": qid, "name": "enwiki title" if title else "P225",
+                                       "scientificName": "P225", "rank": "P105"}
+        return node
+
+    for original in titles:
+        final_title, qid = resolved[original]
+        ent = entities[qid]
+        kept = [q for q in lineage(qid)
+                if q in entities and any(r in RANKS for r in best_values(entities[q], "P105"))]
+        if not kept or kept[0] != ANIMALIA[0]:
+            problems.append(f"{original}: tree from Wikidata doesn't reach Animalia")
+            continue
+        parent = None
+        for q in kept:
+            node = node_for(q)
+            if parent is None:
+                root = root or node
+            else:
+                kids = parent.setdefault("children", [])
+                if node not in kids:
+                    kids.append(node)
+            parent = node
+
+        sci = best_values(ent, "P225")
+        if not sci:
+            problems.append(f"{original}: no P225 scientific name on {qid}")
+            continue
+        status_q = [s for s in best_values(ent, "P141") if s in STATUSES]
+        if status_q:
+            status, status_src = STATUSES[status_q[0]][0], f"P141 {status_q[0]}"
+        elif FOSSIL_TAXON[0] in best_values(ent, "P31"):
+            status, status_src = "EX", f"P31 {FOSSIL_TAXON[0]} (fossil taxon)"
+        else:
+            status, status_src = "NE", "no P141 on Wikidata"
+        parent.setdefault("species", []).append({
+            "wikiTitle": final_title,
+            "commonName": final_title,
+            "scientificName": sci[0],
+            "status": status,
+        })
+        sources["species"][final_title] = {"qid": qid, "commonName": "enwiki title",
+                                           "scientificName": "P225", "status": status_src,
+                                           "listedAs": original}
+
+    if problems:
+        sys.exit("Problems:\n  " + "\n  ".join(problems))
+
+    text = json.dumps(root, indent=2, ensure_ascii=False) + "\n"
+    if check:
+        with open(OUT_TAXONOMY) as f:
+            if f.read() != text:
+                sys.exit("taxonomy.json is out of date or was edited by hand. Run tools/gen_taxonomy.py.")
+        print("taxonomy.json matches the sources.")
+        return
+
+    with open(OUT_TAXONOMY, "w") as f:
+        f.write(text)
+    with open(OUT_SOURCES, "w") as f:
+        json.dump(sources, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+    n = len(sources["species"])
+    ex = sum(1 for s in sources["species"].values() if s["status"].startswith(("P141 Q237350", "P31")))
+    print(f"{n} species ({ex} extinct), {len(nodes)} taxa")
+
+
+if __name__ == "__main__":
+    main()
