@@ -167,7 +167,7 @@ Each file is a JSON `ContentCachePolicy.Entry`:
 iOS may purge Caches at any time; the app just refetches. Writes are atomic. If `SpeciesContent`
 changes shape, bump both `schema` and the folder name (`species-content.v2`); folders from older
 versions are deleted on launch. Raw HTTP responses (JSON and image bytes) are also kept by the
-512 MB `URLCache` created in `App/`. Decoded images are memory-only.
+Raw HTTP responses are cached in memory only (no disk `URLCache`, D-016), and decoded images are memory-only: no image file is ever written to the phone.
 
 ## Not persisted
 

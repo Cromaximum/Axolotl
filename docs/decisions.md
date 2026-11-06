@@ -23,6 +23,19 @@ Template:
 
 ---
 
+## D-016 · Animal photos are never stored on the phone
+- Status: Decided
+- Date: 2026-11-06
+- Decided by: Maxwell Rhinelander (asked "we are not having the user store any images of animals locally right?", then chose "Memory only")
+- Context: W1's image pipeline (#14) fetched photos through a 512 MB on-disk `URLCache`, so
+  downloaded photo files stayed in the app's Caches folder until iOS or the size limit cleared them.
+- Decision: Photos are kept in memory only. The app's `URLCache` has no disk capacity, decoded
+  photos live in `ImagePipeline`'s memory cache, and the old disk cache is wiped on every launch.
+  No animal images are bundled in the app. Species text, credits and photo links (no image files)
+  may still be cached on disk (`Caches/species-content.v1/`).
+- Consequences: Photos re-download after each app restart; prefetching keeps scrolling smooth.
+  Anything new that would write image bytes to disk needs a new decision.
+
 ## D-015 · Subspecies count as one specific animal
 - Status: Proposed (agent, W4 content quality, 2026-11-06)
 - Date: 2026-11-06

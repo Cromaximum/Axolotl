@@ -14,9 +14,13 @@ struct AnimalScrollerApp: App {
     private let contentProvider: SpeciesContentProvider
 
     init() {
-        // The disk cache for raw responses (JSON and image bytes). Decoded images live in the
-        // pipeline's own memory cache, so the URL cache's memory part stays small.
-        let urlCache = URLCache(memoryCapacity: 16 * 1024 * 1024, diskCapacity: 512 * 1024 * 1024)
+        // Photos are never written to the phone's storage (Maxwell, 2026-11-06, D-016). HTTP
+        // responses are cached in memory only, decoded photos live in the image pipeline's memory
+        // cache, and the disk cache from earlier builds (which held image bytes) is wiped on launch.
+        // Species text (no image files) is still cached on disk by CachingContentProvider.
+        URLCache.shared.removeAllCachedResponses()
+        let urlCache = URLCache(memoryCapacity: 32 * 1024 * 1024, diskCapacity: 0)
+        URLCache.shared = urlCache
         let configuration = URLSessionConfiguration.default
         configuration.urlCache = urlCache
         configuration.requestCachePolicy = .useProtocolCachePolicy

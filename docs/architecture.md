@@ -37,7 +37,7 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 
 | File | Responsibility |
 | --- | --- |
-| `App/AnimalScrollerApp.swift` | `@main`. Loads taxonomy, creates the stores, the live catalogue, one `URLSession` (16 MB / 512 MB `URLCache`), one `ImagePipeline` and one `CachingContentProvider` over `WikipediaContentProvider`, injects them (`.environment(\.imageLoader)`, `.environment(\.speciesContentProvider)`), forces dark mode. |
+| `App/AnimalScrollerApp.swift` | `@main`. Loads taxonomy, creates the stores, the live catalogue, one `URLSession` with a memory-only 32 MB `URLCache` (photos never touch disk, D-016; the old disk cache is wiped on launch), one `ImagePipeline` and one `CachingContentProvider` over `WikipediaContentProvider`, injects them (`.environment(\.imageLoader)`, `.environment(\.speciesContentProvider)`), forces dark mode. |
 | `App/RootView.swift` | Onboarding until `hasOnboarded`, then the Feed / Tree / Met `TabView`. Builds the `TaxonomyIndex` once and passes it to the Tree, Met and onboarding screens; on appear, drops stored copies of live species the bundled tree now covers (`MetStore.forgetCopies`). |
 | `App/Theme.swift` | Palette, bundled font names and helpers (`Theme.FontName`, `heading`, `body(size, weight:)`, `label`, `scientific`), `Theme.Motion` animation constants, `Color(hex:)`. |
 | `Models/Taxon.swift` | `Taxon` tree node, `Species`, `ConservationStatus`, `SpeciesEntry` (species + lineage), tree queries, `TaxonomyLoader`. |
