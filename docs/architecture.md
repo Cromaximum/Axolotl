@@ -37,7 +37,7 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | File | Responsibility |
 | --- | --- |
 | `App/AnimalScrollerApp.swift` | `@main`. Loads taxonomy, creates `PreferencesStore` and `MetStore`, sets a 64 MB / 512 MB `URLCache`, forces dark mode. |
-| `App/RootView.swift` | Onboarding until `hasOnboarded`, then the Feed / Tree / Met `TabView`. |
+| `App/RootView.swift` | Onboarding until `hasOnboarded`, then the Feed / Tree / Met `TabView`. Builds the `TaxonomyIndex` once and passes it to the Tree, Met and onboarding screens; on appear, drops stored copies of live species the bundled tree now covers (`MetStore.forgetCopies`). |
 | `App/Theme.swift` | Palette, bundled font names and helpers (`Theme.FontName`, `heading`, `body(size, weight:)`, `label`, `scientific`), `Theme.Motion` animation constants, `Color(hex:)`. |
 | `Models/Taxon.swift` | `Taxon` tree node, `Species`, `ConservationStatus`, `SpeciesEntry` (species + lineage), tree queries, `TaxonomyLoader`. |
 | `Models/FeedCard.swift` | `Attribution`, `LicensedImage`, `FeedCard` enum (`intro` / `fact` / `photo`) and card payloads. |
@@ -51,6 +51,8 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Services/LiveCatalogRules.swift` | Pure rules for live species: article quality gate (`accepts`), content quality gate (`isShowable`), common name from the article title, status mapping, lineage building (bundled nodes + `gbif-…` nodes), searchable branches, inside/outside split, random offset, popularity weight. Also `Taxon.path(to:)` and `Taxon.Rank.depth`. |
 | `Services/FeedSourcePlanner.swift` | Pure: for each load attempt, which source to try (bundled list, live catalogue, or live then bundled). About half live while bundled species in scope are unseen; live-only after that; the last attempt is always bundled. |
 | `Services/LikeAffinity.swift` | Pure: liked lineages → interest per taxon id (genus 2.5, family 2, order 1, class 0.4). |
+| `Services/TaxonomyIndex.swift` | Pure, built once from the bundled tree: node and species lookup by id, `path(to:)`, species count per branch, selection state (selected / covered by a parent / partly selected), selection summary in tree order, and case- and accent-insensitive name search (exact, prefix, word prefix, substring; branches before species on a tie). |
+| `Services/MetCollection.swift` | Pure: resolves stored Met records to `SpeciesEntry` values (bundled data wins; live records only for species not in the tree), then filters (All / Saved / Liked / Extinct) and sorts (recently seen, first met, name, group). |
 | `Services/FeedComposer.swift` | Turns one species' content into intro + up to 8 alternating photo/fact cards. |
 | `Features/Feed/FeedViewModel.swift` | `@MainActor` feed state: restart on filter change, prefetch, dwell tracking, retry up to 4 species per load, each card's position in its set. |
 | `Features/Feed/FeedView.swift` | Paging `ScrollView` under the status bar with a scroll transition, pull to refresh, records species met, like (heart or double-tap) and save (rail or long-press) with haptics and a toast, VoiceOver actions per card, opens the detail sheet. |
@@ -65,12 +67,14 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Features/Components/BoardPanel.swift` | `BoardPanel` framed sign view (moved from `Theme.swift`). |
 | `Features/Components/BoardPlaceholder.swift` | `ShimmerFill` (loading fill, static under Reduce Motion) and `BoardPlaceholder` (the intro board drawn as empty bars). |
 | `Features/Detail/SpeciesDetailView.swift` | Species detail sheet; loads `SpeciesContent` through the shared provider. |
-| `Features/Met/MetStore.swift` | `@Observable` species-met collection persisted to `UserDefaults` (`met.v1`). |
+| `Features/Met/MetStore.swift` | `@Observable` species-met collection persisted to `UserDefaults` (`met.v2`, migrates `met.v1`). Keeps ids, dates and flags; a `LiveRecord` only for live-catalogue species. Old `recordMet(Species)` / `toggleSaved(Species)` remain as deprecated forwarders until `FeedView` passes the `SpeciesEntry`. Moves to `Stores/` in W1 step 5. |
 | `Features/Likes/LikesStore.swift` | `@Observable` liked species persisted to `UserDefaults` (`likes.v1`); exposes `affinity` for the picker. Injected into the environment by `AnimalScrollerApp`. |
-| `Features/Met/MetView.swift` | "Species met" grid with All / Saved / Extinct. |
-| `Features/Onboarding/OnboardingView.swift` | Welcome, starting-point tiles (`StartingPoint`), `SpeciesPhoto` (licensed hero for a species). |
+| `Features/Met/MetView.swift` | "Species met" grid with All / Saved / Liked / Extinct and a sort menu; any tile, live species included, opens the detail sheet. |
+| `Features/Met/MetViewModel.swift` | Filter and sort state; maps `MetStore` entries to `MetCollection` records. |
+| `Features/Onboarding/OnboardingView.swift` | Welcome, starting-point tiles (`StartingPoint`), `SpeciesPhoto` (licensed hero for a species). Looks names up in the `TaxonomyIndex`. |
 | `Features/Picker/PreferencesStore.swift` | `@Observable` filter state persisted to `UserDefaults`, `ExtinctMode`, `hasOnboarded`. |
-| `Features/Picker/TaxonomyPickerView.swift` | Tree tab: extinct three-way switch, toggles, tree-of-life outline. |
+| `Features/Picker/TaxonomyPickerView.swift` | Tree tab: search, "Showing" summary with remove and "Reset to everything", extinct three-way switch, toggles, tree-of-life outline with species counts. |
+| `Features/Picker/TaxonomyPickerViewModel.swift` | Search text and results, row and summary state from the `TaxonomyIndex`. |
 
 ## Data flow
 

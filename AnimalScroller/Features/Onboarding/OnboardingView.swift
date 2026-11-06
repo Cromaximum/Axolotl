@@ -3,21 +3,22 @@ import SwiftUI
 /// First run: a welcome screen, then "Where should we start?" photo tiles.
 /// The full tree of life stays on the Tree tab; these tiles are a quick way in.
 struct OnboardingView: View {
-    let taxonomy: Taxon
+    let index: TaxonomyIndex
     @Environment(PreferencesStore.self) private var prefs
     @State private var step = 0
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         ZStack {
             if step == 0 {
-                WelcomeView(taxonomy: taxonomy) { withAnimation { step = 1 } }
+                WelcomeView(index: index) { withAnimation { step = 1 } }
                     .transition(.opacity)
             } else {
-                StartingPointView(taxonomy: taxonomy) { picks in
+                StartingPointView(index: index) { picks in
                     apply(picks)
                     prefs.hasOnboarded = true
                 }
-                .transition(.move(edge: .trailing))
+                .transition(reduceMotion ? .opacity : .move(edge: .trailing))
             }
         }
         .background(Theme.forest)
@@ -42,19 +43,19 @@ enum StartingPoint: String, CaseIterable, Identifiable, Hashable {
 
     /// Tile name. Animal-group names come from the taxonomy (D-011); only the two non-branch
     /// tiles have UI labels.
-    func title(in taxonomy: Taxon) -> String {
+    func title(in index: TaxonomyIndex) -> String {
         switch self {
         case .fossils: "Fossil life"
         case .surprise: "Surprise me"
-        default: taxonID.flatMap { taxonomy.find($0)?.name } ?? ""
+        default: taxonID.flatMap { index.node($0)?.name } ?? ""
         }
     }
 
-    func subtitle(in taxonomy: Taxon) -> String {
+    func subtitle(in index: TaxonomyIndex) -> String {
         switch self {
         case .fossils: "Extinct species"
         case .surprise: "Anything goes"
-        default: taxonID.flatMap { taxonomy.find($0)?.scientificName } ?? ""
+        default: taxonID.flatMap { index.node($0)?.scientificName } ?? ""
         }
     }
 
@@ -89,7 +90,7 @@ enum StartingPoint: String, CaseIterable, Identifiable, Hashable {
 /// Loads the licensed hero photo for a species from the shared content cache.
 struct SpeciesPhoto: View {
     let wikiTitle: String
-    let taxonomy: Taxon
+    let index: TaxonomyIndex
     var allowArtwork = false
     @State private var image: LicensedImage?
 
@@ -98,7 +99,7 @@ struct SpeciesPhoto: View {
             if let image { FullBleedImage(image: image, wideCenter: 0.5) } else { Theme.boardGreen }
         }
         .task(id: wikiTitle) {
-            guard let entry = taxonomy.allSpecies().first(where: { $0.id == wikiTitle }),
+            guard let entry = index.entry(forSpecies: wikiTitle),
                   let content = try? await WikipediaContentProvider.shared.content(for: entry.species)
             else { return }
             let usable = content.images.filter { allowArtwork || !$0.isArtwork }
@@ -108,12 +109,12 @@ struct SpeciesPhoto: View {
 }
 
 struct WelcomeView: View {
-    let taxonomy: Taxon
+    let index: TaxonomyIndex
     let onStart: () -> Void
 
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            SpeciesPhoto(wikiTitle: "Shoebill", taxonomy: taxonomy)
+            SpeciesPhoto(wikiTitle: "Shoebill", index: index)
                 .ignoresSafeArea()
             LowerThirdScrim().ignoresSafeArea()
             VStack(alignment: .leading, spacing: 14) {
@@ -141,7 +142,7 @@ struct WelcomeView: View {
 }
 
 struct StartingPointView: View {
-    let taxonomy: Taxon
+    let index: TaxonomyIndex
     let onContinue: (Set<StartingPoint>) -> Void
     @State private var picked: Set<StartingPoint> = []
 
@@ -179,11 +180,11 @@ struct StartingPointView: View {
     private func tile(_ point: StartingPoint) -> some View {
         let selected = picked.contains(point)
         return ZStack(alignment: .bottomLeading) {
-            SpeciesPhoto(wikiTitle: point.photoSpecies, taxonomy: taxonomy)
+            SpeciesPhoto(wikiTitle: point.photoSpecies, index: index)
             LinearGradient(colors: [.clear, .black.opacity(0.75)], startPoint: .center, endPoint: .bottom)
             VStack(alignment: .leading, spacing: 2) {
-                Text(point.title(in: taxonomy)).font(Theme.heading(18)).foregroundStyle(Theme.parchment)
-                Text(point.subtitle(in: taxonomy)).font(Theme.body(11)).foregroundStyle(Theme.mist)
+                Text(point.title(in: index)).font(Theme.heading(18)).foregroundStyle(Theme.parchment)
+                Text(point.subtitle(in: index)).font(Theme.body(11)).foregroundStyle(Theme.mist)
             }
             .padding(10)
             Image(systemName: selected ? "checkmark.circle.fill" : "circle")

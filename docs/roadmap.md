@@ -88,10 +88,10 @@ Owns: `App/RootView.swift`, `Features/Onboarding/`, `Features/Picker/TaxonomyPic
 `Features/Detail/`, `Features/Met/MetView.swift`, and `MetStore.Entry`'s shape (coordinate the
 file move with W1).
 
-1. [ ] Tree tab: search by common or scientific name, species counts per branch, a summary of
+1. [x] Tree tab: search by common or scientific name, species counts per branch, a summary of
        what's selected, and "reset to everything".
-2. [ ] Met tab: Liked filter, sort, and a faster grid using W1's image pipeline.
-3. [ ] `MetStore.Entry` keeps only id, dates and flags, and looks names up when shown (needs a
+2. [ ] Met tab: Liked filter, sort, and a faster grid using W1's image pipeline. (Liked filter and sort done in #11; grid on W1's image loader comes in PR B.)
+3. [x] `MetStore.Entry` keeps only id, dates and flags, and looks names up when shown (needs a
        `met.v2` key or a tolerant decoder; update data-model.md).
 4. [ ] Onboarding: small view model for tile photos using the injected provider (after W1 step
        4). Same for `SpeciesDetailView`.
