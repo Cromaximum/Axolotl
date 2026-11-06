@@ -112,6 +112,17 @@ final class PreferencesStore {
         }
     }
 
+    /// True when the feed covers the whole tree, living and extinct.
+    var showsEverything: Bool { selectedTaxonIDs.isEmpty && extinctMode == .includeExtinct }
+
+    /// "Reset to everything" on the Tree tab: the whole tree, living and extinct, with surprise
+    /// picks on. Leaves the artwork and full-catalogue switches as they are.
+    func reset() {
+        selectedTaxonIDs = []
+        extinctMode = .includeExtinct
+        surpriseMe = true
+    }
+
     private func save() {
         var stored = Stored()
         stored.selectedTaxonIDs = selectedTaxonIDs
