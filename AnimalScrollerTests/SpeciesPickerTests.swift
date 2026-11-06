@@ -48,4 +48,61 @@ final class SpeciesPickerTests: XCTestCase {
         var picker = SpeciesPicker()
         XCTAssertNil(picker.next(tailored: [], everything: []))
     }
+
+    /// Species under class > order > family, so variety rules can be checked.
+    private func tree(_ cls: String, orders: Int, familiesPerOrder: Int, speciesPerFamily: Int) -> [SpeciesEntry] {
+        let c = Taxon(id: cls, name: cls, scientificName: nil, rank: .class, children: nil, species: nil)
+        var out: [SpeciesEntry] = []
+        for o in 0..<orders {
+            let order = Taxon(id: "\(cls)-o\(o)", name: "", scientificName: nil, rank: .order, children: nil, species: nil)
+            for f in 0..<familiesPerOrder {
+                let family = Taxon(id: "\(cls)-o\(o)-f\(f)", name: "", scientificName: nil, rank: .family, children: nil, species: nil)
+                for n in 0..<speciesPerFamily {
+                    out.append(SpeciesEntry(species: Species(wikiTitle: "\(family.id)-s\(n)", commonName: "", scientificName: "",
+                                                             status: .leastConcern),
+                                            lineage: [c, order, family]))
+                }
+            }
+        }
+        return out
+    }
+
+    func testNeverTheSameFamilyBackToBack() {
+        let pool = tree("mammals", orders: 3, familiesPerOrder: 3, speciesPerFamily: 6)
+        var picker = SpeciesPicker(discoveryShare: 0.3)
+        var rng = SeededRNG(state: 11)
+        var lastFamily: String?
+        for _ in 0..<1000 {
+            let pick = picker.next(tailored: pool, everything: pool, using: &rng)!
+            let family = pick.lineage.last!.id
+            XCTAssertNotEqual(family, lastFamily)
+            lastFamily = family
+        }
+    }
+
+    func testFallsBackWhenOnlyOneFamilyIsLeft() {
+        let pool = tree("mammals", orders: 1, familiesPerOrder: 1, speciesPerFamily: 5)
+        var picker = SpeciesPicker(discoveryShare: 0)
+        var rng = SeededRNG(state: 3)
+        for _ in 0..<20 { XCTAssertNotNil(picker.next(tailored: pool, everything: pool, using: &rng)) }
+    }
+
+    func testDiscoveryGivesSmallClassesAFairShare() {
+        let big = tree("big", orders: 4, familiesPerOrder: 4, speciesPerFamily: 4)      // 64 species
+        let small = tree("small", orders: 1, familiesPerOrder: 2, speciesPerFamily: 2)  // 4 species
+        var rng = SeededRNG(state: 5)
+        var fromSmall = 0
+        // First pick of 1,000 fresh feeds, so novelty and recent-repeat rules don't interfere.
+        for _ in 0..<1000 {
+            var picker = SpeciesPicker(discoveryShare: 1)
+            let pick = picker.next(tailored: [], everything: big + small, using: &rng)!
+            if pick.lineage.first!.id == "small" { fromSmall += 1 }
+        }
+        // Uniform over species would give about 6% (4 of 68); the square-root spread gives about 20%.
+        XCTAssertGreaterThan(fromSmall, 120)
+    }
+
+    func testDefaultDiscoveryShareIs30Percent() {
+        XCTAssertEqual(SpeciesPicker().discoveryShare, 0.3)
+    }
 }

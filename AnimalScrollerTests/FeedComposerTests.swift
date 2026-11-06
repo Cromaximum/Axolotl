@@ -66,4 +66,45 @@ final class FeedComposerTests: XCTestCase {
         XCTAssertEqual(artworkCount(with), 3)
         XCTAssertEqual(artworkCount(living), 0)
     }
+
+    func testNeverThreePhotosInARow() {
+        for f in 0...8 {
+            for i in 0...10 {
+                let cards = FeedComposer.cards(for: entry, content: content(facts: f, images: i), sequence: 1, allowArtwork: false)
+                var run = 0
+                for card in cards.dropFirst() {
+                    if case .photo = card { run += 1 } else { run = 0 }
+                    XCTAssertLessThanOrEqual(run, FeedComposer.maxPhotoRun, "\(f) facts, \(i) images")
+                }
+            }
+        }
+    }
+
+    func testFactBackdropDiffersFromNeighbouringPhotos() {
+        for (f, i) in [(4, 3), (6, 4), (3, 2), (8, 8)] {
+            let cards = FeedComposer.cards(for: entry, content: content(facts: f, images: i), sequence: 1, allowArtwork: false)
+            let body = Array(cards.dropFirst())
+            for (n, card) in body.enumerated() {
+                guard case .fact(let fact) = card, let backdrop = fact.image else { continue }
+                for m in [n - 1, n + 1] where body.indices.contains(m) {
+                    if case .photo(let p) = body[m] {
+                        XCTAssertNotEqual(p.image, backdrop, "\(f) facts, \(i) images")
+                    }
+                }
+            }
+        }
+    }
+
+    func testDropsFactThatRepeatsTheLead() {
+        let lead = "The snow leopard lives in the mountains of Central Asia at 3,000 to 4,500 m."
+        let c = SpeciesContent(title: "Snow leopard", tagline: nil, lead: lead,
+                               pageURL: URL(string: "https://en.wikipedia.org/wiki/Snow_leopard")!,
+                               leadImageFileTitle: "File:0.jpg",
+                               facts: [.init(topic: "Habitat", text: "The snow leopard lives in the mountains of Central Asia at 3,000 to 4,500 m elevation."),
+                                       .init(topic: "Diet", text: "Fact 1.")],
+                               images: [image(0), image(1)])
+        let cards = FeedComposer.cards(for: entry, content: c, sequence: 1, allowArtwork: false)
+        guard case .intro(let intro) = cards[0] else { return XCTFail() }
+        XCTAssertEqual(intro.didYouKnow, "Fact 1.")
+    }
 }

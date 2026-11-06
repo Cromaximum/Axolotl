@@ -87,13 +87,63 @@ enum ContentPolicy {
         return artworkWords.contains { haystack.contains($0) }
     }
 
+    // MARK: Size and duplicates
+
+    /// Narrower than this (after Commons scales to at most 1080 px wide) looks soft full screen.
+    static let minImageWidth = 640
+    static let minShortSide = 400
+    /// Panoramas and tall strips lose the animal in any phone crop.
+    static let maxAspectRatio = 2.6
+
+    /// Unknown sizes pass, as before: Commons almost always reports them.
+    static func isSharpEnough(width: Int?, height: Int?) -> Bool {
+        guard let width else { return true }
+        guard width >= minImageWidth else { return false }
+        guard let height, height > 0 else { return true }
+        guard min(width, height) >= minShortSide else { return false }
+        let ratio = Double(width) / Double(height)
+        return ratio <= maxAspectRatio && ratio >= 1 / maxAspectRatio
+    }
+
+    /// Words Commons uploaders add to a crop, edit or re-encode of an existing file.
+    private static let variantWords: Set<String> = [
+        "crop", "cropped", "edit", "edited", "retouched", "rotated", "denoised", "adjusted",
+        "brightened", "straightened", "derivative", "modified", "version", "alt", "jpg", "jpeg",
+        "png", "webp", "tif", "tiff",
+    ]
+
+    /// Name with the "File:" prefix, extension, punctuation and variant words removed, so
+    /// "File:Snow leopard (cropped).jpg" and "File:Snow_leopard.png" match.
+    static func duplicateKey(fileTitle: String) -> String {
+        var name = fileTitle.lowercased()
+        if name.hasPrefix("file:") { name.removeFirst(5) }
+        if let dot = name.lastIndex(of: ".") { name = String(name[..<dot]) }
+        let words = name.components(separatedBy: CharacterSet.alphanumerics.inverted)
+            .filter { !$0.isEmpty && !variantWords.contains($0) }
+        return words.isEmpty ? fileTitle.lowercased() : words.joined(separator: " ")
+    }
+
+    /// Drops near-duplicate files (crops, edits and re-encodes of one photo), keeping the
+    /// preferred file (the article's lead image) when it is one of them. Order is kept.
+    static func distinctImages(_ images: [LicensedImage], preferring preferred: String?) -> [LicensedImage] {
+        var keeper: [String: String] = [:]   // duplicate key -> file title kept
+        let ranked = images.filter { $0.fileTitle == preferred } + images.filter { $0.fileTitle != preferred }
+        for image in ranked {
+            let key = duplicateKey(fileTitle: image.fileTitle)
+            if keeper[key] == nil { keeper[key] = image.fileTitle }
+        }
+        let kept = Set(keeper.values)
+        var seen = Set<String>()
+        return images.filter { kept.contains($0.fileTitle) && seen.insert($0.fileTitle).inserted }
+    }
+
     /// Turns raw API image info into licensed images, dropping anything not allowed.
     static func licensedImages(from infos: [WikiClient.ImageInfo]) -> [LicensedImage] {
         infos.compactMap { info in
             guard allowedMimeTypes.contains(info.mime),
                   !isJunk(fileTitle: info.fileTitle),
                   isAllowedLicense(info.licenseShortName),
-                  (info.width ?? 600) >= 400
+                  isSharpEnough(width: info.width, height: info.height)
             else { return nil }
             let description = info.descriptionHTML.map(HTMLText.plain)
             return LicensedImage(
