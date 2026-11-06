@@ -22,10 +22,14 @@ Usage:
     python3 tools/gen_taxonomy.py --check        # exits 1 if taxonomy.json is out of date
     python3 tools/gen_taxonomy.py --lint         # offline: species.txt, taxonomy.json and
                                                  # taxonomy-sources.json agree (runs in CI)
+    python3 tools/gen_taxonomy.py --screen FILE  # which titles in FILE meet the bar for new
+                                                 # species (D-019); edits nothing
 
 Every listed title must be a single species (Wikidata P105 = species or subspecies), never a genus or wider
 group (AGENTS.md rule 1). Titles whose article has no free lead image or is shorter than
-MIN_ARTICLE_LENGTH are reported as warnings: they make thin feed sets.
+MIN_ARTICLE_LENGTH are reported as warnings: they make thin feed sets. New titles should pass
+--screen first (longer article, free lead image, MIN_SHARP_PHOTOS sharp photos under a mirror of
+the app's ContentPolicy/PhotoQuality rules).
 
 Responses are cached in tools/.cache/ (git-ignored) so re-runs don't hit the APIs again.
 Delete that folder to refresh from live data.
@@ -77,7 +81,7 @@ MIN_ARTICLE_LENGTH = 5000  # same bar as LiveCatalogRules.minArticleLength in th
 # Bar for adding a species (--screen): a solid article to pull facts from, and enough sharp
 # photos that the app's photo rules (ContentPolicy, PR #24) leave a real set to show.
 SCREEN_MIN_ARTICLE_LENGTH = 12000
-APP_IMAGE_LIMIT = 40  # WikiClient.images(onArticle:limit:) looks at the first 40 files
+APP_IMAGE_LIMIT = 40  # first 40 files only; the app now reads 80 (WikiClient.images), so this is stricter
 ANIMALIA = ("Q729", "animal")  # P225 of this item is also checked to be "Animalia"
 
 _last_request = 0.0

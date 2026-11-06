@@ -15,7 +15,7 @@ README.md                   Human quick start
 project.yml                 XcodeGen spec (targets, bundle ids, Info.plist keys)
 docs/                       Project docs (this folder)
 tools/species.txt           The species to include (Wikipedia titles); the only hand-made data input
-tools/gen_taxonomy.py       Builds Resources/taxonomy.json from Wikidata + Wikipedia
+tools/gen_taxonomy.py       Builds Resources/taxonomy.json from Wikidata + Wikipedia; --screen checks new titles (D-019)
 tools/taxonomy-sources.json Generated provenance for every taxonomy value
 AnimalScroller/
   App/                      App entry point, Theme (palette, fonts, BoardPanel)

@@ -35,6 +35,12 @@ Notes:
   `gen_taxonomy.py` refuses genus articles such as "Smilodon" (AGENTS.md rule 1, D-015).
 - `EX` drives `Species.isExtinct`, which gates the extinct filters and artwork.
 
+### Roster expansion (2026-11-06)
+
+The list grew from 361 to 1,090 species. Additions only: no existing species or taxon id
+changed or was removed (checked against the previous `taxonomy.json`). 300-odd new taxon nodes
+were added, so achievement group sizes (D-016) grew too.
+
 ### ID changes in the W4 species expansion (2026-11-06, PR #12)
 
 The list grew from 77 to 361 species. Genus-level entries were dropped because the generator
