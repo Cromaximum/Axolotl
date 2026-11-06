@@ -34,6 +34,7 @@ the PR merges or is abandoned.
 
 | Work | Who / where | Branch or PR | Started |
 | --- | --- | --- | --- |
+| W1 feed speed, image pipeline, content cache (design review) | Claude, thread "Speed up feed loading and caching" | `claude/project-thread-72fg80` | 2026-11-06 |
 
 ## Known issues
 
