@@ -23,7 +23,7 @@ test-target fix, and the feed loads live Wikipedia content. CI also builds and t
 | IUCN statuses, common names, group names | Generated from Wikidata and Wikipedia (D-011, #9). 52 of 361 species have no IUCN status in either source and show NE (mostly invertebrates and fossils the IUCN never assessed) |
 | Fonts (Fredoka, Nunito Sans) | Bundled (latin subsets, OFL) in `Resources/Fonts/`; `ThemeFontTests` checks they load. Scientific names use the system italic. |
 | Concept screens | Twelve screens in `docs/design/` (D-010). App views rebuilt to match (#4); layout still needs a hand check on a simulator. |
-| Architecture review gate | Rules in [architecture-rules.md](architecture-rules.md) (D-014). Every design and PR needs architect sign-off. |
+| Architecture review gate | Suspended 2026-11-06 (D-014). Rules in [architecture-rules.md](architecture-rules.md) still apply; PR authors merge once CI is green. |
 | App name | Working title only. Must change before App Store (trademark). |
 | Ads, privacy manifest, App Store assets | Not started |
 
@@ -36,7 +36,7 @@ the PR merges or is abandoned.
 | --- | --- | --- | --- |
 | W1 step 5: move the stores to `Stores/`. Then delete `WikipediaContentProvider.shared` after W3 PR B | Claude, thread "Speed up feed loading and caching" | `claude/project-thread-72fg80` (steps 0 to 4 and 6 merged in #14) | 2026-11-06 |
 | W3: Tree search, Met filters and sort, slim Met saves (`met.v2`), onboarding and detail view models | Claude, thread "Improve onboarding, tree and saves" | PR A #11 merged; PR B #19 (onboarding, detail and Met grid on the injected provider and image loader) | 2026-11-06 |
-| Polish and performance workstreams W1 to W4 ([roadmap](roadmap.md#phase-15-polish-and-performance-current-from-2026-11-06)) | One thread per workstream, architect reviews | see roadmap | 2026-11-06 |
+| Polish and performance workstreams W1 to W4 ([roadmap](roadmap.md#phase-15-polish-and-performance-current-from-2026-11-06)) | One thread per workstream | see roadmap | 2026-11-06 |
 
 ## Known issues
 
