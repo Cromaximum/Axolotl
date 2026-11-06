@@ -46,7 +46,7 @@ final class CachingContentProviderTests: XCTestCase {
     }
 
     func testStaleIsRefetched() async throws {
-        let clock = Clock(Date(timeIntervalSince1970: 1_800_000_000))
+        let clock = TestClock(Date(timeIntervalSince1970: 1_800_000_000))
         _ = try await CachingContentProvider(upstream: FakeProvider(), directory: directory,
                                              now: { clock.now }).content(for: species)
         clock.now = clock.now.addingTimeInterval(ContentCachePolicy.freshFor + 1)
@@ -59,7 +59,7 @@ final class CachingContentProviderTests: XCTestCase {
     }
 
     func testStaleBeatsOffline() async throws {
-        let clock = Clock(Date(timeIntervalSince1970: 1_800_000_000))
+        let clock = TestClock(Date(timeIntervalSince1970: 1_800_000_000))
         _ = try await CachingContentProvider(upstream: FakeProvider(), directory: directory,
                                              now: { clock.now }).content(for: species)
         clock.now = clock.now.addingTimeInterval(ContentCachePolicy.freshFor * 3)
@@ -112,7 +112,7 @@ final class CachingContentProviderTests: XCTestCase {
         }
     }
 
-    private final class Clock: @unchecked Sendable {
+    private final class TestClock: @unchecked Sendable {
         var now: Date
         init(_ now: Date) { self.now = now }
     }
