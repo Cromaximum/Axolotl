@@ -29,6 +29,10 @@ targets:
     platform: iOS
     sources:
       - AnimalScrollerTests
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.cromaximum.animalscroller.tests
     dependencies:
       - target: AnimalScroller
 schemes:
