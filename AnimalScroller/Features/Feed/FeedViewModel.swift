@@ -21,7 +21,10 @@ final class FeedViewModel {
     /// Keep this many cards queued below the one on screen.
     private let prefetchDistance = 6
 
-    init(taxonomy: Taxon, provider: SpeciesContentProvider = WikipediaContentProvider()) {
+    /// Position of each card in its species set (1-based) and the set's size.
+    private(set) var positions: [String: (position: Int, count: Int)] = [:]
+
+    init(taxonomy: Taxon, provider: SpeciesContentProvider = WikipediaContentProvider.shared) {
         self.taxonomy = taxonomy
         self.provider = provider
     }
@@ -31,6 +34,7 @@ final class FeedViewModel {
         generation += 1
         isLoading = false
         cards = []
+        positions = [:]
         emptyMessage = nil
         picker.discoveryShare = prefs.surpriseMe ? 0.3 : 0
         loadMore(prefs: prefs)
@@ -74,6 +78,7 @@ final class FeedViewModel {
                     sequence += 1
                     let set = FeedComposer.cards(for: entry, content: content,
                                                  sequence: sequence, allowArtwork: allowArtwork)
+                    for (i, card) in set.enumerated() { positions[card.id] = (i + 1, set.count) }
                     cards.append(contentsOf: set)
                     return
                 } catch {

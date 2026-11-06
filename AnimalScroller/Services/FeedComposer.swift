@@ -57,6 +57,10 @@ enum FeedComposer {
             }
         }
 
+        // Each fact card keeps a photo of the animal above the board: cycle through the set's images.
+        let factPhotos = ([hero].compactMap { $0 } + usable.filter { $0 != hero })
+        var factPhotoIndex = 0
+
         let factTotal = plan.filter { slot in
             if case .fact = slot { return true }
             return false
@@ -68,9 +72,11 @@ enum FeedComposer {
                 cards.append(.photo(PhotoCard(entry: entry, sequence: sequence, image: image)))
             case .fact(let fact):
                 factIndex += 1
+                let photo = factPhotos.isEmpty ? nil : factPhotos[factPhotoIndex % factPhotos.count]
+                factPhotoIndex += 1
                 cards.append(.fact(FactCard(entry: entry, sequence: sequence, index: factIndex,
                                             total: factTotal, topic: fact.topic, text: fact.text,
-                                            attribution: textCredit)))
+                                            attribution: textCredit, image: photo)))
             }
         }
         return cards

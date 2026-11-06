@@ -43,6 +43,17 @@ enum ContentPolicy {
         "diagram", "skeletal", "sketch", "cartoon", "clipart",
     ]
 
+    /// Words that mark a real specimen: fossils, skeletons, mounts, museum casts.
+    private static let fossilWords = [
+        "fossil", "specimen", "skeleton", "skull", "holotype", "paratype", "cast", "mount",
+        "bones", "subfossil", "museum", "amber", "imprint", "slab",
+    ]
+
+    static func isFossil(fileTitle: String, description: String?) -> Bool {
+        let haystack = (fileTitle + " " + (description ?? "")).lowercased()
+        return fossilWords.contains { haystack.contains($0) }
+    }
+
     static func isJunk(fileTitle: String) -> Bool {
         let t = fileTitle.lowercased()
         return junkWords.contains { t.contains($0) }

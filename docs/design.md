@@ -19,6 +19,7 @@ win where they conflict.
 | `parchment` | `#F5F0E6` | Fact boxes, light panels |
 | `amber` | `#E2A13B` | Accents, "Did you know?", selected state |
 | `ink` | `#1E1B16` | Text on parchment |
+| `mist` | `#C9D6CF` | Secondary text |
 
 Use the `Theme` tokens. Don't add raw colour literals in views.
 
@@ -33,14 +34,23 @@ Use the `Theme` tokens. Don't add raw colour literals in views.
 
 ## Card anatomy
 
-- **Intro card**: hero photo on top; a `BoardPanel` sign with common name (large), scientific
-  name (italic), taxonomic path, lead text, an amber "Did you know?" box, and the IUCN status bar
-  with the species' category highlighted. "ARTIST RECONSTRUCTION" tag if the hero is artwork.
-- **Photo card**: full-bleed image, caption if any, attribution chip, reconstruction tag when
-  relevant.
-- **Fact card**: board with the article section as heading (e.g. "Diet"), the fact, and an
-  "n of N" counter.
-- **Attribution chip** on every card; opens a credit sheet.
+Implemented to match the concept screens (shared pieces in `Features/Components/CardComponents.swift`):
+
+- **Intro card** (screen 3/7): hero full-bleed; zoo-board sign at the bottom (green panel,
+  6 pt wood border, 22 pt corners) with common name, scientific name in amber italic, lineage in
+  mist, parchment "Did you know?" box, IUCN bar with status label and "IUCN Red List". Progress
+  dashes or the media tag top-left, credit chip top-right.
+- **Photo card** (screen 4/6/8/9): animal only. "Name · n of N" pill top-left, credit chip
+  bottom-left, Save / Info / Share rail on the right. Extinct: media tag top-left, credit
+  top-right, amber "SCIENTIFIC NAME · n OF N" and the caption on a lower-third scrim.
+- **Fact card** (screen 5): photo in the top 52% with its credit; forest board below with a
+  5 pt wood rule, "DID YOU KNOW? · TOPIC" in amber, the stand-out number at 64 pt, the sentence
+  in Fredoka, and "Scientific name · Source: Wikipedia".
+- **Species detail** (screen 10), **Tree** (screen 11), **Species met** (screen 12), **Welcome**
+  and **Starting point** (screens 1–2).
+- **Credit chip** on every photo; opens a credit sheet.
+- Not built yet from the concept: photo thumbnails on Tree rows, drill-down pages per rank,
+  "Eats" / "Lives in" quick facts (need structured data).
 
 ## Rules
 

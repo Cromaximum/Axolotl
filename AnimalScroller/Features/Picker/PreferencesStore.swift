@@ -13,6 +13,8 @@ final class PreferencesStore {
     var showArtwork: Bool { didSet { save() } }
     /// Mix in random species from outside the selected branches.
     var surpriseMe: Bool { didSet { save() } }
+    /// Set once the welcome and starting-point screens have been completed.
+    var hasOnboarded: Bool { didSet { save() } }
 
     private let defaults: UserDefaults
     private static let key = "preferences.v1"
@@ -23,6 +25,21 @@ final class PreferencesStore {
         var extinctOnly = false
         var showArtwork = true
         var surpriseMe = true
+        var hasOnboarded = false
+
+        init() {}
+
+        // Every field is optional on decode so adding a field never wipes older saved preferences.
+        init(from decoder: Decoder) throws {
+            let c = try decoder.container(keyedBy: CodingKeys.self)
+            let d = Stored()
+            selectedTaxonIDs = try c.decodeIfPresent(Set<String>.self, forKey: .selectedTaxonIDs) ?? d.selectedTaxonIDs
+            includeExtinct = try c.decodeIfPresent(Bool.self, forKey: .includeExtinct) ?? d.includeExtinct
+            extinctOnly = try c.decodeIfPresent(Bool.self, forKey: .extinctOnly) ?? d.extinctOnly
+            showArtwork = try c.decodeIfPresent(Bool.self, forKey: .showArtwork) ?? d.showArtwork
+            surpriseMe = try c.decodeIfPresent(Bool.self, forKey: .surpriseMe) ?? d.surpriseMe
+            hasOnboarded = try c.decodeIfPresent(Bool.self, forKey: .hasOnboarded) ?? d.hasOnboarded
+        }
     }
 
     init(defaults: UserDefaults = .standard) {
@@ -34,6 +51,31 @@ final class PreferencesStore {
         extinctOnly = stored.extinctOnly
         showArtwork = stored.showArtwork
         surpriseMe = stored.surpriseMe
+        hasOnboarded = stored.hasOnboarded
+    }
+
+    /// The three-way switch on the Tree screen, stored as the two existing flags.
+    enum ExtinctMode: String, CaseIterable, Identifiable {
+        case livingOnly, includeExtinct, extinctOnly
+        var id: String { rawValue }
+        var label: String {
+            switch self {
+            case .livingOnly: "Living only"
+            case .includeExtinct: "Include extinct"
+            case .extinctOnly: "Extinct only"
+            }
+        }
+    }
+
+    var extinctMode: ExtinctMode {
+        get {
+            if !includeExtinct { return .livingOnly }
+            return extinctOnly ? .extinctOnly : .includeExtinct
+        }
+        set {
+            includeExtinct = newValue != .livingOnly
+            extinctOnly = newValue == .extinctOnly
+        }
     }
 
     /// A value that changes whenever anything affecting the feed changes.
@@ -58,8 +100,13 @@ final class PreferencesStore {
     }
 
     private func save() {
-        let stored = Stored(selectedTaxonIDs: selectedTaxonIDs, includeExtinct: includeExtinct,
-                            extinctOnly: extinctOnly, showArtwork: showArtwork, surpriseMe: surpriseMe)
+        var stored = Stored()
+        stored.selectedTaxonIDs = selectedTaxonIDs
+        stored.includeExtinct = includeExtinct
+        stored.extinctOnly = extinctOnly
+        stored.showArtwork = showArtwork
+        stored.surpriseMe = surpriseMe
+        stored.hasOnboarded = hasOnboarded
         if let data = try? JSONEncoder().encode(stored) { defaults.set(data, forKey: Self.key) }
     }
 }

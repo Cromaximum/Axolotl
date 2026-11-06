@@ -23,6 +23,9 @@ actor WikipediaContentProvider: SpeciesContentProvider {
     private let client: WikiClient
     private var cache: [String: SpeciesContent] = [:]
 
+    /// One shared cache for the feed, onboarding tiles and detail sheets.
+    static let shared = WikipediaContentProvider()
+
     init(client: WikiClient = WikiClient()) { self.client = client }
 
     func content(for species: Species) async throws -> SpeciesContent {

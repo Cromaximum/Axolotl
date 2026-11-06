@@ -4,8 +4,9 @@ import SwiftUI
 struct FeedView: View {
     let taxonomy: Taxon
     @Environment(PreferencesStore.self) private var prefs
+    @Environment(MetStore.self) private var met
     @State private var model: FeedViewModel
-    @State private var showingFilters = false
+    @State private var detailEntry: SpeciesEntry?
 
     init(taxonomy: Taxon) {
         self.taxonomy = taxonomy
@@ -13,57 +14,63 @@ struct FeedView: View {
     }
 
     var body: some View {
-        ZStack(alignment: .top) {
-            Theme.forest.ignoresSafeArea()
-
-            ScrollView(.vertical) {
-                LazyVStack(spacing: 0) {
-                    ForEach(model.cards) { card in
-                        CardView(card: card)
-                            .containerRelativeFrame([.horizontal, .vertical])
-                            .onAppear { model.cardAppeared(card, prefs: prefs) }
-                    }
-                    if model.isLoading || model.cards.isEmpty {
-                        loadingPage.containerRelativeFrame([.horizontal, .vertical])
-                    }
+        ScrollView(.vertical) {
+            LazyVStack(spacing: 0) {
+                ForEach(model.cards) { card in
+                    CardView(card: card, context: context(for: card))
+                        .containerRelativeFrame([.horizontal, .vertical])
+                        .clipped()
+                        .onAppear { cardAppeared(card) }
+                        .onLongPressGesture { toggleSaved(card) }
                 }
-                .scrollTargetLayout()
+                if model.isLoading || model.cards.isEmpty {
+                    loadingPage.containerRelativeFrame([.horizontal, .vertical])
+                }
             }
-            .scrollTargetBehavior(.paging)
-            .scrollIndicators(.hidden)
-            .ignoresSafeArea()
-            .refreshable { model.restart(with: prefs) }
-
-            topBar
+            .scrollTargetLayout()
         }
+        .scrollTargetBehavior(.paging)
+        .scrollIndicators(.hidden)
+        .ignoresSafeArea(edges: .top)
+        .background(Theme.forest)
+        .refreshable { model.restart(with: prefs) }
         .task { if model.cards.isEmpty { model.restart(with: prefs) } }
         .onChange(of: prefs.feedSignature) { model.restart(with: prefs) }
-        .sheet(isPresented: $showingFilters) {
-            TaxonomyPickerView(root: taxonomy)
+        .sheet(item: $detailEntry) { entry in
+            SpeciesDetailView(entry: entry)
                 .presentationDetents([.large])
+                .presentationDragIndicator(.visible)
         }
     }
 
-    private var topBar: some View {
-        HStack {
-            Text("Animal Scroller")
-                .font(Theme.heading(22))
-                .foregroundStyle(Theme.parchment)
-                .shadow(radius: 4)
-            Spacer()
-            Button {
-                showingFilters = true
-            } label: {
-                Label("Tree of life", systemImage: "line.3.horizontal.decrease.circle.fill")
-                    .labelStyle(.iconOnly)
-                    .font(.title)
-                    .foregroundStyle(Theme.amber)
-                    .shadow(radius: 4)
-            }
-            .accessibilityLabel("Filter by tree of life")
+    private func context(for card: FeedCard) -> CardContext {
+        let pos = model.positions[card.id] ?? (position: 1, count: 1)
+        return CardContext(
+            position: pos.position,
+            count: pos.count,
+            isSaved: met.isSaved(card.entry.id),
+            onSave: { toggleSaved(card) },
+            onInfo: { detailEntry = card.entry }
+        )
+    }
+
+    private func cardAppeared(_ card: FeedCard) {
+        model.cardAppeared(card, prefs: prefs)
+        if case .intro(let intro) = card {
+            met.recordMet(intro.entry.species, imageURL: intro.hero?.url)
         }
-        .padding(.horizontal, 20)
-        .padding(.top, 4)
+    }
+
+    private func toggleSaved(_ card: FeedCard) {
+        met.toggleSaved(card.entry.species, imageURL: heroURL(for: card))
+    }
+
+    private func heroURL(for card: FeedCard) -> URL? {
+        switch card {
+        case .intro(let c): c.hero?.url
+        case .photo(let c): c.image.url
+        case .fact(let c): c.image?.url
+        }
     }
 
     @ViewBuilder private var loadingPage: some View {
@@ -71,8 +78,7 @@ struct FeedView: View {
             if let message = model.emptyMessage {
                 Image(systemName: "binoculars").font(.largeTitle)
                 Text(message).multilineTextAlignment(.center).font(Theme.body())
-                Button("Open filters") { showingFilters = true }
-                    .buttonStyle(.borderedProminent).tint(Theme.amber)
+                Text("Change your branches on the Tree tab.").font(Theme.body(14)).foregroundStyle(Theme.mist)
             } else {
                 ProgressView().tint(Theme.amber)
                 Text("Finding the next animal…").font(Theme.body(16))
@@ -85,12 +91,13 @@ struct FeedView: View {
 
 struct CardView: View {
     let card: FeedCard
+    let context: CardContext
 
     var body: some View {
         switch card {
-        case .intro(let intro): IntroCardView(card: intro)
-        case .fact(let fact): FactCardView(card: fact)
-        case .photo(let photo): PhotoCardView(card: photo)
+        case .intro(let intro): IntroCardView(card: intro, context: context)
+        case .fact(let fact): FactCardView(card: fact, context: context)
+        case .photo(let photo): PhotoCardView(card: photo, context: context)
         }
     }
 }

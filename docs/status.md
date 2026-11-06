@@ -20,7 +20,7 @@ build fixes are in progress (see "In flight").
 | Species data | 77 species (20 extinct) in `taxonomy.json`. Launch target is a few hundred. |
 | IUCN statuses | Filled in by hand, must be checked against the Red List before launch |
 | Fonts (Fredoka, Nunito Sans) | Not bundled. App falls back to the system font. |
-| Concept screens | Twelve screens in `docs/design/` (D-010). App views not yet updated to match. |
+| Concept screens | Twelve screens in `docs/design/` (D-010). App views rebuilt to match in `feature/concept-screens` (see In flight); not yet checked on a simulator. |
 | App name | Working title only. Must change before App Store (trademark). |
 | Ads, privacy manifest, App Store assets | Not started |
 
@@ -31,6 +31,7 @@ the PR merges or is abandoned.
 
 | Work | Who / where | Branch or PR | Started |
 | --- | --- | --- | --- |
+| Rebuild screens to the concept art (D-010) | Maxwell's agents (iOS programmer thread) | `feature/concept-screens` | 2026-11-06 |
 | GitHub Actions CI for iOS build and tests | Maxwell's agents | PR #1, `ci/macos-build` | 2026-11-06 |
 | Fix first-compile build errors on a Mac | Maxwell's agents | TBD | 2026-11-06 |
 | Agent documentation (this `docs/` folder) | Maxwell's agents | `claude/project-thread-g3dioe` | 2026-11-06 |
