@@ -21,3 +21,4 @@
 
 - [ ] No new content source, or `docs/content-and-licensing.md` was updated and a human approved it
 - [ ] Only CC0 / public domain / CC BY / CC BY-SA content; attribution shown on every card
+- [ ] No AI-generated or AI-rewritten content (text, images, data); everything is verbatim from a source
