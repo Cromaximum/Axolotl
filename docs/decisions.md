@@ -23,6 +23,19 @@ Template:
 
 ---
 
+## D-015 · Subspecies count as one specific animal
+- Status: Proposed (agent, W4 content quality, 2026-11-06)
+- Date: 2026-11-06
+- Decided by: pending (Maxwell Rhinelander)
+- Context: `gen_taxonomy.py` now refuses any listed title whose Wikidata item is not a species
+  (AGENTS.md rule 1). A few famous animals are subspecies on Wikidata, for example the Pinta
+  Island tortoise (Lonesome George's kind).
+- Decision: Accept Wikidata rank species or subspecies. A subspecies is narrower than a species,
+  so it is still one specific animal, never a broad group. Genus articles (Smilodon,
+  Tyrannosaurus, Tuatara) are refused and were removed from the bundled list.
+- Consequences: Rule 1 is checked by the build. Popular genus-level fossils only appear if
+  Wikipedia has a species article for them.
+
 ## D-014 · Architecture review gate: design before code, sign-off before merge
 - Status: Decided
 - Date: 2026-11-06

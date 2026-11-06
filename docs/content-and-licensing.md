@@ -95,12 +95,29 @@ Photo captions are the Commons file's `ImageDescription`, HTML stripped, otherwi
 the first sentence alone is longer, the photo has no caption. Captions are never cut mid-sentence
 (D-011). The species detail sheet shows Wikipedia's short description as-is ("Wikipedia says").
 
+## Facts
+
+"Did you know?" facts are whole sentences copied verbatim from the species' English Wikipedia
+article (D-011). `FactExtractor` only *chooses* sentences; it never edits them. It skips
+sections such as References, Etymology and Taxonomy, and rejects sentences that:
+
+- open with words that need the previous sentence ("It", "This", "As a result", "Later", ...),
+- carry citation residue or point elsewhere ("et al.", "ISBN", "see below", "Figure"),
+- restate the taxonomy the intro board already shows ("is a species of", "was described by"),
+- read as lists (a colon, or four or more commas), or
+- say nearly the same thing as a fact already picked or as the lead.
+
+It prefers sentences with numbers and units (sizes, weights, ages) and marks down hedged ones
+("may", "is thought").
+
 ## Image suitability
 
 `ContentPolicy.licensedImages` also drops:
 
 - Non-photo MIME types (only JPEG, PNG, WebP).
-- Images narrower than 400 px.
+- Images narrower than 640 px (Commons scales to at most 1080 px wide, so narrower means a small
+  original), with a short side under 400 px, or with an aspect ratio beyond 2.6:1 (panoramas
+  and strips).
 - "Junk" files whose names suggest maps, range maps, status icons, logos, stamps, coins,
   charts, cladograms, size comparisons, and Wikimedia UI icons.
 

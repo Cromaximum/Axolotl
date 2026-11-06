@@ -34,11 +34,14 @@ format of an endless vertical feed. Every item is about **one specific species**
      scientific name, taxonomic path, a "Did you know?" box (or the lead if there are no facts),
      and the IUCN status bar (LC › NT › VU › EN › CR › EW › EX). Progress dashes and the photo
      credit sit at the top. Tapping the sign opens the species detail sheet.
-  2. Then **3 to 8 items**, alternating photos and fact cards. Two fact cards never sit next to
-     each other. Leftover photos may run together at the end; leftover facts are dropped.
+  2. Then **up to 8 items**, alternating photos and fact cards. Two fact cards never sit next to
+     each other and no more than two photo cards follow each other. Leftover facts are dropped;
+     leftover photos are used above fact boards instead. Near-duplicate files (crops, edits and
+     re-encodes of one photo) are shown once, keeping the article's lead image.
      - **Photo card**: animal only, with a "Name · n of N" pill, a credit chip and a Like / Save /
        Info / Share rail. Extinct species add a media tag and a caption on the scrim.
-     - **Fact card**: a photo of the species on the top half, and a board below with "Did you
+     - **Fact card**: a photo of the species on the top half (never the same photo as the card
+       just before or after), and a board below with "Did you
        know? · Topic", the fact's stand-out number in large type (years are skipped), the
        sentence, and the source line.
 - Extinct-species media is tagged **Historical photo**, **Real fossil** or amber
@@ -71,6 +74,10 @@ Saved / Extinct. Tap a tile for the detail sheet. Persisted across launches.
   dwell time. Tailored picks then favour its relatives; the liked species itself isn't repeated
   more. Discovery picks ignore likes.
 - Strongly favours species the user hasn't seen. Never repeats a species within the last 12.
+- **Variety**: never two species from the same family back to back (unless nothing else is in
+  scope), and half the weight for the same order as the last species. Discovery picks give each
+  class a share that grows with the square root of its size, so classes with few species still
+  turn up.
 - **Full species catalogue** (D-012, default on): besides the bundled hand-picked list, the feed
   finds species from the GBIF Backbone Taxonomy under the same branches (and, for discovery
   picks, outside them), keeping only species with a substantial, illustrated English Wikipedia
