@@ -41,6 +41,13 @@ enum ContentPolicy {
         "artist", "illustration", "drawing", "painting", "lithograph", "engraving",
         "plate", "watercolour", "watercolor", "render", "3d model", "sculpture", "statue",
         "diagram", "skeletal", "sketch", "cartoon", "clipart",
+        // Commons descriptions are often not in English. Stems for Spanish, French, German,
+        // Italian and Portuguese: reconstrucción/reconstrução/Rekonstruktion/ricostruzione,
+        // restauración, ilustración/illustrazione, dibujo, dessin, Zeichnung, disegno, pintura,
+        // peinture, Gemälde, paleoarte.
+        "reconstru", "rekonstru", "ricostru", "restaura", "ilustra", "illustra", "dibujo",
+        "desenho", "dessin", "zeichnung", "disegno", "pintura", "peinture", "gemälde", "dipinto",
+        "paleoarte", "paléoart", "paläokunst", "künstler", "artiste", "artista",
     ]
 
     /// Words that mark a real specimen: fossils, skeletons, mounts, museum casts.

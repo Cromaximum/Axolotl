@@ -17,6 +17,12 @@ final class ContentPolicyTests: XCTestCase {
     func testFlagsArtworkAndJunk() {
         XCTAssertTrue(ContentPolicy.isArtwork(fileTitle: "File:Tyrannosaurus life restoration.jpg", description: nil))
         XCTAssertFalse(ContentPolicy.isArtwork(fileTitle: "File:Tyrannosaurus Rex Holotype.jpg", description: "Mounted skeleton at the Carnegie Museum"))
+        // Real Commons case: a Meganeura reconstruction described only in Spanish.
+        XCTAssertTrue(ContentPolicy.isArtwork(fileTitle: "File:Meganeura monyi.png",
+                                              description: "Reconstrucción del insecto meganisóptero Meganeura monyi."))
+        XCTAssertTrue(ContentPolicy.isArtwork(fileTitle: "File:Archaeopteryx Lebendrekonstruktion.jpg", description: nil))
+        XCTAssertFalse(ContentPolicy.isArtwork(fileTitle: "File:Meganeura monyi fossil.jpg",
+                                               description: "Fossil wing in the Muséum de Toulouse"))
         XCTAssertTrue(ContentPolicy.isJunk(fileTitle: "File:Panthera uncia distribution map.png"))
     }
 
