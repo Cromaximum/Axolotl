@@ -37,6 +37,8 @@ from stepping on each other.
 - Edit `tools/gen_taxonomy.py`, then run
   `python3 tools/gen_taxonomy.py AnimalScroller/Resources/taxonomy.json`. Commit both.
 - Every species must be one specific species with an English Wikipedia article.
+- Never type names, statuses or other values from memory (D-011). Every value must come from
+  Wikidata or Wikipedia.
 - Don't rename existing taxon ids (they're stored in user preferences).
 - Update the species count in [status.md](status.md) and `README.md`.
 
@@ -44,7 +46,7 @@ from stepping on each other.
 
 - [ ] Branched from current `main`; no unrelated changes
 - [ ] Builds and tests pass (or the PR says why you couldn't run them)
-- [ ] Content rules in [content-and-licensing.md](content-and-licensing.md) still hold
+- [ ] Content rules in [content-and-licensing.md](content-and-licensing.md) still hold, including zero AI-generated content
 - [ ] [changelog.md](changelog.md) has a line under `Unreleased`
 - [ ] [status.md](status.md) updated (state, known issues, "In flight" row added/removed)
 - [ ] Any other affected doc updated (architecture, data model, product, design, roadmap)
