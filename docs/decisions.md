@@ -23,6 +23,24 @@ Template:
 
 ---
 
+## D-019 · Bar for adding a bundled species
+- Status: Proposed (by Claude, thread "Expand the species roster"); the expansion itself was
+  Maxwell Rhinelander's ask ("expand the species roster", 2026-11-06)
+- Date: 2026-11-06
+- Context: growing `species.txt` from 361 to about 1,000 species needed a repeatable test for
+  "a solid article, a few usable free photos, sourced facts", instead of judging titles by eye.
+- Decision: a title joins `species.txt` only if `gen_taxonomy.py --screen` passes it: a Wikidata
+  species or subspecies with a P225 name, not already listed, an English article of at least
+  12,000 bytes, a free lead image, and at least 3 sharp photos (allowed licence, not junk, at
+  least 1200 × 800 on the original) among the first 40 files on the article (the app reads 80, so this is stricter), using the same
+  rules as `ContentPolicy` and `PhotoQuality` (D-018). Titles whose sourced common name is just
+  a group name shared by other species ("Crab spider", "Horseshoe Crab", "Caveman" for Homo
+  erectus) are left out by hand. Species listed before 2026-11-06 are kept even if they fall
+  short.
+- Consequences: 729 of about 2,200 candidates passed. Vertebrates pass far more often than
+  invertebrates (short articles, few sharp photos), so the tree stays vertebrate-heavy. If
+  `PhotoQuality` thresholds change, change the mirror in `gen_taxonomy.py` too.
+
 ## D-018 · Rank photos for quality and screen fit; load them at full-screen resolution
 - Status: Decided
 - Date: 2026-11-06
@@ -134,7 +152,7 @@ Template:
 - Date: 2026-11-06
 - Decided by: Maxwell Rhinelander
 - Context: How big the species set must be before launch.
-- Decision: A few hundred species, each reviewed. Currently 361 (W4, 2026-11-06).
+- Decision: A few hundred species, each reviewed. Currently 1,090 (roster expansion, 2026-11-06; Maxwell asked to "expand the species roster", see D-019).
 - Consequences: Needs a generation pipeline (likely Wikidata) plus human review.
 
 ## D-005 · Paleoart allowed for extinct species, reputable sources only, always labelled

@@ -37,10 +37,16 @@ from stepping on each other.
 
 ## Species data
 
+- Before adding titles, put them in a scratch file and run
+  `python3 tools/gen_taxonomy.py --screen <file>`. It prints the titles that meet the bar
+  (D-019: article length, free lead image, 3+ sharp photos under the app's photo rules) to stdout
+  and the reason for each rejection to stderr. Add only titles it passes.
 - Add or remove English Wikipedia titles in `tools/species.txt`, then run
   `python3 tools/gen_taxonomy.py`. Commit `species.txt`, `taxonomy.json` and
   `taxonomy-sources.json` together. The script pulls every value from Wikidata; it is slow
-  because Wikidata rate-limits, and caches in `tools/.cache/`.
+  because Wikidata rate-limits, and caches in `tools/.cache/`. From the cloud dev environment
+  Wikimedia answers HTTP 429 for minutes at a time; the script waits and retries, so a run over
+  1,000 species takes about an hour there.
 - Every species must be one specific species with an English Wikipedia article.
 - Never type names, statuses or other values from memory (D-011). Every value must come from
   Wikidata or Wikipedia.

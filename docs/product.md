@@ -110,7 +110,7 @@ the badge.
 Tier targets come from one ladder, 1, 5, 10, 25, 50, then every 50 (100, 150, 200, ...), scaled
 to the group: the first target is about a twentieth of the group's bundled species, and the
 group's size is added as a "met them all" target unless a ladder value is within 20% of it. For
-the 361-species list that gives birds 5, 10, 25, 50, 100, 150 and so on. Tiers never run out,
+the 1,090-species list (254 birds) that gives birds 25, 50, 100, 150, 200, 250 and so on. Tiers never run out,
 because the full catalogue has more species than the bundled list. Badges are an SF Symbol
 rosette with the tier number (bronze, silver, gold, then amber), no artwork. Reaching a tier
 shows a short banner at the top for 3 seconds (tap to dismiss); the Awards tab badge counts tiers

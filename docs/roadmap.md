@@ -122,6 +122,12 @@ Owns: `Services/FactExtractor.swift`, `Services/ContentPolicy.swift`,
 5. [x] Offline `gen_taxonomy.py --lint` in CI (species list, taxonomy.json and sources agree).
        A full `--check` still needs the API cache committed or a CI-friendly Wikidata dump.
 
+### Roster expansion (done 2026-11-06)
+
+- [x] Grow the bundled roster to about 1,000 species with a repeatable screen
+      (`gen_taxonomy.py --screen`, D-019). Now 1,090. Next: more invertebrate and fossil species
+      as their Wikipedia articles and photos improve.
+
 ### Not assigned yet
 
 - [x] Achievements: tiered awards for species met per branch and status (Awards tab, 2026-11-06)
