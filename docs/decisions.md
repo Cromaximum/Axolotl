@@ -23,6 +23,14 @@ Template:
 
 ---
 
+## D-012 · Architecture review gate: design before code, sign-off before merge
+- Status: Decided
+- Date: 2026-11-06
+- Decided by: Maxwell Rhinelander
+- Context: Several people's AI agents write code in this repo. Maxwell asked for "a bot that functions as the programming architect" so that new code is confirmed to fit the program's architecture before it starts and before it reaches `main`, "to avoid any long term AI spaghetti code difficulties".
+- Decision: A Claude architect agent owns [architecture-rules.md](architecture-rules.md). Every piece of work bigger than a one-file fix posts a design note (draft PR with `docs/designs/...`) and waits for `Architecture review: Design approved`. Every PR needs `Architecture review: Approved` on its latest commit before a human merges it. Applies to collaborators' agents too. Maxwell can sign off if the architect hasn't answered in 24 hours.
+- Consequences: Work starts a little slower, but layers and dependency rules are enforced on every change. Because all agents post through one GitHub account, sign-off is a marker comment, not a GitHub approval, so branch protection can't enforce it; humans check it before merging. The layer model (proposed by the architect agent) moves app-wide stores into `Stores/` and forbids hard-coded animal content in Swift.
+
 ## D-011 · Zero AI-generated content
 - Status: Decided
 - Date: 2026-11-06

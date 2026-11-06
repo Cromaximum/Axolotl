@@ -1,5 +1,9 @@
 # Architecture
 
+This file is the map of the code as it is. The rules for what may be added (layers, dependency
+rules, naming, where new features go, and the review gate) are in
+[architecture-rules.md](architecture-rules.md). Read both before writing code.
+
 SwiftUI app, iOS 17, Swift 5.9, Observation framework (`@Observable`), async/await. No
 third-party dependencies. The Xcode project is generated from `project.yml` by XcodeGen.
 
