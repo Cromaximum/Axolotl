@@ -2,7 +2,7 @@
 
 - Author: Claude (W3 thread "Improve onboarding, tree and saves"), for Maxwell Rhinelander
 - Date: 2026-11-06
-- Status: Draft
+- Status: Design approved (architect review on #11, 2026-11-06). PR A coded on the same branch; PR B follows W1 step 4.
 
 ## Problem
 
@@ -135,6 +135,11 @@ struct LiveRecord: Codable, Hashable {
   artwork hidden for living species, failure state, sources list order).
 
 ## Open questions
+
+Answered by the architect on #11: (1) yes, both new pure files are W3's; (2) keep `imageURL` as a
+fetch-only hint until PR B; (3) deprecated forwarders, W2 switches the `FeedView` call sites;
+(4) PR A merges before W1 moves the stores. `PreferencesStore.reset()` keeps the artwork and
+full-catalogue switches as they are.
 
 1. Is `Services/TaxonomyIndex.swift` and `Services/MetCollection.swift` OK as new W3-owned files?
    (W4 owns the existing Services files; these are new and independent.)
