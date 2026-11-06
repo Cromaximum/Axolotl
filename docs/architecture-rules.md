@@ -19,7 +19,7 @@ features, never upwards.
 | 2 | Features | `Features/<Feature>/` | One folder per screen or flow: SwiftUI views and that screen's `@Observable` view model. | Stores, Services (through protocols), Models, `Features/Components` |
 | 2a | Shared UI | `Features/Components/` | Reusable views with no feature knowledge (board panel, credit chip, tags). | Models, Theme |
 | 3 | Stores | `Stores/` | App-wide `@Observable` state that outlives one screen and is persisted (preferences, species met, likes). | Models, `UserDefaults`/file I/O injected in `init` |
-| 4 | Services | `Services/` | **Pure logic** (no I/O): `FeedComposer`, `SpeciesPicker`, `FactExtractor`, `ContentPolicy`. **Adapters** (I/O behind a protocol): `WikiClient`, `WikipediaContentProvider`. | Models, Foundation, NaturalLanguage |
+| 4 | Services | `Services/` | **Pure logic** (no I/O): `FeedComposer`, `SpeciesPicker`, `FactExtractor`, `ContentPolicy`. **Adapters** (I/O behind a protocol): `WikiClient`, `WikipediaContentProvider`. | Models, Foundation, NaturalLanguage, os (logging). Adapters may also use ImageIO, CoreGraphics and CryptoKit (approved for W1, 2026-11-06). Never SwiftUI or UIKit. |
 | 5 | Models | `Models/` | Plain value types (`struct`/`enum`), `Codable`, `Hashable`, `Sendable`. | Foundation only |
 | 6 | Data | `Resources/`, `tools/` | Bundled generated data and the scripts that generate it. | n/a |
 

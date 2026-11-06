@@ -34,7 +34,8 @@ the PR merges or is abandoned.
 
 | Work | Who / where | Branch or PR | Started |
 | --- | --- | --- | --- |
-| W3: Tree search, Met filters and sort, slim Met saves (`met.v2`), onboarding and detail view models | Claude, thread "Improve onboarding, tree and saves" | PR #11 (PR A: Tree, Met, `met.v2`; PR B after W1 step 4) | 2026-11-06 |
+| W3: Tree search, Met filters and sort, slim Met saves (`met.v2`), onboarding and detail view models | Claude, thread "Improve onboarding, tree and saves" | PR A #11 (Tree, Met, `met.v2`); PR B (onboarding and detail on the injected provider, Met grid on W1's image loader) after W1 step 4 (#14) | 2026-11-06 |
+| Polish and performance workstreams W1 to W4 ([roadmap](roadmap.md#phase-15-polish-and-performance-current-from-2026-11-06)) | One thread per workstream, architect reviews | see roadmap | 2026-11-06 |
 
 ## Known issues
 
