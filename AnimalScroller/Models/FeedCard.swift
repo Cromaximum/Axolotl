@@ -95,6 +95,43 @@ enum FeedCard: Identifiable, Hashable {
         case .photo(let c): c.entry
         }
     }
+
+    /// Where this card sits in its species set, e.g. card 2 of 7.
+    var placement: CardPlacement {
+        switch self {
+        case .intro(let c): c.placement
+        case .fact(let c): c.placement
+        case .photo(let c): c.placement
+        }
+    }
+
+    /// The same card with its place in the set filled in. `FeedViewModel` stamps each set.
+    func placed(_ placement: CardPlacement) -> FeedCard {
+        switch self {
+        case .intro(var c): c.placement = placement; return .intro(c)
+        case .fact(var c): c.placement = placement; return .fact(c)
+        case .photo(var c): c.placement = placement; return .photo(c)
+        }
+    }
+
+    /// The photo this card shows: hero, fact photo or the photo itself. Used for image
+    /// prefetch and for the image saved with a like or a save.
+    var primaryImage: LicensedImage? {
+        switch self {
+        case .intro(let c): c.hero
+        case .fact(let c): c.image
+        case .photo(let c): c.image
+        }
+    }
+}
+
+/// Position of a card in its species set (1-based) and the set's size.
+struct CardPlacement: Hashable {
+    let position: Int
+    let count: Int
+
+    /// Default before the feed stamps a set.
+    static let single = CardPlacement(position: 1, count: 1)
 }
 
 struct IntroCard: Hashable {
@@ -109,6 +146,7 @@ struct IntroCard: Hashable {
     let didYouKnow: String?
     let hero: LicensedImage?
     let textAttribution: Attribution
+    var placement: CardPlacement = .single
 }
 
 struct FactCard: Hashable {
@@ -122,10 +160,12 @@ struct FactCard: Hashable {
     let attribution: Attribution
     /// Photo kept above the fact board so the animal stays in view (D-010).
     let image: LicensedImage?
+    var placement: CardPlacement = .single
 }
 
 struct PhotoCard: Hashable {
     let entry: SpeciesEntry
     let sequence: Int
     let image: LicensedImage
+    var placement: CardPlacement = .single
 }
