@@ -40,14 +40,18 @@ enum FeedComposer {
         let photos = usable.filter { $0 != hero }
 
         let textCredit = Attribution.wikipediaText(title: content.title, pageURL: content.pageURL)
-        // The lead is already on the intro board, so drop facts that repeat it.
+        let profile = content.profile.flatMap { $0.rows.isEmpty ? nil : $0 }
+        let sheetTexts = Set(profile?.rows.map(\.text) ?? [])
+        // Drop facts that repeat the lead or a fact-sheet row.
         var facts = content.facts.filter {
             $0.text != content.lead && !FactExtractor.isNearDuplicate($0.text, content.lead)
+                && !sheetTexts.contains($0.text)
         }
-        // The intro board's "Did you know?" box gets the first fact.
-        let headlineFact = facts.isEmpty ? nil : facts.removeFirst()
+        // With a fact sheet the intro shows the sheet, and every fact gets its own card.
+        // Without one, the intro board's "Did you know?" box gets the first fact as before.
+        let headlineFact = (profile != nil || facts.isEmpty) ? nil : facts.removeFirst()
 
-        var cards: [FeedCard] = [.intro(IntroCard(
+        var intro = IntroCard(
             entry: entry,
             sequence: sequence,
             tagline: content.tagline,
@@ -55,7 +59,9 @@ enum FeedComposer {
             didYouKnow: headlineFact?.text,
             hero: hero,
             textAttribution: textCredit
-        ))]
+        )
+        intro.profile = profile
+        var cards: [FeedCard] = [.intro(intro)]
 
         let plan = plan(photos: photos, facts: facts)
         let factTotal = plan.filter(\.isFact).count

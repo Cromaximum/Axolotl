@@ -51,6 +51,8 @@ The current audit of AI-written material in the repo, and the plan to replace it
 | Images | Wikimedia Commons files used on the species' English Wikipedia article | Per file (see allowlist) |
 | Conservation status | IUCN Red List category via Wikidata (P141) | CC0. **Currently typed in by hand; must be replaced, see [ai-content-audit.md](ai-content-audit.md)** |
 | Taxonomy and common names | Wikidata (parent taxon P171, English labels / common names P1843) | CC0. **Currently typed in by hand; must be replaced** |
+| Intro fact sheet values (lives in, eats, length/height/wingspan, weight) | Wikidata statements on the article's item: P9714 taxon range / P183 endemic to, P1034 main food source, P2043 / P2048 / P2050, P2067 mass; place and food names are the items' English labels | CC0. Credited as "Sources: Wikidata (CC0)" on the sheet |
+| Intro fact sheet fallback | One whole sentence (at most 90 characters) from the matching section of the species' English Wikipedia article | CC BY-SA 4.0 (Maxwell approved the fallback, 2026-11-06, D-017) |
 | Live catalogue: species list, scientific names, classification | GBIF Backbone Taxonomy (`api.gbif.org`, built on the Catalogue of Life) | CC BY 4.0. Credited on the species detail sheet with a link to the GBIF species page |
 | Live catalogue: common name | The species' English Wikipedia article title, verbatim (a trailing "(animal)"-style disambiguator is dropped) | CC BY-SA 4.0 (part of the article credit) |
 | Live catalogue: conservation status | Wikidata P141 on the article's Wikidata item, else Extinct only if GBIF flags the species extinct | CC0. No sourced value → the IUCN bar is left out and the status reads "Unknown". Never guessed from keywords; Extinct only when Wikidata or GBIF states it (Maxwell, D-012) Never GBIF's `iucnRedListCategory` endpoint: that IUCN data is NonCommercial |
@@ -109,6 +111,22 @@ sections such as References, Etymology and Taxonomy, and rejects sentences that:
 
 It prefers sentences with numbers and units (sizes, weights, ages) and marks down hedged ones
 ("may", "is thought").
+
+## Intro fact sheet
+
+`SpeciesProfileBuilder` builds up to four rows, and a row exists only when a source has the data
+(D-017):
+
+- **Wikidata first.** Place and food names are item labels exactly as Wikidata has them, at most
+  three per row. Quantities are Wikidata's amounts as sent (only the leading "+" dropped) with a
+  unit symbol; several adult values become a min–max range; values whose "object has role"
+  qualifier says newborn, juvenile, egg and so on are skipped. Unknown units are skipped.
+- **Wikipedia fallback.** When Wikidata has nothing for a row, the first standalone sentence of
+  at most 90 characters from the matching article section (Distribution and habitat, Diet,
+  Description...) that passes `FactExtractor.isStandalone`; size and weight sentences must
+  contain a length or mass measurement. Copied whole, never trimmed or rewritten.
+- Wikidata ranges can be partial; the row shows what Wikidata says, nothing is added.
+- Row labels ("Lives in", "Eats", "Weight", unit symbols) are UI chrome.
 
 ## Image suitability
 

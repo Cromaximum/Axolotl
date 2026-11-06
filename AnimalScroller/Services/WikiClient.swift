@@ -23,6 +23,8 @@ struct WikiClient {
         let extract: String
         let originalimage: ImageRef?
         let contentURLs: ContentURLs?
+        /// Wikidata item of the article, e.g. "Q30197", for the intro fact sheet.
+        let wikibaseItem: String?
 
         struct ImageRef: Decodable { let source: URL; let width: Int; let height: Int }
         struct ContentURLs: Decodable {
@@ -33,6 +35,7 @@ struct WikiClient {
         enum CodingKeys: String, CodingKey {
             case title, description, extract, originalimage
             case contentURLs = "content_urls"
+            case wikibaseItem = "wikibase_item"
         }
 
         var pageURL: URL {

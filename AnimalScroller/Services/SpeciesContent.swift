@@ -13,6 +13,8 @@ struct SpeciesContent: Codable, Hashable {
     let leadImageFileTitle: String?
     let facts: [FactExtractor.Fact]
     let images: [LicensedImage]
+    /// Intro fact sheet (lives in, eats, size, weight). Nil when no source has any of it.
+    var profile: SpeciesProfile? = nil
 }
 
 protocol SpeciesContentProvider: Sendable {
@@ -23,15 +25,19 @@ protocol SpeciesContentProvider: Sendable {
 /// in-flight fetches) is `CachingContentProvider`'s job; `App/` wraps this provider in one.
 struct WikipediaContentProvider: SpeciesContentProvider {
     private let client: WikiClient
+    private let wikidata: WikidataClient
 
-    init(client: WikiClient) { self.client = client }
+    init(client: WikiClient, wikidata: WikidataClient) {
+        self.client = client
+        self.wikidata = wikidata
+    }
 
     /// Transitional: `OnboardingView` and `SpeciesDetailView` still reach for this until W3 moves
     /// them to the injected `speciesContentProvider` (Phase 1.5 W3 step 4). It shares the disk
     /// cache folder with the app's provider. Delete it right after W3's switch lands.
     @available(*, deprecated, message: "Use the injected speciesContentProvider environment value.")
     static let shared: any SpeciesContentProvider = CachingContentProvider(
-        upstream: WikipediaContentProvider(client: WikiClient()),
+        upstream: WikipediaContentProvider(client: WikiClient(), wikidata: WikidataClient()),
         directory: FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
             .flatMap { CachingContentProvider.prepareDirectory(in: $0, fileManager: .default) })
 
@@ -41,9 +47,12 @@ struct WikipediaContentProvider: SpeciesContentProvider {
         async let imageInfos = client.images(onArticle: species.wikiTitle)
 
         let s = try await summary
-        // A missing article body or image list shouldn't sink the whole species.
+        // Starts while the article and images are still loading.
+        async let profileInput = Self.profileInput(itemID: s.wikibaseItem, wikidata: wikidata)
+        // A missing article body, image list or Wikidata entry shouldn't sink the whole species.
         let text = (try? await article) ?? ""
         let infos = (try? await imageInfos) ?? []
+        let input = await profileInput
 
         return SpeciesContent(
             title: s.title,
@@ -52,8 +61,15 @@ struct WikipediaContentProvider: SpeciesContentProvider {
             pageURL: s.pageURL,
             leadImageFileTitle: s.originalimage.map { Self.fileTitle(fromUploadURL: $0.source) },
             facts: FactExtractor.facts(from: text),
-            images: ContentPolicy.licensedImages(from: infos)
+            images: ContentPolicy.licensedImages(from: infos),
+            profile: SpeciesProfileBuilder.profile(input: input, article: text)
         )
+    }
+
+    /// Wikidata statements for the fact sheet; nil (sheet falls back to Wikipedia) on any failure.
+    private static func profileInput(itemID: String?, wikidata: WikidataClient) async -> SpeciesProfileBuilder.Input? {
+        guard let itemID else { return nil }
+        return try? await wikidata.profileInput(itemID: itemID)
     }
 
     /// First one or two sentences, kept short enough for the sign.

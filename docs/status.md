@@ -15,6 +15,7 @@ test-target fix, and the feed loads live Wikipedia content. CI also builds and t
 | Unit tests | 38 tests in `AnimalScrollerTests/` (count fixed 2026-11-06; was listed as 17), run in CI on every PR |
 | CI | `.github/workflows/ios.yml`: XcodeGen + `xcodebuild test` on macos-15 (first available iPhone simulator) for every PR and push to `main`. Results bundle and log uploaded as an artifact. |
 | Feed (intro, photo and fact cards) | The original cards worked in the iPhone 17 simulator. The cards rebuilt to the concept art (`feature/concept-screens`) pass CI but have not been checked by hand yet |
+| Intro fact sheet (D-017) | Lives in / Eats / size / Weight from Wikidata, short Wikipedia sentence fallback (#20). Unit-tested in CI only; needs a simulator check. The cloud dev environment is rate-limited by Wikidata |
 | Tree-of-life filter + extinct toggles | Now the Tree tab, with search, species counts per branch, a "Showing" summary and "Reset to everything" (W3, #11; CI only, not yet checked by hand). The earlier sheet version listed the tree in the simulator |
 | Live Wikipedia / Commons fetching | Works in the simulator. The cloud dev environment can reach `en.wikipedia.org`, `commons.wikimedia.org` and `upload.wikimedia.org` since 2026-11-06 (not `thumb.wikimedia.org`) |
 | Species data | 361 bundled species (29 extinct) in `taxonomy.json`, across 27 classes (W4, #12). Every entry is a Wikidata species or subspecies; `gen_taxonomy.py --lint` checks the files in CI. |
@@ -23,7 +24,7 @@ test-target fix, and the feed loads live Wikipedia content. CI also builds and t
 | IUCN statuses, common names, group names | Generated from Wikidata and Wikipedia (D-011, #9). 52 of 361 species have no IUCN status in either source and show NE (mostly invertebrates and fossils the IUCN never assessed) |
 | Fonts (Fredoka, Nunito Sans) | Bundled (latin subsets, OFL) in `Resources/Fonts/`; `ThemeFontTests` checks they load. Scientific names use the system italic. |
 | Concept screens | Twelve screens in `docs/design/` (D-010). App views rebuilt to match (#4); layout still needs a hand check on a simulator. |
-| Architecture review gate | Rules in [architecture-rules.md](architecture-rules.md) (D-014). Every design and PR needs architect sign-off. |
+| Architecture review gate | Suspended by Maxwell (D-016, 2026-11-06): agents merge their own PRs once CI is green. Rules in [architecture-rules.md](architecture-rules.md) still guide the code. |
 | App name | Working title only. Must change before App Store (trademark). |
 | Ads, privacy manifest, App Store assets | Not started |
 

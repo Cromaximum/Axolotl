@@ -30,7 +30,7 @@ struct AnimalScrollerApp: App {
         wiki.session = session
         let caches = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
         contentProvider = CachingContentProvider(
-            upstream: WikipediaContentProvider(client: wiki),
+            upstream: WikipediaContentProvider(client: wiki, wikidata: WikidataClient(session: session)),
             directory: caches.flatMap { CachingContentProvider.prepareDirectory(in: $0, fileManager: .default) })
     }
 

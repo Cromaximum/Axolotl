@@ -3,9 +3,9 @@ import Foundation
 /// Rules for the on-disk species content cache. Pure logic; `CachingContentProvider` does the I/O.
 enum ContentCachePolicy {
     /// Bump with `directoryName` whenever `SpeciesContent` changes shape (data-model.md).
-    static let schema = 1
+    static let schema = 2
     /// Folder under the app's Caches directory. iOS may purge it; nothing breaks if it does.
-    static let directoryName = "species-content.v1"
+    static let directoryName = "species-content.v2"
     /// Older cache folders, deleted on launch.
     static let directoryPrefix = "species-content.v"
     /// Cached content is refetched after a week so corrected articles reach the device (D-011).

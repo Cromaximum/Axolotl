@@ -54,10 +54,14 @@ These come from decisions the project owner made. Do not change them without a n
 6. **Do not commit secrets, API keys or personal contact details.**
 7. **Do not push to `main`.** All changes go through pull requests (see
    [docs/contributing.md](docs/contributing.md)).
-8. **Pass the architecture review gate.** Post a design note before you start coding, and get
-   architecture sign-off before a PR merges. See "Architecture review gate" below (D-014).
+8. **Architecture review gate: suspended** (D-016, Maxwell, 2026-11-06). Proceed on your best
+   judgment and merge your own PR once CI is green. Still follow
+   [docs/architecture-rules.md](docs/architecture-rules.md) for layers and dependencies.
 
-## Architecture review gate (required for every change)
+## Architecture review gate (suspended since 2026-11-06, D-016)
+
+> Maxwell paused this gate: no design-note wait and no sign-off marker needed. Agents merge their
+> own PRs once CI is green. The process below applies again if Maxwell turns it back on.
 
 The project has an architect agent whose job is to keep the code one coherent design instead of
 long-term "AI spaghetti". This applies to every agent and person, including collaborators' agents.
