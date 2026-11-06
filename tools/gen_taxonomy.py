@@ -20,6 +20,12 @@ It also writes tools/taxonomy-sources.json, which records the Wikidata item behi
 Usage:
     python3 tools/gen_taxonomy.py                # writes the two files above
     python3 tools/gen_taxonomy.py --check        # exits 1 if taxonomy.json is out of date
+    python3 tools/gen_taxonomy.py --lint         # offline: species.txt, taxonomy.json and
+                                                 # taxonomy-sources.json agree (runs in CI)
+
+Every listed title must be a single species (Wikidata P105 = species or subspecies), never a genus or wider
+group (AGENTS.md rule 1). Titles whose article has no free lead image or is shorter than
+MIN_ARTICLE_LENGTH are reported as warnings: they make thin feed sets.
 
 Responses are cached in tools/.cache/ (git-ignored) so re-runs don't hit the APIs again.
 Delete that folder to refresh from live data.
@@ -65,6 +71,9 @@ STATUSES = {  # P141 value -> (code used by the app, expected Wikidata label)
     "Q3245245": ("DD", "Data Deficient"),
 }
 FOSSIL_TAXON = ("Q23038290", "fossil taxon")
+SPECIES_RANK = ("Q7432", "species")
+SUBSPECIES_RANK = ("Q68947", "subspecies")  # narrower than a species, still one specific animal
+MIN_ARTICLE_LENGTH = 5000  # same bar as LiveCatalogRules.minArticleLength in the app
 ANIMALIA = ("Q729", "animal")  # P225 of this item is also checked to be "Animalia"
 
 _last_request = 0.0
@@ -145,6 +154,8 @@ def verify_reference_items():
     expected = {q: label for q, (_, label) in RANKS.items()}
     expected.update({q: label for q, (_, label) in STATUSES.items()})
     expected[FOSSIL_TAXON[0]] = FOSSIL_TAXON[1]
+    expected[SPECIES_RANK[0]] = SPECIES_RANK[1]
+    expected[SUBSPECIES_RANK[0]] = SUBSPECIES_RANK[1]
     expected[ANIMALIA[0]] = ANIMALIA[1]
     ents = get_entities(list(expected), props="labels")
     bad = []
@@ -159,13 +170,14 @@ def verify_reference_items():
         sys.exit("Reference items don't match Wikidata, fix the ids in this script:\n  " + "\n  ".join(bad))
 
 
-def resolve_titles(titles):
-    """English Wikipedia title -> (canonical title, Wikidata QID)."""
+def resolve_titles(titles, info=None):
+    """English Wikipedia title -> (canonical title, Wikidata QID). If `info` is a dict, it is
+    filled with canonical title -> {"length": bytes, "freeImage": file or None}."""
     out = {}
     for batch in chunks(titles, 50):
         data = fetch(ENWIKI_API, {
             "action": "query", "titles": "|".join(batch), "redirects": "1",
-            "prop": "pageprops", "ppprop": "wikibase_item",
+            "prop": "pageprops|info", "ppprop": "wikibase_item|page_image_free",
         })
         q = data["query"]
         mapping = {t: t for t in batch}
@@ -179,6 +191,9 @@ def resolve_titles(titles):
             qid = page.get("pageprops", {}).get("wikibase_item")
             if qid:
                 out[original] = (final, qid)
+                if info is not None:
+                    info[final] = {"length": page.get("length", 0),
+                                   "freeImage": page.get("pageprops", {}).get("page_image_free")}
     return out
 
 
@@ -220,23 +235,87 @@ def strip_disambiguation(title):
     return re.sub(r"\s*\([^)]*\)$", "", title)
 
 
-def main():
-    check = "--check" in sys.argv
+def read_species_list():
     titles = []
     with open(SPECIES_LIST) as f:
         for line in f:
             line = line.strip()
             if line and not line.startswith("#"):
                 titles.append(line)
+    return titles
+
+
+def lint():
+    """Offline consistency check for CI: no network, no cache needed."""
+    titles = read_species_list()
+    errors = []
+    dupes = sorted({t for t in titles if titles.count(t) > 1})
+    if dupes:
+        errors.append("duplicate lines in species.txt: " + ", ".join(dupes))
+    with open(OUT_SOURCES) as f:
+        sources = json.load(f)
+    with open(OUT_TAXONOMY) as f:
+        root = json.load(f)
+    listed = {v["listedAs"] for v in sources["species"].values()}
+    for t in sorted(set(titles) - listed):
+        errors.append(f"'{t}' is in species.txt but not generated: run tools/gen_taxonomy.py")
+    for t in sorted(listed - set(titles)):
+        errors.append(f"'{t}' was generated but is no longer in species.txt: run tools/gen_taxonomy.py")
+
+    seen = []
+
+    def walk(node):
+        for sp in node.get("species", []):
+            seen.append(sp["wikiTitle"])
+        for child in node.get("children", []):
+            walk(child)
+    walk(root)
+    dup_species = sorted({t for t in seen if seen.count(t) > 1})
+    if dup_species:
+        errors.append("species listed twice in taxonomy.json (two titles redirect to one article?): "
+                      + ", ".join(dup_species))
+    if set(seen) != set(sources["species"]):
+        errors.append("taxonomy.json and taxonomy-sources.json list different species: "
+                      "regenerate both with tools/gen_taxonomy.py, never edit them by hand")
+    if errors:
+        sys.exit("Species data lint failed:\n  " + "\n  ".join(errors))
+    print(f"Species data lint passed: {len(seen)} species.")
+
+
+def main():
+    if "--lint" in sys.argv:
+        lint()
+        return
+    check = "--check" in sys.argv
+    titles = read_species_list()
 
     verify_reference_items()
 
-    resolved = resolve_titles(titles)
+    page_info = {}
+    resolved = resolve_titles(titles, page_info)
     missing = [t for t in titles if t not in resolved]
     if missing:
         sys.exit("No Wikipedia article / Wikidata item for: " + ", ".join(missing))
+    by_article = {}
+    for original, (final, _) in resolved.items():
+        by_article.setdefault(final, []).append(original)
+    same = [" / ".join(v) + f" -> {k}" for k, v in by_article.items() if len(v) > 1]
+    if same:
+        sys.exit("These lines lead to the same article:\n  " + "\n  ".join(same))
 
     entities = get_entities([q for _, q in resolved.values()])
+
+    not_species = [f"{t} ({resolved[t][1]})" for t in titles
+                   if not {SPECIES_RANK[0], SUBSPECIES_RANK[0]} & set(best_values(entities[resolved[t][1]], "P105"))]
+    if not_species:
+        sys.exit("Not a single species on Wikidata (P105 is not species or subspecies), so it would show a group "
+                 "(AGENTS.md rule 1). Use a species article or drop it:\n  " + "\n  ".join(not_species))
+    for t in titles:
+        page = page_info.get(resolved[t][0], {})
+        if not page.get("freeImage"):
+            print(f"  warning: {t}: article has no free lead image", file=sys.stderr)
+        if page.get("length", 0) < MIN_ARTICLE_LENGTH:
+            print(f"  warning: {t}: article is short ({page.get('length', 0)} bytes)", file=sys.stderr)
 
     # Walk P171 (parent taxon) up from every species until each chain reaches a kingdom.
     parent_of = {}

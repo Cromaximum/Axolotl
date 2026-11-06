@@ -24,9 +24,10 @@ AnimalScroller/
   Features/Components/       Shared card pieces: full-bleed image, chips, rail, status bar
   Features/Feed/            Feed screen and card views
   Features/Detail/          Species detail sheet
-  Features/Met/             "Species met" collection and its store
+  Stores/                   App-wide persisted state: PreferencesStore, MetStore, LikesStore
+  Features/Met/             "Species met" collection
   Features/Onboarding/      Welcome and starting-point screens
-  Features/Picker/          Tree-of-life filter screen (Tree tab) and persisted preferences
+  Features/Picker/          Tree-of-life filter screen (Tree tab)
   Resources/taxonomy.json   Bundled tree of life + species list (generated, do not hand-edit)
 AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 .github/                    CI workflow (`workflows/ios.yml`) and PR template
@@ -74,12 +75,12 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Features/Components/BoardPanel.swift` | `BoardPanel` framed sign view (moved from `Theme.swift`). |
 | `Features/Components/BoardPlaceholder.swift` | `ShimmerFill` (loading fill, static under Reduce Motion) and `BoardPlaceholder` (the intro board drawn as empty bars). |
 | `Features/Detail/SpeciesDetailView.swift` | Species detail sheet; loads `SpeciesContent` through the shared provider. |
-| `Features/Met/MetStore.swift` | `@Observable` species-met collection persisted to `UserDefaults` (`met.v2`, migrates `met.v1`). Keeps ids, dates and flags; a `LiveRecord` only for live-catalogue species. Old `recordMet(Species)` / `toggleSaved(Species)` remain as deprecated forwarders until `FeedView` passes the `SpeciesEntry`. Moves to `Stores/` in W1 step 5. |
-| `Features/Likes/LikesStore.swift` | `@Observable` liked species persisted to `UserDefaults` (`likes.v1`); exposes `affinity` for the picker. Injected into the environment by `AnimalScrollerApp`. |
+| `Stores/MetStore.swift` | `@Observable` species-met collection persisted to `UserDefaults` (`met.v2`, migrates `met.v1`). Keeps ids, dates and flags; a `LiveRecord` only for live-catalogue species. Old `recordMet(Species)` / `toggleSaved(Species)` remain as deprecated forwarders until `FeedView` passes the `SpeciesEntry`. |
+| `Stores/LikesStore.swift` | `@Observable` liked species persisted to `UserDefaults` (`likes.v1`); exposes `affinity` for the picker. Injected into the environment by `AnimalScrollerApp`. |
 | `Features/Met/MetView.swift` | "Species met" grid with All / Saved / Liked / Extinct and a sort menu; any tile, live species included, opens the detail sheet. |
 | `Features/Met/MetViewModel.swift` | Filter and sort state; maps `MetStore` entries to `MetCollection` records. |
 | `Features/Onboarding/OnboardingView.swift` | Welcome, starting-point tiles (`StartingPoint`), `SpeciesPhoto` (licensed hero for a species). Looks names up in the `TaxonomyIndex`. |
-| `Features/Picker/PreferencesStore.swift` | `@Observable` filter state persisted to `UserDefaults`, `ExtinctMode`, `hasOnboarded`. |
+| `Stores/PreferencesStore.swift` | `@Observable` filter state persisted to `UserDefaults`, `ExtinctMode`, `hasOnboarded`. |
 | `Features/Picker/TaxonomyPickerView.swift` | Tree tab: search, "Showing" summary with remove and "Reset to everything", extinct three-way switch, toggles, tree-of-life outline with species counts. |
 | `Features/Picker/TaxonomyPickerViewModel.swift` | Search text and results, row and summary state from the `TaxonomyIndex`. |
 

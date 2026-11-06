@@ -65,8 +65,8 @@ new `Stores/`, and `FullBleedImage` (move it out of `CardComponents.swift` into
        W1 may change only the init-signature lines in `FeedView` and `RootView` for this, after
        telling W2 and W3. Done in #14 except `.shared`, which is deprecated until W3 switches
        Onboarding and Detail, then deleted.
-5. [ ] Move `PreferencesStore`, `MetStore` and `LikesStore` to `Stores/` (file moves only), after
-       W3's PR A (new `MetStore.Entry`) merges.
+5. [x] Move `PreferencesStore`, `MetStore` and `LikesStore` to `Stores/` (file moves only), after
+       W3's PR A (new `MetStore.Entry`) merges. (#16)
 6. [x] Put set position and count on the card payload instead of `FeedViewModel.positions`.
        Keep a compatible accessor until W2 has switched `FeedView` over. (#14: `FeedCard.placement`, `primaryImage`)
 
@@ -108,15 +108,16 @@ Owns: `Services/FactExtractor.swift`, `Services/ContentPolicy.swift`,
 `Services/LiveCatalogRules.swift`, `Services/FeedSourcePlanner.swift`, `tools/`,
 `Resources/taxonomy.json`, and their tests. All pure logic or generated data, no views.
 
-1. [ ] Better facts: drop sentences that need context ("It", "This species" openers),
+1. [x] Better facts: drop sentences that need context ("It", "This species" openers),
        references, and lists; prefer sentences with numbers. Verbatim only (D-011).
-2. [ ] Better photos: skip near-duplicates and low-resolution files, prefer the lead image,
+2. [x] Better photos: skip near-duplicates and low-resolution files, prefer the lead image,
        and pace the feed (no three photos in a row).
-3. [ ] Grow `tools/species.txt` toward a few hundred species, and add class/order/family
+3. [x] Grow `tools/species.txt` toward a few hundred species, and add class/order/family
        branches so the live catalogue searches more of the tree.
-4. [ ] Tune the picker and likes so the feed feels varied: no same family back to back,
+4. [x] Tune the picker and likes so the feed feels varied: no same family back to back,
        30% discovery kept (D-001).
-5. [ ] Add `gen_taxonomy.py --check` to CI once the cache can be committed.
+5. [x] Offline `gen_taxonomy.py --lint` in CI (species list, taxonomy.json and sources agree).
+       A full `--check` still needs the API cache committed or a CI-friendly Wikidata dump.
 
 ### Not assigned yet
 

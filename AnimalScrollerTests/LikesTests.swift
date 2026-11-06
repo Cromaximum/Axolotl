@@ -76,4 +76,42 @@ final class LikesTests: XCTestCase {
         XCTAssertFalse(reloaded.isLiked(entry.id))
         XCTAssertTrue(reloaded.affinity.isEmpty)
     }
+
+    /// Likes (D-013) and variety (W4) together: a liked family may come back to back and still
+    /// clearly wins the mix, while families nobody liked are never shown twice in a row.
+    func testLikedFamilyMayRepeatButOthersNeverBackToBack() {
+        let cats = entries("felidae", 20), dogs = entries("canidae", 20), bears = entries("ursidae", 20)
+        var picker = SpeciesPicker(discoveryShare: 0)
+        picker.likeAffinity = LikeAffinity.affinity(lineages: [[.init(id: "felidae", rank: .family)]])
+        var rng = SeededRNG(state: 23)
+        var last: String?
+        var catPicks = 0, catRepeats = 0
+        for _ in 0..<600 {
+            let family = picker.next(tailored: cats + dogs + bears, everything: cats + dogs + bears, using: &rng)!.lineage.last!.id
+            if family == "felidae" {
+                catPicks += 1
+                if last == "felidae" { catRepeats += 1 }
+            } else {
+                XCTAssertNotEqual(family, last, "an unliked family must not repeat back to back")
+            }
+            last = family
+        }
+        XCTAssertGreaterThan(Double(catPicks) / 600, 1.0 / 3, "the liked family still gets more than its even share")
+        XCTAssertGreaterThan(catRepeats, 0, "likes may bring a liked family back to back")
+    }
+
+    func testDiscoveryIgnoresLikesForVariety() {
+        let mine = entries("aves", 10), cats = entries("felidae", 20)
+        var picker = SpeciesPicker(discoveryShare: 1)
+        picker.likeAffinity = ["felidae": 50]
+        var rng = SeededRNG(state: 4)
+        var last: String?
+        for _ in 0..<300 {
+            // Every pick is a discovery pick from outside "aves", where likes don't count.
+            let pick = picker.next(tailored: mine, everything: mine + cats + entries("canidae", 20), using: &rng)!
+            let family = pick.lineage.last!.id
+            XCTAssertNotEqual(family, last, "discovery picks never repeat a family back to back, liked or not")
+            last = family
+        }
+    }
 }

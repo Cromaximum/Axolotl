@@ -23,9 +23,9 @@ features, never upwards.
 | 5 | Models | `Models/` | Plain value types (`struct`/`enum`), `Codable`, `Hashable`, `Sendable`. | Foundation only |
 | 6 | Data | `Resources/`, `tools/` | Bundled generated data and the scripts that generate it. | n/a |
 
-Today `PreferencesStore` lives in `Features/Picker/` and the open PR #4 adds `MetStore` in
-`Features/Met/`. Both are app-wide stores and move to `Stores/` in one small follow-up PR after #4
-merges. Don't move them inside unrelated PRs (it causes merge conflicts for everyone).
+`PreferencesStore`, `MetStore` and `LikesStore` live in `Stores/` (moved there in Phase 1.5 W1
+step 5). New app-wide state goes there too. Don't move files inside unrelated PRs (it causes merge
+conflicts for everyone).
 
 ## Dependency rules
 
