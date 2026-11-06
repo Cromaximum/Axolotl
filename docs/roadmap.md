@@ -65,8 +65,8 @@ new `Stores/`, and `FullBleedImage` (move it out of `CardComponents.swift` into
        W1 may change only the init-signature lines in `FeedView` and `RootView` for this, after
        telling W2 and W3. Done in #14 except `.shared`, which is deprecated until W3 switches
        Onboarding and Detail, then deleted.
-5. [ ] Move `PreferencesStore`, `MetStore` and `LikesStore` to `Stores/` (file moves only), after
-       W3's PR A (new `MetStore.Entry`) merges.
+5. [x] Move `PreferencesStore`, `MetStore` and `LikesStore` to `Stores/` (file moves only), after
+       W3's PR A (new `MetStore.Entry`) merges. (#15)
 6. [x] Put set position and count on the card payload instead of `FeedViewModel.positions`.
        Keep a compatible accessor until W2 has switched `FeedView` over. (#14: `FeedCard.placement`, `primaryImage`)
 
