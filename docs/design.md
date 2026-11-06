@@ -3,6 +3,12 @@
 Visual language: **zoo information boards** (decision D-003). The concept deck has the original
 mockups: https://claude.ai/artifact/2AV6oC69cT5XeUxaphfNHU.
 
+**Concept screens:** [`design/`](design/README.md) has twelve full-screen concept screens built
+from real Wikimedia Commons photos (welcome, onboarding, intro card, photo, fact, wide photo,
+extinct, fossil, reconstruction, species detail, tree filters, species collection). Open
+`design/concept-art/prototype.html` in a browser. Treat them as the target look; the rules below
+win where they conflict.
+
 ## Palette (`App/Theme.swift`)
 
 | Token | Hex | Use |
@@ -41,3 +47,10 @@ Use the `Theme` tokens. Don't add raw colour literals in views.
 - Dark appearance, portrait only.
 - Keep text legible over photos (scrims/gradients), and respect Dynamic Type.
 - Living species: photographs only. Artwork must carry the reconstruction tag.
+- **Species first, information second** (D-010). The animal gets the frame; the eye finds the text
+  after. Photos run edge to edge. Text never sits across the animal: it goes in the bottom
+  zoo-board panel or on a scrim in the lower third, and chips hug the top and bottom edges.
+- Crop so the animal's head is in the top ~55% of the screen. Wide photos that would lose the
+  animal in a portrait crop are shown full-width over a blurred copy of themselves.
+- Fact cards keep the photo on top and show one number or one sentence on the board below.
+- Extinct-species media is tagged: `Historical photo`, `Real fossil`, or amber `Reconstruction`.

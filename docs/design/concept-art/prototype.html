@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Animal Scroller: concept screens</title>
+<style>
+@font-face{font-family:Fredoka;font-weight:500;src:url(fonts/fredoka-latin-500-normal.woff2)}
+@font-face{font-family:Fredoka;font-weight:600;src:url(fonts/fredoka-latin-600-normal.woff2)}
+@font-face{font-family:"Nunito Sans";font-weight:400;src:url(fonts/nunito-sans-latin-400-normal.woff2)}
+@font-face{font-family:"Nunito Sans";font-weight:600;src:url(fonts/nunito-sans-latin-600-normal.woff2)}
+@font-face{font-family:"Nunito Sans";font-weight:700;src:url(fonts/nunito-sans-latin-700-normal.woff2)}
+@font-face{font-family:"Nunito Sans";font-weight:800;src:url(fonts/nunito-sans-latin-800-normal.woff2)}
+:root{--forest:#14261F;--panel:#1F3B2F;--wood:#6B4A2B;--parch:#F5F0E6;--amber:#E2A13B;--mist:#C9D6CF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0B1410;color:var(--parch);font-family:"Nunito Sans",system-ui,sans-serif;padding:48px}
+h1.page{font-family:Fredoka;font-weight:600;font-size:40px;margin-bottom:8px}
+p.lead{color:var(--mist);max-width:860px;margin-bottom:40px;font-size:17px;line-height:1.5}
+.grid{display:flex;flex-wrap:wrap;gap:48px}
+figure{display:flex;flex-direction:column;gap:14px;width:393px}
+figcaption{color:var(--mist);font-size:15px;line-height:1.45}
+figcaption b{color:var(--parch);display:block;font-size:17px}
+
+/* ---- one phone screen, 393 x 852 pt (iPhone 15 / 16) ---- */
+.screen{position:relative;width:393px;height:852px;overflow:hidden;border-radius:44px;background:#000;font-family:"Nunito Sans";color:var(--parch)}
+.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.status{position:absolute;top:0;left:0;right:0;height:54px;display:flex;justify-content:space-between;align-items:center;padding:14px 32px 0;font-weight:700;font-size:16px;z-index:5;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.island{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:124px;height:36px;background:#000;border-radius:20px;z-index:6}
+.homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;background:rgba(245,240,230,.85);z-index:6}
+.scrim-b{position:absolute;left:0;right:0;bottom:0;height:62%;background:linear-gradient(to bottom,rgba(10,20,16,0) 0%,rgba(10,20,16,.55) 30%,rgba(10,20,16,.92) 62%,#0A1410 100%)}
+.scrim-t{position:absolute;left:0;right:0;top:0;height:140px;background:linear-gradient(to bottom,rgba(0,0,0,.45),rgba(0,0,0,0))}
+.chip{white-space:nowrap;display:inline-flex;align-items:center;gap:6px;background:rgba(10,20,16,.62);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(245,240,230,.16);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:600;color:var(--parch)}
+.credit{position:absolute;left:16px;bottom:28px;z-index:4;max-width:290px}
+.toprow{position:absolute;top:62px;left:16px;right:16px;display:flex;justify-content:space-between;align-items:center;z-index:4}
+.dots{display:flex;gap:4px}.dots i{width:18px;height:4px;border-radius:2px;background:rgba(245,240,230,.35)}.dots i.on{background:var(--parch)}
+.rail{position:absolute;right:14px;bottom:150px;display:flex;flex-direction:column;gap:18px;z-index:4;align-items:center}
+.rail span{width:46px;height:46px;border-radius:50%;background:rgba(10,20,16,.55);backdrop-filter:blur(10px);border:1px solid rgba(245,240,230,.18);display:flex;align-items:center;justify-content:center}
+.rail svg{width:22px;height:22px;stroke:var(--parch);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* zoo board: bottom sheet with a wood edge */
+.board{position:absolute;left:12px;right:12px;bottom:26px;z-index:4;border-radius:26px;background:var(--wood);padding:6px 6px 6px;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.board-in{background:rgba(31,59,47,.97);border-radius:21px;padding:20px 20px 18px;display:flex;flex-direction:column;gap:12px}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.name{font-family:Fredoka;font-weight:600;font-size:42px;line-height:1}
+.sci{font-style:italic;font-size:15px;color:var(--amber)}
+.path{font-size:12px;color:var(--mist);letter-spacing:.02em}
+.dyk{background:var(--parch);color:var(--forest);border-radius:14px;padding:12px 14px}
+.dyk .eyebrow{color:#9A5B0C;margin-bottom:4px}
+.dyk p{font-size:16px;font-weight:700;line-height:1.35}
+.facts{display:flex;gap:8px}
+.facts div{flex:1;background:rgba(245,240,230,.08);border-radius:12px;padding:8px 10px}
+.facts small{display:block;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mist)}
+.facts b{font-size:14px}
+.iucn{display:flex;flex-direction:column;gap:6px}
+.iucn .bar{display:flex;gap:3px}
+.iucn .bar i{flex:1;height:22px;border-radius:5px;background:rgba(245,240,230,.13);font-style:normal;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;color:rgba(245,240,230,.55)}
+.iucn .bar i.on{flex:1.8;color:#14261F}
+.iucn .lbl{font-size:13px;font-weight:700;display:flex;justify-content:space-between}
+.iucn .lbl span{color:var(--mist);font-weight:600}
+.tag{white-space:nowrap;display:inline-flex;align-items:center;gap:6px;border-radius:8px;padding:5px 10px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.tag.real{background:var(--parch);color:var(--forest)}
+.tag.recon{background:var(--amber);color:var(--forest)}
+.swipe{position:absolute;bottom:-2px;left:0;right:0;text-align:center;font-size:11px;color:var(--mist);z-index:4}
+
+/* fact card with photo on top */
+.fact-photo{position:absolute;top:0;left:0;right:0;height:56%;object-fit:cover;width:100%}
+.fact-body{position:absolute;left:0;right:0;bottom:0;top:52%;background:var(--forest);border-radius:28px 28px 0 0;border-top:6px solid var(--wood);padding:26px 24px;display:flex;flex-direction:column;gap:14px}
+.big{font-family:Fredoka;font-weight:600;font-size:76px;line-height:.95;color:var(--amber)}
+.fact-text{font-size:21px;font-weight:700;line-height:1.3}
+.muted{color:var(--mist);font-size:14px;line-height:1.45}
+
+/* app chrome screens */
+.app{background:var(--forest)}
+.pad{position:absolute;inset:60px 18px 30px;display:flex;flex-direction:column;gap:14px}
+.title{font-family:Fredoka;font-weight:600;font-size:32px;line-height:1.05}
+.crumb{font-size:13px;color:var(--mist)}
+.seg{display:flex;background:rgba(245,240,230,.08);border-radius:12px;padding:3px}
+.seg span{flex:1;text-align:center;padding:8px 4px;font-size:13px;font-weight:700;border-radius:9px;color:var(--mist)}
+.seg span.on{background:var(--amber);color:var(--forest)}
+.row{display:flex;align-items:center;gap:12px;background:var(--panel);border-radius:16px;padding:10px 12px}
+.row img{width:52px;height:52px;border-radius:12px;object-fit:cover}
+.row .t{flex:1}.row .t b{display:block;font-size:16px}.row .t span{font-size:12.5px;color:var(--mist)}
+.tog{width:50px;height:30px;border-radius:15px;background:rgba(245,240,230,.18);position:relative;flex:none}
+.tog::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:var(--parch)}
+.tog.on{background:var(--amber)}.tog.on::after{left:23px}
+.part{width:50px;height:30px;border-radius:15px;background:rgba(226,161,59,.4);position:relative;flex:none}
+.part::after{content:"";position:absolute;top:3px;left:13px;width:24px;height:24px;border-radius:50%;background:var(--parch)}
+.chev{color:var(--mist);font-size:20px}
+.btn{background:var(--amber);color:var(--forest);font-weight:800;font-size:17px;text-align:center;border-radius:16px;padding:16px}
+.btn.ghost{background:transparent;color:var(--parch);border:1.5px solid rgba(245,240,230,.3)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{position:relative;height:150px;border-radius:18px;overflow:hidden}
+.tile img{width:100%;height:100%;object-fit:cover}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 45%,rgba(0,0,0,.75))}
+.tile b{position:absolute;left:12px;bottom:28px;z-index:2;font-family:Fredoka;font-weight:600;font-size:19px}
+.tile small{position:absolute;left:12px;bottom:10px;z-index:2;font-size:11.5px;color:var(--mist)}
+.tile .ck{position:absolute;top:10px;right:10px;z-index:2;width:26px;height:26px;border-radius:50%;background:var(--amber);color:var(--forest);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
+.tile .ck.off{background:rgba(10,20,16,.55);border:2px solid var(--parch)}
+.tabbar{position:absolute;left:0;right:0;bottom:0;height:82px;background:rgba(14,26,21,.96);border-top:1px solid rgba(245,240,230,.08);display:flex;justify-content:space-around;padding-top:10px;z-index:5}
+.tabbar span{font-size:11px;font-weight:700;color:var(--mist);display:flex;flex-direction:column;align-items:center;gap:4px}
+.tabbar span.on{color:var(--amber)}
+.tabbar svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.coll{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.coll div{position:relative;aspect-ratio:3/4;border-radius:12px;overflow:hidden;background:var(--panel)}
+.coll img{width:100%;height:100%;object-fit:cover}
+.coll small{position:absolute;left:6px;bottom:6px;right:6px;font-size:11px;font-weight:800;text-shadow:0 1px 4px rgba(0,0,0,.9)}
+.coll .lock{display:flex;align-items:center;justify-content:center;color:rgba(245,240,230,.35);font-family:Fredoka;font-size:28px}
+.sheet{position:absolute;left:0;right:0;bottom:0;top:300px;background:var(--forest);border-radius:28px 28px 0 0;border-top:6px solid var(--wood);padding:14px 20px 20px;display:flex;flex-direction:column;gap:14px}
+.grab{width:40px;height:5px;border-radius:3px;background:rgba(245,240,230,.3);align-self:center}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kv div{background:var(--panel);border-radius:12px;padding:10px 12px}
+.kv small{display:block;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);margin-bottom:2px}
+.kv b{font-size:14.5px;line-height:1.3}
+.src{font-size:12.5px;color:var(--mist);line-height:1.5;border-top:1px solid rgba(245,240,230,.1);padding-top:10px}
+.src b{color:var(--parch)}
+</style>
+</head>
+<body>
+<h1 class="page">Animal Scroller: concept screens</h1>
+<p class="lead">Rule for every screen: the species gets the frame, the information waits at the edges. Photos run edge to edge; text lives in a bottom zoo-board panel or on a dark scrim below the animal, never across its face. All photos are real Wikimedia Commons images, credited on screen. See <code>CREDITS.md</code>.</p>
+
+<div class="grid">
+
+<!-- 1 ONBOARDING -->
+<figure><div class="screen" id="s01-welcome">
+<img class="photo" src="images/shoebill.jpg" alt="Shoebill standing beside a palm trunk" style="object-position:30% 30%">
+<div class="scrim-t"></div><div class="scrim-b" style="height:52%"></div>
+<div class="status"><span>9:41</span><span>●●● ▮</span></div><div class="island"></div>
+<div class="toprow"><span></span><span class="chip">Bob Owen · CC BY 2.0</span></div>
+<div style="position:absolute;left:24px;right:24px;bottom:44px;z-index:4;display:flex;flex-direction:column;gap:14px">
+<p class="eyebrow">Welcome</p>
+<p class="name" style="font-size:44px">Meet a new species every swipe.</p>
+<p class="muted" style="font-size:16px;color:#E3EBE6">Real photos, real facts, from every branch of the tree of life. This is a shoebill.</p>
+<div class="btn" style="margin-top:6px">Start exploring</div>
+</div>
+<div class="homebar"></div>
+</div><figcaption><b>1 · Welcome</b>One photo, one line, one button. The bird does the selling.</figcaption></figure>
+
+<!-- 2 ONBOARDING PICK -->
+<figure><div class="screen app" id="s02-pick">
+<div class="status"><span>9:41</span><span>●●● ▮</span></div><div class="island"></div>
+<div class="pad">
+<p class="crumb">Step 1 of 2</p>
+<p class="title">Where should we start?</p>
+<p class="muted">Pick a few branches. You can change this any time, and we’ll still surprise you now and then.</p>
+<div class="tiles">
+<div class="tile"><img src="images/red-panda.jpg" alt="" style="object-position:70% 40%"><span class="ck">✓</span><b>Mammals</b><small>Mammalia</small></div>
+<div class="tile"><img src="images/shoebill.jpg" alt="" style="object-position:40% 25%"><span class="ck">✓</span><b>Birds</b><small>Aves</small></div>
+<div class="tile"><img src="images/axolotl.jpg" alt="" style="object-position:80% 50%"><span class="ck off"></span><b>Amphibians</b><small>Amphibia</small></div>
+<div class="tile"><img src="images/peacock-mantis-shrimp.jpg" alt="" style="object-position:55% 40%"><span class="ck">✓</span><b>Crustaceans</b><small>Malacostraca</small></div>
+<div class="tile"><img src="images/archaeopteryx.jpg" alt="" style="object-position:50% 35%"><span class="ck off"></span><b>Fossil life</b><small>Extinct species</small></div>
+<div class="tile"><img src="images/okapi.jpg" alt="" style="object-position:25% 40%"><span class="ck off"></span><b>Surprise me</b><small>Anything goes</small></div>
+</div>
+<div style="flex:1"></div>
+<div class="btn">Continue · 3 picked</div>
+</div><div class="homebar"></div>
+</div><figcaption><b>2 · Pick a starting point</b>Big friendly groups on the first run; the full scientific tree is one tap away in Filters.</figcaption></figure>
+
+<!-- 3 INTRO CARD -->
+<figure><div class="screen" id="s03-intro">
+<img class="photo" src="images/snow-leopard.jpg" alt="Snow leopard on a snowy rock" style="object-position:30% 30%">
+<div class="scrim-t"></div>
+<div class="status"><span>9:41</span><span>●●● ▮</span></div><div class="island"></div>
+<div class="toprow"><div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div><span class="chip">Irbis1983 · Public domain</span></div>
+<div class="board"><div class="board-in">
+<div><p class="name">Snow leopard</p><p class="sci" style="margin-top:4px">Panthera uncia</p></div>
+<p class="path">Mammalia › Carnivora › Felidae</p>
+<div class="dyk"><p class="eyebrow">Did you know?</p><p>It can’t roar. It chuffs, hisses and yowls instead.</p></div>
+<div class="iucn"><div class="bar"><i>LC</i><i>NT</i><i class="on" style="background:#E8C547">VU</i><i>EN</i><i>CR</i><i>EW</i><i>EX</i></div>
+<p class="lbl">Vulnerable <span>IUCN Red List</span></p></div>
+</div></div>
+<div class="homebar"></div>
+</div><figcaption><b>3 · Intro card</b>The zoo board sits low; the cat’s face owns the top half. Progress dashes show how long this species’ set is.</figcaption></figure>
+
+<!-- 4 PHOTO -->
+<figure><div class="screen" id="s04-photo">
+<img class="photo" src="images/okapi.jpg" alt="Okapi walking on grass" style="object-position:22% 50%">
+<div class="scrim-t"></div>
+<div class="status"><span>9:41</span><span>●●● ▮</span></div><div class="island"></div>
+<div class="toprow"><span class="chip"><b>Okapi</b> · 2 of 6</span><div class="dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+<div class="rail">
+<span><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></span>
+<span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>
+<span><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg></span>
+</div>
+<div class="credit"><span class="chip">Daniel Jolivet · CC BY 2.0 · Wikimedia Commons</span></div>
+<div class="homebar"></div>
+</div><figcaption><b>4 · Photo</b>Nothing but the animal. Name pill top-left, credit chip bottom-left, actions on the right edge.</figcaption></figure>
+
+<!-- 5 FACT -->
+<figure><div class="screen" id="s05-fact">
+<img class="fact-photo" src="images/peacock-mantis-shrimp.jpg" alt="Peacock mantis shrimp on dark sand" style="object-position:58% 40%">
+<div class="scrim-t"></div>
+<div class="status"><span>9:41</span><span>●●● ▮</span></div><div class="island"></div>
+<div class="toprow"><span class="chip"><b>Peacock mantis shrimp</b> · 3 of 7</span></div>
+<div style="position:absolute;top:388px;left:16px;z-index:4"><span class="chip">Cédric Péneau · CC BY-SA 4.0</span></div>
+<div class="fact-body">
+<p class="eyebrow">Did you know? · Eyesight</p>
+<p class="big">12 <span style="font-size:30px;color:var(--parch)">vs your 3</span></p>
+<p class="fact-text">Its eyes carry at least 12 kinds of colour receptor. Human eyes have three.</p>
+<div style="flex:1"></div>
+<p class="muted">Odontodactylus scyllarus · Source: Wikipedia</p>
+</div>
+<div class="homebar"></div>
+</div><figcaption><b>5 · Fact card</b>The photo stays on top so the brain keeps the face; one number and one sentence on the board below.</figcaption></figure>
+
+<!-- 6 LANDSCAPE PHOTO -->
+<figure><div class="screen" id="s06-landscape">
+<img class="photo" src="images/axolotl.jpg" alt="" style="filter:blur(28px) brightness(.55);transform:scale(1.3)">
+<img src="images/axolotl.jpg" alt="Axolotl on gravel" style="position:absolute;left:0;top:250px;width:393px;height:219px;object-fit:cover;box-shadow:0 10px 40px rgba(0,0,0,.5)">
+<div class="status"><span>9:41</span><span>●●● ▮</span></div><div class="island"></div>
+<div class="toprow"><span class="chip"><b>Axolotl</b> · 4 of 5</span></div>
+<div style="position:absolute;left:24px;right:24px;top:500px;z-index:4;display:flex;flex-direction:column;gap:8px">
+<p class="eyebrow">Wide photo, shown whole</p>
+<p class="muted" style="font-size:15px">Wide photos are never cropped into a sliver. They sit full-width on a blurred copy of themselves.</p>
+</div>
+<div class="credit"><span class="chip">LoKiLeCh · CC BY-SA 3.0 · Wikimedia Commons</span></div>
+<div class="homebar"></div>
+</div><figcaption><b>6 · Wide photo</b>For landscape shots where a full-bleed crop would cut the animal in half.</figcaption></figure>
+
+<!-- 7 EXTINCT INTRO -->
+<figure><div class="screen" id="s07-extinct">
+<img class="photo" src="images/thylacine.jpg" alt="Two thylacines in a zoo enclosure, historical black and white photo" style="object-position:40% 40%">
+<div class="scrim-t"></div>
+<div class="status"><span>9:41</span><span>●●● ▮</span></div><div class="island"></div>
+<div class="toprow"><span class="tag real">Historical photo</span><span class="chip">E. J. Keller · Public domain</span></div>
+<div class="board"><div class="board-in">
+<div><p class="name">Thylacine</p><p class="sci" style="margin-top:4px">Thylacinus cynocephalus</p></div>
+<p class="path">Mammalia › Dasyuromorphia › Thylacinidae</p>
+<div class="dyk"><p class="eyebrow">Did you know?</p><p>The last known thylacine died in a zoo in Hobart, Tasmania, in 1936.</p></div>
+<div class="iucn"><div class="bar"><i>LC</i><i>NT</i><i>VU</i><i>EN</i><i>CR</i><i>EW</i><i class="on" style="background:#C9D6CF">EX</i></div>
+<p class="lbl">Extinct <span>IUCN Red List</span></p></div>
+</div></div>
+<div class="homebar"></div>
+</div><figcaption><b>7 · Extinct species</b>Same board, same rules. A “Historical photo” tag tells people this footage is real.</figcaption></figure>
+
+<!-- 8 FOSSIL -->
+<figure><div class="screen" id="s08-fossil">
+<img class="photo" src="images/archaeopteryx.jpg" alt="Archaeopteryx fossil in limestone, Berlin specimen" style="object-position:50% 30%">
+<div class="scrim-t"></div><div class="scrim-b" style="height:40%"></div>
+<div class="status"><span>9:41</span><span>●●● ▮</span></div><div class="island"></div>
+<div class="toprow"><span class="tag real">Real fossil</span><span class="chip">H. Raab · CC BY-SA 3.0</span></div>
+<div style="position:absolute;left:22px;right:22px;bottom:40px;z-index:4;display:flex;flex-direction:column;gap:8px">
+<p class="eyebrow">Archaeopteryx lithographica · 2 of 5</p>
+<p class="fact-text" style="font-size:22px">The Berlin specimen: feathers pressed into limestone about 150 million years ago, in what is now Germany.</p>
+</div>
+<div class="homebar"></div>
+</div><figcaption><b>8 · Fossil</b>The fossil is the photo. One caption sits on the scrim beneath it.</figcaption></figure>
+
+<!-- 9 RECONSTRUCTION -->
+<figure><div class="screen" id="s09-recon">
+<img class="photo" src="images/dodo.jpg" alt="Dodo skeleton and reconstructed model in a museum case" style="object-position:4% 30%">
+<div class="scrim-t"></div><div class="scrim-b" style="height:42%"></div>
+<div class="status"><span>9:41</span><span>●●● ▮</span></div><div class="island"></div>
+<div class="toprow"><span class="tag recon">Reconstruction in frame</span><span class="chip">BazzaDaRambler · CC BY 2.0</span></div>
+<div style="position:absolute;left:22px;right:22px;bottom:40px;z-index:4;display:flex;flex-direction:column;gap:8px">
+<p class="eyebrow">Dodo · Raphus cucullatus · 3 of 6</p>
+<p class="fact-text" style="font-size:22px">A real dodo skeleton on display at Oxford’s natural history museum.</p>
+<p class="muted">The painted bird behind it is a reconstruction.</p>
+</div>
+<div class="homebar"></div>
+</div><figcaption><b>9 · Reconstruction</b>Anything that isn’t a photo of the real animal carries an amber tag, every time.</figcaption></figure>
+
+<!-- 10 DETAIL -->
+<figure><div class="screen" id="s10-detail">
+<img src="images/red-panda.jpg" alt="Red panda curled on a mossy branch" style="position:absolute;top:0;left:0;width:100%;height:340px;object-fit:cover;object-position:72% 40%">
+<div class="scrim-t"></div>
+<div class="status"><span>9:41</span><span>●●● ▮</span></div><div class="island"></div>
+<div style="position:absolute;top:256px;left:16px;z-index:4"><span class="chip">Sunuwargr · CC BY-SA 4.0</span></div>
+<div class="sheet">
+<div class="grab"></div>
+<div><p class="name" style="font-size:34px">Red panda</p><p class="sci" style="margin-top:2px">Ailurus fulgens</p></div>
+<p class="path">Animalia › Chordata › Mammalia › Carnivora › Ailuridae</p>
+<div class="kv">
+<div><small>Status</small><b>Endangered</b></div>
+<div><small>Eats</small><b>Mostly bamboo</b></div>
+<div><small>Lives in</small><b>Eastern Himalayas, SW China</b></div>
+<div><small>Family</small><b>Only living member of Ailuridae</b></div>
+</div>
+<div class="dyk"><p class="eyebrow">Did you know?</p><p>Despite the name, it isn’t a close relative of the giant panda.</p></div>
+<p class="src"><b>Sources.</b> Text: Wikipedia, CC BY-SA 4.0. Photo: Sunuwargr, Wikimedia Commons. Tap any credit to open the original.</p>
+</div>
+<div class="homebar"></div>
+</div><figcaption><b>10 · Species detail</b>Opened from the ⓘ button. The whole board in one place, plus sources and credits.</figcaption></figure>
+
+<!-- 11 FILTER TREE -->
+<figure><div class="screen app" id="s11-filters">
+<div class="status"><span>9:41</span><span>●●● ▮</span></div><div class="island"></div>
+<div class="pad" style="bottom:90px">
+<p class="crumb">Animalia › Chordata › <b style="color:#F5F0E6">Mammalia</b></p>
+<p class="title">Orders</p>
+<div class="seg"><span>Living only</span><span class="on">Include extinct</span><span>Extinct only</span></div>
+<div class="row"><img src="images/snow-leopard.jpg" alt="" style="object-position:28% 20%"><div class="t"><b>Carnivora</b><span>Cats, dogs, bears, seals</span></div><div class="tog on"></div><span class="chev">›</span></div>
+<div class="row"><img src="images/okapi.jpg" alt="" style="object-position:22% 40%"><div class="t"><b>Artiodactyla</b><span>Okapi, deer, whales · some off</span></div><div class="part"></div><span class="chev">›</span></div>
+<div class="row"><img src="images/thylacine.jpg" alt="" style="object-position:35% 50%"><div class="t"><b>Dasyuromorphia</b><span>Thylacine, quolls · 1 extinct</span></div><div class="tog on"></div><span class="chev">›</span></div>
+<div class="row"><img src="images/red-panda.jpg" alt="" style="object-position:72% 40%;filter:grayscale(1) brightness(.7)"><div class="t"><b>Primates</b><span>Lemurs, monkeys, apes</span></div><div class="tog"></div><span class="chev">›</span></div>
+<div class="row" style="background:transparent;border:1.5px dashed rgba(226,161,59,.6)"><div class="t"><b>Surprise picks</b><span>About 3 in 10 species come from outside your branches</span></div><div class="tog on"></div></div>
+</div>
+<div class="tabbar"><span><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/></svg>Feed</span><span class="on"><svg viewBox="0 0 24 24"><path d="M12 22V8M12 8l-6 6M12 8l6 6M12 8V2"/></svg>Tree</span><span><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="9" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>Met</span></div>
+<div class="homebar"></div>
+</div><figcaption><b>11 · Tree-of-life filters</b>Real ranks, drill down with ›. Half-filled switch = some children off. Extinct control at every level.</figcaption></figure>
+
+<!-- 12 COLLECTION -->
+<figure><div class="screen app" id="s12-met">
+<div class="status"><span>9:41</span><span>●●● ▮</span></div><div class="island"></div>
+<div class="pad" style="bottom:90px">
+<p class="crumb">Your collection</p>
+<p class="title">Species met · 9</p>
+<div class="seg"><span class="on">All</span><span>Saved</span><span>Extinct</span></div>
+<div class="coll">
+<div><img src="images/snow-leopard.jpg" alt="" style="object-position:28% 20%"><small>Snow leopard</small></div>
+<div><img src="images/okapi.jpg" alt="" style="object-position:22% 40%"><small>Okapi</small></div>
+<div><img src="images/peacock-mantis-shrimp.jpg" alt="" style="object-position:58% 40%"><small>Peacock mantis shrimp</small></div>
+<div><img src="images/axolotl.jpg" alt="" style="object-position:85% 50%"><small>Axolotl</small></div>
+<div><img src="images/thylacine.jpg" alt="" style="object-position:35% 50%"><small>Thylacine</small></div>
+<div><img src="images/archaeopteryx.jpg" alt="" style="object-position:50% 35%"><small>Archaeopteryx</small></div>
+<div><img src="images/dodo.jpg" alt="" style="object-position:18% 40%"><small>Dodo</small></div>
+<div><img src="images/red-panda.jpg" alt="" style="object-position:72% 40%"><small>Red panda</small></div>
+<div><img src="images/shoebill.jpg" alt="" style="object-position:40% 25%"><small>Shoebill</small></div>
+</div>
+<p class="muted">Every species you scroll past is added here. Long-press in the feed to save one.</p>
+</div>
+<div class="tabbar"><span><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/></svg>Feed</span><span><svg viewBox="0 0 24 24"><path d="M12 22V8M12 8l-6 6M12 8l6 6M12 8V2"/></svg>Tree</span><span class="on"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="9" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>Met</span></div>
+<div class="homebar"></div>
+</div><figcaption><b>12 · Species met</b>A field-guide collection of every species seen, so the scroll leaves something behind.</figcaption></figure>
+
+</div>
+</body>
+</html>

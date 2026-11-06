@@ -23,6 +23,14 @@ Template:
 
 ---
 
+## D-010 · Species first, information second
+- Status: Decided
+- Date: 2026-11-06
+- Decided by: Maxwell Rhinelander
+- Context: Maxwell asked for full-screen real images with clear, readable text that doesn't obscure the frame: "the focus on the species, then the brain seeks out the information".
+- Decision: Edge-to-edge photos; text only in the bottom zoo-board panel or a lower-third scrim; crops keep the head in the top ~55%; wide photos shown whole over a blurred fill. Concept screens in `docs/design/`.
+- Consequences: App views in `Features/` should follow `docs/design/concept-art/`; see [design.md](design.md) rules.
+
 ## D-009 · Agent docs live in the repo and are updated with every change
 - Status: Decided
 - Date: 2026-11-06

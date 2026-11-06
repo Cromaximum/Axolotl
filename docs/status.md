@@ -16,10 +16,11 @@ build fixes are in progress (see "In flight").
 | CI | Being added in PR #1 (`ci/macos-build`): XcodeGen + `xcodebuild test` on macos-15 for every PR |
 | Feed (intro, photo and fact cards) | Code complete, unverified on device |
 | Tree-of-life filter + extinct toggles | Code complete, unverified on device |
-| Live Wikipedia / Commons fetching | Code complete, unverified (dev cloud environment cannot reach Wikipedia) |
+| Live Wikipedia / Commons fetching | Code complete, unverified. The cloud dev environment can reach `en.wikipedia.org`, `commons.wikimedia.org` and `upload.wikimedia.org` since 2026-11-06 (not `thumb.wikimedia.org`) |
 | Species data | 77 species (20 extinct) in `taxonomy.json`. Launch target is a few hundred. |
 | IUCN statuses | Filled in by hand, must be checked against the Red List before launch |
 | Fonts (Fredoka, Nunito Sans) | Not bundled. App falls back to the system font. |
+| Concept screens | Twelve screens in `docs/design/` (D-010). App views not yet updated to match. |
 | App name | Working title only. Must change before App Store (trademark). |
 | Ads, privacy manifest, App Store assets | Not started |
 

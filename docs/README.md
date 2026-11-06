@@ -16,6 +16,7 @@ Rules for keeping them current are in [../AGENTS.md](../AGENTS.md#keeping-the-do
 | [architecture.md](architecture.md) | Code map, data flow, extension points | Files or responsibilities change |
 | [data-model.md](data-model.md) | Swift models, `taxonomy.json` shape, saved preferences | Any persisted or decoded shape changes |
 | [design.md](design.md) | Zoo-board visual language: palette, fonts, card anatomy | Look and feel changes |
+| [design/](design/README.md) | Concept screens from real photos, plus the layout rules behind them | Building or changing any screen |
 | [roadmap.md](roadmap.md) | Phases and the next work items | Items finish, start or are dropped |
 | [contributing.md](contributing.md) | Branches, PRs, tests, multi-agent etiquette | Process changes |
 
