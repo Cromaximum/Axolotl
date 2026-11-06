@@ -129,7 +129,7 @@ struct WelcomeView: View {
                 Text("Meet a new species every swipe.")
                     .font(Theme.heading(40))
                     .foregroundStyle(Theme.parchment)
-                Text("Real photos, real facts, from every branch of the tree of life. This is a shoebill.")
+                Text("Real photos and Wikipedia facts, from every branch of the tree of life.")
                     .font(Theme.body(16))
                     .foregroundStyle(Theme.parchment.opacity(0.9))
                 Button(action: onStart) {

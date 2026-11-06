@@ -27,6 +27,13 @@ final class LayoutRulesTests: XCTestCase {
         XCTAssertEqual(MediaTag.tag(for: image("File:Thylacine restoration.jpg", artwork: true), species: extinct), .reconstruction)
     }
 
+    func testCaptionsAreCutOnlyAtSentenceBoundaries() {
+        XCTAssertEqual(ContentPolicy.wholeSentenceCaption("A thylacine at Hobart Zoo."), "A thylacine at Hobart Zoo.")
+        let long = "First sentence about the specimen. " + String(repeating: "Second sentence goes on and on ", count: 10) + "end."
+        XCTAssertEqual(ContentPolicy.wholeSentenceCaption(long), "First sentence about the specimen.")
+        XCTAssertNil(ContentPolicy.wholeSentenceCaption(String(repeating: "word ", count: 60)))
+    }
+
     func testLeadingNumber() {
         XCTAssertEqual(FactFormatting.leadingNumber(in: "Its eyes carry at least 12 kinds of colour receptor."), "12")
         XCTAssertEqual(FactFormatting.leadingNumber(in: "It can weigh up to 1,200 kg."), "1,200")

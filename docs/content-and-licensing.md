@@ -4,17 +4,54 @@ These rules are **hard requirements**. Breaking them can get the app pulled or c
 liability. If a change would loosen any of them, stop and get a human decision recorded in
 [decisions.md](decisions.md).
 
+## Zero AI-generated content
+
+Decision D-011 (Maxwell Rhinelander, 2026-11-06). This is the most important rule in the project.
+
+**The app contains no AI-generated content of any kind: no words, no pictures, nothing.** Every
+fact, caption, description, name, status, image, sound or clip a user sees comes from an open
+source, unchanged, with attribution.
+
+What this means in practice:
+
+| Allowed | Not allowed |
+| --- | --- |
+| Wikipedia sentences shown **verbatim** (whole sentences, cut only at sentence boundaries) | AI-written, AI-summarised, AI-paraphrased, AI-"cleaned up" or AI-translated text |
+| Wikidata values (CC0): names, taxonomy, IUCN status | Names, statuses or taxonomy typed in from an AI model's memory |
+| Commons photos, fossils, specimens, human-made paleoart | AI-generated or AI-upscaled/edited images, even if Commons hosts them under a free licence |
+| Code that selects, filters, orders and crops sourced content | Code that generates or rewrites content (LLM calls, image generation) |
+| Agents writing code, tests and docs | Agents writing anything that ships as content, including "placeholder" facts |
+
+Rules for agents and contributors:
+
+1. **Never author content.** If a card needs text and no source has it, leave the slot empty or
+   drop the card. Do not fill it in.
+2. **Quote, don't rewrite.** Text keeps the source's wording. Trimming to whole sentences is fine;
+   rewording, merging sentences or "simplifying" is not.
+3. **Every value has a source.** Data in `taxonomy.json` (common names, group names, IUCN status)
+   must come from Wikidata or Wikipedia, not from memory. Record where it came from.
+4. **Reject AI-generated media.** Filter out Commons files in AI-generated categories
+   (e.g. "AI-generated images" and its subcategories) or whose description says they were made
+   with AI. When unsure, reject.
+5. **Mockups too.** Design mockups and screenshots in `docs/` should use verbatim sourced text,
+   so nobody copies invented text into the app.
+6. **Interface text** (buttons, menus, onboarding) is not animal content, but it must be
+   written or approved by a human before release. Agents may draft it; mark drafts in the PR.
+
+The current audit of AI-written material in the repo, and the plan to replace it, is in
+[ai-content-audit.md](ai-content-audit.md).
+
 ## Sources (Phase 1)
 
 | Content | Source | Licence |
 | --- | --- | --- |
 | Lead text, facts, short description | English Wikipedia | CC BY-SA 4.0 |
 | Images | Wikimedia Commons files used on the species' English Wikipedia article | Per file (see allowlist) |
-| Conservation status | IUCN Red List category, entered by hand in `tools/gen_taxonomy.py` | Facts, not copyrightable; verify before launch |
-| Taxonomy | Hand-curated in `tools/gen_taxonomy.py` | n/a |
+| Conservation status | IUCN Red List category via Wikidata (P141) | CC0. **Currently typed in by hand; must be replaced, see [ai-content-audit.md](ai-content-audit.md)** |
+| Taxonomy and common names | Wikidata (parent taxon P171, English labels / common names P1843) | CC0. **Currently typed in by hand; must be replaced** |
 
 No other sources in Phase 1. In particular: no scraping of other websites, no stock photo
-sites, no YouTube, no social media, no AI-generated images.
+sites, no YouTube, no social media, no AI-generated anything (see above).
 
 ## Licence allowlist
 
@@ -38,6 +75,13 @@ every licence string you touch. Reject when in doubt.
 - Text cards credit "Wikipedia contributors · CC BY-SA 4.0" and link the article.
 - The attribution chip must be visible on every card and open a credit sheet.
 
+## Captions
+
+Photo captions are the Commons file's `ImageDescription`, HTML stripped, otherwise verbatim.
+`ContentPolicy.wholeSentenceCaption` keeps as many whole sentences as fit in 200 characters; if
+the first sentence alone is longer, the photo has no caption. Captions are never cut mid-sentence
+(D-011). The species detail sheet shows Wikipedia's short description as-is ("Wikipedia says").
+
 ## Image suitability
 
 `ContentPolicy.licensedImages` also drops:
@@ -52,7 +96,7 @@ every licence string you touch. Reject when in doubt.
 Decision D-005. Rules:
 
 1. Only for **extinct** species. Living species only ever show photographs.
-2. Only from reputable sources (museums, journals, recognised paleoartists). Phase 1 enforces
+2. Only human-made, from reputable sources (museums, journals, recognised paleoartists). Phase 1 enforces
    this by only using artwork already used on the species' English Wikipedia article, where
    palaeontology editors review reconstructions.
 3. Always labelled "Artist reconstruction" on the card.
