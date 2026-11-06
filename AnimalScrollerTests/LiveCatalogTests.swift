@@ -52,6 +52,8 @@ final class LiveCatalogTests: XCTestCase {
     func testStatusComesFromWikidataOrIsNotEvaluated() {
         XCTAssertEqual(LiveCatalogRules.status(wikidataItem: "Q278113"), .vulnerable)
         XCTAssertEqual(LiveCatalogRules.status(wikidataItem: "Q237350"), .extinct)
+        XCTAssertEqual(LiveCatalogRules.status(wikidataItem: "Q11394"), .endangered)
+        XCTAssertEqual(LiveCatalogRules.status(wikidataItem: "Q96377276"), .endangered)
         XCTAssertNil(LiveCatalogRules.status(wikidataItem: "Q42"))
         XCTAssertEqual(LiveCatalogRules.resolvedStatus(wikidata: .endangered, gbifExtinct: nil,
                                                        requestedExtinctOnly: false), .endangered)

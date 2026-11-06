@@ -62,7 +62,8 @@ enum LiveCatalogRules {
         case "Q211005": .leastConcern
         case "Q719675": .nearThreatened
         case "Q278113": .vulnerable
-        case "Q11394": .endangered
+        // Wikidata has two items for Endangered; most species use the newer Q96377276.
+        case "Q11394", "Q96377276": .endangered
         case "Q219127": .criticallyEndangered
         case "Q239509": .extinctInWild
         case "Q237350": .extinct
