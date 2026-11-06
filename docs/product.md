@@ -42,6 +42,11 @@ format of an endless vertical feed. Every item is about **one specific species**
 - Layout rule (D-010): the animal gets the frame. Photos run edge to edge; text only sits in the
   bottom zoo-board panel or on a lower-third scrim; chips hug the top and bottom edges. Tall
   photos are top-anchored so the head stays high; wide photos are shown whole over a blurred copy.
+- Photo quality: each species' photos are ranked best first and shown in that order. Commons
+  Featured, Quality and Valued images, big originals, portrait frames that fill the screen and
+  close-ups of the animal come first; habitat shots, specimens and soft files come last or are
+  dropped. Photos load at a resolution that stays sharp on the largest iPhone. Rules in
+  [content-and-licensing.md](content-and-licensing.md#photo-ranking-photoquality).
 - Content comes in **species sets**. Each set is:
   1. **Intro card**: the hero photo full-bleed, with a zoo-board sign at the bottom: common name,
      scientific name, taxonomic path, a "Did you know?" box (or the lead if there are no facts),

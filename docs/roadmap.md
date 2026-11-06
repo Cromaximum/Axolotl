@@ -113,6 +113,8 @@ Owns: `Services/FactExtractor.swift`, `Services/ContentPolicy.swift`,
        references, and lists; prefer sentences with numbers. Verbatim only (D-011).
 2. [x] Better photos: skip near-duplicates and low-resolution files, prefer the lead image,
        and pace the feed (no three photos in a row).
+6. [x] Photo quality pass (D-018): rank photos by Commons assessments, resolution, portrait fit
+       and close-up signals; drop soft originals; load 1920/3840 px renditions (`PhotoQuality`).
 3. [x] Grow `tools/species.txt` toward a few hundred species, and add class/order/family
        branches so the live catalogue searches more of the tree.
 4. [x] Tune the picker and likes so the feed feels varied: no same family back to back,

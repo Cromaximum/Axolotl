@@ -49,8 +49,9 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Services/CachingContentProvider.swift` | Decorator over any `SpeciesContentProvider`: memory cache, disk cache (`Caches/species-content.v1/`), one shared in-flight fetch per species, stale copy when offline. |
 | `Services/ContentCachePolicy.swift` | Pure rules for that cache: 7-day freshness, schema, file names (FNV-1a hash of the title), outdated folders. |
 | `Services/ImagePipeline.swift` | `ImageLoading` protocol and `ImagePipeline` actor: fetch through the injected session, downsample with ImageIO off the main thread, cost-limited memory cache of decoded images, shared fetches, prefetch. |
-| `Services/ImageSizing.swift` | Pure sizing: full-screen decode size, Wikimedia thumbnail width (1280), cache keys and costs. |
-| `Services/ContentPolicy.swift` | Licence allowlist, junk-image filter, artwork detection, `HTMLText.plain`. |
+| `Services/ImageSizing.swift` | Pure sizing: full-screen decode size, Wikimedia thumbnail width (1920, a standard Wikimedia step), cache keys and costs. |
+| `Services/ContentPolicy.swift` | Licence allowlist, junk-image filter (file names and Commons categories), artwork detection, size floors, `licensedImages` (filters, then ranks with `PhotoQuality`), `HTMLText.plain`. |
+| `Services/PhotoQuality.swift` | Pure photo ranking (Commons Featured/Quality/Valued, resolution, portrait fit, close-up and specimen signals, lead image) and the choice between Wikimedia's 1920 px and 3840 px/original renditions so photos are sharp full screen. |
 | `Services/FactExtractor.swift` | Splits article into sections, scores sentences, picks up to 8 standalone facts (max 2 per section). |
 | `Services/SpeciesPicker.swift` | Chooses the next species: tailored vs discovery, novelty, dwell-time and like affinity weighting, recent-repeat window. For the live catalogue: `pickBranch` (which tree branch to search, fewer tries on branches that came back empty) and `choose` (among live candidates, also weighted by article length). |
 | `Services/GBIFClient.swift` | Raw HTTP to the GBIF species API: match a bundled taxon name to a backbone key, page through accepted species under a key. |
@@ -123,7 +124,7 @@ LikesStore.affinity ──────────────────┤
                                      │  wraps WikipediaContentProvider
                ├─ WikiClient.summary / plainTextArticle / images
                ├─ FactExtractor.facts
-               └─ ContentPolicy.licensedImages
+               └─ ContentPolicy.licensedImages (filter) → PhotoQuality (rank, pick rendition)
                                      │ SpeciesContent
                                      ▼
                      FeedComposer.cards() ──▶ [FeedCard] appended to feed

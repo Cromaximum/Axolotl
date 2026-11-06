@@ -12,10 +12,11 @@ test-target fix, and the feed loads live Wikipedia content. CI also builds and t
 | Area | State |
 | --- | --- |
 | Build | Builds clean with Xcode 26.6 locally and in CI (macos-15) |
-| Unit tests | 120 test methods in `AnimalScrollerTests/` (recounted 2026-11-06 with the achievements tests), run in CI on every PR |
+| Unit tests | 137 tests in `AnimalScrollerTests/` (counted 2026-11-06, including the achievements and `PhotoQuality` tests), run in CI on every PR |
 | CI | `.github/workflows/ios.yml`: XcodeGen + `xcodebuild test` on macos-15 (first available iPhone simulator) for every PR and push to `main`. Results bundle and log uploaded as an artifact. |
 | Feed (intro, photo and fact cards) | The original cards worked in the iPhone 17 simulator. The cards rebuilt to the concept art (`feature/concept-screens`) pass CI but have not been checked by hand yet |
 | Tree-of-life filter + extinct toggles | Now the Tree tab, with search, species counts per branch, a "Showing" summary and "Reset to everything" (W3, #11; CI only, not yet checked by hand). The earlier sheet version listed the tree in the simulator |
+| Photo selection | Photos ranked best first by `PhotoQuality` (Commons assessments, resolution, portrait fit, close-ups), soft originals dropped when a species has 2+ sharp ones, 1920 px or 3840 px renditions (2026-11-06). CI only, not yet checked by hand in the simulator |
 | Live Wikipedia / Commons fetching | Works in the simulator. The cloud dev environment can reach `en.wikipedia.org`, `commons.wikimedia.org` and `upload.wikimedia.org` since 2026-11-06 (not `thumb.wikimedia.org`) |
 | Species data | 361 bundled species (29 extinct) in `taxonomy.json`, across 27 classes (W4, #12). Every entry is a Wikidata species or subspecies; `gen_taxonomy.py --lint` checks the files in CI. |
 | Live species catalogue (D-012) | Merged (#7), unit-tested in CI only. Not yet run against the live GBIF API: the cloud dev environment and the Mac VM can't reach `api.gbif.org` or `www.wikidata.org`. Needs a simulator check |
