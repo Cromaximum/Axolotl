@@ -13,7 +13,7 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
 - [x] 77 seed species
 - [x] Screens rebuilt to the concept art (D-010): full-bleed photos, welcome and starting-point
       screens, species detail sheet, Feed / Tree / Met tabs, "Species met" collection with saves
-- [ ] CI: build and test on every PR (PR #1)
+- [x] CI: build and test on every PR (PR #1)
 - [ ] First successful compile and test run; fix build errors
 - [ ] Run on a device and fix layout / behaviour issues
 - [ ] Grow to a few hundred reviewed species (likely generated from Wikidata, then human-reviewed)
