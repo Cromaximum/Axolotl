@@ -12,7 +12,7 @@ simulator or on a device, so screens and live Wikipedia loading are unverified.
 | Area | State |
 | --- | --- |
 | Build | Compiles cleanly in CI (Xcode on macos-15) |
-| Unit tests | 11 tests in `AnimalScrollerTests/`, all passing in CI |
+| Unit tests | 17 tests in `AnimalScrollerTests/`, all passing in CI |
 | CI | `.github/workflows/ios.yml`: XcodeGen + `xcodebuild test` on macos-15 for every PR and push to `main`. Results bundle and log uploaded as an artifact. |
 | Feed (intro, photo and fact cards) | Code complete, unverified on device |
 | Tree-of-life filter + extinct toggles | Code complete, unverified on device |
