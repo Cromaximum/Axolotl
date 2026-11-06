@@ -77,7 +77,7 @@ old ids.
 | `ConservationStatus` | same | IUCN codes; `scale` is the 7-step LC → EX bar. |
 | `SpeciesEntry` | same | Species + lineage (root → parent). Not persisted. |
 | `Attribution` | `Models/FeedCard.swift` | Required on every card. `wikipediaText(...)` builds the CC BY-SA text credit. |
-| `LicensedImage` | same | Commons image that passed `ContentPolicy`; `isArtwork` flags reconstructions; `isWide` (> 1.15 : 1) picks the shown-whole layout. |
+| `LicensedImage` | same | Commons image that passed `ContentPolicy`; `isArtwork` flags reconstructions; `isWide` (> 1.15 : 1) picks the shown-whole layout. `width`/`height` are the original file's pixels (since 2026-11-06; before, the 1280 px thumbnail's). `url` is the rendition `PhotoQuality.displayURL` chose (1920 px, 3840 px or the original). `SpeciesContent.images` is ordered best first. |
 | `LicensedImage.isFossil` | same | Set at ingestion by `ContentPolicy.isFossil` (fossil, skeleton, specimen, mount... keywords). Models never call services. |
 | `MediaTag` | same | `historicalPhoto` / `realFossil` / `reconstruction`, derived (never stored) from the image and species: artwork → reconstruction; extinct + `isFossil` → real fossil; other extinct → historical photo; living → none. |
 | `FactCard.image` | same | Photo shown above the fact board. `FeedComposer` cycles through the set's images, hero first. |
@@ -150,19 +150,20 @@ bump the key (`preferences.v2`) and note the migration here.
 
 ## Species content cache (Caches directory)
 
-Folder: `Library/Caches/species-content.v1/`, one file per species named
+Folder: `Library/Caches/species-content.v2/`, one file per species named
 `ContentCachePolicy.fileName(forWikiTitle:)` (16 hex digits of a 64-bit FNV-1a hash + `.json`).
 Each file is a JSON `ContentCachePolicy.Entry`:
 
 | Field | Type | Notes |
 | --- | --- | --- |
-| `schema` | `Int` | `ContentCachePolicy.schema` (1). A mismatch is a cache miss |
+| `schema` | `Int` | `ContentCachePolicy.schema` (2). A mismatch is a cache miss. 2 (2026-11-06): photos ranked by `PhotoQuality` and pointed at 1920/3840 px renditions, so v1 copies are refetched |
 | `wikiTitle` | `String` | Checked on read, so a hash collision is a miss |
 | `fetchedAt` | `Date` | Fresh for 7 days; older copies are refetched, and used only if the network fails |
 | `content` | `SpeciesContent` | Exactly what `WikipediaContentProvider` returned (after `ContentPolicy`) |
 
 iOS may purge Caches at any time; the app just refetches. Writes are atomic. If `SpeciesContent`
-changes shape, bump both `schema` and the folder name (`species-content.v2`); folders from older
+changes shape (or what goes into it changes enough that cached copies are wrong), bump both
+`schema` and the folder name (`species-content.v3`); folders from older
 versions are deleted on launch. Raw HTTP responses (JSON and image bytes) are also kept by the
 512 MB `URLCache` created in `App/`. Decoded images are memory-only.
 
