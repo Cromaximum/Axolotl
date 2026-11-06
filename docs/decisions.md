@@ -23,6 +23,34 @@ Template:
 
 ---
 
+## D-018 · Rank photos for quality and screen fit; load them at full-screen resolution
+- Status: Decided
+- Date: 2026-11-06
+- Decided by: Maxwell Rhinelander ("really put some work into making sure we are selecting high
+  quality photos, close ups, UHD, screen filling images"); thresholds and weights chosen by the
+  agent (thread "Pick high-quality, screen-filling photos")
+- Context: photos were used in the article's order at 1280 px, and Commons reports the requested
+  thumbnail width for small originals, so 600 px files passed the size check and looked soft
+  full screen.
+- Decision: `PhotoQuality` ranks the allowed photos (Commons Featured/Quality/Valued, resolution,
+  portrait fit, close-up and species-name signals up; habitat, specimen and flawed files down).
+  Soft originals (under 1200 × 800) are dropped when a species has 2+ sharp photos. Photos load
+  at 1920 px or Wikimedia's 3840 px/original rendition, whichever stays sharp on the largest
+  iPhone. The article's lead image stays the intro hero when it passes. Rules in
+  content-and-licensing.md.
+- Consequences: licensing and the zero-AI rule are unchanged (ranking only reorders allowed
+  photos). Some species with only small photos show fewer photo cards. Tall photos download
+  larger (up to 3840 px wide, originals capped at 15 MB). `tools/gen_taxonomy.py`'s build-time
+  photo check should mirror the new size floors.
+
+## D-016 · Achievements: tiers from one ladder, scaled by group size
+- Status: Decided (feature); tier rules Proposed
+- Date: 2026-11-06
+- Decided by: Maxwell Rhinelander asked for "an achievement system, ie something sort of like (visit 50 avians, 100 avians, 150...etc.) for all range of different applicable options". Tier rules proposed by the achievements agent.
+- Context: Groups differ a lot in size (one bundled tardigrade, 126 mammals) and the bundled list is growing, and the live catalogue lets users meet more species than the bundled list holds.
+- Decision: Achievements for all species, each IUCN status EX to LC, and each phylum, class and order with 3+ bundled species, counted by lineage node id. Targets come from the ladder 1, 5, 10, 25, 50, then every 50, starting near a twentieth of the group's bundled size, plus the group size itself when no ladder value is within 20%. Tiers are open-ended. No thresholds are hard-coded per group, so a regenerated `taxonomy.json` rescales them. Badges are SF Symbols and typography only (D-011). Only "tiers seen" is stored (`achievements.v1`); progress is recomputed.
+- Consequences: Families and genera get no achievements (too many, too small). A tier above the bundled group size needs the full catalogue. Changing the ladder can lower someone's tier number; acceptable while nothing has shipped.
+
 ## D-015 · Subspecies count as one specific animal
 - Status: Proposed (agent, W4 content quality, 2026-11-06)
 - Date: 2026-11-06
@@ -37,7 +65,7 @@ Template:
   Wikipedia has a species article for them.
 
 ## D-014 · Architecture review gate: design before code, sign-off before merge
-- Status: Decided
+- Status: Suspended (Maxwell Rhinelander, 2026-11-06: "remove the architect role for now, have bots just proceed with best intentions"). No design-note wait or sign-off; PR authors merge once CI is green. The rules in architecture-rules.md still apply.
 - Date: 2026-11-06
 - Decided by: Maxwell Rhinelander
 - Context: Several people's AI agents write code in this repo. Maxwell asked for "a bot that functions as the programming architect" so that new code is confirmed to fit the program's architecture before it starts and before it reaches `main`, "to avoid any long term AI spaghetti code difficulties".

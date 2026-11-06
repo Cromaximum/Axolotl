@@ -27,12 +27,32 @@ enum ContentPolicy {
 
     static let allowedMimeTypes: Set<String> = ["image/jpeg", "image/png", "image/webp"]
 
-    /// Words in a file name that mean the image is not a picture of the animal.
-    private static let junkWords = [
-        "map", "range", "distribution", "status_iucn", "status iucn", "logo", "icon", "flag",
-        "stamp", "coin", "banknote", "symbol", "chart", "graph", "phylogen", "cladogram",
-        "skull_comparison", "size_comparison", "size comparison", "scale", "commons-logo",
-        "wikispecies", "wiktionary", "red_pencil", "question_book", "ambox",
+    /// Phrases in a file name that mean the image is not a picture of the animal. Matched
+    /// anywhere in the name (underscores read as spaces).
+    private static let junkPhrases = [
+        "distribution", "status iucn", "phylogen", "cladogram", "skull comparison", "size comparison",
+        "commons-logo", "wikispecies", "wiktionary", "red pencil", "question book", "ambox",
+        "range map", "life cycle", "lifecycle", "anatomy", "x-ray", "ct scan", "diagram", "scale bar",
+    ]
+    /// Short words that mean the same, matched as whole words only, so "Orange-bellied parrot",
+    /// "photograph" and "Mountain" are not caught by "range", "graph" and "map".
+    private static let junkWords: Set<String> = [
+        "map", "maps", "range", "logo", "icon", "flag", "stamp", "stamps", "coin", "coins", "banknote",
+        "symbol", "chart", "graph", "infographic", "xray", "radiograph", "micrograph",
+    ]
+    /// Commons categories that mean the same ("Panthera uncia distribution maps", "Cladograms
+    /// of Pantherinae", "Snow leopards on banknotes", "OOUI icons"). Whole words only.
+    private static let junkCategoryWords: Set<String> = [
+        "map", "maps", "diagram", "diagrams", "cladogram", "cladograms", "chart", "charts", "graphs",
+        "banknote", "banknotes", "stamp", "stamps", "coin", "coins", "logo", "logos", "icon", "icons",
+        "flag", "flags", "infographics", "screenshots", "radiographs", "micrographs",
+    ]
+    /// Commons categories that mark artwork. Whole words only, so maintenance categories such
+    /// as "Media missing infobox template" don't trip on "plate".
+    private static let artworkCategoryWords: Set<String> = [
+        "illustrations", "illustration", "drawings", "paintings", "woodcuts", "engravings", "lithographs",
+        "paleoart", "palaeoart", "restorations", "reconstructions", "sculptures", "statues", "artworks",
+        "watercolors", "watercolours", "renders", "renderings", "cartoons", "clipart",
     ]
 
     /// Words that mark an image as artwork or a reconstruction rather than a photograph.
@@ -77,30 +97,31 @@ enum ContentPolicy {
         return out.isEmpty ? nil : out
     }
 
-    static func isJunk(fileTitle: String) -> Bool {
-        let t = fileTitle.lowercased()
-        return junkWords.contains { t.contains($0) }
+    static func isJunk(fileTitle: String, categories: [String] = []) -> Bool {
+        let t = PhotoQuality.normalized(fileTitle)
+        if junkPhrases.contains(where: { t.contains($0) }) { return true }
+        if !junkWords.isDisjoint(with: PhotoQuality.tokens(t)) { return true }
+        let categoryWords = PhotoQuality.tokens(categories.map(PhotoQuality.normalized).joined(separator: " "))
+        return !junkCategoryWords.isDisjoint(with: categoryWords)
     }
 
-    static func isArtwork(fileTitle: String, description: String?) -> Bool {
+    static func isArtwork(fileTitle: String, description: String?, categories: [String] = []) -> Bool {
         let haystack = (fileTitle + " " + (description ?? "")).lowercased()
-        return artworkWords.contains { haystack.contains($0) }
+        if artworkWords.contains(where: { haystack.contains($0) }) { return true }
+        let categoryWords = PhotoQuality.tokens(categories.map(PhotoQuality.normalized).joined(separator: " "))
+        return !artworkCategoryWords.isDisjoint(with: categoryWords)
     }
 
     // MARK: Size and duplicates
 
-    /// Narrower than this (after Commons scales to at most 1080 px wide) looks soft full screen.
-    static let minImageWidth = 640
-    static let minShortSide = 400
     /// Panoramas and tall strips lose the animal in any phone crop.
     static let maxAspectRatio = 2.6
 
-    /// Unknown sizes pass, as before: Commons almost always reports them.
+    /// Original file is at least `PhotoQuality`'s relaxed minimum and not a strip. Unknown sizes
+    /// pass: Commons almost always reports them.
     static func isSharpEnough(width: Int?, height: Int?) -> Bool {
-        guard let width else { return true }
-        guard width >= minImageWidth else { return false }
-        guard let height, height > 0 else { return true }
-        guard min(width, height) >= minShortSide else { return false }
+        guard let width, let height, width > 0, height > 0 else { return true }
+        guard PhotoQuality.isRelaxedSharp(width: width, height: height) else { return false }
         let ratio = Double(width) / Double(height)
         return ratio <= maxAspectRatio && ratio >= 1 / maxAspectRatio
     }
@@ -137,18 +158,32 @@ enum ContentPolicy {
         return images.filter { kept.contains($0.fileTitle) && seen.insert($0.fileTitle).inserted }
     }
 
-    /// Turns raw API image info into licensed images, dropping anything not allowed.
-    static func licensedImages(from infos: [WikiClient.ImageInfo]) -> [LicensedImage] {
-        infos.compactMap { info in
+    /// Turns raw API image info into licensed images, dropping anything not allowed, then ranks
+    /// them best first with `PhotoQuality` (the order the feed uses them in) and points each at
+    /// the Wikimedia rendition that is sharp full screen. When a species has at least
+    /// `PhotoQuality.minimumStrictPhotos` sharp photos, softer ones are dropped.
+    /// - Parameters:
+    ///   - leadFileTitle: the article's lead image, which ranks higher (editors chose it).
+    ///   - subjectNames: scientific then common name, to tell photos of the animal from its habitat.
+    static func licensedImages(from infos: [WikiClient.ImageInfo], leadFileTitle: String? = nil,
+                               subjectNames: [String] = []) -> [LicensedImage] {
+        let ranked: [(image: LicensedImage, score: Double, strict: Bool)] = infos.compactMap { info in
+            let categories = PhotoQuality.categories(from: info.categories)
             guard allowedMimeTypes.contains(info.mime),
-                  !isJunk(fileTitle: info.fileTitle),
+                  !isJunk(fileTitle: info.fileTitle, categories: categories),
                   isAllowedLicense(info.licenseShortName),
                   isSharpEnough(width: info.width, height: info.height)
             else { return nil }
             let description = info.descriptionHTML.map(HTMLText.plain)
-            return LicensedImage(
+            let width = info.width ?? 0, height = info.height ?? 0
+            let known = width > 0 && height > 0
+            let url = known
+                ? PhotoQuality.displayURL(width: width, height: height, bytes: info.bytes,
+                                          standardURL: info.url, largeURL: info.largeURL)
+                : info.url
+            let image = LicensedImage(
                 fileTitle: info.fileTitle,
-                url: info.url,
+                url: url,
                 width: info.width,
                 height: info.height,
                 caption: description.flatMap { wholeSentenceCaption($0) },
@@ -159,10 +194,23 @@ enum ContentPolicy {
                     licenseURL: info.licenseURL,
                     sourceURL: info.descriptionURL
                 ),
-                isArtwork: isArtwork(fileTitle: info.fileTitle, description: description),
+                isArtwork: isArtwork(fileTitle: info.fileTitle, description: description, categories: categories),
                 isFossil: isFossil(fileTitle: info.fileTitle, description: description)
             )
+            let score = known ? PhotoQuality.score(.init(
+                fileTitle: info.fileTitle, width: width, height: height, mime: info.mime,
+                assessments: PhotoQuality.assessments(from: info.assessments), categories: categories,
+                description: description, isLead: info.fileTitle == leadFileTitle, subjectNames: subjectNames
+            )) : 0
+            let strict = !known || PhotoQuality.isStrictlySharp(width: width, height: height)
+            return (image, score, strict)
         }
+        let strictCount = ranked.filter { $0.strict }.count
+        let kept = strictCount >= PhotoQuality.minimumStrictPhotos ? ranked.filter { $0.strict } : ranked
+        // Stable sort: equal scores keep the article's order.
+        return kept.enumerated()
+            .sorted { ($0.element.score, -$0.offset) > ($1.element.score, -$1.offset) }
+            .map { $0.element.image }
     }
 }
 

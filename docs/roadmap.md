@@ -37,11 +37,12 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
 
 Maxwell got the app running on 2026-11-06 and asked for a round of optimisation and UX work. The
 architect split it into four workstreams that **own separate files**, so they can run in
-parallel without merge conflicts. Each one still follows the gate (design note before code,
-`Architecture review: Approved` before merge; see [architecture-rules.md](architecture-rules.md)).
+parallel without merge conflicts. The review gate is suspended since 2026-11-06 (D-014), so each
+stream merges its own PRs once CI is green, still following
+[architecture-rules.md](architecture-rules.md).
 
 **File ownership rule:** only edit files your workstream owns. If you need a change in another
-stream's file, ask that stream (or the architect) instead of editing it. Shared docs
+stream's file, ask that stream instead of editing it. Shared docs
 (`changelog.md`, `status.md`, `roadmap.md`) are open to everyone: keep both sides when they
 conflict. Every stream owns accessibility (VoiceOver labels, Dynamic Type, Reduce Motion,
 contrast) for its own files.
@@ -112,6 +113,8 @@ Owns: `Services/FactExtractor.swift`, `Services/ContentPolicy.swift`,
        references, and lists; prefer sentences with numbers. Verbatim only (D-011).
 2. [x] Better photos: skip near-duplicates and low-resolution files, prefer the lead image,
        and pace the feed (no three photos in a row).
+6. [x] Photo quality pass (D-018): rank photos by Commons assessments, resolution, portrait fit
+       and close-up signals; drop soft originals; load 1920/3840 px renditions (`PhotoQuality`).
 3. [x] Grow `tools/species.txt` toward a few hundred species, and add class/order/family
        branches so the live catalogue searches more of the tree.
 4. [x] Tune the picker and likes so the feed feels varied: no same family back to back,
@@ -120,6 +123,9 @@ Owns: `Services/FactExtractor.swift`, `Services/ContentPolicy.swift`,
        A full `--check` still needs the API cache committed or a CI-friendly Wikidata dump.
 
 ### Not assigned yet
+
+- [x] Achievements: tiered awards for species met per branch and status (Awards tab, 2026-11-06)
+- [ ] Achievements: check the Awards tab and toast by hand in the simulator
 
 - [ ] Run on a physical iPhone and fix device-only issues
 - [ ] Real support contact in the Wikimedia `User-Agent`
