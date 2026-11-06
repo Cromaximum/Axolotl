@@ -34,6 +34,7 @@ the PR merges or is abandoned.
 
 | Work | Who / where | Branch or PR | Started |
 | --- | --- | --- | --- |
+| W4 content quality and variety (facts, photo pacing, picker variety, ~300 species) | Claude, thread "Expand species variety and fact quality" | `claude/project-thread-njwsan` | 2026-11-06 |
 
 ## Known issues
 
