@@ -89,7 +89,7 @@ struct SpeciesPicker {
         let base = fresh.map { c in
             weight(for: c.entry, tailored: tailored) * LiveCatalogRules.popularity(articleLength: c.articleLength)
         }
-        let weights = withVariety(base, entries: fresh.map(\.entry))
+        let weights = withVariety(base, entries: fresh.map(\.entry), tailored: tailored)
         return Self.roll(fresh, weights: weights, using: &rng)
     }
 
@@ -136,19 +136,28 @@ struct SpeciesPicker {
             let spread = tailored ? 1 : 1 / Double(classSizes[Self.id(of: .class, in: entry) ?? "", default: 1]).squareRoot()
             return weight(for: entry, tailored: tailored) * spread
         }
-        return Self.roll(pool, weights: withVariety(base, entries: pool), using: &rng)
+        return Self.roll(pool, weights: withVariety(base, entries: pool, tailored: tailored), using: &rng)
     }
 
-    /// Penalty for the same order as the last species. The same family is ruled out entirely.
+    /// Penalty for the same order as the last species.
     static let sameOrderFactor = 0.5
 
     /// No two species from the same family back to back, and fewer from the same order. Falls
     /// back to the plain weights only when every candidate shares the last family.
-    func withVariety(_ weights: [Double], entries: [SpeciesEntry]) -> [Double] {
+    ///
+    /// Likes win over variety (D-013): on tailored picks a family or order the user liked is
+    /// exempt, so liking a cat can still bring two cats in a row. Discovery picks ignore likes,
+    /// so the rule always applies there.
+    func withVariety(_ weights: [Double], entries: [SpeciesEntry], tailored: Bool) -> [Double] {
+        func isLiked(_ id: String?) -> Bool {
+            guard tailored, let id else { return false }
+            return likeAffinity[id, default: 0] > 0
+        }
         let varied = zip(weights, entries).map { w, entry -> Double in
             let family = Self.id(of: .family, in: entry)
-            if let lastFamilyID, family == lastFamilyID { return 0 }
-            if let lastOrderID, Self.id(of: .order, in: entry) == lastOrderID { return w * Self.sameOrderFactor }
+            let order = Self.id(of: .order, in: entry)
+            if let lastFamilyID, family == lastFamilyID, !isLiked(family) { return 0 }
+            if let lastOrderID, order == lastOrderID, !isLiked(order) { return w * Self.sameOrderFactor }
             return w
         }
         return varied.contains { $0 > 0 } ? varied : weights

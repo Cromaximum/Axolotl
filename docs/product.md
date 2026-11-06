@@ -102,7 +102,9 @@ species data when shown, so updated names appear on old saves.
   more. Discovery picks ignore likes.
 - Strongly favours species the user hasn't seen. Never repeats a species within the last 12.
 - **Variety**: never two species from the same family back to back (unless nothing else is in
-  scope), and half the weight for the same order as the last species. Discovery picks give each
+  scope), and half the weight for the same order as the last species. Likes win over this on
+  tailored picks: a family or order the user liked may come back to back, so a like still
+  clearly tilts the mix (D-013). Discovery picks always follow the variety rule. Discovery picks give each
   class a share that grows with the square root of its size, so classes with few species still
   turn up.
 - **Full species catalogue** (D-012, default on): besides the bundled hand-picked list, the feed
