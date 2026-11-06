@@ -24,19 +24,15 @@ final class MetStore {
         var savedAt: Date?
         /// Only for species that aren't in the bundled taxonomy.
         var live: LiveRecord?
-        /// Fetch-only cache hint for the tile photo. Transitional: removed once the content
-        /// provider has a disk cache (W1). Never shown as content.
-        var imageURL: URL?
 
         init(id: String, firstMet: Date, lastMet: Date, saved: Bool = false, savedAt: Date? = nil,
-             live: LiveRecord? = nil, imageURL: URL? = nil) {
+             live: LiveRecord? = nil) {
             self.id = id
             self.firstMet = firstMet
             self.lastMet = lastMet
             self.saved = saved
             self.savedAt = savedAt
             self.live = live
-            self.imageURL = imageURL
         }
 
         // Tolerant: every field except id and firstMet is optional on decode, so adding a field
@@ -49,7 +45,6 @@ final class MetStore {
             saved = try c.decodeIfPresent(Bool.self, forKey: .saved) ?? false
             savedAt = try c.decodeIfPresent(Date.self, forKey: .savedAt)
             live = try c.decodeIfPresent(LiveRecord.self, forKey: .live)
-            imageURL = try c.decodeIfPresent(URL.self, forKey: .imageURL)
         }
     }
 
@@ -76,40 +71,35 @@ final class MetStore {
     func isSaved(_ id: String) -> Bool { entries.first { $0.id == id }?.saved ?? false }
 
     /// Called when a species' intro card is shown. Keeps the first-met date and saved flag.
-    func recordMet(_ entry: SpeciesEntry, imageURL: URL?) {
+    func recordMet(_ entry: SpeciesEntry) {
         let date = now()
         if let i = entries.firstIndex(where: { $0.id == entry.id }) {
             entries[i].lastMet = date
-            if entries[i].imageURL == nil { entries[i].imageURL = imageURL }
-            // The deprecated forwarders pass no lineage; don't let them erase a known one.
+            // An entry with no lineage must not erase a known one.
             if entry.species.isLive, !(entry.lineage.isEmpty && entries[i].live != nil) {
                 entries[i].live = Self.liveRecord(entry)
             }
         } else {
             entries.insert(Entry(id: entry.id, firstMet: date, lastMet: date,
-                                 live: entry.species.isLive ? Self.liveRecord(entry) : nil,
-                                 imageURL: imageURL), at: 0)
+                                 live: entry.species.isLive ? Self.liveRecord(entry) : nil), at: 0)
         }
         save()
     }
 
-    func toggleSaved(_ entry: SpeciesEntry, imageURL: URL?) {
-        if !entries.contains(where: { $0.id == entry.id }) { recordMet(entry, imageURL: imageURL) }
+    func toggleSaved(_ entry: SpeciesEntry) {
+        if !entries.contains(where: { $0.id == entry.id }) { recordMet(entry) }
         guard let i = entries.firstIndex(where: { $0.id == entry.id }) else { return }
         entries[i].saved.toggle()
         entries[i].savedAt = entries[i].saved ? now() : nil
         save()
     }
 
-    @available(*, deprecated, message: "Pass the SpeciesEntry so live species keep their lineage.")
-    func recordMet(_ species: Species, imageURL: URL?) {
-        recordMet(SpeciesEntry(species: species, lineage: []), imageURL: imageURL)
-    }
+    /// Tile photos now come from the content provider's disk cache, so the URL is ignored.
+    @available(*, deprecated, message: "Met tiles no longer store an image URL. Call recordMet(_:).")
+    func recordMet(_ entry: SpeciesEntry, imageURL: URL?) { recordMet(entry) }
 
-    @available(*, deprecated, message: "Pass the SpeciesEntry so live species keep their lineage.")
-    func toggleSaved(_ species: Species, imageURL: URL?) {
-        toggleSaved(SpeciesEntry(species: species, lineage: []), imageURL: imageURL)
-    }
+    @available(*, deprecated, message: "Met tiles no longer store an image URL. Call toggleSaved(_:).")
+    func toggleSaved(_ entry: SpeciesEntry, imageURL: URL?) { toggleSaved(entry) }
 
     /// Drops stored live records for species the bundled taxonomy now covers, so the bundled
     /// data is the only copy. Called once at launch from `RootView`.
@@ -140,7 +130,6 @@ final class MetStore {
         let commonName: String?
         let scientificName: String?
         let isExtinct: Bool?
-        let imageURL: URL?
         let firstMet: Date
         let saved: Bool?
     }
@@ -158,7 +147,7 @@ final class MetStore {
                                   status: old.isExtinct == true ? .extinct : .notEvaluated)
             return Entry(id: old.id, firstMet: old.firstMet, lastMet: old.firstMet,
                          saved: old.saved ?? false, savedAt: nil,
-                         live: LiveRecord(species: species, lineageIDs: []), imageURL: old.imageURL)
+                         live: LiveRecord(species: species, lineageIDs: []))
         }
     }
 

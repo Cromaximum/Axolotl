@@ -21,7 +21,7 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
 - [x] Live species catalogue from the GBIF Backbone with on-the-fly cards (D-012; needs a simulator check against the live APIs)
 - [x] Likes that steer tailored picks (D-013)
 - [ ] Widen the live catalogue: add more class/order/family branches to the bundled tree so GBIF is searched in more places
-- [ ] Liked filter in the Met tab (W3)
+- [x] Liked filter in the Met tab (W3, #11)
 - [ ] Remove all AI-written content (D-011), see [ai-content-audit.md](ai-content-audit.md)
 - [ ] Static content pipeline: batch job builds one JSON file per species (taxonomy from GBIF or
       Catalogue of Life linked to Wikidata ids → fetch Commons/Wikipedia/IUCN → licence and
@@ -93,12 +93,12 @@ file move with W1).
 
 1. [x] Tree tab: search by common or scientific name, species counts per branch, a summary of
        what's selected, and "reset to everything".
-2. [ ] Met tab: Liked filter, sort, and a faster grid using W1's image pipeline. (Liked filter and sort done in #11; grid on W1's image loader comes in PR B.)
+2. [x] Met tab: Liked filter, sort, and a faster grid using W1's image pipeline. (Liked filter and sort in #11; grid on W1's image loader in W3 PR B.)
 3. [x] `MetStore.Entry` keeps only id, dates and flags, and looks names up when shown (needs a
        `met.v2` key or a tolerant decoder; update data-model.md).
-4. [ ] Onboarding: small view model for tile photos using the injected provider (after W1 step
+4. [x] Onboarding: small view model for tile photos using the injected provider (after W1 step
        4). Same for `SpeciesDetailView`.
-5. [ ] Detail sheet polish: sections, sources list, open-in-Wikipedia.
+5. [x] Detail sheet polish: sections, sources list, open-in-Wikipedia.
 
 ### W4 · Content quality and variety
 

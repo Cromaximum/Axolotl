@@ -73,19 +73,17 @@ struct MetView: View {
 }
 
 /// One photo tile. Its identity is the species id, so the grid doesn't reload photos when the
-/// filter or sort changes.
+/// filter or sort changes. The photo is the species' hero from the content provider's cache,
+/// decoded at tile size by the shared image loader.
 private struct MetTile: View {
     let item: MetCollection.Item
+    @Environment(PreferencesStore.self) private var prefs
 
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            AsyncImage(url: item.imageURL) { phase in
-                if case .success(let image) = phase { image.resizable().scaledToFill() }
-                else { Theme.boardGreen }
-            }
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .frame(height: 140)
-            .clipped()
+            SpeciesThumbnail(species: item.entry.species, allowArtwork: prefs.showArtwork)
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .frame(height: 140)
             LinearGradient(colors: [.clear, .black.opacity(0.7)], startPoint: .center, endPoint: .bottom)
             Text(item.entry.species.commonName)
                 .font(Theme.label(11))

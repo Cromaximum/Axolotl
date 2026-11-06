@@ -35,7 +35,7 @@ the PR merges or is abandoned.
 | Work | Who / where | Branch or PR | Started |
 | --- | --- | --- | --- |
 | W1 step 5: move the stores to `Stores/`. Then delete `WikipediaContentProvider.shared` after W3 PR B | Claude, thread "Speed up feed loading and caching" | `claude/project-thread-72fg80` (steps 0 to 4 and 6 merged in #14) | 2026-11-06 |
-| W3: Tree search, Met filters and sort, slim Met saves (`met.v2`), onboarding and detail view models | Claude, thread "Improve onboarding, tree and saves" | PR A #11 (Tree, Met, `met.v2`); PR B (onboarding and detail on the injected provider, Met grid on W1's image loader) after W1 step 4 (#14) | 2026-11-06 |
+| W3: Tree search, Met filters and sort, slim Met saves (`met.v2`), onboarding and detail view models | Claude, thread "Improve onboarding, tree and saves" | PR A #11 merged; PR B #19 (onboarding, detail and Met grid on the injected provider and image loader) | 2026-11-06 |
 | Polish and performance workstreams W1 to W4 ([roadmap](roadmap.md#phase-15-polish-and-performance-current-from-2026-11-06)) | One thread per workstream, architect reviews | see roadmap | 2026-11-06 |
 
 ## Known issues

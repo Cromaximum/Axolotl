@@ -31,6 +31,6 @@ final class MetViewModel {
     private static func record(_ e: MetStore.Entry) -> MetCollection.Record {
         MetCollection.Record(id: e.id, firstMet: e.firstMet, lastMet: e.lastMet, saved: e.saved,
                              savedAt: e.savedAt, liveSpecies: e.live?.species,
-                             liveLineageIDs: e.live?.lineageIDs ?? [], imageURL: e.imageURL)
+                             liveLineageIDs: e.live?.lineageIDs ?? [])
     }
 }

@@ -14,8 +14,6 @@ enum MetCollection {
         /// Only for live-catalogue species that aren't in `taxonomy.json`.
         var liveSpecies: Species?
         var liveLineageIDs: [String] = []
-        /// Fetch-only cache hint for the tile photo (transitional, removed once W1's disk cache lands).
-        var imageURL: URL?
     }
 
     /// One tile in the grid.
@@ -26,7 +24,6 @@ enum MetCollection {
         let saved: Bool
         let savedAt: Date?
         let liked: Bool
-        let imageURL: URL?
         var id: String { entry.id }
     }
 
@@ -70,7 +67,7 @@ enum MetCollection {
                 return nil
             }
             return Item(entry: entry, firstMet: r.firstMet, lastMet: r.lastMet, saved: r.saved,
-                        savedAt: r.savedAt, liked: likedIDs.contains(r.id), imageURL: r.imageURL)
+                        savedAt: r.savedAt, liked: likedIDs.contains(r.id))
         }
     }
 

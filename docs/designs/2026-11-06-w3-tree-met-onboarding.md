@@ -2,7 +2,7 @@
 
 - Author: Claude (W3 thread "Improve onboarding, tree and saves"), for Maxwell Rhinelander
 - Date: 2026-11-06
-- Status: Design approved (architect review on #11, 2026-11-06). PR A coded on the same branch; PR B follows W1 step 4.
+- Status: Design approved (architect review on #11, 2026-11-06). PR A merged as #11. PR B delta below.
 
 ## Problem
 
@@ -147,3 +147,21 @@ full-catalogue switches as they are.
 3. `FeedView` call sites: overloads in `MetStore`, or ask W2 to change two lines?
 4. Order with W1 step 5 (file move to `Stores/`): I'd like PR A to merge first, or W1 moves the
    file and I rebase. Either works; git follows the rename.
+
+## PR B delta (2026-11-06)
+
+Same plan as above, with three small additions:
+
+- `Services/HeroImage.swift` (new, pure, tested): the hero rule was copied in the onboarding
+  tile, the detail sheet and `FeedComposer`. Onboarding, detail and the Met grid now share it.
+  `FeedComposer` (W4) can switch to it later; the rule is identical.
+- `Features/Components/SpeciesThumbnail.swift` + `SpeciesThumbnailModel.swift` (new): Met and
+  onboarding tiles both need "species → hero → small decode", so it is a shared component, not
+  a feature import. Uses the injected provider and `imageLoader` with
+  `ImageSizing.maxPixelSize(for:scale:)`.
+- Attribution on onboarding (rule 3): the welcome photo shows a `CreditChip`, and the tiles get a
+  "Photo credits" sheet. Before, onboarding photos had no credit at all.
+- `MetStore` drops `imageURL` and the `(Species, imageURL:)` forwarders (W2 already passes the
+  entry). `recordMet(_:imageURL:)` / `toggleSaved(_:imageURL:)` stay as deprecated forwarders until
+  W2 calls `recordMet(_:)` / `toggleSaved(_:)`.
+- The fossils tile's photo id changes in W4's #12 (Smilodon leaves the bundled list), not here.
