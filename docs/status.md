@@ -5,18 +5,18 @@ flight changes._
 
 ## Summary
 
-First version of the app is on `main` (one commit, 2026-11-06). **It has never been compiled.**
-It was written in an environment without Xcode, so expect build errors on first compile. CI and
-build fixes are in progress (see "In flight").
+First version of the app is on `main`. It was first compiled and run by hand on 2026-11-06
+(Xcode 26.6, iPhone 17 simulator, iOS 26): it builds without errors, all unit tests pass after a
+test-target fix, and the feed loads live Wikipedia content. CI also builds and tests every PR.
 
 | Area | State |
 | --- | --- |
-| Build | Not yet compiled. Unknown. |
-| Unit tests | Written (`AnimalScrollerTests/`), never run |
-| CI | Being added in PR #1 (`ci/macos-build`): XcodeGen + `xcodebuild test` on macos-15 for every PR |
-| Feed (intro, photo and fact cards) | Code complete, unverified on device |
-| Tree-of-life filter + extinct toggles | Code complete, unverified on device |
-| Live Wikipedia / Commons fetching | Code complete, unverified. The cloud dev environment can reach `en.wikipedia.org`, `commons.wikimedia.org` and `upload.wikimedia.org` since 2026-11-06 (not `thumb.wikimedia.org`) |
+| Build | Builds clean with Xcode 26.6 locally and in CI (macos-15) |
+| Unit tests | 11 tests in `AnimalScrollerTests/`, all passing on the simulator and in CI |
+| CI | `.github/workflows/ios.yml`: XcodeGen + `xcodebuild test` on macos-15 (first available iPhone simulator) for every PR and push to `main`. Results bundle and log uploaded as an artifact. |
+| Feed (intro, photo and fact cards) | Works in the iPhone 17 simulator. Not yet tried on a real device |
+| Tree-of-life filter + extinct toggles | Sheet opens and lists the tree in the simulator. Filtering not yet tested by hand |
+| Live Wikipedia / Commons fetching | Works in the simulator. The cloud dev environment can reach `en.wikipedia.org`, `commons.wikimedia.org` and `upload.wikimedia.org` since 2026-11-06 (not `thumb.wikimedia.org`) |
 | Species data | 77 species (20 extinct) in `taxonomy.json`. Launch target is a few hundred. |
 | IUCN statuses, common names, group names | **Typed in by an AI agent, which breaks D-011 (zero AI content).** Must be regenerated from Wikidata. See [ai-content-audit.md](ai-content-audit.md) |
 | AI-image filter | Missing: `ContentPolicy` doesn't yet reject AI-generated Commons files |
@@ -33,19 +33,17 @@ the PR merges or is abandoned.
 
 | Work | Who / where | Branch or PR | Started |
 | --- | --- | --- | --- |
-| GitHub Actions CI for iOS build and tests | Maxwell's agents | PR #1, `ci/macos-build` | 2026-11-06 |
-| Fix first-compile build errors on a Mac | Maxwell's agents | TBD | 2026-11-06 |
-| Zero-AI-content rule and audit (D-011) | Maxwell's agents | `claude/project-thread-g3dioe` | 2026-11-06 |
-| Architecture rules and review gate (D-014) | Maxwell's architect agent | `claude/project-thread-0xm4vu` | 2026-11-06 |
 
 ## Known issues
 
+- Only tested in the simulator so far, not on a physical iPhone.
 - App-wide stores (`PreferencesStore`, and `MetStore` from PR #4) live under `Features/` instead of `Stores/`. One small move PR after #4 merges (see [architecture-rules.md](architecture-rules.md#layers)).
 - Bundled species data and mockup text were written by AI and must be replaced with sourced
   values (D-011). Full list in [ai-content-audit.md](ai-content-audit.md).
-- Code has not been compiled or run. Treat every "complete" above as untested.
 - `WikiClient.userAgent` has a placeholder contact URL. Wikimedia requires a real contact
   before release.
 - Content is fetched live from Wikipedia on device. The plan is a prebuilt static JSON pipeline
   (see [roadmap.md](roadmap.md)).
 - Artwork detection (`ContentPolicy.isArtwork`) is keyword-based and will misclassify some files.
+  It now includes Spanish, French, German, Italian and Portuguese stems, but other languages or
+  undescribed files can still slip through unlabelled.

@@ -50,15 +50,20 @@ struct IntroCardView: View {
 
     @ViewBuilder private var heroImage: some View {
         if let hero = card.hero {
-            AsyncImage(url: hero.url, transaction: .init(animation: .easeIn)) { phase in
-                switch phase {
-                case .success(let image): image.resizable().scaledToFill()
-                default: Theme.boardGreen.overlay(ProgressView().tint(Theme.amber))
+            // A fixed-size placeholder owns the layout; the scaledToFill image is drawn in an overlay
+            // so its natural width can't push the whole card wider than the screen.
+            Color.clear
+                .frame(maxWidth: .infinity)
+                .frame(height: 300)
+                .overlay {
+                    AsyncImage(url: hero.url, transaction: .init(animation: .easeIn)) { phase in
+                        switch phase {
+                        case .success(let image): image.resizable().scaledToFill()
+                        default: Theme.boardGreen.overlay(ProgressView().tint(Theme.amber))
+                        }
+                    }
                 }
-            }
-            .frame(height: 300)
-            .frame(maxWidth: .infinity)
-            .clipped()
+                .clipped()
             .overlay(alignment: .topTrailing) {
                 if hero.isArtwork { ArtworkTag().padding(.top, 70).padding(.trailing, 16) }
             }

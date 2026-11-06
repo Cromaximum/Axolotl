@@ -67,7 +67,8 @@ Full process and rules: [docs/architecture-rules.md](docs/architecture-rules.md#
    [docs/designs/TEMPLATE.md](docs/designs/TEMPLATE.md). Wait for a comment starting
    `Architecture review: Design approved` before writing code.
 2. **Before merging**, the PR needs a comment or review starting `Architecture review: Approved`
-   on its latest commit. Humans: don't merge without it.
+   on its latest commit and green CI. The architect merges approved PRs itself (Maxwell's call,
+   2026-11-06). Other agents: don't merge, and nobody merges without the sign-off.
 3. Follow the layers and dependency rules in
    [docs/architecture-rules.md](docs/architecture-rules.md). In short: `App/` wires everything,
    features don't import each other, views are dumb, services hold pure tested logic behind

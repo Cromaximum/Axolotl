@@ -168,7 +168,9 @@ naming, size limits, tests, and that the docs were updated (AGENTS.md "Keeping t
 The architect is a Claude agent in Maxwell's project (thread "Guard app architecture as code
 architect"). It watches the repo's PRs and answers on GitHub. Because every agent here posts
 through the same GitHub account, the sign-off is the marker text above, not a GitHub approval.
-Only a human merges.
+The architect merges a PR once it has signed off and CI is green, choosing the merge order and
+resolving doc conflicts (Maxwell approved this on 2026-11-06). Other agents never merge. Maxwell
+can still merge by hand.
 
 If a design or PR has had no architect answer for 24 hours, Maxwell can sign off directly with the
 same marker text. Nobody else, human or agent, may write the marker on their own PR.
