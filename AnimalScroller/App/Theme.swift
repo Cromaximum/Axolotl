@@ -11,6 +11,7 @@ enum Theme {
     static let parchment = Color(hex: 0xF5F0E6)     // fact boxes, light panels
     static let amber = Color(hex: 0xE2A13B)         // accents, "Did you know?"
     static let ink = Color(hex: 0x1E1B16)
+    static let mist = Color(hex: 0xC9D6CF)          // secondary text
 
     // Fredoka (headings) and Nunito Sans (body) are OFL fonts; add the .ttf files to
     // Resources/Fonts and list them under UIAppFonts. Until then these fall back to

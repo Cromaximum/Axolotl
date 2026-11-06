@@ -5,19 +5,21 @@ import SwiftUI
 struct TaxonomyPickerView: View {
     let root: Taxon
     @Environment(PreferencesStore.self) private var prefs
-    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         @Bindable var prefs = prefs
         NavigationStack {
             List {
                 Section {
-                    Toggle("Include extinct species", isOn: $prefs.includeExtinct)
+                    Picker("Extinct species", selection: $prefs.extinctMode) {
+                        ForEach(PreferencesStore.ExtinctMode.allCases) { Text($0.label).tag($0) }
+                    }
+                    .pickerStyle(.segmented)
+                    .listRowBackground(Color.clear)
                     if prefs.includeExtinct {
-                        Toggle("Extinct species only", isOn: $prefs.extinctOnly)
                         Toggle("Show artist reconstructions", isOn: $prefs.showArtwork)
                     }
-                    Toggle("Surprise me with other species", isOn: $prefs.surpriseMe)
+                    Toggle("Surprise picks", isOn: $prefs.surpriseMe)
                 } footer: {
                     Text("Extinct animals show fossils, specimens and photos, plus labelled reconstructions vetted on Wikipedia when that's on. Surprise picks mix in about 3 in 10 species from outside your branches.")
                 }
@@ -34,15 +36,13 @@ struct TaxonomyPickerView: View {
                          : "\(root.species(selectedIDs: prefs.selectedTaxonIDs).count) species in your branches.")
                 }
             }
-            .navigationTitle("Choose animals")
-            .navigationBarTitleDisplayMode(.inline)
+            .scrollContentBackground(.hidden)
+            .background(Theme.forest)
+            .navigationTitle("Tree of life")
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button("Clear") { prefs.selectedTaxonIDs = [] }
                         .disabled(prefs.selectedTaxonIDs.isEmpty)
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") { dismiss() }.bold()
                 }
             }
         }

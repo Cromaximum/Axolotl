@@ -1,51 +1,59 @@
 import SwiftUI
 
-/// A full-bleed licensed photo with its credit always visible.
+/// The animal, and almost nothing else (D-010). Name pill and credit hug the edges; extinct
+/// species get a media tag and a caption on a lower-third scrim.
 struct PhotoCardView: View {
     let card: PhotoCard
+    let context: CardContext
+    private var species: Species { card.entry.species }
+    private var tag: MediaTag? { MediaTag.tag(for: card.image, species: species) }
 
     var body: some View {
         ZStack {
             Color.black
-            AsyncImage(url: card.image.url, transaction: .init(animation: .easeIn)) { phase in
-                switch phase {
-                case .success(let image):
-                    // Blurred fill behind letterboxed images, so portrait and landscape both look full-screen.
-                    // The fill lives in a background so its natural (wider than the screen) size can't
-                    // stretch the card; the scaledToFit image sets the layout size.
-                    image.resizable().scaledToFit()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background {
-                            image.resizable().scaledToFill().blur(radius: 30).opacity(0.5)
-                        }
-                        .clipped()
-                case .failure:
-                    Image(systemName: "photo").font(.largeTitle).foregroundStyle(.secondary)
-                default:
-                    ProgressView().tint(Theme.amber)
-                }
-            }
+            FullBleedImage(image: card.image)
+            if showsCaption { LowerThirdScrim() }
         }
-        .overlay(alignment: .bottomLeading) { caption }
-        .overlay(alignment: .topTrailing) {
-            if card.image.isArtwork { ArtworkTag().padding(.top, 70).padding(.trailing, 16) }
+        .overlay(alignment: .top) { topRow }
+        .overlay(alignment: .trailing) {
+            ActionRail(isSaved: context.isSaved, shareURL: card.image.attribution.sourceURL,
+                       onSave: context.onSave, onInfo: context.onInfo)
+                .padding(.trailing, 12)
+                .padding(.top, 160)
         }
-        .clipped()
+        .overlay(alignment: .bottomLeading) { bottom }
     }
 
-    private var caption: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(card.entry.species.commonName)
-                .font(Theme.heading(24))
-            if let text = card.image.caption {
-                Text(text).font(Theme.body(14)).lineLimit(2).opacity(0.85)
-            }
-            AttributionBadge(attribution: card.image.attribution, label: "Photo")
+    /// Living species: animal only. Extinct: say what the picture is.
+    private var showsCaption: Bool { tag != nil && card.image.caption != nil }
+
+    private var topRow: some View {
+        HStack {
+            if let tag { MediaTagChip(tag: tag) }
+            else { NamePill(name: species.commonName, position: context.position, count: context.count) }
+            Spacer()
+            if tag != nil { CreditChip(attribution: card.image.attribution) }
         }
-        .foregroundStyle(Theme.parchment)
-        .padding(20)
-        .padding(.bottom, 30)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(LinearGradient(colors: [.clear, .black.opacity(0.75)], startPoint: .top, endPoint: .bottom))
+        .padding(.horizontal, CardInsets.side)
+        .padding(.top, CardInsets.top)
+    }
+
+    private var bottom: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            if showsCaption, let caption = card.image.caption {
+                Text("\(species.scientificName) · \(context.position) of \(context.count)".uppercased())
+                    .font(Theme.label(11)).tracking(1)
+                    .foregroundStyle(Theme.amber)
+                Text(caption)
+                    .font(Theme.body(20).weight(.semibold))
+                    .foregroundStyle(Theme.parchment)
+                    .lineLimit(4)
+                    .padding(.trailing, 60)
+            } else {
+                CreditChip(attribution: card.image.attribution)
+            }
+        }
+        .padding(.horizontal, CardInsets.side)
+        .padding(.bottom, CardInsets.bottom)
     }
 }

@@ -50,6 +50,33 @@ enum ContentPolicy {
         "paleoarte", "paléoart", "paläokunst", "künstler", "artiste", "artista",
     ]
 
+    /// Words that mark a real specimen: fossils, skeletons, mounts, museum casts.
+    private static let fossilWords = [
+        "fossil", "specimen", "skeleton", "skull", "holotype", "paratype", "cast", "mount",
+        "bones", "subfossil", "museum", "amber", "imprint", "slab",
+    ]
+
+    static func isFossil(fileTitle: String, description: String?) -> Bool {
+        let haystack = (fileTitle + " " + (description ?? "")).lowercased()
+        return fossilWords.contains { haystack.contains($0) }
+    }
+
+    /// Commons description, kept verbatim but cut only at a sentence boundary (D-011): as many
+    /// whole sentences as fit in `limit` characters. If even the first sentence is longer, there
+    /// is no caption rather than a cut one.
+    static func wholeSentenceCaption(_ text: String, limit: Int = 200) -> String? {
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return nil }
+        if trimmed.count <= limit { return trimmed }
+        var out = ""
+        for sentence in FactExtractor.sentences(in: trimmed) {
+            let next = out.isEmpty ? sentence : out + " " + sentence
+            if next.count > limit { break }
+            out = next
+        }
+        return out.isEmpty ? nil : out
+    }
+
     static func isJunk(fileTitle: String) -> Bool {
         let t = fileTitle.lowercased()
         return junkWords.contains { t.contains($0) }
@@ -74,7 +101,7 @@ enum ContentPolicy {
                 url: info.url,
                 width: info.width,
                 height: info.height,
-                caption: description.flatMap { $0.isEmpty ? nil : String($0.prefix(200)) },
+                caption: description.flatMap { wholeSentenceCaption($0) },
                 attribution: Attribution(
                     title: info.fileTitle,
                     author: info.artistHTML.map(HTMLText.plain).flatMap { $0.isEmpty ? nil : $0 },
@@ -82,7 +109,8 @@ enum ContentPolicy {
                     licenseURL: info.licenseURL,
                     sourceURL: info.descriptionURL
                 ),
-                isArtwork: isArtwork(fileTitle: info.fileTitle, description: description)
+                isArtwork: isArtwork(fileTitle: info.fileTitle, description: description),
+                isFossil: isFossil(fileTitle: info.fileTitle, description: description)
             )
         }
     }

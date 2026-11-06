@@ -1,50 +1,82 @@
 import SwiftUI
 
-/// A full-screen "Did you know?" board.
+/// Photo on top so the face stays in view; one number or one sentence on the board below (D-010).
 struct FactCardView: View {
     let card: FactCard
+    let context: CardContext
 
     var body: some View {
-        ZStack {
-            Theme.forest
-            VStack(spacing: 20) {
-                Spacer()
-                BoardPanel {
-                    VStack(alignment: .leading, spacing: 18) {
-                        HStack {
-                            Label("Did you know?", systemImage: "lightbulb.fill")
-                                .font(Theme.label(14))
-                                .foregroundStyle(Theme.amber)
-                            Spacer()
-                            Text("\(card.index) of \(card.total)")
-                                .font(Theme.label(12))
-                                .foregroundStyle(Theme.parchment.opacity(0.6))
-                        }
-                        if let topic = card.topic {
-                            Text(topic.uppercased())
-                                .font(Theme.label(11))
-                                .tracking(1.2)
-                                .foregroundStyle(Theme.parchment.opacity(0.7))
-                        }
-                        Text(card.text)
-                            .font(Theme.heading(28))
-                            .foregroundStyle(Theme.parchment)
-                            .minimumScaleFactor(0.7)
-                        Divider().overlay(Theme.wood)
-                        HStack {
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(card.entry.species.commonName).font(Theme.label(14))
-                                Text(card.entry.species.scientificName).font(Theme.body(13).italic())
-                            }
-                            .foregroundStyle(Theme.parchment)
-                            Spacer()
-                            AttributionBadge(attribution: card.attribution, label: "Source")
-                        }
+        GeometryReader { geo in
+            VStack(spacing: 0) {
+                ZStack(alignment: .bottomLeading) {
+                    if let image = card.image {
+                        FullBleedImage(image: image, wideCenter: 0.5)
+                        CreditChip(attribution: image.attribution)
+                            .padding(CardInsets.side)
+                    } else {
+                        Theme.boardGreen
                     }
                 }
-                .padding(.horizontal, 20)
-                Spacer()
+                .frame(height: geo.size.height * 0.52)
+                .clipped()
+
+                board
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                    .background(Theme.forest)
+                    .overlay(alignment: .top) { Rectangle().fill(Theme.wood).frame(height: 5) }
             }
         }
+        .background(Theme.forest)
+        .overlay(alignment: .topLeading) {
+            NamePill(name: card.entry.species.commonName, position: context.position, count: context.count)
+                .padding(.horizontal, CardInsets.side)
+                .padding(.top, CardInsets.top)
+        }
+    }
+
+    private var board: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Text(heading)
+                .font(Theme.label(11)).tracking(1.2)
+                .foregroundStyle(Theme.amber)
+            if let number = FactFormatting.leadingNumber(in: card.text) {
+                Text(number)
+                    .font(Theme.heading(64))
+                    .foregroundStyle(Theme.amber)
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
+            }
+            Text(card.text)
+                .font(Theme.heading(22))
+                .foregroundStyle(Theme.parchment)
+                .minimumScaleFactor(0.7)
+            Spacer(minLength: 8)
+            Button(action: context.onInfo) {
+                Text("\(card.entry.species.scientificName) · Source: Wikipedia")
+                    .font(Theme.body(12))
+                    .foregroundStyle(Theme.mist)
+            }
+            .buttonStyle(.plain)
+        }
+        .padding(.horizontal, 22)
+        .padding(.top, 26)
+        .padding(.bottom, CardInsets.bottom + 8)
+    }
+
+    private var heading: String {
+        var h = "DID YOU KNOW?"
+        if let topic = card.topic { h += " · \(topic.uppercased())" }
+        return h
+    }
+}
+
+enum FactFormatting {
+    /// The first stand-out number in a fact ("12", "1,000", "3.5"), to show large. Ignores years
+    /// written as plain four-digit numbers between 1000 and 2100, which read badly on their own.
+    static func leadingNumber(in text: String) -> String? {
+        guard let range = text.range(of: #"\d[\d,]*(\.\d+)?"#, options: .regularExpression) else { return nil }
+        let token = String(text[range])
+        if token.count == 4, let year = Int(token), (1000...2100).contains(year) { return nil }
+        return token
     }
 }

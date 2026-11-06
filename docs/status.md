@@ -12,15 +12,15 @@ test-target fix, and the feed loads live Wikipedia content. CI also builds and t
 | Area | State |
 | --- | --- |
 | Build | Builds clean with Xcode 26.6 locally and in CI (macos-15) |
-| Unit tests | 11 tests in `AnimalScrollerTests/`, all passing on the simulator and in CI |
+| Unit tests | 17 tests in `AnimalScrollerTests/`, all passing in CI (11 were also run on the simulator before the concept-screen rebuild) |
 | CI | `.github/workflows/ios.yml`: XcodeGen + `xcodebuild test` on macos-15 (first available iPhone simulator) for every PR and push to `main`. Results bundle and log uploaded as an artifact. |
-| Feed (intro, photo and fact cards) | Works in the iPhone 17 simulator. Not yet tried on a real device |
-| Tree-of-life filter + extinct toggles | Sheet opens and lists the tree in the simulator. Filtering not yet tested by hand |
+| Feed (intro, photo and fact cards) | The original cards worked in the iPhone 17 simulator. The cards rebuilt to the concept art (`feature/concept-screens`) pass CI but have not been checked by hand yet |
+| Tree-of-life filter + extinct toggles | Now the Tree tab. The earlier sheet version listed the tree in the simulator; filtering not yet tested by hand |
 | Live Wikipedia / Commons fetching | Works in the simulator. The cloud dev environment can reach `en.wikipedia.org`, `commons.wikimedia.org` and `upload.wikimedia.org` since 2026-11-06 (not `thumb.wikimedia.org`) |
 | Species data | 77 species (20 extinct) in `taxonomy.json`. Launch target is a few hundred. |
 | IUCN statuses, common names, group names | Generated from Wikidata and Wikipedia (D-011, #9). 9 species have no IUCN status in either source and show NE |
 | Fonts (Fredoka, Nunito Sans) | Not bundled. App falls back to the system font. |
-| Concept screens | Twelve screens in `docs/design/` (D-010). App views not yet updated to match. |
+| Concept screens | Twelve screens in `docs/design/` (D-010). App views rebuilt to match (#4); layout still needs a hand check on a simulator. |
 | Architecture review gate | Rules in [architecture-rules.md](architecture-rules.md) (D-014). Every design and PR needs architect sign-off. |
 | App name | Working title only. Must change before App Store (trademark). |
 | Ads, privacy manifest, App Store assets | Not started |

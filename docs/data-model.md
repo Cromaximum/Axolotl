@@ -59,7 +59,10 @@ old ids.
 | `ConservationStatus` | same | IUCN codes; `scale` is the 7-step LC → EX bar. |
 | `SpeciesEntry` | same | Species + lineage (root → parent). Not persisted. |
 | `Attribution` | `Models/FeedCard.swift` | Required on every card. `wikipediaText(...)` builds the CC BY-SA text credit. |
-| `LicensedImage` | same | Commons image that passed `ContentPolicy`; `isArtwork` flags reconstructions. |
+| `LicensedImage` | same | Commons image that passed `ContentPolicy`; `isArtwork` flags reconstructions; `isWide` (> 1.15 : 1) picks the shown-whole layout. |
+| `LicensedImage.isFossil` | same | Set at ingestion by `ContentPolicy.isFossil` (fossil, skeleton, specimen, mount... keywords). Models never call services. |
+| `MediaTag` | same | `historicalPhoto` / `realFossil` / `reconstruction`, derived (never stored) from the image and species: artwork → reconstruction; extinct + `isFossil` → real fossil; other extinct → historical photo; living → none. |
+| `FactCard.image` | same | Photo shown above the fact board. `FeedComposer` cycles through the set's images, hero first. |
 | `FeedCard` | same | `.intro(IntroCard)`, `.fact(FactCard)`, `.photo(PhotoCard)`. Ids include species id and session `sequence` so a species can reappear. |
 | `SpeciesContent` | `Services/SpeciesContent.swift` | `Codable`. The contract between any content source and the feed. A future static JSON file per species should decode straight into this. |
 | `FactExtractor.Fact` | `Services/FactExtractor.swift` | `topic` (section heading) + `text`. |
@@ -75,6 +78,24 @@ Key: `preferences.v1`. JSON-encoded `PreferencesStore.Stored`:
 | `extinctOnly` | `Bool` | `false` |
 | `showArtwork` | `Bool` | `true` |
 | `surpriseMe` | `Bool` | `true` |
+| `hasOnboarded` | `Bool` | `false` (added with the concept screens) |
+
+Every field is decoded with `decodeIfPresent`, so data saved before a field existed still loads.
+`PreferencesStore.extinctMode` (Living only / Include extinct / Extinct only) is a computed view
+over `includeExtinct` + `extinctOnly`; it is not stored separately.
+
+## Species met (`UserDefaults`)
+
+Key: `met.v1`. JSON array of `MetStore.Entry`, newest first:
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `id` | `String` | `Species.wikiTitle` |
+| `commonName`, `scientificName` | `String` | Copied so the grid works even if the taxonomy changes |
+| `isExtinct` | `Bool` | For the Extinct filter |
+| `imageURL` | `URL?` | Licensed hero image for the tile |
+| `firstMet` | `Date` | When the intro card was first shown |
+| `saved` | `Bool` | Bookmark / long-press |
 
 If you add a field, give it a default so old data still decodes. If you make a breaking change,
 bump the key (`preferences.v2`) and note the migration here.
@@ -82,4 +103,4 @@ bump the key (`preferences.v2`) and note the migration here.
 ## Not persisted
 
 Seen counts, dwell affinity and the recent-species window in `SpeciesPicker` live in memory and
-reset on launch. Phase 2 plans a persisted "species seen" collection.
+reset on launch. (The species-met collection above is persisted; picker weighting is not yet.)

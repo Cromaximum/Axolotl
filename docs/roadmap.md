@@ -11,9 +11,16 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
 - [x] Tree-of-life filter with extinct toggles
 - [x] Live Wikipedia / Commons content with licence filtering
 - [x] 77 seed species
+- [x] Screens rebuilt to the concept art (D-010): full-bleed photos, welcome and starting-point
+      screens, species detail sheet, Feed / Tree / Met tabs, "Species met" collection with saves
 - [x] CI: build and test on every PR (PR #1)
 - [x] First successful compile and test run; fix build errors (#5)
 - [ ] Run on a device and fix layout / behaviour issues
+- [ ] Architecture follow-ups from the #4 review: inject one content provider from `App/`
+      instead of `WikipediaContentProvider.shared`, with a small view model for onboarding tiles;
+      move `MetStore` and `PreferencesStore` to `Stores/` and store only ids/dates/flags in
+      `MetStore.Entry` (look names up when shown); put set position/count on the card payload
+      instead of `FeedViewModel.positions`
 - [ ] Grow to a few hundred reviewed species (likely generated from Wikidata, then human-reviewed)
 - [ ] Remove all AI-written content (D-011), see [ai-content-audit.md](ai-content-audit.md)
 - [ ] Static content pipeline: batch job builds one JSON file per species (taxonomy from GBIF or
@@ -29,7 +36,7 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
 ## Phase 2: Motion and memory
 
 - Commons video clips and animal sounds (needs licensing rules update first)
-- Saves and a "species seen" collection (persisted)
+- ~~Saves and a "species seen" collection (persisted)~~ Pulled into Phase 1 with the concept screens.
 - Feed learns from time spent (persist affinity)
 - Ads SDK integration
 - App Store launch

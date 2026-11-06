@@ -77,6 +77,13 @@ every licence string you touch. Reject when in doubt.
 - Text cards credit "Wikipedia contributors · CC BY-SA 4.0" and link the article.
 - The attribution chip must be visible on every card and open a credit sheet.
 
+## Captions
+
+Photo captions are the Commons file's `ImageDescription`, HTML stripped, otherwise verbatim.
+`ContentPolicy.wholeSentenceCaption` keeps as many whole sentences as fit in 200 characters; if
+the first sentence alone is longer, the photo has no caption. Captions are never cut mid-sentence
+(D-011). The species detail sheet shows Wikipedia's short description as-is ("Wikipedia says").
+
 ## Image suitability
 
 `ContentPolicy.licensedImages` also drops:

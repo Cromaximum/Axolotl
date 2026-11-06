@@ -9,17 +9,54 @@ format of an endless vertical feed. Every item is about **one specific species**
 
 ## Users see
 
+### First run
+
+1. **Welcome**: one full-bleed photo (a shoebill), "Meet a new species every swipe.", a
+   "Start exploring" button.
+2. **Where should we start?**: photo tiles for six classes (mammals, birds, reptiles, amphibians,
+   insects, crustaceans; tile names and scientific names are read from the taxonomy), plus
+   Fossil life and Surprise me. Picking tiles selects those tree branches; "Fossil
+   life" alone switches to extinct-only; picking nothing means the whole kingdom. Surprise picks
+   stay on either way. Shown once (`hasOnboarded`).
+
+### Tabs
+
+**Feed**, **Tree** (the tree-of-life filters) and **Met** (the species collection).
+
 ### The feed
 
-- A full-screen, vertically paging feed (one card per screen).
+- A full-screen, vertically paging feed (one card per screen) that draws under the status bar.
+- Layout rule (D-010): the animal gets the frame. Photos run edge to edge; text only sits in the
+  bottom zoo-board panel or on a lower-third scrim; chips hug the top and bottom edges. Tall
+  photos are top-anchored so the head stays high; wide photos are shown whole over a blurred copy.
 - Content comes in **species sets**. Each set is:
-  1. **Intro card**: a zoo-information-board style sign with the hero photo, common name,
-     scientific name, taxonomic path, a one-to-two sentence lead, a "Did you know?" box, and the
-     IUCN conservation status scale (LC › NT › VU › EN › CR › EW › EX).
+  1. **Intro card**: the hero photo full-bleed, with a zoo-board sign at the bottom: common name,
+     scientific name, taxonomic path, a "Did you know?" box (or the lead if there are no facts),
+     and the IUCN status bar (LC › NT › VU › EN › CR › EW › EX). Progress dashes and the photo
+     credit sit at the top. Tapping the sign opens the species detail sheet.
   2. Then **3 to 8 items**, alternating photos and fact cards. Two fact cards never sit next to
      each other. Leftover photos may run together at the end; leftover facts are dropped.
+     - **Photo card**: animal only, with a "Name · n of N" pill, a credit chip and a Save / Info /
+       Share rail. Extinct species add a media tag and a caption on the scrim.
+     - **Fact card**: a photo of the species on the top half, and a board below with "Did you
+       know? · Topic", the fact's stand-out number in large type (years are skipped), the
+       sentence, and the source line.
+- Extinct-species media is tagged **Historical photo**, **Real fossil** or amber
+  **Reconstruction in frame**. Living species are never tagged (they only show photos).
 - Then the next species. The feed prefetches so it never runs dry (keeps about 6 cards queued).
 - Every card has an attribution chip; tapping it opens a credit sheet (author, licence, source).
+- **Save** a species with the bookmark on the rail or by long-pressing any card.
+
+### Species detail sheet
+
+Opened from ⓘ, the intro sign, a fact's source line, or a collection tile: hero photo with
+credit, names, full lineage, quick-fact tiles (status, class, order, family, short
+description), "Did you know?", the lead, more facts, and every source and credit.
+
+### Species met
+
+Every species whose intro card was shown is added automatically (newest first). Filters: All /
+Saved / Extinct. Tap a tile for the detail sheet. Persisted across launches.
 
 ### Choosing the next species
 
@@ -36,11 +73,11 @@ format of an endless vertical feed. Every item is about **one specific species**
   family or genus but are not individually selectable in Phase 1).
 - Selecting a node selects its whole subtree. Selecting a parent folds away redundant child
   selections. Rows show species counts.
+- A three-way switch: **Living only / Include extinct** (default) **/ Extinct only**.
 - Toggles:
-  - **Include extinct species** (default on)
-  - **Extinct species only** (only when extinct is included)
-  - **Show artist reconstructions** (default on; only affects extinct species)
-  - **Surprise me with other species** (default on)
+  - **Show artist reconstructions** (default on; only affects extinct species; hidden when
+    Living only)
+  - **Surprise picks** (default on)
 - Preferences persist across launches.
 
 ### Extinct species
@@ -57,5 +94,5 @@ format of an endless vertical feed. Every item is about **one specific species**
 
 ## Out of scope for Phase 1
 
-Video, sounds, saves/collections, accounts, sharing, quizzes, partner footage. See
+Video, sounds, accounts, social sharing beyond the system share sheet, quizzes, partner footage. See
 [roadmap.md](roadmap.md).

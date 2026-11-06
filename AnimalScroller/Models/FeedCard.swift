@@ -37,8 +37,39 @@ struct LicensedImage: Hashable, Codable, Identifiable {
     let attribution: Attribution
     /// Drawing, painting, life restoration, model, etc. rather than a photograph.
     let isArtwork: Bool
+    /// Fossil, skeleton, mount or other real specimen. Set at ingestion by `ContentPolicy`.
+    var isFossil: Bool = false
 
     var id: String { fileTitle }
+
+    /// Landscape photos that would lose the animal in a portrait crop. Shown whole over a blurred fill (D-010).
+    var isWide: Bool {
+        guard let width, let height, height > 0 else { return false }
+        return Double(width) / Double(height) > 1.15
+    }
+}
+
+/// What extinct-species media really shows, so the app can say what's real (D-010).
+enum MediaTag: Hashable {
+    case historicalPhoto
+    case realFossil
+    case reconstruction
+
+    var label: String {
+        switch self {
+        case .historicalPhoto: "Historical photo"
+        case .realFossil: "Real fossil"
+        case .reconstruction: "Reconstruction"
+        }
+    }
+
+    /// Living species never get a tag: they only ever show photographs.
+    static func tag(for image: LicensedImage, species: Species) -> MediaTag? {
+        if image.isArtwork { return .reconstruction }
+        guard species.isExtinct else { return nil }
+        if image.isFossil { return .realFossil }
+        return .historicalPhoto
+    }
 }
 
 /// One full-screen page in the feed.
@@ -89,6 +120,8 @@ struct FactCard: Hashable {
     let topic: String?
     let text: String
     let attribution: Attribution
+    /// Photo kept above the fact board so the animal stays in view (D-010).
+    let image: LicensedImage?
 }
 
 struct PhotoCard: Hashable {

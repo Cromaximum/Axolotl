@@ -3,6 +3,7 @@ import SwiftUI
 @main
 struct AnimalScrollerApp: App {
     @State private var preferences = PreferencesStore()
+    @State private var met = MetStore()
     private let taxonomy = TaxonomyLoader.loadBundled()
 
     init() {
@@ -13,8 +14,9 @@ struct AnimalScrollerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            FeedView(taxonomy: taxonomy)
+            RootView(taxonomy: taxonomy)
                 .environment(preferences)
+                .environment(met)
                 .preferredColorScheme(.dark)
         }
     }

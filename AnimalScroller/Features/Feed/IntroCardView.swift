@@ -1,144 +1,72 @@
 import SwiftUI
 
-/// The opening card of each species set, styled like a zoo enclosure sign.
+/// The opening card of each species set: the animal full-bleed, and a zoo-board sign at the
+/// bottom with its names, lineage, a "Did you know?" fact and the IUCN status bar (D-003, D-010).
 struct IntroCardView: View {
     let card: IntroCard
+    let context: CardContext
     private var species: Species { card.entry.species }
 
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
             Theme.forest
-            VStack(spacing: 0) {
-                    heroImage
-                    BoardPanel {
-                        VStack(alignment: .leading, spacing: 14) {
-                            lineageLine
-                            Text(species.commonName)
-                                .font(Theme.heading(40))
-                                .foregroundStyle(Theme.parchment)
-                                .minimumScaleFactor(0.6)
-                            Text(species.scientificName)
-                                .font(Theme.body(20).italic())
-                                .foregroundStyle(Theme.parchment.opacity(0.85))
-                            if let tagline = card.tagline {
-                                Text(tagline.capitalizedFirst)
-                                    .font(Theme.label(14))
-                                    .foregroundStyle(Theme.amber)
-                            }
-                            Text(card.lead)
-                                .font(Theme.body(17))
-                                .foregroundStyle(Theme.parchment)
-                                .lineLimit(5)
-                            if let fact = card.didYouKnow {
-                                DidYouKnowBox(text: fact)
-                            }
-                            ConservationScale(status: species.status)
-                            HStack {
-                                AttributionBadge(attribution: card.textAttribution, label: "Text")
-                                if let hero = card.hero {
-                                    AttributionBadge(attribution: hero.attribution, label: "Photo")
-                                }
-                            }
-                        }
-                    }
-                    .padding(.horizontal, 16)
-                    .padding(.top, -40)   // sign overlaps the bottom of the photo
-                    Spacer(minLength: 24)
+            if let hero = card.hero {
+                FullBleedImage(image: hero, wideCenter: 0.3)
             }
+            board
+                .padding(.horizontal, 10)
+                .padding(.bottom, CardInsets.bottom)
+                .onTapGesture(perform: context.onInfo)
         }
+        .overlay(alignment: .top) { topRow }
     }
 
-    @ViewBuilder private var heroImage: some View {
-        if let hero = card.hero {
-            // A fixed-size placeholder owns the layout; the scaledToFill image is drawn in an overlay
-            // so its natural width can't push the whole card wider than the screen.
-            Color.clear
-                .frame(maxWidth: .infinity)
-                .frame(height: 300)
-                .overlay {
-                    AsyncImage(url: hero.url, transaction: .init(animation: .easeIn)) { phase in
-                        switch phase {
-                        case .success(let image): image.resizable().scaledToFill()
-                        default: Theme.boardGreen.overlay(ProgressView().tint(Theme.amber))
-                        }
-                    }
-                }
-                .clipped()
-            .overlay(alignment: .topTrailing) {
-                if hero.isArtwork { ArtworkTag().padding(.top, 70).padding(.trailing, 16) }
+    private var topRow: some View {
+        HStack(alignment: .top) {
+            if let hero = card.hero, let tag = MediaTag.tag(for: hero, species: species) {
+                MediaTagChip(tag: tag)
+            } else {
+                ProgressDashes(position: context.position, count: context.count)
+                    .padding(.top, 10)
             }
-        } else {
-            Color.clear.frame(height: 120)
+            Spacer()
+            if let hero = card.hero { CreditChip(attribution: hero.attribution) }
         }
+        .padding(.horizontal, CardInsets.side)
+        .padding(.top, CardInsets.top)
     }
 
-    private var lineageLine: some View {
-        let names = [card.entry.className, card.entry.orderName, card.entry.familyName].compactMap { $0 }
-        return Text(names.joined(separator: " › ").uppercased())
-            .font(Theme.label(11))
-            .tracking(1.2)
-            .foregroundStyle(Theme.parchment.opacity(0.7))
-    }
-}
-
-struct DidYouKnowBox: View {
-    let text: String
-    var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Label("Did you know?", systemImage: "lightbulb.fill")
-                .font(Theme.label(13))
-                .foregroundStyle(Theme.wood)
-            Text(text)
-                .font(Theme.body(16))
-                .foregroundStyle(Theme.ink)
-                .lineLimit(4)
+    private var board: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(species.commonName)
+                .font(Theme.heading(36))
+                .foregroundStyle(Theme.parchment)
+                .minimumScaleFactor(0.6)
+                .lineLimit(2)
+            Text(species.scientificName)
+                .font(Theme.body(15).italic())
+                .foregroundStyle(Theme.amber)
+            Text(lineage)
+                .font(Theme.body(12))
+                .foregroundStyle(Theme.mist)
+            if let fact = card.didYouKnow {
+                DidYouKnowBox(text: fact)
+            } else if !card.lead.isEmpty {
+                Text(card.lead).font(Theme.body(15)).foregroundStyle(Theme.parchment).lineLimit(4)
+            }
+            ConservationScale(status: species.status)
         }
-        .padding(14)
+        .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Theme.parchment, in: RoundedRectangle(cornerRadius: 10))
-        .overlay(alignment: .leading) {
-            Rectangle().fill(Theme.amber).frame(width: 6)
-                .clipShape(RoundedRectangle(cornerRadius: 3))
-        }
+        .background(Theme.boardGreen, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .overlay(RoundedRectangle(cornerRadius: 22, style: .continuous).strokeBorder(Theme.wood, lineWidth: 6))
+        .shadow(color: .black.opacity(0.4), radius: 12, y: 4)
+        .accessibilityElement(children: .contain)
+        .accessibilityHint("Opens species details")
     }
-}
 
-/// The IUCN Red List bar found on most zoo signs: LC NT VU EN CR EW EX.
-struct ConservationScale: View {
-    let status: ConservationStatus
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text("CONSERVATION STATUS: \(status.label.uppercased())")
-                .font(Theme.label(11))
-                .tracking(1)
-                .foregroundStyle(Theme.parchment.opacity(0.8))
-            HStack(spacing: 4) {
-                ForEach(ConservationStatus.scale, id: \.self) { step in
-                    Text(step.rawValue)
-                        .font(Theme.label(12))
-                        .frame(maxWidth: .infinity, minHeight: 28)
-                        .foregroundStyle(step == status ? Theme.ink : Theme.parchment.opacity(0.6))
-                        .background(step == status ? Theme.amber : Color.white.opacity(0.08),
-                                    in: RoundedRectangle(cornerRadius: 6))
-                }
-            }
-        }
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel("Conservation status: \(status.label)")
+    private var lineage: String {
+        [card.entry.className, card.entry.orderName, card.entry.familyName]
+            .compactMap { $0 }.joined(separator: " › ")
     }
-}
-
-struct ArtworkTag: View {
-    var body: some View {
-        Text("ARTIST RECONSTRUCTION")
-            .font(Theme.label(10))
-            .padding(.horizontal, 8).padding(.vertical, 4)
-            .background(Theme.amber, in: Capsule())
-            .foregroundStyle(Theme.ink)
-    }
-}
-
-extension String {
-    var capitalizedFirst: String { prefix(1).uppercased() + dropFirst() }
 }
