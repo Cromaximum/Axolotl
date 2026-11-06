@@ -23,6 +23,18 @@ format of an endless vertical feed. Every item is about **one specific species**
 
 **Feed**, **Tree** (the tree-of-life filters) and **Met** (the species collection).
 
+### Tree
+
+- **Search** branches and species by common or scientific name (accents and case don't matter).
+  Each result shows where it sits in the tree. Tapping a branch picks it; tapping a species picks
+  the branch it belongs to.
+- **Showing**: the picked branches with their species counts (tap one to remove it), and
+  **Reset to everything** (whole tree, living and extinct, surprise picks on). The toolbar has a
+  Reset button too.
+- Extinct three-way switch, artist reconstructions, surprise picks and full-catalogue toggles.
+- The tree outline shows each branch's rank, scientific name and species count. Branches covered
+  by a picked parent show a tick and are read by VoiceOver as "Included by <parent>".
+
 ### The feed
 
 - A full-screen, vertically paging feed (one card per screen) that draws under the status bar.
@@ -61,8 +73,11 @@ description), "Did you know?", the lead, more facts, and every source and credit
 
 ### Species met
 
-Every species whose intro card was shown is added automatically (newest first). Filters: All /
-Saved / Extinct. Tap a tile for the detail sheet. Persisted across launches.
+Every species whose intro card was shown is added automatically. Filters: All / Saved / Liked /
+Extinct. Sort: recently seen (default), first met, name A to Z, or group (class, then name). Tiles
+show a heart when liked and a bookmark when saved. Tap any tile, including species from the full
+catalogue, for the detail sheet. Persisted across launches; names are looked up from the current
+species data when shown, so updated names appear on old saves.
 
 ### Choosing the next species
 
