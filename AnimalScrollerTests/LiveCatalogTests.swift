@@ -64,6 +64,14 @@ final class LiveCatalogTests: XCTestCase {
                        "species GBIF returned for isExtinct=true")
     }
 
+    func testUnsourcedLiveStatusIsShownAsUnknown() {
+        let unsourced = Species(wikiTitle: "X", commonName: "X", scientificName: "X x", status: .notEvaluated, gbifKey: 1)
+        XCTAssertFalse(unsourced.hasKnownStatus)
+        XCTAssertEqual(unsourced.statusLabel, "Unknown")
+        let sourced = Species(wikiTitle: "Y", commonName: "Y", scientificName: "Y y", status: .vulnerable, gbifKey: 2)
+        XCTAssertEqual(sourced.statusLabel, "Vulnerable")
+    }
+
     func testShortDescriptionIsOnlyAFilterSignal() {
         // "Extinct" in Wikipedia's short description keeps a fossil out of Living only, but is
         // never shown as an IUCN category (D-011: shown values must be sourced).

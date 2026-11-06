@@ -55,7 +55,7 @@ struct IntroCardView: View {
             } else if !card.lead.isEmpty {
                 Text(card.lead).font(Theme.body(15)).foregroundStyle(Theme.parchment).lineLimit(4)
             }
-            ConservationScale(status: species.status)
+            if species.hasKnownStatus { ConservationScale(status: species.status) }
         }
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)

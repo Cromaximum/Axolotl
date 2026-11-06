@@ -17,7 +17,7 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
 - [x] First successful compile and test run; fix build errors (#5)
 - [ ] Run on a device and fix layout / behaviour issues
 - [ ] Grow to a few hundred reviewed species (likely generated from Wikidata, then human-reviewed)
-- [x] Live species catalogue from the GBIF Backbone with on-the-fly cards (D-012, proposed; needs a simulator check against the live APIs)
+- [x] Live species catalogue from the GBIF Backbone with on-the-fly cards (D-012; needs a simulator check against the live APIs)
 - [x] Likes that steer tailored picks (D-013)
 - [ ] Widen the live catalogue: add more class/order/family branches to the bundled tree so GBIF is searched in more places
 - [ ] Liked filter in the Met tab

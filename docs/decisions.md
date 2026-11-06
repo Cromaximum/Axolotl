@@ -32,12 +32,13 @@ Template:
 - Consequences: Likes persist across launches; dwell affinity still resets on launch.
 
 ## D-012 · Live species catalogue from the GBIF Backbone Taxonomy
-- Status: Proposed (Maxwell asked for a live master species list; the source choice and quality gates are an agent proposal)
+- Status: Decided
 - Date: 2026-11-06
-- Decided by: proposed by the live catalog agent
+- Decided by: Maxwell Rhinelander asked for the live master species list and confirmed that "all species may skip human review". GBIF as the source and the automatic quality gates were proposed by the live catalog agent.
 - Context: Maxwell asked for "an algorithm pulling from a reputable master species list, then search and populate cards as the user goes". Options were Catalogue of Life (ChecklistBank API), the GBIF Backbone (built on CoL plus other expert checklists) and Wikidata's taxonomy.
 - Decision: Use the GBIF Backbone. It has one clean kingdom › … › genus classification per accepted species, a fast keyless search API with "species under this taxon" and an extinct filter, and CC BY 4.0. CoL is authoritative but its API is slower and less suited to random sampling; Wikidata's parent-taxon tree is inconsistent and its SPARQL endpoint times out on large subtrees. For each load the app picks a branch of the bundled tree (weighted by likes and dwell), pulls a random page of ~40 accepted species from GBIF, checks all 40 against English Wikipedia in one request, keeps species with a real article (≥ 5,000 bytes, free lead image, not a redirect to a group), picks one favouring unseen and better-covered species, and builds its cards from Wikipedia and Commons as before. While bundled species in scope are unseen, about half of picks are live; after that, all are. Users can turn it off ("Explore the full species catalogue").
-- Consequences: Relaxes D-006 ("a few hundred reviewed species"): live species are checked automatically, not by a person. Needs a human to confirm. Adds `api.gbif.org` and `www.wikidata.org` to the hosts the app calls. Live species only reach branches present in the bundled tree, so growing the tree widens the catalogue.
+- Status display (Maxwell, 2026-11-06: "do not add extinct unless it is abundantly obvious or clearly stated, rather just say unknown or omit it entirely"): a live species shows an IUCN status only from Wikidata P141, and Extinct only when Wikidata says EX or GBIF flags it extinct. With no sourced value the IUCN bar is left out and the status reads "Unknown". Wikipedia short-description keywords ("extinct", "fossil") are used only to keep fossils out of "Living only", never displayed.
+- Consequences: Supersedes the "each reviewed" part of D-006: live species are checked automatically, not by a person. Adds `api.gbif.org` and `www.wikidata.org` to the hosts the app calls. Live species only reach branches present in the bundled tree, so growing the tree widens the catalogue.
 
 ## D-011 · Zero AI-generated content
 - Status: Decided
@@ -80,7 +81,7 @@ Template:
 - Consequences: See [content-and-licensing.md](content-and-licensing.md). Enforced in `ContentPolicy.isAllowedLicense`.
 
 ## D-006 · Launch with a few hundred reviewed species
-- Status: Decided
+- Status: Decided; "each reviewed" superseded by D-012 (all species may skip human review)
 - Date: 2026-11-06
 - Decided by: Maxwell Rhinelander
 - Context: How big the species set must be before launch.

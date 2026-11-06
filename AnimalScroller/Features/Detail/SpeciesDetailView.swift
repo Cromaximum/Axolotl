@@ -75,7 +75,7 @@ struct SpeciesDetailView: View {
 
     private var quickFacts: some View {
         LazyVGrid(columns: [GridItem(.flexible(), spacing: 10), GridItem(.flexible())], spacing: 10) {
-            factTile("Status", species.status.label)
+            factTile("Status", species.statusLabel)
             factTile("Class", entry.className ?? "–")
             factTile("Order", entry.orderName ?? "–")
             factTile("Family", entry.familyName ?? "–")

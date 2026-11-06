@@ -34,6 +34,10 @@ struct Species: Identifiable, Codable, Hashable {
 
     var id: String { wikiTitle }
     var isLive: Bool { gbifKey != nil }
+    /// False for a live species with no sourced status (Wikidata P141 or GBIF's extinct flag).
+    /// Then the IUCN bar is left out and the status reads "Unknown" (Maxwell, 2026-11-06).
+    var hasKnownStatus: Bool { !(isLive && status == .notEvaluated) }
+    var statusLabel: String { hasKnownStatus ? status.label : "Unknown" }
     var isExtinct: Bool { status == .extinct }
 }
 

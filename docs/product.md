@@ -75,7 +75,8 @@ Saved / Extinct. Tap a tile for the detail sheet. Persisted across launches.
   picks, outside them), keeping only species with a substantial, illustrated English Wikipedia
   article. About half of picks are live while bundled species in scope are unseen; all are
   live after that. Live species show their Wikipedia article title as the common name and
-  their Wikidata IUCN status (Not Evaluated if none). Their detail sheet credits GBIF.
+  their Wikidata IUCN status. With no sourced status the IUCN bar is left out and the detail
+  sheet says "Unknown"; Extinct is shown only when Wikidata or GBIF says so. Their detail sheet credits GBIF.
 - If nothing is selected, the whole animal kingdom is in scope.
 
 ### Filters (tree-of-life picker)
