@@ -91,6 +91,18 @@ refreshes after 7 days so corrected articles reach the device (D-011). No animal
 `FullBleedImage` keeps its caption label, marks the loading placeholder hidden from VoiceOver,
 and fades in only when Reduce Motion is off.
 
+## Asks from other streams (accepted)
+
+From W2 (`docs/designs/2026-11-06-feed-feel.md`, PR #13):
+
+1. `FeedViewModel.emptyMessage: String?` becomes `notice: FeedNotice?` with
+   `enum FeedNotice { case noMatches, offline }` (in `Features/Feed/FeedViewModel.swift`), so
+   `FeedView` can show an offline state with "Try again". Done in the step 3 PR.
+2. Once W2's `ShimmerFill` lands in `Features/Components`, `FullBleedImage` uses it for the
+   loading phase instead of `ProgressView`. Done in step 1 if #13 has merged by then, otherwise a
+   follow-up.
+3. W1 tells W2 when `CardPlacement` (step 6) lands.
+
 ## Open questions
 
 1. **Step 4 touches two files other streams own.** `FeedView.init` (W2) creates the view model, so
