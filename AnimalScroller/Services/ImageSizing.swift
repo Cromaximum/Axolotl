@@ -7,9 +7,10 @@ enum ImageSizing {
     /// are decoded no larger than this, so one size serves every card and prefetch hits the cache.
     static let fullScreenPixelSize = 2868
 
-    /// Width we ask Wikimedia for. 1280 is one of Wikimedia's standard thumbnail steps, so the
-    /// request is usually already in their CDN cache.
-    static let wikimediaThumbWidth = 1280
+    /// Width we ask Wikimedia for. Wikimedia only serves standard thumbnail widths (others get
+    /// HTTP 400); 1920 is one, and its 2x rendition (3840) is another. `PhotoQuality.displayURL`
+    /// picks between them per photo so tall photos are as tall as the screen.
+    static let wikimediaThumbWidth = 1920
 
     /// Sizes are rounded up to this step so small layout differences reuse one cached decode.
     static let step = 256

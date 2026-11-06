@@ -23,6 +23,26 @@ Template:
 
 ---
 
+## D-018 · Rank photos for quality and screen fit; load them at full-screen resolution
+- Status: Decided
+- Date: 2026-11-06
+- Decided by: Maxwell Rhinelander ("really put some work into making sure we are selecting high
+  quality photos, close ups, UHD, screen filling images"); thresholds and weights chosen by the
+  agent (thread "Pick high-quality, screen-filling photos")
+- Context: photos were used in the article's order at 1280 px, and Commons reports the requested
+  thumbnail width for small originals, so 600 px files passed the size check and looked soft
+  full screen.
+- Decision: `PhotoQuality` ranks the allowed photos (Commons Featured/Quality/Valued, resolution,
+  portrait fit, close-up and species-name signals up; habitat, specimen and flawed files down).
+  Soft originals (under 1200 × 800) are dropped when a species has 2+ sharp photos. Photos load
+  at 1920 px or Wikimedia's 3840 px/original rendition, whichever stays sharp on the largest
+  iPhone. The article's lead image stays the intro hero when it passes. Rules in
+  content-and-licensing.md.
+- Consequences: licensing and the zero-AI rule are unchanged (ranking only reorders allowed
+  photos). Some species with only small photos show fewer photo cards. Tall photos download
+  larger (up to 3840 px wide, originals capped at 15 MB). `tools/gen_taxonomy.py`'s build-time
+  photo check should mirror the new size floors.
+
 ## D-015 · Subspecies count as one specific animal
 - Status: Proposed (agent, W4 content quality, 2026-11-06)
 - Date: 2026-11-06
