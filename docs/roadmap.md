@@ -20,6 +20,7 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
       Catalogue of Life linked to Wikidata ids → fetch Commons/Wikipedia/IUCN → licence and
       quality filter → facts drafted from Wikipedia, cited, reviewed by a person → publish to a
       CDN). Only species that pass every check ship. Plug in as a new `SpeciesContentProvider`.
+- [ ] Move app-wide stores to `Stores/` and inject the content provider from `App/` (architecture-rules.md)
 - [ ] Bundle Fredoka and Nunito Sans fonts
 - [ ] Real support contact in the Wikimedia `User-Agent`
 - [ ] Choose the shipping name (must not use "Instagram")

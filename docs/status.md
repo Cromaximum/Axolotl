@@ -21,6 +21,7 @@ test-target fix, and the feed loads live Wikipedia content. CI also builds and t
 | IUCN statuses, common names, group names | Generated from Wikidata and Wikipedia (D-011, #9). 9 species have no IUCN status in either source and show NE |
 | Fonts (Fredoka, Nunito Sans) | Not bundled. App falls back to the system font. |
 | Concept screens | Twelve screens in `docs/design/` (D-010). App views not yet updated to match. |
+| Architecture review gate | Rules in [architecture-rules.md](architecture-rules.md) (D-014). Every design and PR needs architect sign-off. |
 | App name | Working title only. Must change before App Store (trademark). |
 | Ads, privacy manifest, App Store assets | Not started |
 
@@ -35,6 +36,7 @@ the PR merges or is abandoned.
 ## Known issues
 
 - Only tested in the simulator so far, not on a physical iPhone.
+- App-wide stores (`PreferencesStore`, and `MetStore` from PR #4) live under `Features/` instead of `Stores/`. One small move PR after #4 merges (see [architecture-rules.md](architecture-rules.md#layers)).
 - Bundled species data and mockup text were written by AI and must be replaced with sourced
   values (D-011). Full list in [ai-content-audit.md](ai-content-audit.md).
 - `WikiClient.userAgent` has a placeholder contact URL. Wikimedia requires a real contact
