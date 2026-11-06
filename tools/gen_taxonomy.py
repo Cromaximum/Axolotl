@@ -74,6 +74,14 @@ FOSSIL_TAXON = ("Q23038290", "fossil taxon")
 SPECIES_RANK = ("Q7432", "species")
 SUBSPECIES_RANK = ("Q68947", "subspecies")  # narrower than a species, still one specific animal
 MIN_ARTICLE_LENGTH = 5000  # same bar as LiveCatalogRules.minArticleLength in the app
+# Bar for adding a species (--screen) and for warnings on listed ones: a solid article to pull
+# facts from, and enough usable photos for a full species set (intro hero, then photo, fact,
+# photo, fact; FeedComposer, PR #20) without repeating one.
+SCREEN_MIN_ARTICLE_LENGTH = 12000
+MIN_USABLE_PHOTOS = 4
+# Mirrors of the app's photo rules, so a photo counted here is one the app would show.
+APP_IMAGE_LIMIT = 40      # WikiClient.images(onArticle:limit:) looks at the first 40 files
+APP_THUMB_WIDTH = 1280    # ImageSizing.wikimediaThumbWidth (sizes are checked on the thumb)
 ANIMALIA = ("Q729", "animal")  # P225 of this item is also checked to be "Animalia"
 
 _last_request = 0.0
@@ -245,6 +253,142 @@ def read_species_list():
     return titles
 
 
+# ---- Photo check: a Python port of ContentPolicy.licensedImages (keep the two in step) ----
+
+ALLOWED_MIMES = {"image/jpeg", "image/png", "image/webp"}
+JUNK_WORDS = [
+    "map", "range", "distribution", "status_iucn", "status iucn", "logo", "icon", "flag",
+    "stamp", "coin", "banknote", "symbol", "chart", "graph", "phylogen", "cladogram",
+    "skull_comparison", "size_comparison", "size comparison", "scale", "commons-logo",
+    "wikispecies", "wiktionary", "red_pencil", "question_book", "ambox",
+]
+MIN_IMAGE_WIDTH, MIN_SHORT_SIDE, MAX_ASPECT = 640, 400, 2.6
+
+
+def allowed_license(short):
+    """ContentPolicy.isAllowedLicense: PD, CC0, CC BY, CC BY-SA; never NC, ND or fair use."""
+    name = (short or "").strip().lower()
+    if not name:
+        return False
+    if "-nc" in name or " nc" in name or "noncommercial" in name:
+        return False
+    if "-nd" in name or " nd" in name or "noderiv" in name:
+        return False
+    if "fair use" in name or "non-free" in name:
+        return False
+    if name == "cc0" or name.startswith("cc0 ") or "cc zero" in name:
+        return True
+    if name.startswith("public domain") or name == "pd" or name.startswith(("pd-", "pd ")):
+        return True
+    return name.startswith(("cc by", "cc-by"))
+
+
+def sharp_enough(width, height):
+    """ContentPolicy.isSharpEnough, on the size of the thumb the app downloads."""
+    if not width:
+        return True
+    if width > APP_THUMB_WIDTH and height:
+        width, height = APP_THUMB_WIDTH, round(height * APP_THUMB_WIDTH / width)
+    if width < MIN_IMAGE_WIDTH:
+        return False
+    if not height:
+        return True
+    if min(width, height) < MIN_SHORT_SIDE:
+        return False
+    return 1 / MAX_ASPECT <= width / height <= MAX_ASPECT
+
+
+def usable_photo(info):
+    t = info["title"].lower()
+    return (info.get("mime") in ALLOWED_MIMES and not any(w in t for w in JUNK_WORDS)
+            and allowed_license(info.get("license")) and sharp_enough(info.get("width"), info.get("height")))
+
+
+def article_files(titles):
+    """Canonical article title -> its first APP_IMAGE_LIMIT file titles, sorted like the app's
+    generator=images query."""
+    out = {t: [] for t in titles}
+    for batch in chunks(titles, 50):
+        cont = {}
+        while True:
+            data = fetch(ENWIKI_API, dict({"action": "query", "titles": "|".join(batch),
+                                           "prop": "images", "imlimit": "max"}, **cont))
+            for page in data.get("query", {}).get("pages", []):
+                out.setdefault(page["title"], []).extend(i["title"] for i in page.get("images", []))
+            if "continue" not in data:
+                break
+            cont = {k: v for k, v in data["continue"].items()}
+    return {t: sorted(set(v))[:APP_IMAGE_LIMIT] for t, v in out.items()}
+
+
+def file_infos(files):
+    """File title -> {title, mime, width, height, license} from Commons/enwiki imageinfo."""
+    out = {}
+    for batch in chunks(sorted(set(files)), 50):
+        data = fetch(ENWIKI_API, {"action": "query", "titles": "|".join(batch), "prop": "imageinfo",
+                                  "iiprop": "mime|size|extmetadata",
+                                  "iiextmetadatafilter": "LicenseShortName"})
+        q = data.get("query", {})
+        back = {n["to"]: n["from"] for n in q.get("normalized", [])}
+        for page in q.get("pages", []):
+            ii = (page.get("imageinfo") or [{}])[0]
+            lic = ii.get("extmetadata", {}).get("LicenseShortName", {}).get("value")
+            info = {"title": page["title"], "mime": ii.get("mime"), "width": ii.get("width"),
+                    "height": ii.get("height"), "license": lic if isinstance(lic, str) else None}
+            out[page["title"]] = info
+            out[back.get(page["title"], page["title"])] = info
+    return out
+
+
+def usable_photo_counts(titles):
+    """Canonical article title -> number of photos the app would accept from it."""
+    files = article_files(titles)
+    infos = file_infos([f for fs in files.values() for f in fs])
+    return {t: sum(1 for f in fs if f in infos and usable_photo(infos[f])) for t, fs in files.items()}
+
+
+def screen(path):
+    """Report which candidate titles meet the bar for species.txt. Prints passing titles to
+    stdout (ready to paste) and the reason for each rejection to stderr. Never edits files."""
+    with open(path) as f:
+        cands = [l.strip() for l in f if l.strip() and not l.startswith("#")]
+    listed = read_species_list()
+    page_info = {}
+    have = resolve_titles(listed, {})
+    have_articles = {final for final, _ in have.values()}
+    resolved = resolve_titles(cands, page_info)
+    entities = get_entities([q for _, q in resolved.values()])
+    finals = sorted({resolved[c][0] for c in cands if c in resolved})
+    photos = usable_photo_counts(finals)
+    seen = set()
+    for c in cands:
+        if c not in resolved:
+            print(f"reject {c}: no article / Wikidata item", file=sys.stderr); continue
+        final, qid = resolved[c]
+        ent = entities.get(qid, {})
+        info = page_info.get(final, {})
+        why = None
+        if final in have_articles:
+            why = "already listed"
+        elif final in seen:
+            why = "duplicate candidate"
+        elif not {SPECIES_RANK[0], SUBSPECIES_RANK[0]} & set(best_values(ent, "P105")):
+            why = "not a single species on Wikidata"
+        elif not best_values(ent, "P225"):
+            why = "no P225 scientific name"
+        elif not info.get("freeImage"):
+            why = "no free lead image"
+        elif info.get("length", 0) < SCREEN_MIN_ARTICLE_LENGTH:
+            why = f"article too short ({info.get('length', 0)} bytes)"
+        elif photos.get(final, 0) < MIN_USABLE_PHOTOS:
+            why = f"only {photos.get(final, 0)} usable photos"
+        if why:
+            print(f"reject {c} -> {final}: {why}", file=sys.stderr)
+            continue
+        seen.add(final)
+        print(f"{c}\t{final}\t{info.get('length')}\t{photos[final]}")
+
+
 def lint():
     """Offline consistency check for CI: no network, no cache needed."""
     titles = read_species_list()
@@ -285,6 +429,9 @@ def lint():
 def main():
     if "--lint" in sys.argv:
         lint()
+        return
+    if "--screen" in sys.argv:
+        screen(sys.argv[sys.argv.index("--screen") + 1])
         return
     check = "--check" in sys.argv
     titles = read_species_list()
