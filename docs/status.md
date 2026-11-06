@@ -34,7 +34,7 @@ the PR merges or is abandoned.
 
 | Work | Who / where | Branch or PR | Started |
 | --- | --- | --- | --- |
-| W2 feed feel: fonts, placeholders, motion, haptics, accessibility | Claude, thread "Polish feed feel and animations" | PR #13 (design approved, code in review) | 2026-11-06 |
+| Polish and performance workstreams W1 to W4 ([roadmap](roadmap.md#phase-15-polish-and-performance-current-from-2026-11-06)) | One thread per workstream, architect reviews | see roadmap | 2026-11-06 |
 
 ## Known issues
 
