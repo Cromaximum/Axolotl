@@ -27,7 +27,8 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
       Catalogue of Life linked to Wikidata ids → fetch Commons/Wikipedia/IUCN → licence and
       quality filter → facts drafted from Wikipedia, cited, reviewed by a person → publish to a
       CDN). Only species that pass every check ship. Plug in as a new `SpeciesContentProvider`.
-- [ ] Bundle Fredoka and Nunito Sans fonts (W2)
+- [x] Bundle Fredoka and Nunito Sans fonts (W2, #13)
+- [ ] Bundle a Nunito Sans italic face for scientific names (system italic until then)
 - [ ] Real support contact in the Wikimedia `User-Agent`
 - [ ] Choose the shipping name (must not use "Instagram")
 - [ ] Privacy manifest, app icon, TestFlight build
@@ -75,13 +76,13 @@ Owns: `Features/Feed/FeedView.swift`, `IntroCardView.swift`, `PhotoCardView.swif
 `FactCardView.swift`, `Features/Components/CardComponents.swift` (except `FullBleedImage`),
 `App/Theme.swift`, `project.yml`, and new `Resources/Fonts/`.
 
-1. [ ] Bundle Fredoka and Nunito Sans (OFL, already in `docs/design/concept-art/fonts`) and
+1. [x] Bundle Fredoka and Nunito Sans (OFL, already in `docs/design/concept-art/fonts`) and
        register them in `project.yml`.
-2. [ ] Loading placeholders that look like the board (no bare spinners), plus friendly empty
+2. [x] Loading placeholders that look like the board (no bare spinners), plus friendly empty
        and offline states with retry.
-3. [ ] Paging feel: snap, card transitions, the like burst and save feedback, and haptics
+3. [x] Paging feel: snap, card transitions, the like burst and save feedback, and haptics
        (`sensoryFeedback`). Honour Reduce Motion.
-4. [ ] Dynamic Type and VoiceOver pass on every card. Text must never cover the animal (D-010).
+4. [x] Dynamic Type and VoiceOver pass on every card. Text must never cover the animal (D-010).
 5. [ ] Switch `FeedView` to W1's card position fields when they land.
 
 ### W3 · Onboarding, Tree, detail and Met screens
@@ -90,10 +91,10 @@ Owns: `App/RootView.swift`, `Features/Onboarding/`, `Features/Picker/TaxonomyPic
 `Features/Detail/`, `Features/Met/MetView.swift`, and `MetStore.Entry`'s shape (coordinate the
 file move with W1).
 
-1. [ ] Tree tab: search by common or scientific name, species counts per branch, a summary of
+1. [x] Tree tab: search by common or scientific name, species counts per branch, a summary of
        what's selected, and "reset to everything".
-2. [ ] Met tab: Liked filter, sort, and a faster grid using W1's image pipeline.
-3. [ ] `MetStore.Entry` keeps only id, dates and flags, and looks names up when shown (needs a
+2. [ ] Met tab: Liked filter, sort, and a faster grid using W1's image pipeline. (Liked filter and sort done in #11; grid on W1's image loader comes in PR B.)
+3. [x] `MetStore.Entry` keeps only id, dates and flags, and looks names up when shown (needs a
        `met.v2` key or a tolerant decoder; update data-model.md).
 4. [ ] Onboarding: small view model for tile photos using the injected provider (after W1 step
        4). Same for `SpeciesDetailView`.

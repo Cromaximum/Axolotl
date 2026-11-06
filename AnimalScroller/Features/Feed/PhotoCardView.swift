@@ -5,6 +5,7 @@ import SwiftUI
 struct PhotoCardView: View {
     let card: PhotoCard
     let context: CardContext
+    @Environment(\.dynamicTypeSize) private var typeSize
     private var species: Species { card.entry.species }
     private var tag: MediaTag? { MediaTag.tag(for: card.image, species: species) }
 
@@ -45,10 +46,12 @@ struct PhotoCardView: View {
                 Text("\(species.scientificName) · \(context.position) of \(context.count)".uppercased())
                     .font(Theme.label(11)).tracking(1)
                     .foregroundStyle(Theme.amber)
+                    .accessibilityLabel("\(species.scientificName), card \(context.position) of \(context.count)")
                 Text(caption)
-                    .font(Theme.body(20).weight(.semibold))
+                    .font(Theme.body(20, weight: .semibold))
                     .foregroundStyle(Theme.parchment)
-                    .lineLimit(4)
+                    // Stays on the lower-third scrim (D-010), so it gets fewer lines at huge text sizes.
+                    .lineLimit(typeSize.isAccessibilitySize ? 2 : 4)
                     .padding(.trailing, 60)
             } else {
                 CreditChip(attribution: card.image.attribution)

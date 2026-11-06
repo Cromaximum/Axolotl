@@ -6,8 +6,11 @@ struct FeedView: View {
     @Environment(PreferencesStore.self) private var prefs
     @Environment(MetStore.self) private var met
     @Environment(LikesStore.self) private var likes
-    /// Species id that just got a double-tap like, for the heart burst.
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    /// Card id that just got a double-tap like, for the heart burst.
     @State private var burstID: String?
+    /// Last like or save, for the toast and haptics. A new value each time, so repeats still fire.
+    @State private var feedback: FeedFeedback?
     @State private var model: FeedViewModel
     @State private var detailEntry: SpeciesEntry?
 
@@ -21,16 +24,11 @@ struct FeedView: View {
         ScrollView(.vertical) {
             LazyVStack(spacing: 0) {
                 ForEach(model.cards) { card in
-                    CardView(card: card, context: context(for: card))
-                        .containerRelativeFrame([.horizontal, .vertical])
-                        .clipped()
-                        .onAppear { cardAppeared(card) }
-                        .onTapGesture(count: 2) { doubleTapLike(card) }
-                        .overlay { if burstID == card.id { LikeBurst() } }
-                        .onLongPressGesture { toggleSaved(card) }
+                    page(for: card)
                 }
                 if model.isLoading || model.cards.isEmpty {
-                    loadingPage.containerRelativeFrame([.horizontal, .vertical])
+                    FeedStatusView(isLoading: model.isLoading, message: model.emptyMessage, onRetry: restart)
+                        .containerRelativeFrame([.horizontal, .vertical])
                 }
             }
             .scrollTargetLayout()
@@ -39,14 +37,42 @@ struct FeedView: View {
         .scrollIndicators(.hidden)
         .ignoresSafeArea(edges: .top)
         .background(Theme.forest)
-        .refreshable { model.restart(with: prefs, likes: likes) }
-        .task { if model.cards.isEmpty { model.restart(with: prefs, likes: likes) } }
-        .onChange(of: prefs.feedSignature) { model.restart(with: prefs, likes: likes) }
+        .overlay(alignment: .bottom) { toast }
+        .sensoryFeedback(trigger: feedback) { _, new in new?.haptic }
+        .refreshable { restart() }
+        .task { if model.cards.isEmpty { restart() } }
+        .onChange(of: prefs.feedSignature) { restart() }
         .sheet(item: $detailEntry) { entry in
             SpeciesDetailView(entry: entry)
                 .presentationDetents([.large])
                 .presentationDragIndicator(.visible)
         }
+    }
+
+    /// One full-screen card, with its gestures, feedback and VoiceOver actions.
+    private func page(for card: FeedCard) -> some View {
+        let context = context(for: card)
+        let staticCards = reduceMotion
+        return CardView(card: card, context: context)
+            .containerRelativeFrame([.horizontal, .vertical])
+            .clipped()
+            .scrollTransition(.interactive, axis: .vertical) { content, phase in
+                content
+                    .scaleEffect(phase.isIdentity || staticCards ? 1 : 0.94)
+                    .opacity(phase.isIdentity ? 1 : 0.55)
+            }
+            .onAppear { cardAppeared(card) }
+            // Simultaneous, so single taps on the board and buttons aren't held back
+            // waiting to see whether a second tap follows.
+            .simultaneousGesture(TapGesture(count: 2).onEnded { doubleTapLike(card) })
+            .onLongPressGesture { toggleSaved(card) }
+            .overlay { if burstID == card.id { LikeBurst() } }
+            .accessibilityElement(children: .contain)
+            .accessibilityActions {
+                Button(context.isLiked ? "Unlike" : "Like", action: context.onLike)
+                Button(context.isSaved ? "Unsave" : "Save", action: context.onSave)
+                Button("Species details", action: context.onInfo)
+            }
     }
 
     private func context(for card: FeedCard) -> CardContext {
@@ -57,9 +83,13 @@ struct FeedView: View {
             isSaved: met.isSaved(card.entry.id),
             isLiked: likes.isLiked(card.entry.id),
             onSave: { toggleSaved(card) },
-            onLike: { likes.toggle(card.entry, imageURL: heroURL(for: card)) },
+            onLike: { toggleLike(card) },
             onInfo: { detailEntry = card.entry }
         )
+    }
+
+    private func restart() {
+        model.restart(with: prefs, likes: likes)
     }
 
     private func cardAppeared(_ card: FeedCard) {
@@ -71,16 +101,42 @@ struct FeedView: View {
 
     /// Double-tap anywhere on a card likes the species (never unlikes), with a heart burst.
     private func doubleTapLike(_ card: FeedCard) {
+        let wasLiked = likes.isLiked(card.entry.id)
         likes.like(card.entry, imageURL: heroURL(for: card))
+        if !wasLiked { feedback = FeedFeedback(kind: .liked) }
         burstID = card.id
         Task {
-            try? await Task.sleep(for: .milliseconds(700))
+            try? await Task.sleep(for: Theme.Motion.feedbackHold)
             if burstID == card.id { burstID = nil }
         }
     }
 
+    private func toggleLike(_ card: FeedCard) {
+        likes.toggle(card.entry, imageURL: heroURL(for: card))
+        feedback = FeedFeedback(kind: likes.isLiked(card.entry.id) ? .liked : .unliked)
+    }
+
     private func toggleSaved(_ card: FeedCard) {
         met.toggleSaved(card.entry.species, imageURL: heroURL(for: card))
+        show(FeedFeedback(kind: met.isSaved(card.entry.id) ? .saved : .unsaved))
+    }
+
+    /// Sets the feedback (haptic and toast), announces it to VoiceOver, and clears the toast later.
+    private func show(_ new: FeedFeedback) {
+        withAnimation(reduceMotion ? Theme.Motion.fade : Theme.Motion.settle) { feedback = new }
+        if let message = new.message { AccessibilityNotification.Announcement(message).post() }
+        Task {
+            try? await Task.sleep(for: Theme.Motion.feedbackHold)
+            if feedback == new { withAnimation(Theme.Motion.fade) { feedback = nil } }
+        }
+    }
+
+    @ViewBuilder private var toast: some View {
+        if let message = feedback?.message {
+            FeedbackToast(message: message, systemImage: feedback?.icon ?? "bookmark")
+                .padding(.bottom, 24)
+                .transition(reduceMotion ? .opacity : .move(edge: .bottom).combined(with: .opacity))
+        }
     }
 
     private func heroURL(for card: FeedCard) -> URL? {
@@ -89,21 +145,6 @@ struct FeedView: View {
         case .photo(let c): c.image.url
         case .fact(let c): c.image?.url
         }
-    }
-
-    @ViewBuilder private var loadingPage: some View {
-        VStack(spacing: 16) {
-            if let message = model.emptyMessage {
-                Image(systemName: "binoculars").font(.largeTitle)
-                Text(message).multilineTextAlignment(.center).font(Theme.body())
-                Text("Change your branches on the Tree tab.").font(Theme.body(14)).foregroundStyle(Theme.mist)
-            } else {
-                ProgressView().tint(Theme.amber)
-                Text("Finding the next animal…").font(Theme.body(16))
-            }
-        }
-        .foregroundStyle(Theme.parchment)
-        .padding(40)
     }
 }
 

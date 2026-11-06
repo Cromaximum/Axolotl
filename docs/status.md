@@ -12,16 +12,16 @@ test-target fix, and the feed loads live Wikipedia content. CI also builds and t
 | Area | State |
 | --- | --- |
 | Build | Builds clean with Xcode 26.6 locally and in CI (macos-15) |
-| Unit tests | 17 tests in `AnimalScrollerTests/`, all passing in CI (11 were also run on the simulator before the concept-screen rebuild) |
+| Unit tests | 38 tests in `AnimalScrollerTests/` (count fixed 2026-11-06; was listed as 17), run in CI on every PR |
 | CI | `.github/workflows/ios.yml`: XcodeGen + `xcodebuild test` on macos-15 (first available iPhone simulator) for every PR and push to `main`. Results bundle and log uploaded as an artifact. |
 | Feed (intro, photo and fact cards) | The original cards worked in the iPhone 17 simulator. The cards rebuilt to the concept art (`feature/concept-screens`) pass CI but have not been checked by hand yet |
-| Tree-of-life filter + extinct toggles | Now the Tree tab. The earlier sheet version listed the tree in the simulator; filtering not yet tested by hand |
+| Tree-of-life filter + extinct toggles | Now the Tree tab, with search, species counts per branch, a "Showing" summary and "Reset to everything" (W3, #11; CI only, not yet checked by hand). The earlier sheet version listed the tree in the simulator |
 | Live Wikipedia / Commons fetching | Works in the simulator. The cloud dev environment can reach `en.wikipedia.org`, `commons.wikimedia.org` and `upload.wikimedia.org` since 2026-11-06 (not `thumb.wikimedia.org`) |
 | Species data | 77 bundled species (20 extinct) in `taxonomy.json`. Launch target is a few hundred. |
 | Live species catalogue (D-012) | Merged (#7), unit-tested in CI only. Not yet run against the live GBIF API: the cloud dev environment and the Mac VM can't reach `api.gbif.org` or `www.wikidata.org`. Needs a simulator check |
 | Likes (D-013) | Merged (#7), unit-tested in CI only; needs a simulator check |
 | IUCN statuses, common names, group names | Generated from Wikidata and Wikipedia (D-011, #9). 9 species have no IUCN status in either source and show NE |
-| Fonts (Fredoka, Nunito Sans) | Not bundled. App falls back to the system font. |
+| Fonts (Fredoka, Nunito Sans) | Bundled (latin subsets, OFL) in `Resources/Fonts/`; `ThemeFontTests` checks they load. Scientific names use the system italic. |
 | Concept screens | Twelve screens in `docs/design/` (D-010). App views rebuilt to match (#4); layout still needs a hand check on a simulator. |
 | Architecture review gate | Rules in [architecture-rules.md](architecture-rules.md) (D-014). Every design and PR needs architect sign-off. |
 | App name | Working title only. Must change before App Store (trademark). |
@@ -34,7 +34,8 @@ the PR merges or is abandoned.
 
 | Work | Who / where | Branch or PR | Started |
 | --- | --- | --- | --- |
-| W1 feed speed: image pipeline, content cache, injected provider, card placement (steps 0 to 4 and 6). Step 5 (store moves) waits for W3 PR A | Claude, thread "Speed up feed loading and caching" | #14 | 2026-11-06 |
+| W1 feed speed: image pipeline, content cache, injected provider, card placement (steps 0 to 4 and 6). Step 5 (store moves) follows in its own PR after #14 merges | Claude, thread "Speed up feed loading and caching" | #14 | 2026-11-06 |
+| W3: Tree search, Met filters and sort, slim Met saves (`met.v2`), onboarding and detail view models | Claude, thread "Improve onboarding, tree and saves" | PR A #11 (Tree, Met, `met.v2`); PR B (onboarding and detail on the injected provider, Met grid on W1's image loader) after W1 step 4 (#14) | 2026-11-06 |
 | Polish and performance workstreams W1 to W4 ([roadmap](roadmap.md#phase-15-polish-and-performance-current-from-2026-11-06)) | One thread per workstream, architect reviews | see roadmap | 2026-11-06 |
 
 ## Known issues

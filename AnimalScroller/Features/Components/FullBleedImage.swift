@@ -27,8 +27,7 @@ struct FullBleedImage: View {
                     Theme.boardGreen.overlay(Image(systemName: "photo").font(.largeTitle)
                         .foregroundStyle(Theme.mist))
                 case .loading:
-                    Theme.boardGreen.overlay(ProgressView().tint(Theme.amber))
-                        .accessibilityHidden(true)
+                    ShimmerFill()
                 }
             }
             .frame(width: geo.size.width, height: geo.size.height)

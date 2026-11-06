@@ -72,6 +72,7 @@ struct NamePill: View {
     var body: some View {
         (Text(name).font(Theme.label(12)) + Text("  ·  \(position) of \(count)").font(Theme.body(11)))
             .lineLimit(1)
+            .accessibilityLabel("\(name), card \(position) of \(count)")
             .padding(.horizontal, 10).padding(.vertical, 5)
             .background(.black.opacity(0.55), in: Capsule())
             .foregroundStyle(Theme.parchment)
@@ -99,15 +100,18 @@ struct ProgressDashes: View {
 struct LikeButton: View {
     let isLiked: Bool
     let action: () -> Void
+    @ScaledMetric(relativeTo: .body) private var iconSize: CGFloat = 18
+    @ScaledMetric(relativeTo: .body) private var hitSize: CGFloat = 44
 
     var body: some View {
         Button(action: action) {
             Image(systemName: isLiked ? "heart.fill" : "heart")
-                .font(.system(size: 18, weight: .semibold))
-                .frame(width: 42, height: 42)
+                .font(.system(size: iconSize, weight: .semibold))
+                .frame(width: hitSize, height: hitSize)
                 .background(.black.opacity(0.5), in: Circle())
                 .foregroundStyle(isLiked ? Theme.amber : Theme.parchment)
                 .contentTransition(.symbolEffect(.replace))
+                .symbolEffect(.bounce, value: isLiked)
         }
         .buttonStyle(.plain)
         .accessibilityLabel(isLiked ? "Unlike" : "Like")
@@ -115,17 +119,18 @@ struct LikeButton: View {
     }
 }
 
-/// The heart that pops up after a double-tap like.
+/// The heart that pops up after a double-tap like. Under Reduce Motion it fades in place.
 struct LikeBurst: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var shown = false
     var body: some View {
         Image(systemName: "heart.fill")
             .font(.system(size: 96))
             .foregroundStyle(Theme.amber)
             .shadow(color: .black.opacity(0.4), radius: 10)
-            .scaleEffect(shown ? 1 : 0.4)
+            .scaleEffect(shown || reduceMotion ? 1 : 0.4)
             .opacity(shown ? 1 : 0)
-            .onAppear { withAnimation(.spring(duration: 0.35)) { shown = true } }
+            .onAppear { withAnimation(reduceMotion ? Theme.Motion.fade : Theme.Motion.pop) { shown = true } }
             .allowsHitTesting(false)
             .accessibilityHidden(true)
     }
@@ -139,6 +144,8 @@ struct ActionRail: View {
     let onLike: () -> Void
     let onSave: () -> Void
     let onInfo: () -> Void
+    @ScaledMetric(relativeTo: .body) private var iconSize: CGFloat = 18
+    @ScaledMetric(relativeTo: .body) private var hitSize: CGFloat = 44
 
     var body: some View {
         VStack(spacing: 14) {
@@ -160,24 +167,29 @@ struct ActionRail: View {
 
     private func railIcon(_ icon: String) -> some View {
         Image(systemName: icon)
-            .font(.system(size: 18, weight: .semibold))
-            .frame(width: 42, height: 42)
+            .font(.system(size: iconSize, weight: .semibold))
+            .frame(width: hitSize, height: hitSize)
             .background(.black.opacity(0.5), in: Circle())
             .foregroundStyle(Theme.parchment)
+            .contentTransition(.symbolEffect(.replace))
     }
 }
 
 struct DidYouKnowBox: View {
     let text: String
+    /// Fewer lines at accessibility text sizes so the board stays below the animal (D-010).
+    /// The full fact is in the species detail sheet.
+    var lineLimit = 4
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text("DID YOU KNOW?")
                 .font(Theme.label(13)).tracking(1.2)
                 .foregroundStyle(Theme.wood)
+                .accessibilityLabel("Did you know?")
             Text(text)
-                .font(Theme.body(16).weight(.semibold))
+                .font(Theme.body(16, weight: .semibold))
                 .foregroundStyle(Theme.ink)
-                .lineLimit(4)
+                .lineLimit(lineLimit)
         }
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -227,4 +239,7 @@ enum CardInsets {
     static let top: CGFloat = 58
     static let side: CGFloat = 16
     static let bottom: CGFloat = 18
+    /// The most of a card's height a board may take, so text never grows over the animal
+    /// (D-010). Boards drop detail at accessibility text sizes to fit under it.
+    static let maxBoardShare: CGFloat = 0.5
 }
