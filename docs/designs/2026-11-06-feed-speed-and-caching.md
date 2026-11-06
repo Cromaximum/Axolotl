@@ -2,7 +2,7 @@
 
 - Author: Claude (thread "Speed up feed loading and caching"), asked for by Maxwell Rhinelander
 - Date: 2026-11-06
-- Status: Draft
+- Status: Design approved (architect, PR #14)
 
 ## Problem
 
