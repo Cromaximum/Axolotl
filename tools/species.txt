@@ -162,6 +162,194 @@ Quokka
 Short-beaked echidna
 Goodfellow's tree-kangaroo
 Greater bilby
+# Added 2026-11-06 (roster expansion; passed gen_taxonomy.py --screen)
+Lion
+Tiger
+Leopard
+Eurasian lynx
+Canada lynx
+Bobcat
+Black-footed cat
+Margay
+Jaguarundi
+Rusty-spotted cat
+Asian golden cat
+Wolf
+Red fox
+Coyote
+Golden jackal
+Black-backed jackal
+Island fox
+Brown bear
+American black bear
+Asian black bear
+Raccoon
+South American coati
+Kinkajou
+Striped skunk
+European badger
+American badger
+Eurasian otter
+Stoat
+Least weasel
+Black-footed ferret
+European pine marten
+Fisher (animal)
+Tayra
+Banded mongoose
+Common genet
+Harbor seal
+Grey seal
+Hawaiian monk seal
+Mediterranean monk seal
+Steller sea lion
+California sea lion
+Northern fur seal
+Antarctic fur seal
+Ringed seal
+Weddell seal
+Crabeater seal
+Ross seal
+Bowhead whale
+Fin whale
+North Atlantic right whale
+Gray whale
+Common minke whale
+Cuvier's beaked whale
+Pygmy sperm whale
+Common bottlenose dolphin
+Common dolphin
+Spinner dolphin
+Hector's dolphin
+Irrawaddy dolphin
+Harbour porpoise
+Dall's porpoise
+Long-finned pilot whale
+Risso's dolphin
+African bush elephant
+Asian elephant
+Plains zebra
+Przewalski's horse
+African wild ass
+Kiang
+White rhinoceros
+Sumatran rhinoceros
+Javan rhinoceros
+Baird's tapir
+South American tapir
+Mountain tapir
+Common warthog
+Wild boar
+Collared peccary
+Llama
+Alpaca
+Guanaco
+Dromedary
+American bison
+European bison
+African buffalo
+Wild water buffalo
+Gaur
+Banteng
+Yak
+Blue wildebeest
+Springbok
+Impala
+Thomson's gazelle
+Dama gazelle
+Addax
+Scimitar oryx
+Arabian oryx
+Gemsbok
+Greater kudu
+Bongo (antelope)
+Common eland
+Sitatunga
+Nyala
+Klipspringer
+Kirk's dik-dik
+Mountain goat
+Alpine ibex
+Chamois
+Bighorn sheep
+Nilgai
+Blackbuck
+Water deer
+Red deer
+Elk
+White-tailed deer
+Mule deer
+Roe deer
+Père David's deer
+Sambar deer
+Chital
+Siberian musk deer
+Chimpanzee
+Western gorilla
+Eastern gorilla
+Sumatran orangutan
+Lar gibbon
+Siamang
+Japanese macaque
+Barbary macaque
+Rhesus macaque
+Olive baboon
+Hamadryas baboon
+Drill (animal)
+Mantled guereza
+Red-shanked douc
+Cotton-top tamarin
+Common marmoset
+Mantled howler
+Bald uakari
+Indri
+Verreaux's sifaka
+Coquerel's sifaka
+Black-and-white ruffed lemur
+Gray mouse lemur
+Sunda flying lemur
+Eastern grey kangaroo
+Red-necked wallaby
+Tammar wallaby
+Matschie's tree-kangaroo
+Common brushtail possum
+Common ringtail possum
+Honey possum
+Virginia opossum
+Tiger quoll
+Eastern quoll
+Southern marsupial mole
+Brown-throated sloth
+Southern tamandua
+Giant armadillo
+Ground pangolin
+Giant pangolin
+Black-tailed prairie dog
+Eastern gray squirrel
+Red squirrel
+Alpine marmot
+Groundhog
+Siberian chipmunk
+Northern flying squirrel
+Indian giant squirrel
+Patagonian mara
+North American porcupine
+Brown rat
+House mouse
+Golden hamster
+Common degu
+Hazel dormouse
+European rabbit
+Snowshoe hare
+Black-tailed jackrabbit
+European hedgehog
+European mole
+Indian flying fox
+Egyptian fruit bat
+Little brown bat
+Mexican free-tailed bat
+Ghost bat
+Yellow-spotted rock hyrax
 # Birds
 Southern cassowary
 Emu
@@ -210,6 +398,189 @@ Superb fairywren
 Oilbird
 Tawny frogmouth
 Kagu
+# Added 2026-11-06 (roster expansion; passed gen_taxonomy.py --screen)
+Greater rhea
+Little spotted kiwi
+Elegant crested tinamou
+King penguin
+Adélie penguin
+Gentoo penguin
+African penguin
+Little penguin
+Yellow-eyed penguin
+Macaroni penguin
+Humboldt penguin
+Galapagos penguin
+Black-browed albatross
+Laysan albatross
+Northern fulmar
+Manx shearwater
+Wilson's storm petrel
+Great crested grebe
+Common loon
+Brown pelican
+Australian pelican
+Great white pelican
+Northern gannet
+Great cormorant
+Flightless cormorant
+Anhinga
+Red-billed tropicbird
+Grey heron
+Great egret
+Great blue heron
+Black-crowned night heron
+Boat-billed heron
+Hamerkop
+White stork
+Jabiru
+Saddle-billed stork
+Wood stork
+African sacred ibis
+Northern bald ibis
+Roseate spoonbill
+American flamingo
+Lesser flamingo
+Mute swan
+Black swan
+Trumpeter swan
+Canada goose
+Greylag goose
+Mallard
+Wood duck
+Common eider
+Harlequin duck
+Hooded merganser
+Muscovy duck
+Golden eagle
+Martial eagle
+Steller's sea eagle
+White-tailed eagle
+African fish eagle
+Bateleur
+Crowned eagle
+Osprey
+Red-tailed hawk
+Hen harrier
+Bearded vulture
+Egyptian vulture
+Eurasian griffon vulture
+King vulture
+Turkey vulture
+California condor
+Gyrfalcon
+American kestrel
+Common kestrel
+Crested caracara
+Eurasian eagle-owl
+Great horned owl
+Burrowing owl
+Spectacled owl
+Northern saw-whet owl
+Tawny owl
+Little owl
+Wild turkey
+Red junglefowl
+Common pheasant
+Green peafowl
+Western capercaillie
+Greater sage-grouse
+Rock ptarmigan
+Malleefowl
+Helmeted guinea fowl
+Grey crowned crane
+Red-crowned crane
+Whooping crane
+Sandhill crane
+Demoiselle crane
+Takahē
+Common moorhen
+Weka
+Great bustard
+Red-legged seriema
+Northern lapwing
+Eurasian oystercatcher
+Pied avocet
+Black-winged stilt
+Ruff (bird)
+Red knot
+Spoon-billed sandpiper
+Eurasian curlew
+Black skimmer
+Common murre
+Razorbill
+Tufted puffin
+Horned puffin
+Rock dove
+Mourning dove
+Pink pigeon
+Grey parrot
+Scarlet macaw
+Blue-and-yellow macaw
+Spix's macaw
+Budgerigar
+Cockatiel
+Galah
+Rainbow lorikeet
+Monk parakeet
+Palm cockatoo
+Great hornbill
+Southern ground hornbill
+Great tit
+Laughing kookaburra
+Lilac-breasted roller
+European bee-eater
+Keel-billed toucan
+Great spotted woodpecker
+Pileated woodpecker
+Northern flicker
+Common cuckoo
+Greater roadrunner
+Ruby-throated hummingbird
+Anna's hummingbird
+European nightjar
+Great potoo
+Andean cock-of-the-rock
+Splendid fairywren
+Common starling
+Blue jay
+Eurasian magpie
+Eurasian jay
+Eurasian chaffinch
+American goldfinch
+Northern cardinal
+Painted bunting
+Gouldian finch
+House sparrow
+Barn swallow
+European robin
+American robin
+Common nightingale
+Northern mockingbird
+Eurasian wren
+Bohemian waxwing
+Eurasian blue tit
+Red-billed quelea
+Sociable weaver
+Village weaver
+Eastern bluebird
+Scarlet tanager
+Red-winged blackbird
+Baltimore oriole
+Common grackle
+Western meadowlark
+Bearded reedling
+Red-whiskered bulbul
+Great grey shrike
+ʻIʻiwi
+Kākā
+New Zealand bellbird
+Tūī
+New Zealand rock wren
+Blue bird-of-paradise
+Hooded pitohui
+Lesser sooty owl
+Pauraque
 # Reptiles
 Saltwater crocodile
 Nile crocodile
@@ -236,6 +607,82 @@ Frill-necked lizard
 Common leopard gecko
 Satanic leaf-tailed gecko
 Armadillo girdled lizard
+# Added 2026-11-06 (roster expansion; passed gen_taxonomy.py --screen)
+Mugger crocodile
+American crocodile
+Orinoco crocodile
+Dwarf crocodile
+Chinese alligator
+Spectacled caiman
+Yacare caiman
+False gharial
+Hawksbill sea turtle
+Loggerhead sea turtle
+Olive ridley sea turtle
+Kemp's ridley sea turtle
+Flatback sea turtle
+Galápagos tortoise
+Leopard tortoise
+African spurred tortoise
+Radiated tortoise
+Indian star tortoise
+Hermann's tortoise
+Gopher tortoise
+Common snapping turtle
+Painted turtle
+Red-eared slider
+Eastern box turtle
+Pig-nosed turtle
+Chinese softshell turtle
+Spiny softshell turtle
+Indian cobra
+Egyptian cobra
+Many-banded krait
+Coastal taipan
+Eastern brown snake
+Tiger snake
+Yellow-bellied sea snake
+Yellow-lipped sea krait
+Boomslang
+Puff adder
+Bitis nasicornis
+Russell's viper
+Adder
+Timber rattlesnake
+Agkistrodon piscivorus
+Burmese python
+Ball python
+Green tree python
+Morelia spilota
+Corn snake
+Common garter snake
+Eastern hognose snake
+Grass snake
+Opheodrys aestivus
+Indotyphlops braminus
+Veiled chameleon
+Jackson's chameleon
+Parson's chameleon
+Central bearded dragon
+Chinese water dragon
+Australian water dragon
+Rhinoceros iguana
+Galápagos land iguana
+Anolis carolinensis
+Brown anole
+Plumed basilisk
+Mexican beaded lizard
+Tiliqua rugosa
+Sand lizard
+Viviparous lizard
+Podarcis muralis
+Common slow worm
+Tokay gecko
+Mediterranean house gecko
+Asian water monitor
+Nile monitor
+Perentie
+Lace monitor
 # Amphibians
 Olm
 Hellbender
@@ -250,6 +697,45 @@ African bullfrog
 Darwin's frog
 Hairy frog
 Strawberry poison-dart frog
+# Added 2026-11-06 (roster expansion; passed gen_taxonomy.py --screen)
+Spotted salamander
+Red-backed salamander
+Rough-skinned newt
+Eastern newt
+Alpine newt
+Smooth newt
+Marbled newt
+Lake Patzcuaro salamander
+American bullfrog
+Common frog
+European tree frog
+American green tree frog
+Australian green tree frog
+Common toad
+Oriental fire-bellied toad
+Common Surinam toad
+African clawed frog
+Wood frog
+Blue poison dart frog
+Dyeing poison dart frog
+Panamanian golden frog
+Telmatobius culeus
+Arboreal salamander
+Alpine salamander
+Japanese fire-bellied newt
+Northern leopard frog
+Lithobates clamitans
+Marsh frog
+Pool frog
+Gray treefrog
+Agalychnis callidryas
+Spring peeper
+American toad
+Colorado River toad
+Yellow-bellied toad
+Mimic poison frog
+Green and golden bell frog
+Banded bullfrog
 # Fish
 West Indian Ocean coelacanth
 Whale shark
@@ -284,6 +770,72 @@ Australian lungfish
 Weedy seadragon
 Siamese fighting fish
 Mexican tetra
+# Added 2026-11-06 (roster expansion; passed gen_taxonomy.py --screen)
+Shortfin mako shark
+Blue shark
+Oceanic whitetip shark
+Blacktip reef shark
+Whitetip reef shark
+Grey reef shark
+Nurse shark
+Zebra shark
+Tasselled wobbegong
+Horn shark
+Common thresher
+Smalltooth sawfish
+Spotted eagle ray
+Southern stingray
+Chinese paddlefish
+Bowfin
+Atlantic herring
+Californian anchovy
+Atlantic salmon
+Rainbow trout
+Brown trout
+Chinook salmon
+Arctic char
+Northern pike
+Muskellunge
+Common carp
+Goldfish
+Grass carp
+Wels catfish
+Channel catfish
+Mekong giant catfish
+Neon tetra
+Solenostomus paradoxus
+Banggai cardinalfish
+Queen angelfish
+Moorish idol
+Yellow tang
+Clown triggerfish
+Yellow boxfish
+Bluestreak cleaner wrasse
+Green humphead parrotfish
+Giant grouper
+Atlantic goliath grouper
+Great barracuda
+Mahi-mahi
+Yellowfin tuna
+Skipjack tuna
+Atlantic mackerel
+Atlantic halibut
+Oscar (fish)
+Nile tilapia
+Convict cichlid
+Atlantic mudskipper
+Guppy
+Devils Hole pupfish
+Giant gourami
+Northern snakehead
+European perch
+Largemouth bass
+Bluegill
+Walleye
+Red-lipped batfish
+Giant trevally
+Asian arowana
+Bluespotted ribbontail ray
 # Insects
 Monarch butterfly
 Queen Alexandra's birdwing
@@ -307,6 +859,88 @@ Wandering glider
 Emerald cockroach wasp
 Madagascar hissing cockroach
 Bombyx mori
+# Added 2026-11-06 (roster expansion; passed gen_taxonomy.py --screen)
+Vanessa cardui
+Small tortoiseshell
+Papilio machaon
+Papilio glaucus
+Greta oto
+Heliconius charithonia
+Heliconius melpomene
+Junonia coenia
+Nymphalis antiopa
+Karner blue
+Large blue
+Dryocampa rubicunda
+Antheraea polyphemus
+Automeris io
+Hummingbird hawk-moth
+Deilephila elpenor
+Chrysiridia rhipheus
+Garden tiger moth
+Lymantria dispar
+Codling moth
+Indianmeal moth
+Japanese rhinoceros beetle
+Harmonia axyridis
+Colorado potato beetle
+Mealworm
+European mantis
+Chinese mantis
+Extatosoma tiaratum
+Migratory locust
+Spotted lanternfly
+Red imported fire ant
+Bombus terrestris
+European hornet
+Emerald ash borer
+Housefly
+Silverfish
+American cockroach
+Vanessa atalanta
+Aglais io
+Gonepteryx rhamni
+Pieris rapae
+Pieris brassicae
+Danaus chrysippus
+Heliconius erato
+Common Mormon
+Battus philenor
+Troides helena
+Morpho peleides
+Lycaena phlaeas
+Common blue
+Regal fritillary
+Bicyclus anynana
+Manduca sexta
+Peppered moth
+Helicoverpa armigera
+Fall armyworm
+Japanese beetle
+Cockchafer
+Lampyris noctiluca
+Asian long-horned beetle
+Pulchriphyllium giganteum
+Magicicada septendecim
+Notonecta glauca
+Eciton burchellii
+Oecophylla smaragdina
+Formica rufa
+Apis cerana
+Apis dorsata
+Vespula vulgaris
+European paper wasp
+Sceliphron caementarium
+Aedes albopictus
+Culex pipiens
+Calliphora vomitoria
+Common green bottle fly
+Hermetia illucens
+Episyrphus balteatus
+Bombylius major
+Beautiful demoiselle
+Forficula auricularia
+Giant burrowing cockroach
 # Arachnids and other arthropods
 Goliath birdeater
 Phoneutria nigriventer
@@ -324,6 +958,44 @@ Bathynomus giganteus
 Amazonian giant centipede
 Giant African millipede
 Armadillidium vulgare
+# Added 2026-11-06 (roster expansion; passed gen_taxonomy.py --screen)
+Redback spider
+Phidippus audax
+Misumena vatia
+Arizona bark scorpion
+Red king crab
+Dungeness crab
+Cancer pagurus
+Mangrove horseshoe crab
+Homarus gammarus
+Procambarus clarkii
+Tasmanian giant freshwater crayfish
+Latrodectus geometricus
+Argiope aurantia
+Nephila pilipes
+Hogna carolinensis
+Thomisus onustus
+Pholcus phalangioides
+Cyrtophora citricola
+Phalangium opilio
+Dermacentor variabilis
+Varroa destructor
+Tachypleus tridentatus
+Callinectes sapidus
+Carcinus maenas
+Atlantic ghost crab
+California spiny lobster
+Scyllarides latus
+Signal crayfish
+Chinese mitten crab
+Lysmata amboinensis
+Penaeus monodon
+Crangon crangon
+Ligia oceanica
+Oniscus asellus
+Daphnia magna
+Triops longicaudatus
+Scutigera coleoptrata
 # Molluscs
 Giant Pacific octopus
 Mimic octopus
@@ -343,6 +1015,33 @@ Ocean quahog
 Pacific banana slug
 Elysia crispata
 Greater argonaut
+# Added 2026-11-06 (roster expansion; passed gen_taxonomy.py --screen)
+Octopus cyanea
+Bigfin reef squid
+Firefly squid
+Spirula
+Common periwinkle
+Helix pomatia
+Cornu aspersum
+Aliger gigas
+Limax maximus
+Cypraea tigris
+Blue mussel
+Pacific oyster
+Eastern oyster
+Pecten maximus
+Geoduck
+Zebra mussel
+Pinna nobilis
+Curled octopus
+Cepaea nemoralis
+Pomacea canaliculata
+Arion ater
+Spanish slug
+Mediterranean mussel
+Ostrea edulis
+Common cockle
+Dog whelk
 # Other invertebrates
 Chironex fleckeri
 Lion's mane jellyfish
@@ -357,6 +1056,20 @@ Pompeii worm
 Hirudo medicinalis
 Lumbricus terrestris
 Scotoplanes globosa
+# Added 2026-11-06 (roster expansion; passed gen_taxonomy.py --screen)
+Pelagia noctiluca
+Staghorn coral
+Precious coral
+Common starfish
+Pisaster ochraceus
+Red sea urchin
+Orange cup coral
+Bubble-tip anemone
+Strongylocentrotus purpuratus
+Diadema setosum
+Platydemus manokwari
+Taenia solium
+Giant barrel sponge
 # Extinct
 Woolly rhinoceros
 Irish elk
@@ -375,3 +1088,33 @@ Caribbean monk seal
 Japanese sea lion
 Toolache wallaby
 Schomburgk's deer
+# Added 2026-11-06 (roster expansion; passed gen_taxonomy.py --screen)
+American lion
+Dire wolf
+Columbian mammoth
+Straight-tusked elephant
+Homo floresiensis
+North Island giant moa
+Laughing owl
+Lyall's wren
+Rodrigues solitaire
+Réunion ibis
+Cuban macaw
+Paradise parrot
+Pink-headed duck
+Northern white rhinoceros
+Barbary lion
+Caspian tiger
+Japanese wolf
+Cryptoprocta spelea
+Panthera spelaea
+Homo erectus
+Homo habilis
+Australopithecus afarensis
+Paranthropus boisei
+Rodrigues starling
+White swamphen
+Mauritius scops owl
+Panthera leo leo
+Otodus angustidens
+Edmontosaurus regalis

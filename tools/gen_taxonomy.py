@@ -74,14 +74,10 @@ FOSSIL_TAXON = ("Q23038290", "fossil taxon")
 SPECIES_RANK = ("Q7432", "species")
 SUBSPECIES_RANK = ("Q68947", "subspecies")  # narrower than a species, still one specific animal
 MIN_ARTICLE_LENGTH = 5000  # same bar as LiveCatalogRules.minArticleLength in the app
-# Bar for adding a species (--screen) and for warnings on listed ones: a solid article to pull
-# facts from, and enough usable photos for a full species set (intro hero, then photo, fact,
-# photo, fact; FeedComposer, PR #20) without repeating one.
+# Bar for adding a species (--screen): a solid article to pull facts from, and enough sharp
+# photos that the app's photo rules (ContentPolicy, PR #24) leave a real set to show.
 SCREEN_MIN_ARTICLE_LENGTH = 12000
-MIN_USABLE_PHOTOS = 4
-# Mirrors of the app's photo rules, so a photo counted here is one the app would show.
-APP_IMAGE_LIMIT = 40      # WikiClient.images(onArticle:limit:) looks at the first 40 files
-APP_THUMB_WIDTH = 1280    # ImageSizing.wikimediaThumbWidth (sizes are checked on the thumb)
+APP_IMAGE_LIMIT = 40  # WikiClient.images(onArticle:limit:) looks at the first 40 files
 ANIMALIA = ("Q729", "animal")  # P225 of this item is also checked to be "Animalia"
 
 _last_request = 0.0
@@ -256,13 +252,25 @@ def read_species_list():
 # ---- Photo check: a Python port of ContentPolicy.licensedImages (keep the two in step) ----
 
 ALLOWED_MIMES = {"image/jpeg", "image/png", "image/webp"}
-JUNK_WORDS = [
-    "map", "range", "distribution", "status_iucn", "status iucn", "logo", "icon", "flag",
-    "stamp", "coin", "banknote", "symbol", "chart", "graph", "phylogen", "cladogram",
-    "skull_comparison", "size_comparison", "size comparison", "scale", "commons-logo",
-    "wikispecies", "wiktionary", "red_pencil", "question_book", "ambox",
+# Junk rules as in PR #24 (ContentPolicy.isJunk): phrases anywhere in the lower-cased title with
+# "_" read as a space, whole-word tokens, and Commons category tokens.
+JUNK_PHRASES = [
+    "distribution", "status iucn", "phylogen", "cladogram", "skull comparison", "size comparison",
+    "commons-logo", "wikispecies", "wiktionary", "red pencil", "question book", "ambox",
+    "range map", "life cycle", "lifecycle", "anatomy", "x-ray", "ct scan", "diagram", "scale bar",
 ]
-MIN_IMAGE_WIDTH, MIN_SHORT_SIDE, MAX_ASPECT = 640, 400, 2.6
+JUNK_TOKENS = {
+    "map", "maps", "range", "logo", "icon", "flag", "stamp", "stamps", "coin", "coins", "banknote",
+    "symbol", "chart", "graph", "infographic", "xray", "radiograph", "micrograph",
+}
+JUNK_CATEGORY_TOKENS = {
+    "map", "maps", "diagram", "diagrams", "cladogram", "cladograms", "chart", "charts", "graphs",
+    "banknote", "banknotes", "stamp", "stamps", "coin", "coins", "logo", "logos", "icon", "icons",
+    "flag", "flags", "infographics", "screenshots", "radiographs", "micrographs",
+}
+MIN_LONG_SIDE, MIN_SHORT_SIDE, MAX_ASPECT = 640, 400, 2.6   # hard floor
+SHARP_LONG_SIDE, SHARP_SHORT_SIDE = 1200, 800                # "sharp" (PR #24)
+MIN_SHARP_PHOTOS = 3  # "a few" photos; with 2+ sharp ones the app drops the soft ones, so count sharp only
 
 
 def allowed_license(short):
@@ -283,25 +291,28 @@ def allowed_license(short):
     return name.startswith(("cc by", "cc-by"))
 
 
-def sharp_enough(width, height):
-    """ContentPolicy.isSharpEnough, on the size of the thumb the app downloads."""
-    if not width:
+def is_junk(title, categories):
+    t = title.lower().replace("_", " ")
+    if any(p in t for p in JUNK_PHRASES):
         return True
-    if width > APP_THUMB_WIDTH and height:
-        width, height = APP_THUMB_WIDTH, round(height * APP_THUMB_WIDTH / width)
-    if width < MIN_IMAGE_WIDTH:
-        return False
-    if not height:
+    if JUNK_TOKENS & set(re.split(r"[^a-z0-9]+", t)):
         return True
-    if min(width, height) < MIN_SHORT_SIDE:
-        return False
-    return 1 / MAX_ASPECT <= width / height <= MAX_ASPECT
+    cats = set(re.split(r"[^a-z0-9]+", (categories or "").lower()))
+    return bool(JUNK_CATEGORY_TOKENS & cats)
 
 
-def usable_photo(info):
-    t = info["title"].lower()
-    return (info.get("mime") in ALLOWED_MIMES and not any(w in t for w in JUNK_WORDS)
-            and allowed_license(info.get("license")) and sharp_enough(info.get("width"), info.get("height")))
+def photo_grade(info):
+    """None if the app would never show the file, else "sharp" or "soft". Uses the original
+    width and height (never thumbwidth, PR #24)."""
+    w, h = info.get("width") or 0, info.get("height") or 0
+    if info.get("mime") not in ALLOWED_MIMES or not allowed_license(info.get("license")):
+        return None
+    if is_junk(info["title"], info.get("categories")) or not w or not h:
+        return None
+    long_side, short_side = max(w, h), min(w, h)
+    if long_side < MIN_LONG_SIDE or short_side < MIN_SHORT_SIDE or long_side / short_side > MAX_ASPECT:
+        return None
+    return "sharp" if long_side >= SHARP_LONG_SIDE and short_side >= SHARP_SHORT_SIDE else "soft"
 
 
 def article_files(titles):
@@ -327,24 +338,28 @@ def file_infos(files):
     for batch in chunks(sorted(set(files)), 50):
         data = fetch(ENWIKI_API, {"action": "query", "titles": "|".join(batch), "prop": "imageinfo",
                                   "iiprop": "mime|size|extmetadata",
-                                  "iiextmetadatafilter": "LicenseShortName"})
+                                  "iiextmetadatafilter": "LicenseShortName|Categories"})
         q = data.get("query", {})
         back = {n["to"]: n["from"] for n in q.get("normalized", [])}
         for page in q.get("pages", []):
             ii = (page.get("imageinfo") or [{}])[0]
-            lic = ii.get("extmetadata", {}).get("LicenseShortName", {}).get("value")
+            meta = ii.get("extmetadata", {})
+            lic = meta.get("LicenseShortName", {}).get("value")
+            cats = meta.get("Categories", {}).get("value")
             info = {"title": page["title"], "mime": ii.get("mime"), "width": ii.get("width"),
-                    "height": ii.get("height"), "license": lic if isinstance(lic, str) else None}
+                    "height": ii.get("height"), "license": lic if isinstance(lic, str) else None,
+                    "categories": cats if isinstance(cats, str) else ""}
             out[page["title"]] = info
             out[back.get(page["title"], page["title"])] = info
     return out
 
 
-def usable_photo_counts(titles):
-    """Canonical article title -> number of photos the app would accept from it."""
+def sharp_photo_counts(titles):
+    """Canonical article title -> number of sharp photos the app would show from it."""
     files = article_files(titles)
     infos = file_infos([f for fs in files.values() for f in fs])
-    return {t: sum(1 for f in fs if f in infos and usable_photo(infos[f])) for t, fs in files.items()}
+    return {t: sum(1 for f in fs if f in infos and photo_grade(infos[f]) == "sharp")
+            for t, fs in files.items()}
 
 
 def screen(path):
@@ -359,7 +374,7 @@ def screen(path):
     resolved = resolve_titles(cands, page_info)
     entities = get_entities([q for _, q in resolved.values()])
     finals = sorted({resolved[c][0] for c in cands if c in resolved})
-    photos = usable_photo_counts(finals)
+    photos = sharp_photo_counts(finals)
     seen = set()
     for c in cands:
         if c not in resolved:
@@ -380,8 +395,8 @@ def screen(path):
             why = "no free lead image"
         elif info.get("length", 0) < SCREEN_MIN_ARTICLE_LENGTH:
             why = f"article too short ({info.get('length', 0)} bytes)"
-        elif photos.get(final, 0) < MIN_USABLE_PHOTOS:
-            why = f"only {photos.get(final, 0)} usable photos"
+        elif photos.get(final, 0) < MIN_SHARP_PHOTOS:
+            why = f"only {photos.get(final, 0)} sharp photos"
         if why:
             print(f"reject {c} -> {final}: {why}", file=sys.stderr)
             continue
