@@ -56,10 +56,14 @@ final class FeedComposerTests: XCTestCase {
         let without = FeedComposer.cards(for: extinct, content: c, sequence: 1, allowArtwork: false)
         let with = FeedComposer.cards(for: extinct, content: c, sequence: 1, allowArtwork: true)
         let living = FeedComposer.cards(for: entry, content: c, sequence: 1, allowArtwork: true)
+        // Artwork may sit on a photo card or above a fact board.
         func artworkCount(_ cards: [FeedCard]) -> Int {
             cards.filter { card in
-                guard case .photo(let p) = card else { return false }
-                return p.image.isArtwork
+                switch card {
+                case .photo(let p): return p.image.isArtwork
+                case .fact(let f): return f.image?.isArtwork == true
+                case .intro: return false
+                }
             }.count
         }
         XCTAssertEqual(artworkCount(without), 0)
@@ -106,5 +110,36 @@ final class FeedComposerTests: XCTestCase {
         let cards = FeedComposer.cards(for: entry, content: c, sequence: 1, allowArtwork: false)
         guard case .intro(let intro) = cards[0] else { return XCTFail() }
         XCTAssertEqual(intro.didYouKnow, "Fact 1.")
+    }
+
+    /// Maxwell's feedback (2026-11-06): a photo never comes back within one animal's set.
+    func testNoImageIsShownTwiceInASet() {
+        for f in 0...8 {
+            for i in 0...10 {
+                let cards = FeedComposer.cards(for: entry, content: content(facts: f, images: i), sequence: 1, allowArtwork: false)
+                var shown: [String] = []
+                for card in cards {
+                    switch card {
+                    case .intro(let c): if let hero = c.hero { shown.append(hero.fileTitle) }
+                    case .photo(let c): shown.append(c.image.fileTitle)
+                    case .fact(let c): if let image = c.image { shown.append(image.fileTitle) }
+                    }
+                }
+                XCTAssertEqual(shown.count, Set(shown).count, "\(f) facts, \(i) images: \(shown)")
+            }
+        }
+    }
+
+    func testSetsAreShortAndEveryFactHasItsOwnPhoto() {
+        for f in 0...8 {
+            for i in 0...10 {
+                let cards = FeedComposer.cards(for: entry, content: content(facts: f, images: i), sequence: 1, allowArtwork: false)
+                XCTAssertLessThanOrEqual(cards.count, 1 + FeedComposer.maxItems)
+                for case .fact(let c) in cards { XCTAssertNotNil(c.image, "\(f) facts, \(i) images") }
+            }
+        }
+        // Plenty of content: intro, photo, fact, photo, fact.
+        let full = FeedComposer.cards(for: entry, content: content(facts: 8, images: 10), sequence: 1, allowArtwork: false)
+        XCTAssertEqual(full.count, 5)
     }
 }

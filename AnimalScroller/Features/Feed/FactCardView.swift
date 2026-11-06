@@ -1,6 +1,7 @@
 import SwiftUI
 
-/// Photo on top so the face stays in view; one number or one sentence on the board below (D-010).
+/// Photo on top so the face stays in view; the sentence on the board below, with its key number
+/// highlighted where it sits so it is never read without its words (D-010).
 struct FactCardView: View {
     let card: FactCard
     let context: CardContext
@@ -46,15 +47,7 @@ struct FactCardView: View {
                 .foregroundStyle(Theme.amber)
                 .accessibilityLabel(spokenHeading)
                 .accessibilityAddTraits(.isHeader)
-            if let number = FactFormatting.leadingNumber(in: card.text) {
-                Text(number)
-                    .font(Theme.heading(64))
-                    .foregroundStyle(Theme.amber)
-                    .minimumScaleFactor(0.5)
-                    .lineLimit(1)
-                    .accessibilityHidden(true) // the sentence below says it
-            }
-            Text(card.text)
+            Text(FactFormatting.highlighted(card.text, color: Theme.amber))
                 .font(Theme.heading(22))
                 .foregroundStyle(Theme.parchment)
                 .minimumScaleFactor(0.7)
@@ -87,12 +80,33 @@ struct FactCardView: View {
 }
 
 enum FactFormatting {
-    /// The first stand-out number in a fact ("12", "1,000", "3.5"), to show large. Ignores years
-    /// written as plain four-digit numbers between 1000 and 2100, which read badly on their own.
-    static func leadingNumber(in text: String) -> String? {
-        guard let range = text.range(of: #"\d[\d,]*(\.\d+)?"#, options: .regularExpression) else { return nil }
-        let token = String(text[range])
-        if token.count == 4, let year = Int(token), (1000...2100).contains(year) { return nil }
-        return token
+    private static let numberWithWord = try! NSRegularExpression(
+        pattern: #"\d[\d,]*(?:\.\d+)?(?:\s?(?:%|°[CF]?|[A-Za-zµ]+(?:/[A-Za-z]+)?))?"#
+    )
+
+    /// The first stand-out number in a fact plus the word right after it ("40 metres",
+    /// "1,200 kg", "12 kinds"), so the highlight always carries its meaning. Skips years written
+    /// as plain four-digit numbers between 1000 and 2100.
+    static func highlightRange(in text: String) -> Range<String.Index>? {
+        let all = NSRange(text.startIndex..., in: text)
+        for match in numberWithWord.matches(in: text, range: all) {
+            guard let range = Range(match.range, in: text) else { continue }
+            let digits = text[range].prefix { $0.isNumber }
+            if digits.count == 4, text[range].count == 4 || text[range].dropFirst(4).first == " ",
+               let year = Int(digits), (1000...2100).contains(year) { continue }
+            return range
+        }
+        return nil
+    }
+
+    /// The fact, verbatim, with the highlight range in bold amber (D-011: styling only).
+    static func highlighted(_ text: String, color: Color) -> AttributedString {
+        var out = AttributedString(text)
+        guard let range = highlightRange(in: text),
+              let lower = AttributedString.Index(range.lowerBound, within: out),
+              let upper = AttributedString.Index(range.upperBound, within: out) else { return out }
+        out[lower..<upper].foregroundColor = color
+        out[lower..<upper].inlinePresentationIntent = .stronglyEmphasized
+        return out
     }
 }

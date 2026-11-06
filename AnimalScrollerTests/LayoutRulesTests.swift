@@ -1,4 +1,5 @@
 import XCTest
+import SwiftUI
 @testable import AnimalScroller
 
 /// Logic behind the D-010 layout rules and the new stores.
@@ -35,11 +36,18 @@ final class LayoutRulesTests: XCTestCase {
         XCTAssertNil(ContentPolicy.wholeSentenceCaption(String(repeating: "word ", count: 60)))
     }
 
-    func testLeadingNumber() {
-        XCTAssertEqual(FactFormatting.leadingNumber(in: "Its eyes carry at least 12 kinds of colour receptor."), "12")
-        XCTAssertEqual(FactFormatting.leadingNumber(in: "It can weigh up to 1,200 kg."), "1,200")
-        XCTAssertNil(FactFormatting.leadingNumber(in: "The last one died in 1936 in Hobart."))
-        XCTAssertNil(FactFormatting.leadingNumber(in: "It cannot roar."))
+    func testHighlightKeepsTheNumberWithItsWord() {
+        func highlight(_ text: String) -> String? { FactFormatting.highlightRange(in: text).map { String(text[$0]) } }
+        XCTAssertEqual(highlight("Its eyes carry at least 12 kinds of colour receptor."), "12 kinds")
+        XCTAssertEqual(highlight("It can weigh up to 1,200 kg."), "1,200 kg")
+        XCTAssertEqual(highlight("Puffins can dive to 60 m and stay under for 40 seconds."), "60 m")
+        XCTAssertEqual(highlight("About 40% of chicks survive."), "40%")
+        XCTAssertEqual(highlight("In 1936 the last one died aged 7 years."), "7 years")
+        XCTAssertNil(highlight("The last one died in 1936."))
+        XCTAssertNil(highlight("It cannot roar."))
+        // Styling only: the characters are unchanged (D-011).
+        let text = "It can weigh up to 1,200 kg."
+        XCTAssertEqual(String(FactFormatting.highlighted(text, color: .orange).characters), text)
     }
 
     func testFactCardsCarryAPhoto() {
