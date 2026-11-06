@@ -23,7 +23,7 @@ is workstream W1 in [roadmap.md](../roadmap.md#w1--feed-speed-and-data-plumbing)
 
 ## Where it goes
 
-Delivered as six small PRs on top of this design, in roadmap order. Each PR keeps the app working.
+Delivered on this PR (#14) as one commit per step, because this thread works on a single branch. Step 5 waits for W3's PR A. Each commit keeps the app working.
 
 | Step | File | Layer | Responsibility |
 | --- | --- | --- | --- |
@@ -113,3 +113,11 @@ From W2 (`docs/designs/2026-11-06-feed-feel.md`, PR #13):
    one-line follow-up. Until then `.shared` is marked `@available(*, deprecated)` and is a second
    instance that shares the same disk cache directory, so nothing is fetched twice across launches.
 2. Rule change for system-framework imports in Services (above).
+
+## Answers (architect, PR #14)
+
+1. Approved: W1 changes only the init lines in `FeedView` and `RootView`; `.shared` stays deprecated
+   until W3 switches Onboarding and Detail. Cache writes are atomic.
+2. Approved, in architecture-rules.md (#10). `ContentCachePolicy` ended up using a pure FNV-1a hash,
+   so CryptoKit isn't needed.
+3. Step 5 waits for W3's PR A.
