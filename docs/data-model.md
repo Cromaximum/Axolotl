@@ -136,13 +136,13 @@ shown, so regenerated data never leaves stale text on a device.
 | `saved` | `Bool?` on decode | Bookmark / long-press; defaults to false |
 | `savedAt` | `Date?` | When it was saved |
 | `live` | `{species: Species, lineageIDs: [String]}?` | Only for live-catalogue species not in `taxonomy.json`: the `Species` the catalogue built (GBIF name, Wikidata status) and the bundled branch ids above it. Ignored, then dropped at launch, if the bundled tree later gains the species |
-| `imageURL` | `URL?` | **Transitional.** Fetch-only cache hint for the tile photo, never shown as content. Removed in W3's PR B once the content provider has a disk cache (W1) |
 
-Every field except `id` and `firstMet` is optional on decode, and entries decode one by one, so a
+Tile photos come from the content provider's disk cache, not the store. An `imageURL` key written by
+the first `met.v2` build is ignored on decode. Every field except `id` and `firstMet` is optional on decode, and entries decode one by one, so a
 bad entry or a new field never wipes the collection.
 
-**Migration from `met.v1`** (runs once when `met.v2` is missing): keeps `id`, `firstMet`,
-`saved` and `imageURL`; sets `lastMet = firstMet`. v1 can't tell bundled from live species, so
+**Migration from `met.v1`** (runs once when `met.v2` is missing): keeps `id`, `firstMet` and
+`saved`; sets `lastMet = firstMet`. v1 can't tell bundled from live species, so
 each entry gets a `live` record built only from its own v1 fields, with status Extinct if v1 said
 so and Not Evaluated otherwise (never inferred, D-012). `RootView` then calls
 `forgetCopies(of:)` to drop the records the bundled tree covers. `met.v1` is removed after the

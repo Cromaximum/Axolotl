@@ -76,11 +76,12 @@ final class LayoutRulesTests: XCTestCase {
     func testMetStoreRecordsOnceAndSaves() {
         let defaults = UserDefaults(suiteName: "test.met.\(UUID().uuidString)")!
         let store = MetStore(defaults: defaults)
-        store.recordMet(living, imageURL: nil)
-        store.recordMet(living, imageURL: URL(string: "https://example.org/okapi.jpg"))
+        let entry = SpeciesEntry(species: living, lineage: [])
+        store.recordMet(entry)
+        store.recordMet(entry)
         XCTAssertEqual(store.entries.count, 1)
-        XCTAssertNotNil(store.entries[0].imageURL)
-        store.toggleSaved(living, imageURL: nil)
+        XCTAssertNil(store.entries[0].live, "bundled species keep only ids, dates and flags")
+        store.toggleSaved(entry)
         XCTAssertTrue(MetStore(defaults: defaults).isSaved("Okapi"))
     }
 }

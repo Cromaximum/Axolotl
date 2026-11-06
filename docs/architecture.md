@@ -43,7 +43,7 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Models/Taxon.swift` | `Taxon` tree node, `Species`, `ConservationStatus`, `SpeciesEntry` (species + lineage), tree queries, `TaxonomyLoader`. |
 | `Models/FeedCard.swift` | `Attribution`, `LicensedImage`, `FeedCard` enum (`intro` / `fact` / `photo`) and card payloads. |
 | `Services/WikiClient.swift` | Raw HTTP to Wikipedia REST (summary) and Action API (plain-text extract, article images with `extmetadata`). |
-| `Services/SpeciesContent.swift` | `SpeciesContent` value type, `SpeciesContentProvider` protocol, `WikipediaContentProvider` (live fetch only, client injected). `.shared` is deprecated and still used by onboarding tiles and the detail sheet until W3 switches them to the environment provider; delete it then. |
+| `Services/SpeciesContent.swift` | `SpeciesContent` value type, `SpeciesContentProvider` protocol, `WikipediaContentProvider` (live fetch only, client injected). Every screen gets the one instance `App/` creates, through the `speciesContentProvider` environment value. |
 | `Services/CachingContentProvider.swift` | Decorator over any `SpeciesContentProvider`: memory cache, disk cache (`Caches/species-content.v1/`), one shared in-flight fetch per species, stale copy when offline. |
 | `Services/ContentCachePolicy.swift` | Pure rules for that cache: 7-day freshness, schema, file names (FNV-1a hash of the title), outdated folders. |
 | `Services/ImagePipeline.swift` | `ImageLoading` protocol and `ImagePipeline` actor: fetch through the injected session, downsample with ImageIO off the main thread, cost-limited memory cache of decoded images, shared fetches, prefetch. |
@@ -57,6 +57,7 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Services/FeedSourcePlanner.swift` | Pure: for each load attempt, which source to try (bundled list, live catalogue, or live then bundled). About half live while bundled species in scope are unseen; live-only after that; the last attempt is always bundled. |
 | `Services/LikeAffinity.swift` | Pure: liked lineages → interest per taxon id (genus 2.5, family 2, order 1, class 0.4). |
 | `Services/TaxonomyIndex.swift` | Pure, built once from the bundled tree: node and species lookup by id, `path(to:)`, species count per branch, selection state (selected / covered by a parent / partly selected), selection summary in tree order, and case- and accent-insensitive name search (exact, prefix, word prefix, substring; branches before species on a tie). |
+| `Services/HeroImage.swift` | Pure: which licensed image stands for a species outside the feed (lead image, else first real photo, else any usable; artwork only for extinct species when allowed). Same rule as `FeedComposer`'s intro hero. |
 | `Services/MetCollection.swift` | Pure: resolves stored Met records to `SpeciesEntry` values (bundled data wins; live records only for species not in the tree), then filters (All / Saved / Liked / Extinct) and sorts (recently seen, first met, name, group). |
 | `Services/FeedComposer.swift` | Turns one species' content into intro + up to 8 alternating photo/fact cards. |
 | `Features/Feed/FeedViewModel.swift` | `@MainActor` feed state: restart on filter change, up to two species loads in flight, image prefetch for the next 3 cards, dwell tracking, retry up to 4 species per load, stamps `CardPlacement` on each set, `FeedNotice` (no matches / offline). Logs time to first card and a signpost per species fetch (`os`, category `feed`). |
@@ -72,14 +73,18 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Features/Components/AppEnvironment.swift` | `imageLoader` and `speciesContentProvider` environment values. Defaults fail and log a fault instead of reaching the network. |
 | `Features/Components/CardComponents.swift` | `CreditChip` + `AttributionDetail`, `MediaTagChip`, `NamePill`, `ProgressDashes`, `ActionRail`, `DidYouKnowBox`, `ConservationScale`, `LowerThirdScrim`, `CardInsets` (incl. `maxBoardShare`). |
 | `Resources/Fonts/` | Fredoka and Nunito Sans `.ttf` files with their OFL licences and a README. Registered under `UIAppFonts` in `project.yml`. |
+| `Features/Components/SpeciesThumbnail.swift` | A species' hero photo cropped into a small tile (Met grid, onboarding tiles), decoded at tile size; decorative. |
+| `Features/Components/SpeciesThumbnailModel.swift` | `@MainActor` state for one thumbnail: content from the injected provider → `HeroImage` → image loader at `ImageSizing.maxPixelSize`. |
 | `Features/Components/BoardPanel.swift` | `BoardPanel` framed sign view (moved from `Theme.swift`). |
 | `Features/Components/BoardPlaceholder.swift` | `ShimmerFill` (loading fill, static under Reduce Motion) and `BoardPlaceholder` (the intro board drawn as empty bars). |
-| `Features/Detail/SpeciesDetailView.swift` | Species detail sheet; loads `SpeciesContent` through the shared provider. |
-| `Stores/MetStore.swift` | `@Observable` species-met collection persisted to `UserDefaults` (`met.v2`, migrates `met.v1`). Keeps ids, dates and flags; a `LiveRecord` only for live-catalogue species. Old `recordMet(Species)` / `toggleSaved(Species)` remain as deprecated forwarders until `FeedView` passes the `SpeciesEntry`. |
+| `Features/Detail/SpeciesDetailView.swift` | Species detail sheet in sections: header photo with credit, names, quick facts, Did you know?, About, More facts, "Read the full article on Wikipedia", Sources, Classification. Try again on failure. |
+| `Features/Detail/SpeciesDetailViewModel.swift` | Loads content through the injected `speciesContentProvider`, picks the hero, builds the facts and the ordered sources list. |
+| `Stores/MetStore.swift` | `@Observable` species-met collection persisted to `UserDefaults` (`met.v2`, migrates `met.v1`). Keeps ids, dates and flags; a `LiveRecord` only for live-catalogue species. No image URL: tiles load photos from the provider's cache. `recordMet(_:imageURL:)` / `toggleSaved(_:imageURL:)` remain as deprecated forwarders until `FeedView` calls `recordMet(_:)` / `toggleSaved(_:)`. |
 | `Stores/LikesStore.swift` | `@Observable` liked species persisted to `UserDefaults` (`likes.v1`); exposes `affinity` for the picker. Injected into the environment by `AnimalScrollerApp`. |
 | `Features/Met/MetView.swift` | "Species met" grid with All / Saved / Liked / Extinct and a sort menu; any tile, live species included, opens the detail sheet. |
 | `Features/Met/MetViewModel.swift` | Filter and sort state; maps `MetStore` entries to `MetCollection` records. |
-| `Features/Onboarding/OnboardingView.swift` | Welcome, starting-point tiles (`StartingPoint`), `SpeciesPhoto` (licensed hero for a species). Looks names up in the `TaxonomyIndex`. |
+| `Features/Onboarding/OnboardingView.swift` | Welcome (full-bleed hero with credit), starting-point tiles (`StartingPoint`, `SpeciesThumbnail`), photo-credits sheet. Looks names up in the `TaxonomyIndex`. |
+| `Features/Onboarding/OnboardingViewModel.swift` | Step, picked tiles, hero images for the welcome screen and credits (injected provider), and the pure tiles → preferences mapping. |
 | `Stores/PreferencesStore.swift` | `@Observable` filter state persisted to `UserDefaults`, `ExtinctMode`, `hasOnboarded`. |
 | `Features/Picker/TaxonomyPickerView.swift` | Tree tab: search, "Showing" summary with remove and "Reset to everything", extinct three-way switch, toggles, tree-of-life outline with species counts. |
 | `Features/Picker/TaxonomyPickerViewModel.swift` | Search text and results, row and summary state from the `TaxonomyIndex`. |

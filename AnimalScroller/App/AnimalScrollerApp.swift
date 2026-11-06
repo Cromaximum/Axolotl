@@ -17,8 +17,6 @@ struct AnimalScrollerApp: App {
         // The disk cache for raw responses (JSON and image bytes). Decoded images live in the
         // pipeline's own memory cache, so the URL cache's memory part stays small.
         let urlCache = URLCache(memoryCapacity: 16 * 1024 * 1024, diskCapacity: 512 * 1024 * 1024)
-        // Still used by the Met grid's AsyncImage until W3 moves it to the pipeline.
-        URLCache.shared = urlCache
         let configuration = URLSessionConfiguration.default
         configuration.urlCache = urlCache
         configuration.requestCachePolicy = .useProtocolCachePolicy
