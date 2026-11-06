@@ -58,7 +58,8 @@ description), "Did you know?", the lead, more facts, and every source and credit
 
 ### Species met
 
-Every species whose intro card was shown is added automatically (newest first). Filters: All /
+Every species with a card actually on screen is added automatically (newest first). Cards the
+feed loads ahead of time don't count until you scroll to them. Filters: All /
 Saved / Extinct. Tap a tile for the detail sheet. Persisted across launches.
 
 ### Choosing the next species
