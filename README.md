@@ -59,3 +59,9 @@ article (e.g. Smilodon) because Wikipedia covers them that way.
 - Replace the contact URL in the `User-Agent` (`WikiClient.swift`) with a real support address.
 - App name: "Instagram" is a Meta trademark, so the shipping name must change.
 - Ads SDK, App Store assets, privacy manifest.
+
+## Continuous integration
+
+`.github/workflows/ios.yml` runs on every pull request and push to `main`: it installs
+XcodeGen on a macOS runner, generates the project, then builds and runs the unit tests on
+an iPhone simulator. Test results and the build log are uploaded as a workflow artifact.
