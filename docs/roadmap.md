@@ -59,7 +59,10 @@ new `Stores/`, and `FullBleedImage` (move it out of `CardComponents.swift` into
 3. [ ] Measure and tune prefetch distance, parallel species loads, and time to first card.
 4. [ ] Inject one `SpeciesContentProvider` from `App/` (environment value), and remove
        `WikipediaContentProvider.shared` and the `FeedViewModel` default. W3 switches its views over.
-5. [ ] Move `PreferencesStore`, `MetStore` and `LikesStore` to `Stores/` (file moves only).
+       W1 may change only the init-signature lines in `FeedView` and `RootView` for this, after
+       telling W2 and W3.
+5. [ ] Move `PreferencesStore`, `MetStore` and `LikesStore` to `Stores/` (file moves only), after
+       W3's PR A (new `MetStore.Entry`) merges.
 6. [ ] Put set position and count on the card payload instead of `FeedViewModel.positions`.
        Keep a compatible accessor until W2 has switched `FeedView` over.
 
@@ -95,6 +98,7 @@ file move with W1).
 
 ### W4 · Content quality and variety
 
+Also owns the `gen_taxonomy.py --lint` step in `.github/workflows/ios.yml` (architect, 2026-11-06).
 Owns: `Services/FactExtractor.swift`, `Services/ContentPolicy.swift`,
 `Services/FeedComposer.swift`, `Services/SpeciesPicker.swift`, `Services/LikeAffinity.swift`,
 `Services/LiveCatalogRules.swift`, `Services/FeedSourcePlanner.swift`, `tools/`,
