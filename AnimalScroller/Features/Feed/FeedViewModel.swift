@@ -51,23 +51,6 @@ final class FeedViewModel {
         self.images = images
     }
 
-    // MARK: Compatibility (remove once W2's FeedView uses `notice` and `FeedCard.placement`)
-
-    /// Old empty-state text. FeedView switches to `notice` in W2's PR.
-    var emptyMessage: String? {
-        switch notice {
-        case .noMatches: "No species match these filters yet. Try another branch or turn on extinct species."
-        case .offline: "Couldn't reach Wikipedia. Check your connection and pull to retry."
-        case nil: nil
-        }
-    }
-
-    /// Old position lookup. Use `card.placement` instead.
-    var positions: [String: (position: Int, count: Int)] {
-        Dictionary(cards.map { ($0.id, (position: $0.placement.position, count: $0.placement.count)) },
-                   uniquingKeysWith: { a, _ in a })
-    }
-
     // MARK: Intents
 
     func restart(with prefs: PreferencesStore, likes: LikesStore) {

@@ -83,7 +83,7 @@ Owns: `Features/Feed/FeedView.swift`, `IntroCardView.swift`, `PhotoCardView.swif
 3. [x] Paging feel: snap, card transitions, the like burst and save feedback, and haptics
        (`sensoryFeedback`). Honour Reduce Motion.
 4. [x] Dynamic Type and VoiceOver pass on every card. Text must never cover the animal (D-010).
-5. [ ] Switch `FeedView` to W1's card position fields when they land.
+5. [x] Switch `FeedView` to W1's card position fields when they land.
 
 ### W3 · Onboarding, Tree, detail and Met screens
 
