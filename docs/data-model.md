@@ -67,8 +67,9 @@ old ids.
 | `LicensedImage.isFossil` | same | Set at ingestion by `ContentPolicy.isFossil` (fossil, skeleton, specimen, mount... keywords). Models never call services. |
 | `MediaTag` | same | `historicalPhoto` / `realFossil` / `reconstruction`, derived (never stored) from the image and species: artwork → reconstruction; extinct + `isFossil` → real fossil; other extinct → historical photo; living → none. |
 | `FactCard.image` | same | Photo shown above the fact board. `FeedComposer` cycles through the set's images, hero first. |
-| `FeedCard` | same | `.intro(IntroCard)`, `.fact(FactCard)`, `.photo(PhotoCard)`. Ids include species id and session `sequence` so a species can reappear. |
-| `SpeciesContent` | `Services/SpeciesContent.swift` | `Codable`. The contract between any content source and the feed. A future static JSON file per species should decode straight into this. |
+| `FeedCard` | same | `.intro(IntroCard)`, `.fact(FactCard)`, `.photo(PhotoCard)`. Ids include species id and session `sequence` so a species can reappear. `placement` and `primaryImage` are computed; `placed(_:)` returns a copy with its placement set. |
+| `CardPlacement` | same | `position` (1-based) and `count` of a card in its species set. A `placement` field on each payload, default `.single` (1 of 1); `FeedViewModel` stamps it. Not part of the card id. Not persisted. |
+| `SpeciesContent` | `Services/SpeciesContent.swift` | `Codable`. The contract between any content source and the feed. A future static JSON file per species should decode straight into this. Also stored in the disk cache below: changing its shape means bumping the cache schema. |
 | `FactExtractor.Fact` | `Services/FactExtractor.swift` | `topic` (section heading) + `text`. |
 
 ## Saved preferences (`UserDefaults`)
@@ -132,6 +133,24 @@ migration.
 
 If you add a field, give it a default so old data still decodes. If you make a breaking change,
 bump the key (`preferences.v2`) and note the migration here.
+
+## Species content cache (Caches directory)
+
+Folder: `Library/Caches/species-content.v1/`, one file per species named
+`ContentCachePolicy.fileName(forWikiTitle:)` (16 hex digits of a 64-bit FNV-1a hash + `.json`).
+Each file is a JSON `ContentCachePolicy.Entry`:
+
+| Field | Type | Notes |
+| --- | --- | --- |
+| `schema` | `Int` | `ContentCachePolicy.schema` (1). A mismatch is a cache miss |
+| `wikiTitle` | `String` | Checked on read, so a hash collision is a miss |
+| `fetchedAt` | `Date` | Fresh for 7 days; older copies are refetched, and used only if the network fails |
+| `content` | `SpeciesContent` | Exactly what `WikipediaContentProvider` returned (after `ContentPolicy`) |
+
+iOS may purge Caches at any time; the app just refetches. Writes are atomic. If `SpeciesContent`
+changes shape, bump both `schema` and the folder name (`species-content.v2`); folders from older
+versions are deleted on launch. Raw HTTP responses (JSON and image bytes) are also kept by the
+512 MB `URLCache` created in `App/`. Decoded images are memory-only.
 
 ## Not persisted
 

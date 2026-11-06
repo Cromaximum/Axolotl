@@ -54,18 +54,21 @@ Owns: `App/AnimalScrollerApp.swift`, `Services/WikiClient.swift`, `Services/Spec
 new `Stores/`, and `FullBleedImage` (move it out of `CardComponents.swift` into
 `Features/Components/FullBleedImage.swift` as the first commit).
 
-1. [ ] Image pipeline: replace `AsyncImage` in `FullBleedImage` with a loader that has a memory
-       cache, downsamples to screen size, and prefetches the images of the next few cards.
-2. [ ] Persist `SpeciesContent` to a disk cache so relaunching and revisiting are instant.
+1. [x] Image pipeline: replace `AsyncImage` in `FullBleedImage` with a loader that has a memory
+       cache, downsamples to screen size, and prefetches the images of the next few cards. (#14)
+2. [x] Persist `SpeciesContent` to a disk cache so relaunching and revisiting are instant. (#14)
 3. [ ] Measure and tune prefetch distance, parallel species loads, and time to first card.
+       #14 adds two parallel loads, image prefetch and `os` logging ("Time to first card",
+       "Species content" signposts, category `feed`). Still needs numbers from a simulator run.
 4. [ ] Inject one `SpeciesContentProvider` from `App/` (environment value), and remove
        `WikipediaContentProvider.shared` and the `FeedViewModel` default. W3 switches its views over.
        W1 may change only the init-signature lines in `FeedView` and `RootView` for this, after
-       telling W2 and W3.
+       telling W2 and W3. Done in #14 except `.shared`, which is deprecated until W3 switches
+       Onboarding and Detail, then deleted.
 5. [ ] Move `PreferencesStore`, `MetStore` and `LikesStore` to `Stores/` (file moves only), after
        W3's PR A (new `MetStore.Entry`) merges.
-6. [ ] Put set position and count on the card payload instead of `FeedViewModel.positions`.
-       Keep a compatible accessor until W2 has switched `FeedView` over.
+6. [x] Put set position and count on the card payload instead of `FeedViewModel.positions`.
+       Keep a compatible accessor until W2 has switched `FeedView` over. (#14: `FeedCard.placement`, `primaryImage`)
 
 ### W2 · Feed feel: motion, gestures, visuals
 

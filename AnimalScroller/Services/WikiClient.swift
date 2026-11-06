@@ -82,7 +82,8 @@ struct WikiClient {
         let descriptionHTML: String?
     }
 
-    func images(onArticle title: String, limit: Int = 40, thumbWidth: Int = 1080) async throws -> [ImageInfo] {
+    func images(onArticle title: String, limit: Int = 40,
+                thumbWidth: Int = ImageSizing.wikimediaThumbWidth) async throws -> [ImageInfo] {
         let response = try await action(ImagesResponse.self, [
             "action": "query", "generator": "images", "titles": title, "redirects": "1",
             "gimlimit": String(limit),

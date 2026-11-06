@@ -36,13 +36,17 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 
 | File | Responsibility |
 | --- | --- |
-| `App/AnimalScrollerApp.swift` | `@main`. Loads taxonomy, creates `PreferencesStore` and `MetStore`, sets a 64 MB / 512 MB `URLCache`, forces dark mode. |
+| `App/AnimalScrollerApp.swift` | `@main`. Loads taxonomy, creates the stores, the live catalogue, one `URLSession` (16 MB / 512 MB `URLCache`), one `ImagePipeline` and one `CachingContentProvider` over `WikipediaContentProvider`, injects them (`.environment(\.imageLoader)`, `.environment(\.speciesContentProvider)`), forces dark mode. |
 | `App/RootView.swift` | Onboarding until `hasOnboarded`, then the Feed / Tree / Met `TabView`. Builds the `TaxonomyIndex` once and passes it to the Tree, Met and onboarding screens; on appear, drops stored copies of live species the bundled tree now covers (`MetStore.forgetCopies`). |
 | `App/Theme.swift` | Palette, bundled font names and helpers (`Theme.FontName`, `heading`, `body(size, weight:)`, `label`, `scientific`), `Theme.Motion` animation constants, `Color(hex:)`. |
 | `Models/Taxon.swift` | `Taxon` tree node, `Species`, `ConservationStatus`, `SpeciesEntry` (species + lineage), tree queries, `TaxonomyLoader`. |
 | `Models/FeedCard.swift` | `Attribution`, `LicensedImage`, `FeedCard` enum (`intro` / `fact` / `photo`) and card payloads. |
 | `Services/WikiClient.swift` | Raw HTTP to Wikipedia REST (summary) and Action API (plain-text extract, article images with `extmetadata`). |
-| `Services/SpeciesContent.swift` | `SpeciesContent` value type, `SpeciesContentProvider` protocol, `WikipediaContentProvider` actor (live fetch + in-memory cache; `.shared` is used by the feed, onboarding tiles and detail sheet). |
+| `Services/SpeciesContent.swift` | `SpeciesContent` value type, `SpeciesContentProvider` protocol, `WikipediaContentProvider` (live fetch only, client injected). `.shared` is deprecated and still used by onboarding tiles and the detail sheet until W3 switches them to the environment provider; delete it then. |
+| `Services/CachingContentProvider.swift` | Decorator over any `SpeciesContentProvider`: memory cache, disk cache (`Caches/species-content.v1/`), one shared in-flight fetch per species, stale copy when offline. |
+| `Services/ContentCachePolicy.swift` | Pure rules for that cache: 7-day freshness, schema, file names (FNV-1a hash of the title), outdated folders. |
+| `Services/ImagePipeline.swift` | `ImageLoading` protocol and `ImagePipeline` actor: fetch through the injected session, downsample with ImageIO off the main thread, cost-limited memory cache of decoded images, shared fetches, prefetch. |
+| `Services/ImageSizing.swift` | Pure sizing: full-screen decode size, Wikimedia thumbnail width (1280), cache keys and costs. |
 | `Services/ContentPolicy.swift` | Licence allowlist, junk-image filter, artwork detection, `HTMLText.plain`. |
 | `Services/FactExtractor.swift` | Splits article into sections, scores sentences, picks up to 8 standalone facts (max 2 per section). |
 | `Services/SpeciesPicker.swift` | Chooses the next species: tailored vs discovery, novelty, dwell-time and like affinity weighting, recent-repeat window. For the live catalogue: `pickBranch` (which tree branch to search, fewer tries on branches that came back empty) and `choose` (among live candidates, also weighted by article length). |
@@ -54,7 +58,7 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Services/TaxonomyIndex.swift` | Pure, built once from the bundled tree: node and species lookup by id, `path(to:)`, species count per branch, selection state (selected / covered by a parent / partly selected), selection summary in tree order, and case- and accent-insensitive name search (exact, prefix, word prefix, substring; branches before species on a tie). |
 | `Services/MetCollection.swift` | Pure: resolves stored Met records to `SpeciesEntry` values (bundled data wins; live records only for species not in the tree), then filters (All / Saved / Liked / Extinct) and sorts (recently seen, first met, name, group). |
 | `Services/FeedComposer.swift` | Turns one species' content into intro + up to 8 alternating photo/fact cards. |
-| `Features/Feed/FeedViewModel.swift` | `@MainActor` feed state: restart on filter change, prefetch, dwell tracking, retry up to 4 species per load, each card's position in its set. |
+| `Features/Feed/FeedViewModel.swift` | `@MainActor` feed state: restart on filter change, up to two species loads in flight, image prefetch for the next 3 cards, dwell tracking, retry up to 4 species per load, stamps `CardPlacement` on each set, `FeedNotice` (no matches / offline). Logs time to first card and a signpost per species fetch (`os`, category `feed`). `emptyMessage` and `positions` are compatibility accessors until W2's `FeedView` switches. |
 | `Features/Feed/FeedView.swift` | Paging `ScrollView` under the status bar with a scroll transition, pull to refresh, records species met, like (heart or double-tap) and save (rail or long-press) with haptics and a toast, VoiceOver actions per card, opens the detail sheet. |
 | `Features/Feed/FeedStatusView.swift` | The page after the last card: `BoardPlaceholder` while loading, or the feed's message on a board with Try again. |
 | `Features/Feed/FeedFeedback.swift` | `FeedFeedback` (last like/save → haptic and toast text) and the `FeedbackToast` capsule. |
@@ -62,7 +66,10 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Features/Feed/IntroCardView.swift` | Full-bleed hero with the zoo-board sign at the bottom. |
 | `Features/Feed/PhotoCardView.swift` | Edge-to-edge photo, name pill, action rail; media tag + scrim caption for extinct species. |
 | `Features/Feed/FactCardView.swift` | Photo on top, fact board below with the stand-out number (`FactFormatting`). |
-| `Features/Components/CardComponents.swift` | `FullBleedImage` (top-anchored fill, or shown whole over blur when wide), `CreditChip` + `AttributionDetail`, `MediaTagChip`, `NamePill`, `ProgressDashes`, `ActionRail`, `DidYouKnowBox`, `ConservationScale`, `LowerThirdScrim`, `CardInsets` (incl. `maxBoardShare`). |
+| `Features/Components/FullBleedImage.swift` | Full-bleed photo (top-anchored fill, or shown whole over blur when wide), drawn from the injected `ImageLoading` through `RemoteImageModel`; `ShimmerFill` while loading. |
+| `Features/Components/RemoteImageModel.swift` | `@MainActor` state for one remote image; shows a prefetched image without a placeholder flash. |
+| `Features/Components/AppEnvironment.swift` | `imageLoader` and `speciesContentProvider` environment values. Defaults fail and log a fault instead of reaching the network. |
+| `Features/Components/CardComponents.swift` | `CreditChip` + `AttributionDetail`, `MediaTagChip`, `NamePill`, `ProgressDashes`, `ActionRail`, `DidYouKnowBox`, `ConservationScale`, `LowerThirdScrim`, `CardInsets` (incl. `maxBoardShare`). |
 | `Resources/Fonts/` | Fredoka and Nunito Sans `.ttf` files with their OFL licences and a README. Registered under `UIAppFonts` in `project.yml`. |
 | `Features/Components/BoardPanel.swift` | `BoardPanel` framed sign view (moved from `Theme.swift`). |
 | `Features/Components/BoardPlaceholder.swift` | `ShimmerFill` (loading fill, static under Reduce Motion) and `BoardPlaceholder` (the intro board drawn as empty bars). |
@@ -99,7 +106,8 @@ LikesStore.affinity ──────────────────┤
                                      ▼ SpeciesEntry
                                      │
                                      ▼
-            SpeciesContentProvider.content(for:)   (WikipediaContentProvider today)
+            SpeciesContentProvider.content(for:)   (CachingContentProvider: memory → disk → network)
+                                     │  wraps WikipediaContentProvider
                ├─ WikiClient.summary / plainTextArticle / images
                ├─ FactExtractor.facts
                └─ ContentPolicy.licensedImages
@@ -107,7 +115,9 @@ LikesStore.affinity ──────────────────┤
                                      ▼
                      FeedComposer.cards() ──▶ [FeedCard] appended to feed
                                      │
-                     FeedView renders; cardAppeared() records dwell + triggers prefetch
+                     FeedView renders; cardAppeared() records dwell, prefetches species,
+                     and ImageLoading.prefetch()es the next cards' photos
+                     FullBleedImage ◀─ ImagePipeline (decoded, downsampled, memory-cached)
                      heart / double-tap ─▶ LikesStore (steers the next pick)
 ```
 
