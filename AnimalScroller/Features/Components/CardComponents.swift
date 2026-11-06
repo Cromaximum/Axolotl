@@ -270,7 +270,3 @@ enum CardInsets {
     static let side: CGFloat = 16
     static let bottom: CGFloat = 18
 }
-
-extension String {
-    var capitalizedFirst: String { prefix(1).uppercased() + dropFirst() }
-}

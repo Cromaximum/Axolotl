@@ -80,7 +80,7 @@ struct SpeciesDetailView: View {
             factTile("Order", entry.orderName ?? "–")
             factTile("Family", entry.familyName ?? "–")
             if let tagline = content?.tagline {
-                factTile("In a phrase", tagline.capitalizedFirst)
+                factTile("Wikipedia says", tagline)
             }
         }
     }

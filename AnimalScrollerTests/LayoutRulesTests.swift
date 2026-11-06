@@ -4,11 +4,12 @@ import XCTest
 /// Logic behind the D-010 layout rules and the new stores.
 final class LayoutRulesTests: XCTestCase {
     private func image(_ title: String, w: Int = 1080, h: Int = 1440, artwork: Bool = false, caption: String? = nil) -> LicensedImage {
-        LicensedImage(fileTitle: title, url: URL(string: "https://example.org/x.jpg")!, width: w, height: h,
+        let fossil = ContentPolicy.isFossil(fileTitle: title, description: caption)
+        return LicensedImage(fileTitle: title, url: URL(string: "https://example.org/x.jpg")!, width: w, height: h,
                       caption: caption,
                       attribution: Attribution(title: title, author: "A", license: "CC BY 4.0", licenseURL: nil,
                                                sourceURL: URL(string: "https://example.org")!),
-                      isArtwork: artwork)
+                      isArtwork: artwork, isFossil: fossil)
     }
 
     private let living = Species(wikiTitle: "Okapi", commonName: "Okapi", scientificName: "Okapia johnstoni", status: .endangered)
@@ -25,6 +26,13 @@ final class LayoutRulesTests: XCTestCase {
         XCTAssertEqual(MediaTag.tag(for: image("File:Thylacine 1933.jpg"), species: extinct), .historicalPhoto)
         XCTAssertEqual(MediaTag.tag(for: image("File:Thylacine skeleton.jpg"), species: extinct), .realFossil)
         XCTAssertEqual(MediaTag.tag(for: image("File:Thylacine restoration.jpg", artwork: true), species: extinct), .reconstruction)
+    }
+
+    func testCaptionsAreCutOnlyAtSentenceBoundaries() {
+        XCTAssertEqual(ContentPolicy.wholeSentenceCaption("A thylacine at Hobart Zoo."), "A thylacine at Hobart Zoo.")
+        let long = "First sentence about the specimen. " + String(repeating: "Second sentence goes on and on ", count: 10) + "end."
+        XCTAssertEqual(ContentPolicy.wholeSentenceCaption(long), "First sentence about the specimen.")
+        XCTAssertNil(ContentPolicy.wholeSentenceCaption(String(repeating: "word ", count: 60)))
     }
 
     func testLeadingNumber() {

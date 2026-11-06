@@ -40,29 +40,21 @@ enum StartingPoint: String, CaseIterable, Identifiable, Hashable {
 
     var id: String { rawValue }
 
-    var title: String {
+    /// Tile name. Animal-group names come from the taxonomy (D-011); only the two non-branch
+    /// tiles have UI labels.
+    func title(in taxonomy: Taxon) -> String {
         switch self {
-        case .mammals: "Mammals"
-        case .birds: "Birds"
-        case .reptiles: "Reptiles"
-        case .amphibians: "Amphibians"
-        case .insects: "Insects"
-        case .crustaceans: "Crustaceans"
         case .fossils: "Fossil life"
         case .surprise: "Surprise me"
+        default: taxonID.flatMap { taxonomy.find($0)?.name } ?? ""
         }
     }
 
-    var subtitle: String {
+    func subtitle(in taxonomy: Taxon) -> String {
         switch self {
-        case .mammals: "Mammalia"
-        case .birds: "Aves"
-        case .reptiles: "Reptilia"
-        case .amphibians: "Amphibia"
-        case .insects: "Insecta"
-        case .crustaceans: "Malacostraca"
         case .fossils: "Extinct species"
         case .surprise: "Anything goes"
+        default: taxonID.flatMap { taxonomy.find($0)?.scientificName } ?? ""
         }
     }
 
@@ -86,7 +78,7 @@ enum StartingPoint: String, CaseIterable, Identifiable, Hashable {
         case .birds: "Shoebill"
         case .reptiles: "Komodo dragon"
         case .amphibians: "Axolotl"
-        case .insects: "Orchid mantis"
+        case .insects: "Hymenopus coronatus"
         case .crustaceans: "Odontodactylus scyllarus"
         case .fossils: "Smilodon"
         case .surprise: "Okapi"
@@ -129,7 +121,7 @@ struct WelcomeView: View {
                 Text("Meet a new species every swipe.")
                     .font(Theme.heading(40))
                     .foregroundStyle(Theme.parchment)
-                Text("Real photos, real facts, from every branch of the tree of life. This is a shoebill.")
+                Text("Real photos and Wikipedia facts, from every branch of the tree of life.")
                     .font(Theme.body(16))
                     .foregroundStyle(Theme.parchment.opacity(0.9))
                 Button(action: onStart) {
@@ -190,8 +182,8 @@ struct StartingPointView: View {
             SpeciesPhoto(wikiTitle: point.photoSpecies, taxonomy: taxonomy)
             LinearGradient(colors: [.clear, .black.opacity(0.75)], startPoint: .center, endPoint: .bottom)
             VStack(alignment: .leading, spacing: 2) {
-                Text(point.title).font(Theme.heading(18)).foregroundStyle(Theme.parchment)
-                Text(point.subtitle).font(Theme.body(11)).foregroundStyle(Theme.mist)
+                Text(point.title(in: taxonomy)).font(Theme.heading(18)).foregroundStyle(Theme.parchment)
+                Text(point.subtitle(in: taxonomy)).font(Theme.body(11)).foregroundStyle(Theme.mist)
             }
             .padding(10)
             Image(systemName: selected ? "checkmark.circle.fill" : "circle")

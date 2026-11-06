@@ -30,9 +30,11 @@ Rules for agents and contributors:
    rewording, merging sentences or "simplifying" is not.
 3. **Every value has a source.** Data in `taxonomy.json` (common names, group names, IUCN status)
    must come from Wikidata or Wikipedia, not from memory. Record where it came from.
-4. **Reject AI-generated media.** Filter out Commons files in AI-generated categories
-   (e.g. "AI-generated images" and its subcategories) or whose description says they were made
-   with AI. When unsure, reject.
+4. **Images only from the species' Wikipedia article.** Use Commons files that are actually
+   used on the species' English Wikipedia article, never a free search of Commons. Wikipedia
+   doesn't allow AI-generated images in articles, so this is how AI images are kept out; there
+   is deliberately no separate AI-image filter (Maxwell, 2026-11-06). If a new source would bring
+   in images that aren't vetted this way, update this rule first.
 5. **Mockups too.** Design mockups and screenshots in `docs/` should use verbatim sourced text,
    so nobody copies invented text into the app.
 6. **Interface text** (buttons, menus, onboarding) is not animal content, but it must be
@@ -85,6 +87,13 @@ every licence string you touch. Reject when in doubt.
 - Photos credit the Commons file's author and licence and link to its file page.
 - Text cards credit "Wikipedia contributors · CC BY-SA 4.0" and link the article.
 - The attribution chip must be visible on every card and open a credit sheet.
+
+## Captions
+
+Photo captions are the Commons file's `ImageDescription`, HTML stripped, otherwise verbatim.
+`ContentPolicy.wholeSentenceCaption` keeps as many whole sentences as fit in 200 characters; if
+the first sentence alone is longer, the photo has no caption. Captions are never cut mid-sentence
+(D-011). The species detail sheet shows Wikipedia's short description as-is ("Wikipedia says").
 
 ## Image suitability
 

@@ -10,6 +10,10 @@ from stepping on each other.
    PR or ask your human) instead of duplicating it.
 3. For multi-step work, add a row to "In flight" in [status.md](status.md) in your first commit.
 4. Check open PRs on GitHub for overlapping changes.
+5. Read [architecture-rules.md](architecture-rules.md). For anything bigger than a one-file fix,
+   open a draft PR titled "Design review: ..." with a note in `docs/designs/` (from
+   [the template](designs/TEMPLATE.md)) and wait for `Architecture review: Design approved`
+   before writing code (D-014).
 
 ## Branches and commits
 
@@ -34,8 +38,10 @@ from stepping on each other.
 
 ## Species data
 
-- Edit `tools/gen_taxonomy.py`, then run
-  `python3 tools/gen_taxonomy.py AnimalScroller/Resources/taxonomy.json`. Commit both.
+- Add or remove English Wikipedia titles in `tools/species.txt`, then run
+  `python3 tools/gen_taxonomy.py`. Commit `species.txt`, `taxonomy.json` and
+  `taxonomy-sources.json` together. The script pulls every value from Wikidata; it is slow
+  because Wikidata rate-limits, and caches in `tools/.cache/`.
 - Every species must be one specific species with an English Wikipedia article.
 - Never type names, statuses or other values from memory (D-011). Every value must come from
   Wikidata or Wikipedia.
@@ -45,12 +51,19 @@ from stepping on each other.
 ## Before you open a PR
 
 - [ ] Branched from current `main`; no unrelated changes
+- [ ] Design note approved (or it's a one-file fix) and the code follows [architecture-rules.md](architecture-rules.md)
 - [ ] Builds and tests pass (or the PR says why you couldn't run them)
 - [ ] Content rules in [content-and-licensing.md](content-and-licensing.md) still hold, including zero AI-generated content
 - [ ] [changelog.md](changelog.md) has a line under `Unreleased`
 - [ ] [status.md](status.md) updated (state, known issues, "In flight" row added/removed)
 - [ ] Any other affected doc updated (architecture, data model, product, design, roadmap)
 - [ ] New choices recorded in [decisions.md](decisions.md) (`Proposed` unless a human decided)
+
+## Merging
+
+The architect agent merges (or Maxwell, by hand). Other agents don't merge. A PR is ready when CI is green and it has a comment or review starting
+`Architecture review: Approved` on its latest commit (see
+[architecture-rules.md](architecture-rules.md#the-review-gate)).
 
 ## PR description
 

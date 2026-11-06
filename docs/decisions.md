@@ -23,6 +23,14 @@ Template:
 
 ---
 
+## D-014 · Architecture review gate: design before code, sign-off before merge
+- Status: Decided
+- Date: 2026-11-06
+- Decided by: Maxwell Rhinelander
+- Context: Several people's AI agents write code in this repo. Maxwell asked for "a bot that functions as the programming architect" so that new code is confirmed to fit the program's architecture before it starts and before it reaches `main`, "to avoid any long term AI spaghetti code difficulties".
+- Decision: A Claude architect agent owns [architecture-rules.md](architecture-rules.md). Every piece of work bigger than a one-file fix posts a design note (draft PR with `docs/designs/...`) and waits for `Architecture review: Design approved`. Every PR needs `Architecture review: Approved` on its latest commit before it merges. The architect then merges it once CI is green (Maxwell approved architect merges on 2026-11-06). Applies to collaborators' agents too. Maxwell can sign off if the architect hasn't answered in 24 hours.
+- Consequences: Work starts a little slower, but layers and dependency rules are enforced on every change. Because all agents post through one GitHub account, sign-off is a marker comment, not a GitHub approval, so branch protection can't enforce it; the architect only merges what it signed off. The layer model (proposed by the architect agent) moves app-wide stores into `Stores/` and forbids hard-coded animal content in Swift.
+
 ## D-013 · Likes steer the tailored picks
 - Status: Decided (feature); weights Proposed
 - Date: 2026-11-06
@@ -45,8 +53,8 @@ Template:
 - Date: 2026-11-06
 - Decided by: Maxwell Rhinelander
 - Context: The app is for education, so everything in it must be real and traceable. Maxwell: "zero AI generated content, words, pictures, anything. All content is pulled from open source, creative commons, whatever."
-- Decision: No AI-generated, AI-rewritten or AI-edited text, images, audio or video in the app. All content comes verbatim from open sources (Wikipedia, Commons, Wikidata, or other approved free sources) with attribution. AI-generated files on Commons are rejected. Agents may write code and docs but never content.
-- Consequences: Hand-typed species data (common names, group names, IUCN statuses) must be regenerated from Wikidata; `ContentPolicy` needs an AI-image filter; mockup text should be verbatim. See [ai-content-audit.md](ai-content-audit.md). Strengthens D-005 (paleoart must be human-made).
+- Decision: No AI-generated, AI-rewritten or AI-edited text, images, audio or video in the app. All content comes verbatim from open sources (Wikipedia, Commons, Wikidata, or other approved free sources) with attribution. Images come only from the species' English Wikipedia article, where AI images are not allowed, so no separate AI-image filter is needed (Maxwell, 2026-11-06). Agents may write code and docs but never content.
+- Consequences: Hand-typed species data (common names, group names, IUCN statuses) must be regenerated from Wikidata; mockup text should be verbatim. See [ai-content-audit.md](ai-content-audit.md). Strengthens D-005 (paleoart must be human-made).
 
 ## D-010 · Species first, information second
 - Status: Decided
