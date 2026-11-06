@@ -85,7 +85,8 @@ description), "Did you know?", the lead, more facts, and every source and credit
 
 ### Species met
 
-Every species whose intro card was shown is added automatically. Filters: All / Saved / Liked /
+Every species with a card actually on screen is added automatically (cards the feed loads ahead
+of time don't count until you scroll to them). Filters: All / Saved / Liked /
 Extinct. Sort: recently seen (default), first met, name A to Z, or group (class, then name). Tiles
 show a heart when liked and a bookmark when saved. Tap any tile, including species from the full
 catalogue, for the detail sheet. Persisted across launches; names are looked up from the current
