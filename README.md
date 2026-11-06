@@ -1,5 +1,8 @@
 # Animal Scroller (working title: Animal Instagram)
 
+> **AI agents:** start with [AGENTS.md](AGENTS.md). Project docs live in [docs/](docs/README.md),
+> and every change must keep them up to date.
+
 An iOS doom-scroll feed for meeting specific animal species. Each species opens with a
 zoo-information-board style intro card, followed by 3 to 8 photos and "Did you know?" facts
 (never two facts in a row), then the feed moves on to the next species.
