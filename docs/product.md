@@ -66,9 +66,9 @@ format of an endless vertical feed. Every item is about **one specific species**
   shrink and dim slightly as they scroll away (off under Reduce Motion; the like heart fades
   instead of popping).
 - **Loading and empty states:** while the next species loads, the feed shows an empty zoo board
-  with a soft shimmer instead of a spinner. If nothing can be shown (filters match nothing, or
-  Wikipedia can't be reached) a board explains why, with a **Try again** button. Pull to refresh
-  still restarts the feed.
+  with a soft shimmer instead of a spinner. If the filters match nothing, a board says so and
+  points to the Tree tab. If Wikipedia can't be reached, a board says so with a **Try again**
+  button. Pull to refresh still restarts the feed.
 - **Accessibility:** VoiceOver users get Like, Save and Species details as actions on every card
   (no gestures needed); the intro sign reads as one button that opens details. At the
   accessibility text sizes the sign shows fewer lines and drops the IUCN bar so it never grows
