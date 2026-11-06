@@ -974,13 +974,11 @@ Latrodectus geometricus
 Argiope aurantia
 Nephila pilipes
 Hogna carolinensis
-Thomisus onustus
 Pholcus phalangioides
 Cyrtophora citricola
 Phalangium opilio
 Dermacentor variabilis
 Varroa destructor
-Tachypleus tridentatus
 Callinectes sapidus
 Carcinus maenas
 Atlantic ghost crab
@@ -1108,13 +1106,11 @@ Caspian tiger
 Japanese wolf
 Cryptoprocta spelea
 Panthera spelaea
-Homo erectus
 Homo habilis
 Australopithecus afarensis
 Paranthropus boisei
 Rodrigues starling
 White swamphen
 Mauritius scops owl
-Panthera leo leo
 Otodus angustidens
 Edmontosaurus regalis

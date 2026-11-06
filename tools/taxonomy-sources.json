@@ -1051,6 +1051,222 @@
       "scientificName": "P225",
       "rank": "P105"
     },
+    "procyonidae": {
+      "qid": "Q147114",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "mephitidae": {
+      "qid": "Q83244",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "otariidae": {
+      "qid": "Q26700",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "balaenidae": {
+      "qid": "Q782603",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "eschrichtiidae": {
+      "qid": "Q898360",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "ziphiidae": {
+      "qid": "Q193106",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "kogiidae": {
+      "qid": "Q1965630",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "tayassuidae": {
+      "qid": "Q232866",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "moschidae": {
+      "qid": "Q229084",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "hylobatidae": {
+      "qid": "Q185939",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "atelidae": {
+      "qid": "Q463395",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pitheciidae": {
+      "qid": "Q10860343",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "indriidae": {
+      "qid": "Q175626",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cheirogaleidae": {
+      "qid": "Q271785",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "dermoptera": {
+      "qid": "Q183383",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cynocephalidae": {
+      "qid": "Q11762767",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "phalangeridae": {
+      "qid": "Q23230",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pseudocheiridae": {
+      "qid": "Q23313",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "tarsipedidae": {
+      "qid": "Q3192338",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "didelphimorphia": {
+      "qid": "Q6584653",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "didelphidae": {
+      "qid": "Q21834",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "notoryctemorphia": {
+      "qid": "Q9763859",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "notoryctidae": {
+      "qid": "Q13166786",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "tolypeutidae": {
+      "qid": "Q140769029",
+      "name": "P225",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "sciuridae": {
+      "qid": "Q9482",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "erethizontidae": {
+      "qid": "Q811633",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "muridae": {
+      "qid": "Q25916",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cricetidae": {
+      "qid": "Q193061",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "octodontidae": {
+      "qid": "Q852773",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "gliridae": {
+      "qid": "Q108235",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "leporidae": {
+      "qid": "Q25900",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "erinaceidae": {
+      "qid": "Q28257",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pteropodidae": {
+      "qid": "Q185230",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "vespertilionidae": {
+      "qid": "Q210358",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "molossidae": {
+      "qid": "Q737399",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "megadermatidae": {
+      "qid": "Q841327",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
     "casuariiformes": {
       "qid": "Q19173",
       "name": "enwiki title",
@@ -1411,6 +1627,354 @@
       "scientificName": "P225",
       "rank": "P105"
     },
+    "rheiformes": {
+      "qid": "Q1113470",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "rheidae": {
+      "qid": "Q12214029",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "tinamiformes": {
+      "qid": "Q12355980",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "tinamidae": {
+      "qid": "Q19172",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "procellariidae": {
+      "qid": "Q207767",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "hydrobatidae": {
+      "qid": "Q193404",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "podicipediformes": {
+      "qid": "Q20604429",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "podicipedidae": {
+      "qid": "Q21695",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "gaviiformes": {
+      "qid": "Q2814783",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "gaviidae": {
+      "qid": "Q21666",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pelecanidae": {
+      "qid": "Q11846678",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "phalacrocoracidae": {
+      "qid": "Q3901247",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "anhingidae": {
+      "qid": "Q19370",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "phaethontiformes": {
+      "qid": "Q12765692",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "phaethontidae": {
+      "qid": "Q17189371",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "ardeidae": {
+      "qid": "Q18789",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "scopidae": {
+      "qid": "Q2252347",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pandionidae": {
+      "qid": "Q28240",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "tetraoninae": {
+      "qid": "Q201240",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "megapodiidae": {
+      "qid": "Q213536",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "numididae": {
+      "qid": "Q171953",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "gruiformes": {
+      "qid": "Q25557",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "gruidae": {
+      "qid": "Q25365",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "rallidae": {
+      "qid": "Q26623",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cariamiformes": {
+      "qid": "Q1207101",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cariamidae": {
+      "qid": "Q754030",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "charadriidae": {
+      "qid": "Q28449",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "haematopodidae": {
+      "qid": "Q12845592",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "recurvirostridae": {
+      "qid": "Q27042",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "bucorvidae": {
+      "qid": "Q15041968",
+      "name": "P225",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "paridae": {
+      "qid": "Q168473",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "coraciidae": {
+      "qid": "Q44245",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "meropidae": {
+      "qid": "Q183147",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "picidae": {
+      "qid": "Q25439",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cuculiformes": {
+      "qid": "Q183364",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cuculidae": {
+      "qid": "Q26381",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "caprimulgiformes": {
+      "qid": "Q26125",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "caprimulgidae": {
+      "qid": "Q27244",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "nyctibiidae": {
+      "qid": "Q15715881",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cotingidae": {
+      "qid": "Q647533",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "sturnidae": {
+      "qid": "Q185237",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "fringillidae": {
+      "qid": "Q160835",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cardinalidae": {
+      "qid": "Q223402",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "passeridae": {
+      "qid": "Q28922",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "hirundinidae": {
+      "qid": "Q39861",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "muscicapidae": {
+      "qid": "Q200989",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "turdidae": {
+      "qid": "Q26050",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "mimidae": {
+      "qid": "Q753221",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "troglodytidae": {
+      "qid": "Q208304",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "bombycillidae": {
+      "qid": "Q11897625",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "ploceidae": {
+      "qid": "Q211601",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "icteridae": {
+      "qid": "Q748159",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "panuridae": {
+      "qid": "Q10803909",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pycnonotidae": {
+      "qid": "Q188854",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "laniidae": {
+      "qid": "Q171052",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "meliphagidae": {
+      "qid": "Q211670",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "acanthisittidae": {
+      "qid": "Q537702",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "oriolidae": {
+      "qid": "Q202955",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
     "crocodylidae": {
       "qid": "Q43169",
       "name": "enwiki title",
@@ -1513,6 +2077,54 @@
       "scientificName": "P225",
       "rank": "P105"
     },
+    "emydidae": {
+      "qid": "Q390835",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "carettochelyidae": {
+      "qid": "Q2205115",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "trionychidae": {
+      "qid": "Q374835",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "typhlopidae": {
+      "qid": "Q664781",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "dactyloidae": {
+      "qid": "Q3011738",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "scincidae": {
+      "qid": "Q272206",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "lacertidae": {
+      "qid": "Q27532",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "anguidae": {
+      "qid": "Q191059",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
     "proteidae": {
       "qid": "Q743692",
       "name": "enwiki title",
@@ -1557,6 +2169,48 @@
     },
     "arthroleptidae": {
       "qid": "Q55455",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "plethodontidae": {
+      "qid": "Q100340",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "ranidae": {
+      "qid": "Q6408",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "hylidae": {
+      "qid": "Q53696",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "bombinatoridae": {
+      "qid": "Q55354",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pipidae": {
+      "qid": "Q56067",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "telmatobiidae": {
+      "qid": "Q19987840",
+      "name": "P225",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "microhylidae": {
+      "qid": "Q56057",
       "name": "enwiki title",
       "scientificName": "P225",
       "rank": "P105"
@@ -1897,6 +2551,300 @@
       "scientificName": "P225",
       "rank": "P105"
     },
+    "carcharhinidae": {
+      "qid": "Q48191",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "ginglymostomatidae": {
+      "qid": "Q473022",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "stegostomatidae": {
+      "qid": "Q3485242",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "orectolobidae": {
+      "qid": "Q1502132",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "heterodontiformes": {
+      "qid": "Q17280209",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "heterodontidae": {
+      "qid": "Q17280224",
+      "name": "P225",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "alopiidae": {
+      "qid": "Q17280257",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "aetobatidae": {
+      "qid": "Q26037069",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "dasyatidae": {
+      "qid": "Q205678",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "amiiformes": {
+      "qid": "Q3314611",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "amiidae": {
+      "qid": "Q141948",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "clupeiformes": {
+      "qid": "Q193389",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "clupeidae": {
+      "qid": "Q27141",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "engraulidae": {
+      "qid": "Q192662",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "esociformes": {
+      "qid": "Q379768",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "esocidae": {
+      "qid": "Q1987393",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cypriniformes": {
+      "qid": "Q177879",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cyprinidae": {
+      "qid": "Q35047",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "siluriformes": {
+      "qid": "Q59576",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "siluridae": {
+      "qid": "Q6577802",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "ictaluridae": {
+      "qid": "Q578666",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pangasiidae": {
+      "qid": "Q901080",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "solenostomidae": {
+      "qid": "Q14364531",
+      "name": "P225",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "kurtiformes": {
+      "qid": "Q20721828",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "apogonidae": {
+      "qid": "Q728422",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pomacanthidae": {
+      "qid": "Q320913",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "zanclidae": {
+      "qid": "Q13036449",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "acanthuridae": {
+      "qid": "Q465563",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "balistidae": {
+      "qid": "Q504796",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "ostraciidae": {
+      "qid": "Q755011",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "serranidae": {
+      "qid": "Q207941",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "sphyraenidae": {
+      "qid": "Q13166704",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "carangiformes": {
+      "qid": "Q1399107",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "coryphaenidae": {
+      "qid": "Q13170001",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pleuronectiformes": {
+      "qid": "Q59577",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pleuronectidae": {
+      "qid": "Q647087",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cichlidae": {
+      "qid": "Q3406",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "gobiiformes": {
+      "qid": "Q20403870",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "oxudercidae": {
+      "qid": "Q1533539",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cyprinodontiformes": {
+      "qid": "Q143748",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "poeciliidae": {
+      "qid": "Q463057",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cyprinodontidae": {
+      "qid": "Q134865",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "channidae": {
+      "qid": "Q503788",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "percidae": {
+      "qid": "Q746136",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "centrarchiformes": {
+      "qid": "Q17521922",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "centrarchidae": {
+      "qid": "Q647004",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "ogcocephalidae": {
+      "qid": "Q917267",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "carangidae": {
+      "qid": "Q501728",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "osteoglossidae": {
+      "qid": "Q546243",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
     "nymphalidae": {
       "qid": "Q156449",
       "name": "enwiki title",
@@ -2031,6 +2979,198 @@
     },
     "bombycidae": {
       "qid": "Q30576",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "uraniidae": {
+      "qid": "Q1815107",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "erebidae": {
+      "qid": "Q2068481",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "tortricidae": {
+      "qid": "Q28953",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pyralidae": {
+      "qid": "Q248425",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "chrysomelidae": {
+      "qid": "Q193407",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "tenebrionidae": {
+      "qid": "Q615799",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "mantidae": {
+      "qid": "Q645602",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "phasmida": {
+      "qid": "Q188029",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "phasmatidae": {
+      "qid": "Q577953",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "hemiptera": {
+      "qid": "Q26371",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "fulgoridae": {
+      "qid": "Q1955506",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "buprestidae": {
+      "qid": "Q503892",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "diptera": {
+      "qid": "Q25312",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "muscidae": {
+      "qid": "Q527224",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "zygentoma": {
+      "qid": "Q30111",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "lepismatidae": {
+      "qid": "Q1066550",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "blattidae": {
+      "qid": "Q139689",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pieridae": {
+      "qid": "Q41559",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "geometridae": {
+      "qid": "Q45559",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "noctuidae": {
+      "qid": "Q459180",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "phylliidae": {
+      "qid": "Q282198",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cicadidae": {
+      "qid": "Q130778",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "notonectidae": {
+      "qid": "Q875622",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "sphecidae": {
+      "qid": "Q132833",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "culicidae": {
+      "qid": "Q7367",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "calliphoridae": {
+      "qid": "Q28404",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "stratiomyidae": {
+      "qid": "Q918021",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "syrphidae": {
+      "qid": "Q217905",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "bombyliidae": {
+      "qid": "Q676390",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "calopterygidae": {
+      "qid": "Q510788",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "dermaptera": {
+      "qid": "Q13676",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "forficulidae": {
+      "qid": "Q1931619",
       "name": "enwiki title",
       "scientificName": "P225",
       "rank": "P105"
@@ -2179,6 +3319,192 @@
       "scientificName": "P225",
       "rank": "P105"
     },
+    "thomisidae": {
+      "qid": "Q12023",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "lithodidae": {
+      "qid": "Q1861297",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cancridae": {
+      "qid": "Q538558",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cambaridae": {
+      "qid": "Q138415",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "parastacidae": {
+      "qid": "Q1190541",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "lycosidae": {
+      "qid": "Q10627",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pholcidae": {
+      "qid": "Q10995",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "opiliones": {
+      "qid": "Q19116",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "phalangiidae": {
+      "qid": "Q136948",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "ixodida": {
+      "qid": "Q10304508",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "ixodidae": {
+      "qid": "Q1429304",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "mesostigmata": {
+      "qid": "Q1240844",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "laelapidae": {
+      "qid": "Q1934747",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "portunidae": {
+      "qid": "Q2257783",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "ocypodidae": {
+      "qid": "Q1029196",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "palinuridae": {
+      "qid": "Q916760",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "scyllaridae": {
+      "qid": "Q1019149",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "astacidae": {
+      "qid": "Q943248",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "varunidae": {
+      "qid": "Q2130342",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "lysmatidae": {
+      "qid": "Q55000191",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "penaeidae": {
+      "qid": "Q683918",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "crangonidae": {
+      "qid": "Q139277",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "ligiidae": {
+      "qid": "Q1314554",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "oniscidae": {
+      "qid": "Q3012315",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "branchiopoda": {
+      "qid": "Q188360",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "diplostraca": {
+      "qid": "Q768012",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "daphniidae": {
+      "qid": "Q4020658",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "notostraca": {
+      "qid": "Q3344541",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "triopsidae": {
+      "qid": "Q4569752",
+      "name": "P225",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "scutigeromorpha": {
+      "qid": "Q6507823",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "scutigeridae": {
+      "qid": "Q856136",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
     "octopodidae": {
       "qid": "Q1202874",
       "name": "enwiki title",
@@ -2307,6 +3633,162 @@
     },
     "argonautidae": {
       "qid": "Q2148313",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "myopsida": {
+      "qid": "Q18816667",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "loliginidae": {
+      "qid": "Q938647",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "enoploteuthidae": {
+      "qid": "Q258646",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "spirulida": {
+      "qid": "Q1370442",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "spirulidae": {
+      "qid": "Q17302119",
+      "name": "P225",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "littorinimorpha": {
+      "qid": "Q1187122",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "littorinidae": {
+      "qid": "Q1325371",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "helicidae": {
+      "qid": "Q1418257",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "strombidae": {
+      "qid": "Q732932",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "limacidae": {
+      "qid": "Q1757029",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cypraeidae": {
+      "qid": "Q1141733",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "mytilida": {
+      "qid": "Q26869649",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "mytilidae": {
+      "qid": "Q386633",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "ostreida": {
+      "qid": "Q133047",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "ostreidae": {
+      "qid": "Q21154",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pectinida": {
+      "qid": "Q25385817",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pectinidae": {
+      "qid": "Q1311395",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "adapedonta": {
+      "qid": "Q12763115",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "hiatellidae": {
+      "qid": "Q2652209",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "myida": {
+      "qid": "Q29876893",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "dreissenidae": {
+      "qid": "Q1257898",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "pinnidae": {
+      "qid": "Q1519159",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "eledonidae": {
+      "qid": "Q61677898",
+      "name": "P225",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "architaenioglossa": {
+      "qid": "Q135056",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "ampullariidae": {
+      "qid": "Q907757",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "muricidae": {
+      "qid": "Q927389",
       "name": "enwiki title",
       "scientificName": "P225",
       "rank": "P105"
@@ -2521,20 +4003,152 @@
       "scientificName": "P225",
       "rank": "P105"
     },
+    "pelagiidae": {
+      "qid": "Q2467067",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "octocorallia": {
+      "qid": "Q132680",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "scleralcyonacea": {
+      "qid": "Q121239859",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "coralliidae": {
+      "qid": "Q2996993",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "echinoidea": {
+      "qid": "Q83483",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "echinoida": {
+      "qid": "Q987502",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "strongylocentrotidae": {
+      "qid": "Q338060",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "dendrophylliidae": {
+      "qid": "Q145843",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "actiniaria": {
+      "qid": "Q147256",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "actiniidae": {
+      "qid": "Q134579",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "diadematoida": {
+      "qid": "Q729975",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "diadematidae": {
+      "qid": "Q901480",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "platyhelminthes": {
+      "qid": "Q124900",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "tricladida": {
+      "qid": "Q534535",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "geoplanidae": {
+      "qid": "Q3112410",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cestoda": {
+      "qid": "Q159715",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "cyclophyllidea": {
+      "qid": "Q134393",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "taeniidae": {
+      "qid": "Q141694",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "demospongiae": {
+      "qid": "Q248530",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "haplosclerida": {
+      "qid": "Q3461430",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "petrosiidae": {
+      "qid": "Q3901103",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
     "callaeidae": {
       "qid": "Q835712",
       "name": "enwiki title",
       "scientificName": "P225",
       "rank": "P105"
     },
-    "muridae": {
-      "qid": "Q25916",
+    "psittaculidae": {
+      "qid": "Q7256090",
       "name": "enwiki title",
       "scientificName": "P225",
       "rank": "P105"
     },
-    "otariidae": {
-      "qid": "Q26700",
+    "ornithischia": {
+      "qid": "Q191488",
+      "name": "enwiki title",
+      "scientificName": "P225",
+      "rank": "P105"
+    },
+    "hadrosauridae": {
+      "qid": "Q271841",
       "name": "enwiki title",
       "scientificName": "P225",
       "rank": "P105"
@@ -3640,6 +5254,1315 @@
       "status": "P141 Q278113",
       "listedAs": "Greater bilby"
     },
+    "Lion": {
+      "qid": "Q140",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Lion"
+    },
+    "Tiger": {
+      "qid": "Q19939",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Tiger"
+    },
+    "Leopard": {
+      "qid": "Q34706",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Leopard"
+    },
+    "Eurasian lynx": {
+      "qid": "Q43375",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Eurasian lynx"
+    },
+    "Canada lynx": {
+      "qid": "Q146457",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Canada lynx"
+    },
+    "Bobcat": {
+      "qid": "Q131907",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Bobcat"
+    },
+    "Black-footed cat": {
+      "qid": "Q204814",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Black-footed cat"
+    },
+    "Margay": {
+      "qid": "Q192421",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Margay"
+    },
+    "Jaguarundi": {
+      "qid": "Q182304",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Jaguarundi"
+    },
+    "Rusty-spotted cat": {
+      "qid": "Q309274",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Rusty-spotted cat"
+    },
+    "Asian golden cat": {
+      "qid": "Q192233",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Asian golden cat"
+    },
+    "Wolf": {
+      "qid": "Q18498",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Wolf"
+    },
+    "Red fox": {
+      "qid": "Q8332",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Red fox"
+    },
+    "Coyote": {
+      "qid": "Q44299",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Coyote"
+    },
+    "Golden jackal": {
+      "qid": "Q128098",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Golden jackal"
+    },
+    "Black-backed jackal": {
+      "qid": "Q125814326",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Black-backed jackal"
+    },
+    "Island fox": {
+      "qid": "Q722180",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Island fox"
+    },
+    "Brown bear": {
+      "qid": "Q36341",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Brown bear"
+    },
+    "American black bear": {
+      "qid": "Q122783",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "American black bear"
+    },
+    "Asian black bear": {
+      "qid": "Q124410",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Asian black bear"
+    },
+    "Raccoon": {
+      "qid": "Q121439",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Raccoon"
+    },
+    "South American coati": {
+      "qid": "Q148462",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "South American coati"
+    },
+    "Kinkajou": {
+      "qid": "Q254630",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Kinkajou"
+    },
+    "Striped skunk": {
+      "qid": "Q368495",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Striped skunk"
+    },
+    "European badger": {
+      "qid": "Q27066",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "European badger"
+    },
+    "American badger": {
+      "qid": "Q232129",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "American badger"
+    },
+    "Eurasian otter": {
+      "qid": "Q29995",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Eurasian otter"
+    },
+    "Stoat": {
+      "qid": "Q25345",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Stoat"
+    },
+    "Least weasel": {
+      "qid": "Q25311",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Least weasel"
+    },
+    "Black-footed ferret": {
+      "qid": "Q402885",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Black-footed ferret"
+    },
+    "European pine marten": {
+      "qid": "Q26046",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "European pine marten"
+    },
+    "Fisher (animal)": {
+      "qid": "Q584064",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Fisher (animal)"
+    },
+    "Tayra": {
+      "qid": "Q247774",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Tayra"
+    },
+    "Banded mongoose": {
+      "qid": "Q23121",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Banded mongoose"
+    },
+    "Common genet": {
+      "qid": "Q261574",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common genet"
+    },
+    "Harbor seal": {
+      "qid": "Q26913",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Harbor seal"
+    },
+    "Grey seal": {
+      "qid": "Q27370",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Grey seal"
+    },
+    "Hawaiian monk seal": {
+      "qid": "Q695199",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Hawaiian monk seal"
+    },
+    "Mediterranean monk seal": {
+      "qid": "Q208549",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Mediterranean monk seal"
+    },
+    "Steller sea lion": {
+      "qid": "Q431981",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Steller sea lion"
+    },
+    "California sea lion": {
+      "qid": "Q379732",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "California sea lion"
+    },
+    "Northern fur seal": {
+      "qid": "Q7966",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Northern fur seal"
+    },
+    "Antarctic fur seal": {
+      "qid": "Q571449",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Antarctic fur seal"
+    },
+    "Ringed seal": {
+      "qid": "Q203208",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Ringed seal"
+    },
+    "Weddell seal": {
+      "qid": "Q313166",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Weddell seal"
+    },
+    "Crabeater seal": {
+      "qid": "Q626027",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Crabeater seal"
+    },
+    "Ross seal": {
+      "qid": "Q837610",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Ross seal"
+    },
+    "Bowhead whale": {
+      "qid": "Q174652",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Bowhead whale"
+    },
+    "Fin whale": {
+      "qid": "Q179020",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Fin whale"
+    },
+    "North Atlantic right whale": {
+      "qid": "Q193683",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "North Atlantic right whale"
+    },
+    "Gray whale": {
+      "qid": "Q179154",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Gray whale"
+    },
+    "Common minke whale": {
+      "qid": "Q201808",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common minke whale"
+    },
+    "Cuvier's beaked whale": {
+      "qid": "Q623173",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Cuvier's beaked whale"
+    },
+    "Pygmy sperm whale": {
+      "qid": "Q244300",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Pygmy sperm whale"
+    },
+    "Common bottlenose dolphin": {
+      "qid": "Q174199",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common bottlenose dolphin"
+    },
+    "Common dolphin": {
+      "qid": "Q207114",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common dolphin"
+    },
+    "Spinner dolphin": {
+      "qid": "Q649513",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Spinner dolphin"
+    },
+    "Hector's dolphin": {
+      "qid": "Q300961",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Hector's dolphin"
+    },
+    "Irrawaddy dolphin": {
+      "qid": "Q273331",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Irrawaddy dolphin"
+    },
+    "Harbour porpoise": {
+      "qid": "Q27027",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Harbour porpoise"
+    },
+    "Dall's porpoise": {
+      "qid": "Q738564",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Dall's porpoise"
+    },
+    "Long-finned pilot whale": {
+      "qid": "Q207744",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Long-finned pilot whale"
+    },
+    "Risso's dolphin": {
+      "qid": "Q203897",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Risso's dolphin"
+    },
+    "African bush elephant": {
+      "qid": "Q36557",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "African bush elephant"
+    },
+    "Asian elephant": {
+      "qid": "Q133006",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Asian elephant"
+    },
+    "Plains zebra": {
+      "qid": "Q245305",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Plains zebra"
+    },
+    "Przewalski's horse": {
+      "qid": "Q22712",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Przewalski's horse"
+    },
+    "African wild ass": {
+      "qid": "Q208140",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "African wild ass"
+    },
+    "Kiang": {
+      "qid": "Q221380",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Kiang"
+    },
+    "White rhinoceros": {
+      "qid": "Q159918",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "White rhinoceros"
+    },
+    "Sumatran rhinoceros": {
+      "qid": "Q29220",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Sumatran rhinoceros"
+    },
+    "Javan rhinoceros": {
+      "qid": "Q170311",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Javan rhinoceros"
+    },
+    "Baird's tapir": {
+      "qid": "Q215997",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Baird's tapir"
+    },
+    "South American tapir": {
+      "qid": "Q220271",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "South American tapir"
+    },
+    "Mountain tapir": {
+      "qid": "Q223960",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Mountain tapir"
+    },
+    "Common warthog": {
+      "qid": "Q183255",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common warthog"
+    },
+    "Wild boar": {
+      "qid": "Q58697",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Wild boar"
+    },
+    "Collared peccary": {
+      "qid": "Q125498219",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Collared peccary"
+    },
+    "Llama": {
+      "qid": "Q42569",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Llama"
+    },
+    "Alpaca": {
+      "qid": "Q122181742",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Alpaca"
+    },
+    "Guanaco": {
+      "qid": "Q172886",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Guanaco"
+    },
+    "Dromedary": {
+      "qid": "Q71516",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Dromedary"
+    },
+    "American bison": {
+      "qid": "Q82728",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "American bison"
+    },
+    "European bison": {
+      "qid": "Q81091",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "European bison"
+    },
+    "African buffalo": {
+      "qid": "Q160042",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "African buffalo"
+    },
+    "Wild water buffalo": {
+      "qid": "Q1914208",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Wild water buffalo"
+    },
+    "Gaur": {
+      "qid": "Q174296",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Gaur"
+    },
+    "Banteng": {
+      "qid": "Q183035",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Banteng"
+    },
+    "Yak": {
+      "qid": "Q13408062",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Yak"
+    },
+    "Blue wildebeest": {
+      "qid": "Q328809",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Blue wildebeest"
+    },
+    "Springbok": {
+      "qid": "Q213084",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Springbok"
+    },
+    "Impala": {
+      "qid": "Q132576",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Impala"
+    },
+    "Thomson's gazelle": {
+      "qid": "Q271705",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Thomson's gazelle"
+    },
+    "Dama gazelle": {
+      "qid": "Q725736",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Dama gazelle"
+    },
+    "Addax": {
+      "qid": "Q190154",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Addax"
+    },
+    "Scimitar oryx": {
+      "qid": "Q369817",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Scimitar oryx"
+    },
+    "Arabian oryx": {
+      "qid": "Q237286",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Arabian oryx"
+    },
+    "Gemsbok": {
+      "qid": "Q207043",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Gemsbok"
+    },
+    "Greater kudu": {
+      "qid": "Q139487",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Greater kudu"
+    },
+    "Bongo (antelope)": {
+      "qid": "Q193400",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Bongo (antelope)"
+    },
+    "Common eland": {
+      "qid": "Q216815",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Common eland"
+    },
+    "Sitatunga": {
+      "qid": "Q234597",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Sitatunga"
+    },
+    "Nyala": {
+      "qid": "Q239032",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Nyala"
+    },
+    "Klipspringer": {
+      "qid": "Q623389",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Klipspringer"
+    },
+    "Kirk's dik-dik": {
+      "qid": "Q833607",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Kirk's dik-dik"
+    },
+    "Mountain goat": {
+      "qid": "Q242602",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Mountain goat"
+    },
+    "Alpine ibex": {
+      "qid": "Q168327",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Alpine ibex"
+    },
+    "Chamois": {
+      "qid": "Q131340",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Chamois"
+    },
+    "Bighorn sheep": {
+      "qid": "Q189466",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Bighorn sheep"
+    },
+    "Nilgai": {
+      "qid": "Q200444",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Nilgai"
+    },
+    "Blackbuck": {
+      "qid": "Q183339",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Blackbuck"
+    },
+    "Water deer": {
+      "qid": "Q192573",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Water deer"
+    },
+    "Red deer": {
+      "qid": "Q79794",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Red deer"
+    },
+    "Elk": {
+      "qid": "Q180404",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Elk"
+    },
+    "White-tailed deer": {
+      "qid": "Q215887",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "White-tailed deer"
+    },
+    "Mule deer": {
+      "qid": "Q338831",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Mule deer"
+    },
+    "Roe deer": {
+      "qid": "Q122069",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Roe deer"
+    },
+    "Père David's deer": {
+      "qid": "Q207906",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q239509",
+      "listedAs": "Père David's deer"
+    },
+    "Sambar deer": {
+      "qid": "Q229337",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Sambar deer"
+    },
+    "Chital": {
+      "qid": "Q232054",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Chital"
+    },
+    "Siberian musk deer": {
+      "qid": "Q190508",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Siberian musk deer"
+    },
+    "Chimpanzee": {
+      "qid": "Q4126704",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Chimpanzee"
+    },
+    "Western gorilla": {
+      "qid": "Q737838",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Western gorilla"
+    },
+    "Eastern gorilla": {
+      "qid": "Q307157",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Eastern gorilla"
+    },
+    "Sumatran orangutan": {
+      "qid": "Q543424",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Sumatran orangutan"
+    },
+    "Lar gibbon": {
+      "qid": "Q208043",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Lar gibbon"
+    },
+    "Siamang": {
+      "qid": "Q213889",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Siamang"
+    },
+    "Japanese macaque": {
+      "qid": "Q191781",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Japanese macaque"
+    },
+    "Barbary macaque": {
+      "qid": "Q199962",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Barbary macaque"
+    },
+    "Rhesus macaque": {
+      "qid": "Q156606",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Rhesus macaque"
+    },
+    "Olive baboon": {
+      "qid": "Q208561",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Olive baboon"
+    },
+    "Hamadryas baboon": {
+      "qid": "Q189484",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Hamadryas baboon"
+    },
+    "Drill (animal)": {
+      "qid": "Q221434",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Drill (animal)"
+    },
+    "Mantled guereza": {
+      "qid": "Q628239",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Mantled guereza"
+    },
+    "Red-shanked douc": {
+      "qid": "Q838944",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Red-shanked douc"
+    },
+    "Cotton-top tamarin": {
+      "qid": "Q137528",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Cotton-top tamarin"
+    },
+    "Common marmoset": {
+      "qid": "Q838947",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common marmoset"
+    },
+    "Mantled howler": {
+      "qid": "Q1070483",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Mantled howler"
+    },
+    "Bald uakari": {
+      "qid": "Q377612",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Bald uakari"
+    },
+    "Indri": {
+      "qid": "Q203868",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Indri"
+    },
+    "Verreaux's sifaka": {
+      "qid": "Q913789",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Verreaux's sifaka"
+    },
+    "Coquerel's sifaka": {
+      "qid": "Q1131678",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Coquerel's sifaka"
+    },
+    "Black-and-white ruffed lemur": {
+      "qid": "Q998074",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Black-and-white ruffed lemur"
+    },
+    "Gray mouse lemur": {
+      "qid": "Q876491",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Gray mouse lemur"
+    },
+    "Sunda flying lemur": {
+      "qid": "Q5198886",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Sunda flying lemur"
+    },
+    "Eastern grey kangaroo": {
+      "qid": "Q270098",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Eastern grey kangaroo"
+    },
+    "Red-necked wallaby": {
+      "qid": "Q109262323",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Red-necked wallaby"
+    },
+    "Tammar wallaby": {
+      "qid": "Q109262318",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Tammar wallaby"
+    },
+    "Matschie's tree-kangaroo": {
+      "qid": "Q209174",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Matschie's tree-kangaroo"
+    },
+    "Common brushtail possum": {
+      "qid": "Q732477",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common brushtail possum"
+    },
+    "Common ringtail possum": {
+      "qid": "Q928390",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common ringtail possum"
+    },
+    "Honey possum": {
+      "qid": "Q752020",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Honey possum"
+    },
+    "Virginia opossum": {
+      "qid": "Q147267",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Virginia opossum"
+    },
+    "Tiger quoll": {
+      "qid": "Q194526",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Tiger quoll"
+    },
+    "Eastern quoll": {
+      "qid": "Q194516",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Eastern quoll"
+    },
+    "Southern marsupial mole": {
+      "qid": "Q209750",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Southern marsupial mole"
+    },
+    "Brown-throated sloth": {
+      "qid": "Q148752",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Brown-throated sloth"
+    },
+    "Southern tamandua": {
+      "qid": "Q267514",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Southern tamandua"
+    },
+    "Giant armadillo": {
+      "qid": "Q755719",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Giant armadillo"
+    },
+    "Ground pangolin": {
+      "qid": "Q28173017",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Ground pangolin"
+    },
+    "Giant pangolin": {
+      "qid": "Q20085878",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Giant pangolin"
+    },
+    "Black-tailed prairie dog": {
+      "qid": "Q247142",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Black-tailed prairie dog"
+    },
+    "Eastern gray squirrel": {
+      "qid": "Q468500",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Eastern gray squirrel"
+    },
+    "Red squirrel": {
+      "qid": "Q4388",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Red squirrel"
+    },
+    "Alpine marmot": {
+      "qid": "Q285884",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Alpine marmot"
+    },
+    "Groundhog": {
+      "qid": "Q221612",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Groundhog"
+    },
+    "Siberian chipmunk": {
+      "qid": "Q329187",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Siberian chipmunk"
+    },
+    "Northern flying squirrel": {
+      "qid": "Q1094722",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Northern flying squirrel"
+    },
+    "Indian giant squirrel": {
+      "qid": "Q2668978",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Indian giant squirrel"
+    },
+    "Patagonian mara": {
+      "qid": "Q194313",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Patagonian mara"
+    },
+    "North American porcupine": {
+      "qid": "Q10758828",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "North American porcupine"
+    },
+    "Brown rat": {
+      "qid": "Q184224",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Brown rat"
+    },
+    "House mouse": {
+      "qid": "Q83310",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "House mouse"
+    },
+    "Golden hamster": {
+      "qid": "Q204175",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Golden hamster"
+    },
+    "Common degu": {
+      "qid": "Q281008",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common degu"
+    },
+    "Hazel dormouse": {
+      "qid": "Q207148",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Hazel dormouse"
+    },
+    "European rabbit": {
+      "qid": "Q25851",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "European rabbit"
+    },
+    "Snowshoe hare": {
+      "qid": "Q81063",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Snowshoe hare"
+    },
+    "Black-tailed jackrabbit": {
+      "qid": "Q640645",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Black-tailed jackrabbit"
+    },
+    "European hedgehog": {
+      "qid": "Q6145",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "European hedgehog"
+    },
+    "European mole": {
+      "qid": "Q209067",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "European mole"
+    },
+    "Indian flying fox": {
+      "qid": "Q123110636",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Indian flying fox"
+    },
+    "Egyptian fruit bat": {
+      "qid": "Q754983",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Egyptian fruit bat"
+    },
+    "Little brown bat": {
+      "qid": "Q746127",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Little brown bat"
+    },
+    "Mexican free-tailed bat": {
+      "qid": "Q913930",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Mexican free-tailed bat"
+    },
+    "Ghost bat": {
+      "qid": "Q301371",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Ghost bat"
+    },
+    "Yellow-spotted rock hyrax": {
+      "qid": "Q186942",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Yellow-spotted rock hyrax"
+    },
     "Southern cassowary": {
       "qid": "Q375790",
       "commonName": "enwiki title",
@@ -3969,6 +6892,1280 @@
       "status": "P141 Q96377276",
       "listedAs": "Kagu"
     },
+    "Greater rhea": {
+      "qid": "Q192044",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Greater rhea"
+    },
+    "Little spotted kiwi": {
+      "qid": "Q244197",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Little spotted kiwi"
+    },
+    "Elegant crested tinamou": {
+      "qid": "Q843185",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Elegant crested tinamou"
+    },
+    "King penguin": {
+      "qid": "Q182209",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "King penguin"
+    },
+    "Adélie penguin": {
+      "qid": "Q187958",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Adélie penguin"
+    },
+    "Gentoo penguin": {
+      "qid": "Q213021",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Gentoo penguin"
+    },
+    "African penguin": {
+      "qid": "Q244813",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "African penguin"
+    },
+    "Little penguin": {
+      "qid": "Q203628",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Little penguin"
+    },
+    "Yellow-eyed penguin": {
+      "qid": "Q206654",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Yellow-eyed penguin"
+    },
+    "Macaroni penguin": {
+      "qid": "Q217494",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Macaroni penguin"
+    },
+    "Humboldt penguin": {
+      "qid": "Q224151",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Humboldt penguin"
+    },
+    "Galapagos penguin": {
+      "qid": "Q206668",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Galapagos penguin"
+    },
+    "Black-browed albatross": {
+      "qid": "Q602598",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Black-browed albatross"
+    },
+    "Laysan albatross": {
+      "qid": "Q934841",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Laysan albatross"
+    },
+    "Northern fulmar": {
+      "qid": "Q26896",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Northern fulmar"
+    },
+    "Manx shearwater": {
+      "qid": "Q208405",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Manx shearwater"
+    },
+    "Wilson's storm petrel": {
+      "qid": "Q607024",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Wilson's storm petrel"
+    },
+    "Great crested grebe": {
+      "qid": "Q25422",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Great crested grebe"
+    },
+    "Common loon": {
+      "qid": "Q190342",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common loon"
+    },
+    "Brown pelican": {
+      "qid": "Q208714",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Brown pelican"
+    },
+    "Australian pelican": {
+      "qid": "Q26063",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Australian pelican"
+    },
+    "Great white pelican": {
+      "qid": "Q199427",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Great white pelican"
+    },
+    "Northern gannet": {
+      "qid": "Q26675",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Northern gannet"
+    },
+    "Great cormorant": {
+      "qid": "Q25440",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Great cormorant"
+    },
+    "Flightless cormorant": {
+      "qid": "Q82955137",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Flightless cormorant"
+    },
+    "Anhinga": {
+      "qid": "Q469940",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Anhinga"
+    },
+    "Red-billed tropicbird": {
+      "qid": "Q686600",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Red-billed tropicbird"
+    },
+    "Grey heron": {
+      "qid": "Q25273",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Grey heron"
+    },
+    "Great egret": {
+      "qid": "Q130730",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Great egret"
+    },
+    "Great blue heron": {
+      "qid": "Q333796",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Great blue heron"
+    },
+    "Black-crowned night heron": {
+      "qid": "Q126216",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Black-crowned night heron"
+    },
+    "Boat-billed heron": {
+      "qid": "Q210341",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Boat-billed heron"
+    },
+    "Hamerkop": {
+      "qid": "Q652151",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Hamerkop"
+    },
+    "White stork": {
+      "qid": "Q25352",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "White stork"
+    },
+    "Jabiru": {
+      "qid": "Q17970",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Jabiru"
+    },
+    "Saddle-billed stork": {
+      "qid": "Q1219291",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Saddle-billed stork"
+    },
+    "Wood stork": {
+      "qid": "Q990175",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Wood stork"
+    },
+    "African sacred ibis": {
+      "qid": "Q208763",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "African sacred ibis"
+    },
+    "Northern bald ibis": {
+      "qid": "Q245414",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Northern bald ibis"
+    },
+    "Roseate spoonbill": {
+      "qid": "Q389664",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Roseate spoonbill"
+    },
+    "American flamingo": {
+      "qid": "Q208004",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "American flamingo"
+    },
+    "Lesser flamingo": {
+      "qid": "Q242369",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Lesser flamingo"
+    },
+    "Mute swan": {
+      "qid": "Q25402",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Mute swan"
+    },
+    "Black swan": {
+      "qid": "Q131044",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Black swan"
+    },
+    "Trumpeter swan": {
+      "qid": "Q733375",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Trumpeter swan"
+    },
+    "Canada goose": {
+      "qid": "Q26733",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Canada goose"
+    },
+    "Greylag goose": {
+      "qid": "Q25882",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Greylag goose"
+    },
+    "Mallard": {
+      "qid": "Q25348",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Mallard"
+    },
+    "Wood duck": {
+      "qid": "Q322159",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Wood duck"
+    },
+    "Common eider": {
+      "qid": "Q26696",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Common eider"
+    },
+    "Harlequin duck": {
+      "qid": "Q331179",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Harlequin duck"
+    },
+    "Hooded merganser": {
+      "qid": "Q241349",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Hooded merganser"
+    },
+    "Muscovy duck": {
+      "qid": "Q242851",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Muscovy duck"
+    },
+    "Golden eagle": {
+      "qid": "Q41181",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Golden eagle"
+    },
+    "Martial eagle": {
+      "qid": "Q501733",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Martial eagle"
+    },
+    "Steller's sea eagle": {
+      "qid": "Q269896",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Steller's sea eagle"
+    },
+    "White-tailed eagle": {
+      "qid": "Q25438",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "White-tailed eagle"
+    },
+    "African fish eagle": {
+      "qid": "Q217497",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "African fish eagle"
+    },
+    "Bateleur": {
+      "qid": "Q726387",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Bateleur"
+    },
+    "Crowned eagle": {
+      "qid": "Q591640",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Crowned eagle"
+    },
+    "Osprey": {
+      "qid": "Q25332",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Osprey"
+    },
+    "Red-tailed hawk": {
+      "qid": "Q457471",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Red-tailed hawk"
+    },
+    "Hen harrier": {
+      "qid": "Q25572",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Hen harrier"
+    },
+    "Bearded vulture": {
+      "qid": "Q126167",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Bearded vulture"
+    },
+    "Egyptian vulture": {
+      "qid": "Q33504",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Egyptian vulture"
+    },
+    "Eurasian griffon vulture": {
+      "qid": "Q177856",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Eurasian griffon vulture"
+    },
+    "King vulture": {
+      "qid": "Q192705",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "King vulture"
+    },
+    "Turkey vulture": {
+      "qid": "Q245181",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Turkey vulture"
+    },
+    "California condor": {
+      "qid": "Q194314",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "California condor"
+    },
+    "Gyrfalcon": {
+      "qid": "Q177688",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Gyrfalcon"
+    },
+    "American kestrel": {
+      "qid": "Q651545",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "American kestrel"
+    },
+    "Common kestrel": {
+      "qid": "Q26490",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common kestrel"
+    },
+    "Crested caracara": {
+      "qid": "Q755119",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Crested caracara"
+    },
+    "Eurasian eagle-owl": {
+      "qid": "Q130933",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Eurasian eagle-owl"
+    },
+    "Great horned owl": {
+      "qid": "Q81515",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Great horned owl"
+    },
+    "Burrowing owl": {
+      "qid": "Q467068",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Burrowing owl"
+    },
+    "Spectacled owl": {
+      "qid": "Q911908",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Spectacled owl"
+    },
+    "Northern saw-whet owl": {
+      "qid": "Q638019",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Northern saw-whet owl"
+    },
+    "Tawny owl": {
+      "qid": "Q25756",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Tawny owl"
+    },
+    "Little owl": {
+      "qid": "Q129958",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Little owl"
+    },
+    "Wild turkey": {
+      "qid": "Q26844",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Wild turkey"
+    },
+    "Red junglefowl": {
+      "qid": "Q184774",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Red junglefowl"
+    },
+    "Common pheasant": {
+      "qid": "Q25432",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common pheasant"
+    },
+    "Green peafowl": {
+      "qid": "Q254636",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Green peafowl"
+    },
+    "Western capercaillie": {
+      "qid": "Q129059",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Western capercaillie"
+    },
+    "Greater sage-grouse": {
+      "qid": "Q747372",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Greater sage-grouse"
+    },
+    "Rock ptarmigan": {
+      "qid": "Q205930",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Rock ptarmigan"
+    },
+    "Malleefowl": {
+      "qid": "Q901228",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Malleefowl"
+    },
+    "Helmeted guinea fowl": {
+      "qid": "Q251842",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Helmeted guinea fowl"
+    },
+    "Grey crowned crane": {
+      "qid": "Q335992",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Grey crowned crane"
+    },
+    "Red-crowned crane": {
+      "qid": "Q232906",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Red-crowned crane"
+    },
+    "Whooping crane": {
+      "qid": "Q457477",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Whooping crane"
+    },
+    "Sandhill crane": {
+      "qid": "Q503804",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Sandhill crane"
+    },
+    "Demoiselle crane": {
+      "qid": "Q191683",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Demoiselle crane"
+    },
+    "Takahē": {
+      "qid": "Q212302",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Takahē"
+    },
+    "Common moorhen": {
+      "qid": "Q18847",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common moorhen"
+    },
+    "Weka": {
+      "qid": "Q756714",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Weka"
+    },
+    "Great bustard": {
+      "qid": "Q171655",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Great bustard"
+    },
+    "Red-legged seriema": {
+      "qid": "Q903662",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Red-legged seriema"
+    },
+    "Northern lapwing": {
+      "qid": "Q25392",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Northern lapwing"
+    },
+    "Eurasian oystercatcher": {
+      "qid": "Q25928",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Eurasian oystercatcher"
+    },
+    "Pied avocet": {
+      "qid": "Q26147",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Pied avocet"
+    },
+    "Black-winged stilt": {
+      "qid": "Q178821",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Black-winged stilt"
+    },
+    "Ruff (bird)": {
+      "qid": "Q28122714",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Ruff (bird)"
+    },
+    "Red knot": {
+      "qid": "Q27124",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Red knot"
+    },
+    "Spoon-billed sandpiper": {
+      "qid": "Q28065684",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Spoon-billed sandpiper"
+    },
+    "Eurasian curlew": {
+      "qid": "Q18854",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Eurasian curlew"
+    },
+    "Black skimmer": {
+      "qid": "Q516662",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Black skimmer"
+    },
+    "Common murre": {
+      "qid": "Q21062",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common murre"
+    },
+    "Razorbill": {
+      "qid": "Q27102",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Razorbill"
+    },
+    "Tufted puffin": {
+      "qid": "Q838607",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Tufted puffin"
+    },
+    "Horned puffin": {
+      "qid": "Q855367",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Horned puffin"
+    },
+    "Rock dove": {
+      "qid": "Q42326",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Rock dove"
+    },
+    "Mourning dove": {
+      "qid": "Q750027",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Mourning dove"
+    },
+    "Pink pigeon": {
+      "qid": "Q940792",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Pink pigeon"
+    },
+    "Grey parrot": {
+      "qid": "Q220328",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Grey parrot"
+    },
+    "Scarlet macaw": {
+      "qid": "Q243761",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Scarlet macaw"
+    },
+    "Blue-and-yellow macaw": {
+      "qid": "Q205477",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Blue-and-yellow macaw"
+    },
+    "Spix's macaw": {
+      "qid": "Q743214",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q239509",
+      "listedAs": "Spix's macaw"
+    },
+    "Budgerigar": {
+      "qid": "Q121221",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Budgerigar"
+    },
+    "Cockatiel": {
+      "qid": "Q514809",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Cockatiel"
+    },
+    "Galah": {
+      "qid": "Q1253755",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Galah"
+    },
+    "Rainbow lorikeet": {
+      "qid": "Q1809222",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Rainbow lorikeet"
+    },
+    "Monk parakeet": {
+      "qid": "Q724987",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Monk parakeet"
+    },
+    "Palm cockatoo": {
+      "qid": "Q31501",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Palm cockatoo"
+    },
+    "Great hornbill": {
+      "qid": "Q232768",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Great hornbill"
+    },
+    "Southern ground hornbill": {
+      "qid": "Q685074",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Southern ground hornbill"
+    },
+    "Great tit": {
+      "qid": "Q25485",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Great tit"
+    },
+    "Laughing kookaburra": {
+      "qid": "Q824974",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Laughing kookaburra"
+    },
+    "Lilac-breasted roller": {
+      "qid": "Q44023",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Lilac-breasted roller"
+    },
+    "European bee-eater": {
+      "qid": "Q170718",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "European bee-eater"
+    },
+    "Keel-billed toucan": {
+      "qid": "Q47501",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Keel-billed toucan"
+    },
+    "Great spotted woodpecker": {
+      "qid": "Q26209",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Great spotted woodpecker"
+    },
+    "Pileated woodpecker": {
+      "qid": "Q930712",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Pileated woodpecker"
+    },
+    "Northern flicker": {
+      "qid": "Q16819",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Northern flicker"
+    },
+    "Common cuckoo": {
+      "qid": "Q18845",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common cuckoo"
+    },
+    "Greater roadrunner": {
+      "qid": "Q634804",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Greater roadrunner"
+    },
+    "Ruby-throated hummingbird": {
+      "qid": "Q834843",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Ruby-throated hummingbird"
+    },
+    "Anna's hummingbird": {
+      "qid": "Q564265",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Anna's hummingbird"
+    },
+    "European nightjar": {
+      "qid": "Q26717",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "European nightjar"
+    },
+    "Great potoo": {
+      "qid": "Q1262284",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Great potoo"
+    },
+    "Andean cock-of-the-rock": {
+      "qid": "Q490393",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Andean cock-of-the-rock"
+    },
+    "Splendid fairywren": {
+      "qid": "Q850528",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Splendid fairywren"
+    },
+    "Common starling": {
+      "qid": "Q25469",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common starling"
+    },
+    "Blue jay": {
+      "qid": "Q199758",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Blue jay"
+    },
+    "Eurasian magpie": {
+      "qid": "Q25307",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Eurasian magpie"
+    },
+    "Eurasian jay": {
+      "qid": "Q25354",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Eurasian jay"
+    },
+    "Eurasian chaffinch": {
+      "qid": "Q25383",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Eurasian chaffinch"
+    },
+    "American goldfinch": {
+      "qid": "Q27075861",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "American goldfinch"
+    },
+    "Northern cardinal": {
+      "qid": "Q726389",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Northern cardinal"
+    },
+    "Painted bunting": {
+      "qid": "Q932970",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Painted bunting"
+    },
+    "Gouldian finch": {
+      "qid": "Q752146",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Gouldian finch"
+    },
+    "House sparrow": {
+      "qid": "Q14683",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "House sparrow"
+    },
+    "Barn swallow": {
+      "qid": "Q25429",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Barn swallow"
+    },
+    "European robin": {
+      "qid": "Q25334",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "European robin"
+    },
+    "American robin": {
+      "qid": "Q460967",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "American robin"
+    },
+    "Common nightingale": {
+      "qid": "Q25393",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common nightingale"
+    },
+    "Northern mockingbird": {
+      "qid": "Q829683",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Northern mockingbird"
+    },
+    "Eurasian wren": {
+      "qid": "Q25740",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Eurasian wren"
+    },
+    "Bohemian waxwing": {
+      "qid": "Q26135",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Bohemian waxwing"
+    },
+    "Eurasian blue tit": {
+      "qid": "Q25404",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Eurasian blue tit"
+    },
+    "Red-billed quelea": {
+      "qid": "Q367327",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Red-billed quelea"
+    },
+    "Sociable weaver": {
+      "qid": "Q738345",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Sociable weaver"
+    },
+    "Village weaver": {
+      "qid": "Q1070285",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Village weaver"
+    },
+    "Eastern bluebird": {
+      "qid": "Q600880",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Eastern bluebird"
+    },
+    "Scarlet tanager": {
+      "qid": "Q1193366",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Scarlet tanager"
+    },
+    "Red-winged blackbird": {
+      "qid": "Q754043",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Red-winged blackbird"
+    },
+    "Baltimore oriole": {
+      "qid": "Q805774",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Baltimore oriole"
+    },
+    "Common grackle": {
+      "qid": "Q1424486",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Common grackle"
+    },
+    "Western meadowlark": {
+      "qid": "Q1368136",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Western meadowlark"
+    },
+    "Bearded reedling": {
+      "qid": "Q192817",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Bearded reedling"
+    },
+    "Red-whiskered bulbul": {
+      "qid": "Q501063",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Red-whiskered bulbul"
+    },
+    "Great grey shrike": {
+      "qid": "Q184508",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Great grey shrike"
+    },
+    "ʻIʻiwi": {
+      "qid": "Q27075754",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "ʻIʻiwi"
+    },
+    "Kākā": {
+      "qid": "Q626289",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Kākā"
+    },
+    "New Zealand bellbird": {
+      "qid": "Q394708",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "New Zealand bellbird"
+    },
+    "Tūī": {
+      "qid": "Q125142",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Tūī"
+    },
+    "New Zealand rock wren": {
+      "qid": "Q135589",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "New Zealand rock wren"
+    },
+    "Blue bird-of-paradise": {
+      "qid": "Q668679",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Blue bird-of-paradise"
+    },
+    "Hooded pitohui": {
+      "qid": "Q232619",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Hooded pitohui"
+    },
+    "Lesser sooty owl": {
+      "qid": "Q1427629",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Lesser sooty owl"
+    },
+    "Pauraque": {
+      "qid": "Q1122212",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Pauraque"
+    },
     "Saltwater crocodile": {
       "qid": "Q182599",
       "commonName": "enwiki title",
@@ -4144,6 +8341,531 @@
       "status": "P141 Q719675",
       "listedAs": "Armadillo girdled lizard"
     },
+    "Mugger crocodile": {
+      "qid": "Q81207",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Mugger crocodile"
+    },
+    "American crocodile": {
+      "qid": "Q207836",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "American crocodile"
+    },
+    "Orinoco crocodile": {
+      "qid": "Q272395",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Orinoco crocodile"
+    },
+    "Dwarf crocodile": {
+      "qid": "Q244349",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Dwarf crocodile"
+    },
+    "Chinese alligator": {
+      "qid": "Q194422",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Chinese alligator"
+    },
+    "Spectacled caiman": {
+      "qid": "Q272582",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Spectacled caiman"
+    },
+    "Yacare caiman": {
+      "qid": "Q756678",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Yacare caiman"
+    },
+    "False gharial": {
+      "qid": "Q242464",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "False gharial"
+    },
+    "Hawksbill sea turtle": {
+      "qid": "Q203538",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Hawksbill sea turtle"
+    },
+    "Loggerhead sea turtle": {
+      "qid": "Q192095",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Loggerhead sea turtle"
+    },
+    "Olive ridley sea turtle": {
+      "qid": "Q282385",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Olive ridley sea turtle"
+    },
+    "Kemp's ridley sea turtle": {
+      "qid": "Q301089",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Kemp's ridley sea turtle"
+    },
+    "Flatback sea turtle": {
+      "qid": "Q372997",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q3245245",
+      "listedAs": "Flatback sea turtle"
+    },
+    "Galápagos tortoise": {
+      "qid": "Q20014035",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Galápagos tortoise"
+    },
+    "Leopard tortoise": {
+      "qid": "Q640955",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Leopard tortoise"
+    },
+    "African spurred tortoise": {
+      "qid": "Q301016",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "African spurred tortoise"
+    },
+    "Radiated tortoise": {
+      "qid": "Q630954",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Radiated tortoise"
+    },
+    "Indian star tortoise": {
+      "qid": "Q846461",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Indian star tortoise"
+    },
+    "Hermann's tortoise": {
+      "qid": "Q262555",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Hermann's tortoise"
+    },
+    "Gopher tortoise": {
+      "qid": "Q914338",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Gopher tortoise"
+    },
+    "Common snapping turtle": {
+      "qid": "Q289435",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common snapping turtle"
+    },
+    "Painted turtle": {
+      "qid": "Q199203",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Painted turtle"
+    },
+    "Red-eared slider": {
+      "qid": "Q207839",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Red-eared slider"
+    },
+    "Eastern box turtle": {
+      "qid": "Q3768639",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Eastern box turtle"
+    },
+    "Pig-nosed turtle": {
+      "qid": "Q457742",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Pig-nosed turtle"
+    },
+    "Chinese softshell turtle": {
+      "qid": "Q754028",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Chinese softshell turtle"
+    },
+    "Spiny softshell turtle": {
+      "qid": "Q650232",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Spiny softshell turtle"
+    },
+    "Indian cobra": {
+      "qid": "Q192754",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Indian cobra"
+    },
+    "Egyptian cobra": {
+      "qid": "Q244377",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Egyptian cobra"
+    },
+    "Many-banded krait": {
+      "qid": "Q637161",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Many-banded krait"
+    },
+    "Coastal taipan": {
+      "qid": "Q2321476",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Coastal taipan"
+    },
+    "Eastern brown snake": {
+      "qid": "Q306908",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Eastern brown snake"
+    },
+    "Tiger snake": {
+      "qid": "Q1520949",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Tiger snake"
+    },
+    "Yellow-bellied sea snake": {
+      "qid": "Q1247379",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Yellow-bellied sea snake"
+    },
+    "Yellow-lipped sea krait": {
+      "qid": "Q383702",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Yellow-lipped sea krait"
+    },
+    "Boomslang": {
+      "qid": "Q893048",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Boomslang"
+    },
+    "Puff adder": {
+      "qid": "Q369667",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Puff adder"
+    },
+    "Bitis nasicornis": {
+      "qid": "Q2187394",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Bitis nasicornis"
+    },
+    "Russell's viper": {
+      "qid": "Q330548",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Russell's viper"
+    },
+    "Adder": {
+      "qid": "Q192056",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Adder"
+    },
+    "Timber rattlesnake": {
+      "qid": "Q1417249",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Timber rattlesnake"
+    },
+    "Agkistrodon piscivorus": {
+      "qid": "Q905354",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Agkistrodon piscivorus"
+    },
+    "Burmese python": {
+      "qid": "Q2716137",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Burmese python"
+    },
+    "Ball python": {
+      "qid": "Q464424",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Ball python"
+    },
+    "Green tree python": {
+      "qid": "Q849394",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Green tree python"
+    },
+    "Morelia spilota": {
+      "qid": "Q575770",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Morelia spilota"
+    },
+    "Corn snake": {
+      "qid": "Q754747",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Corn snake"
+    },
+    "Common garter snake": {
+      "qid": "Q911786",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common garter snake"
+    },
+    "Eastern hognose snake": {
+      "qid": "Q2699564",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Eastern hognose snake"
+    },
+    "Grass snake": {
+      "qid": "Q170713",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Grass snake"
+    },
+    "Opheodrys aestivus": {
+      "qid": "Q426062",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Opheodrys aestivus"
+    },
+    "Indotyphlops braminus": {
+      "qid": "Q22299988",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Indotyphlops braminus"
+    },
+    "Veiled chameleon": {
+      "qid": "Q1124882",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Veiled chameleon"
+    },
+    "Jackson's chameleon": {
+      "qid": "Q18599624",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Jackson's chameleon"
+    },
+    "Parson's chameleon": {
+      "qid": "Q664973",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Parson's chameleon"
+    },
+    "Central bearded dragon": {
+      "qid": "Q792301",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Central bearded dragon"
+    },
+    "Chinese water dragon": {
+      "qid": "Q740576",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Chinese water dragon"
+    },
+    "Australian water dragon": {
+      "qid": "Q24557484",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Australian water dragon"
+    },
+    "Rhinoceros iguana": {
+      "qid": "Q907252",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Rhinoceros iguana"
+    },
+    "Galápagos land iguana": {
+      "qid": "Q301062",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Galápagos land iguana"
+    },
+    "Anolis carolinensis": {
+      "qid": "Q930252",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Anolis carolinensis"
+    },
+    "Brown anole": {
+      "qid": "Q790586",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Brown anole"
+    },
+    "Plumed basilisk": {
+      "qid": "Q753071",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Plumed basilisk"
+    },
+    "Mexican beaded lizard": {
+      "qid": "Q301084",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Mexican beaded lizard"
+    },
+    "Tiliqua rugosa": {
+      "qid": "Q572677",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Tiliqua rugosa"
+    },
+    "Sand lizard": {
+      "qid": "Q148595",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Sand lizard"
+    },
+    "Viviparous lizard": {
+      "qid": "Q204061",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Viviparous lizard"
+    },
+    "Podarcis muralis": {
+      "qid": "Q186615",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Podarcis muralis"
+    },
+    "Common slow worm": {
+      "qid": "Q183660",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common slow worm"
+    },
+    "Tokay gecko": {
+      "qid": "Q331213",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Tokay gecko"
+    },
+    "Mediterranean house gecko": {
+      "qid": "Q836347",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Mediterranean house gecko"
+    },
+    "Asian water monitor": {
+      "qid": "Q655616",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Asian water monitor"
+    },
+    "Nile monitor": {
+      "qid": "Q737896",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Nile monitor"
+    },
+    "Perentie": {
+      "qid": "Q932293",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Perentie"
+    },
+    "Lace monitor": {
+      "qid": "Q924941",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Lace monitor"
+    },
     "Olm": {
       "qid": "Q15856",
       "commonName": "enwiki title",
@@ -4234,6 +8956,272 @@
       "scientificName": "P225",
       "status": "P141 Q211005",
       "listedAs": "Strawberry poison-dart frog"
+    },
+    "Spotted salamander": {
+      "qid": "Q2108247",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Spotted salamander"
+    },
+    "Red-backed salamander": {
+      "qid": "Q1092717",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Red-backed salamander"
+    },
+    "Rough-skinned newt": {
+      "qid": "Q1540596",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Rough-skinned newt"
+    },
+    "Eastern newt": {
+      "qid": "Q1552306",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Eastern newt"
+    },
+    "Alpine newt": {
+      "qid": "Q282715",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Alpine newt"
+    },
+    "Smooth newt": {
+      "qid": "Q215247",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Smooth newt"
+    },
+    "Marbled newt": {
+      "qid": "Q983768",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Marbled newt"
+    },
+    "Lake Patzcuaro salamander": {
+      "qid": "Q1054971",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Lake Patzcuaro salamander"
+    },
+    "American bullfrog": {
+      "qid": "Q159404",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "American bullfrog"
+    },
+    "Common frog": {
+      "qid": "Q27465",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common frog"
+    },
+    "European tree frog": {
+      "qid": "Q2142057",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "European tree frog"
+    },
+    "American green tree frog": {
+      "qid": "Q1640189",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "American green tree frog"
+    },
+    "Australian green tree frog": {
+      "qid": "Q654682",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Australian green tree frog"
+    },
+    "Common toad": {
+      "qid": "Q146375",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common toad"
+    },
+    "Oriental fire-bellied toad": {
+      "qid": "Q1061702",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Oriental fire-bellied toad"
+    },
+    "Common Surinam toad": {
+      "qid": "Q220414",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common Surinam toad"
+    },
+    "African clawed frog": {
+      "qid": "Q654718",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "African clawed frog"
+    },
+    "Wood frog": {
+      "qid": "Q4666317",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Wood frog"
+    },
+    "Blue poison dart frog": {
+      "qid": "Q743123",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Blue poison dart frog"
+    },
+    "Dyeing poison dart frog": {
+      "qid": "Q1478869",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Dyeing poison dart frog"
+    },
+    "Panamanian golden frog": {
+      "qid": "Q2048914",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Panamanian golden frog"
+    },
+    "Telmatobius culeus": {
+      "qid": "Q1628083",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Telmatobius culeus"
+    },
+    "Arboreal salamander": {
+      "qid": "Q373980",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Arboreal salamander"
+    },
+    "Alpine salamander": {
+      "qid": "Q259425",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Alpine salamander"
+    },
+    "Japanese fire-bellied newt": {
+      "qid": "Q394395",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Japanese fire-bellied newt"
+    },
+    "Northern leopard frog": {
+      "qid": "Q1819586",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Northern leopard frog"
+    },
+    "Lithobates clamitans": {
+      "qid": "Q4667968",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Lithobates clamitans"
+    },
+    "Marsh frog": {
+      "qid": "Q319393",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Marsh frog"
+    },
+    "Pool frog": {
+      "qid": "Q754058",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Pool frog"
+    },
+    "Gray treefrog": {
+      "qid": "Q2543130",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Gray treefrog"
+    },
+    "Agalychnis callidryas": {
+      "qid": "Q337616",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Agalychnis callidryas"
+    },
+    "Spring peeper": {
+      "qid": "Q135015",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Spring peeper"
+    },
+    "American toad": {
+      "qid": "Q694496",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "American toad"
+    },
+    "Colorado River toad": {
+      "qid": "Q10534901",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Colorado River toad"
+    },
+    "Yellow-bellied toad": {
+      "qid": "Q606431",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Yellow-bellied toad"
+    },
+    "Mimic poison frog": {
+      "qid": "Q146330",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Mimic poison frog"
+    },
+    "Green and golden bell frog": {
+      "qid": "Q967892",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Green and golden bell frog"
+    },
+    "Banded bullfrog": {
+      "qid": "Q931167",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Banded bullfrog"
     },
     "West Indian Ocean coelacanth": {
       "qid": "Q668921",
@@ -4466,6 +9454,461 @@
       "status": "P141 Q211005",
       "listedAs": "Mexican tetra"
     },
+    "Shortfin mako shark": {
+      "qid": "Q192158",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Shortfin mako shark"
+    },
+    "Blue shark": {
+      "qid": "Q26337",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Blue shark"
+    },
+    "Oceanic whitetip shark": {
+      "qid": "Q318090",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Oceanic whitetip shark"
+    },
+    "Blacktip reef shark": {
+      "qid": "Q726384",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Blacktip reef shark"
+    },
+    "Whitetip reef shark": {
+      "qid": "Q695344",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Whitetip reef shark"
+    },
+    "Grey reef shark": {
+      "qid": "Q163523",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Grey reef shark"
+    },
+    "Nurse shark": {
+      "qid": "Q756859",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Nurse shark"
+    },
+    "Zebra shark": {
+      "qid": "Q169468",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Zebra shark"
+    },
+    "Tasselled wobbegong": {
+      "qid": "Q29090",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Tasselled wobbegong"
+    },
+    "Horn shark": {
+      "qid": "Q934615",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Horn shark"
+    },
+    "Common thresher": {
+      "qid": "Q618595",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Common thresher"
+    },
+    "Smalltooth sawfish": {
+      "qid": "Q311651",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Smalltooth sawfish"
+    },
+    "Spotted eagle ray": {
+      "qid": "Q655565",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Spotted eagle ray"
+    },
+    "Southern stingray": {
+      "qid": "Q469958",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Southern stingray"
+    },
+    "Chinese paddlefish": {
+      "qid": "Q477223",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q237350",
+      "listedAs": "Chinese paddlefish"
+    },
+    "Bowfin": {
+      "qid": "Q491934",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Bowfin"
+    },
+    "Atlantic herring": {
+      "qid": "Q2396858",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Atlantic herring"
+    },
+    "Californian anchovy": {
+      "qid": "Q989747",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q3245245",
+      "listedAs": "Californian anchovy"
+    },
+    "Atlantic salmon": {
+      "qid": "Q188879",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Atlantic salmon"
+    },
+    "Rainbow trout": {
+      "qid": "Q187986",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Rainbow trout"
+    },
+    "Brown trout": {
+      "qid": "Q2857311",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Brown trout"
+    },
+    "Chinook salmon": {
+      "qid": "Q833503",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Chinook salmon"
+    },
+    "Arctic char": {
+      "qid": "Q421047",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Arctic char"
+    },
+    "Northern pike": {
+      "qid": "Q165278",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Northern pike"
+    },
+    "Muskellunge": {
+      "qid": "Q917705",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Muskellunge"
+    },
+    "Common carp": {
+      "qid": "Q81110",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Common carp"
+    },
+    "Goldfish": {
+      "qid": "Q123141",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Goldfish"
+    },
+    "Grass carp": {
+      "qid": "Q76098",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Grass carp"
+    },
+    "Wels catfish": {
+      "qid": "Q159323",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Wels catfish"
+    },
+    "Channel catfish": {
+      "qid": "Q836957",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Channel catfish"
+    },
+    "Mekong giant catfish": {
+      "qid": "Q739380",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Mekong giant catfish"
+    },
+    "Neon tetra": {
+      "qid": "Q131431",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Neon tetra"
+    },
+    "Solenostomus paradoxus": {
+      "qid": "Q2000965",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Solenostomus paradoxus"
+    },
+    "Banggai cardinalfish": {
+      "qid": "Q428921",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Banggai cardinalfish"
+    },
+    "Queen angelfish": {
+      "qid": "Q453994",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Queen angelfish"
+    },
+    "Moorish idol": {
+      "qid": "Q941448",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Moorish idol"
+    },
+    "Yellow tang": {
+      "qid": "Q900868",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Yellow tang"
+    },
+    "Clown triggerfish": {
+      "qid": "Q973548",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Clown triggerfish"
+    },
+    "Yellow boxfish": {
+      "qid": "Q587799",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Yellow boxfish"
+    },
+    "Bluestreak cleaner wrasse": {
+      "qid": "Q2000165",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Bluestreak cleaner wrasse"
+    },
+    "Green humphead parrotfish": {
+      "qid": "Q2343773",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Green humphead parrotfish"
+    },
+    "Giant grouper": {
+      "qid": "Q847747",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q3245245",
+      "listedAs": "Giant grouper"
+    },
+    "Atlantic goliath grouper": {
+      "qid": "Q1920243",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q278113",
+      "listedAs": "Atlantic goliath grouper"
+    },
+    "Great barracuda": {
+      "qid": "Q2306485",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Great barracuda"
+    },
+    "Mahi-mahi": {
+      "qid": "Q14443",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Mahi-mahi"
+    },
+    "Yellowfin tuna": {
+      "qid": "Q269781",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Yellowfin tuna"
+    },
+    "Skipjack tuna": {
+      "qid": "Q633957",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Skipjack tuna"
+    },
+    "Atlantic mackerel": {
+      "qid": "Q30153",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Atlantic mackerel"
+    },
+    "Atlantic halibut": {
+      "qid": "Q1143520",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Atlantic halibut"
+    },
+    "Oscar (fish)": {
+      "qid": "Q3442",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Oscar (fish)"
+    },
+    "Nile tilapia": {
+      "qid": "Q311170",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Nile tilapia"
+    },
+    "Convict cichlid": {
+      "qid": "Q3546",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q3245245",
+      "listedAs": "Convict cichlid"
+    },
+    "Atlantic mudskipper": {
+      "qid": "Q387352",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Atlantic mudskipper"
+    },
+    "Guppy": {
+      "qid": "Q178202",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Guppy"
+    },
+    "Devils Hole pupfish": {
+      "qid": "Q301137",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Devils Hole pupfish"
+    },
+    "Giant gourami": {
+      "qid": "Q1771943",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Giant gourami"
+    },
+    "Northern snakehead": {
+      "qid": "Q1156826",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Northern snakehead"
+    },
+    "European perch": {
+      "qid": "Q166812",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "European perch"
+    },
+    "Largemouth bass": {
+      "qid": "Q755105",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Largemouth bass"
+    },
+    "Bluegill": {
+      "qid": "Q1148148",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Bluegill"
+    },
+    "Walleye": {
+      "qid": "Q1462862",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Walleye"
+    },
+    "Red-lipped batfish": {
+      "qid": "Q2021885",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Red-lipped batfish"
+    },
+    "Giant trevally": {
+      "qid": "Q1994256",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Giant trevally"
+    },
+    "Asian arowana": {
+      "qid": "Q728584",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Asian arowana"
+    },
+    "Bluespotted ribbontail ray": {
+      "qid": "Q964954",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Bluespotted ribbontail ray"
+    },
     "Monarch butterfly": {
       "qid": "Q212398",
       "commonName": "enwiki title",
@@ -4620,6 +10063,573 @@
       "status": "no P141 on Wikidata, no IUCN status in taxobox",
       "listedAs": "Bombyx mori"
     },
+    "Vanessa cardui": {
+      "qid": "Q158603",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Vanessa cardui"
+    },
+    "Small tortoiseshell": {
+      "qid": "Q157609",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Small tortoiseshell"
+    },
+    "Papilio machaon": {
+      "qid": "Q179530",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Papilio machaon"
+    },
+    "Papilio glaucus": {
+      "qid": "Q310069",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Papilio glaucus"
+    },
+    "Greta oto": {
+      "qid": "Q2662974",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Greta oto"
+    },
+    "Heliconius charithonia": {
+      "qid": "Q169449",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Heliconius charithonia"
+    },
+    "Heliconius melpomene": {
+      "qid": "Q2697054",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Heliconius melpomene"
+    },
+    "Junonia coenia": {
+      "qid": "Q1257151",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Junonia coenia"
+    },
+    "Nymphalis antiopa": {
+      "qid": "Q503989",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Nymphalis antiopa"
+    },
+    "Karner blue": {
+      "qid": "Q84778111",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Karner blue"
+    },
+    "Large blue": {
+      "qid": "Q161528",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Large blue"
+    },
+    "Dryocampa rubicunda": {
+      "qid": "Q137502",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Dryocampa rubicunda"
+    },
+    "Antheraea polyphemus": {
+      "qid": "Q1758845",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Antheraea polyphemus"
+    },
+    "Automeris io": {
+      "qid": "Q1766445",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Automeris io"
+    },
+    "Hummingbird hawk-moth": {
+      "qid": "Q369034",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Hummingbird hawk-moth"
+    },
+    "Deilephila elpenor": {
+      "qid": "Q161384",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Deilephila elpenor"
+    },
+    "Chrysiridia rhipheus": {
+      "qid": "Q1145460",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Chrysiridia rhipheus"
+    },
+    "Garden tiger moth": {
+      "qid": "Q674760",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Garden tiger moth"
+    },
+    "Lymantria dispar": {
+      "qid": "Q45532",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Lymantria dispar"
+    },
+    "Codling moth": {
+      "qid": "Q45262",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Codling moth"
+    },
+    "Indianmeal moth": {
+      "qid": "Q779383",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Indianmeal moth"
+    },
+    "Japanese rhinoceros beetle": {
+      "qid": "Q1334311",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Japanese rhinoceros beetle"
+    },
+    "Harmonia axyridis": {
+      "qid": "Q499627",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Harmonia axyridis"
+    },
+    "Colorado potato beetle": {
+      "qid": "Q156954",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Colorado potato beetle"
+    },
+    "Mealworm": {
+      "qid": "Q225965",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Mealworm"
+    },
+    "European mantis": {
+      "qid": "Q268319",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "European mantis"
+    },
+    "Chinese mantis": {
+      "qid": "Q1149167",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Chinese mantis"
+    },
+    "Extatosoma tiaratum": {
+      "qid": "Q782937",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Extatosoma tiaratum"
+    },
+    "Migratory locust": {
+      "qid": "Q1059580",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Migratory locust"
+    },
+    "Spotted lanternfly": {
+      "qid": "Q10571341",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Spotted lanternfly"
+    },
+    "Red imported fire ant": {
+      "qid": "Q1194382",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Red imported fire ant"
+    },
+    "Bombus terrestris": {
+      "qid": "Q752274",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Bombus terrestris"
+    },
+    "European hornet": {
+      "qid": "Q30258",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "European hornet"
+    },
+    "Emerald ash borer": {
+      "qid": "Q1960177",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Emerald ash borer"
+    },
+    "Housefly": {
+      "qid": "Q166111",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Housefly"
+    },
+    "Silverfish": {
+      "qid": "Q26842",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Silverfish"
+    },
+    "American cockroach": {
+      "qid": "Q267996",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "American cockroach"
+    },
+    "Vanessa atalanta": {
+      "qid": "Q156454",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Vanessa atalanta"
+    },
+    "Aglais io": {
+      "qid": "Q158699",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Aglais io"
+    },
+    "Gonepteryx rhamni": {
+      "qid": "Q206474",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Gonepteryx rhamni"
+    },
+    "Pieris rapae": {
+      "qid": "Q27653",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Pieris rapae"
+    },
+    "Pieris brassicae": {
+      "qid": "Q26764",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Pieris brassicae"
+    },
+    "Danaus chrysippus": {
+      "qid": "Q2663244",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Danaus chrysippus"
+    },
+    "Heliconius erato": {
+      "qid": "Q2427227",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Heliconius erato"
+    },
+    "Common Mormon": {
+      "qid": "Q1768118",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Common Mormon"
+    },
+    "Battus philenor": {
+      "qid": "Q1758032",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Battus philenor"
+    },
+    "Troides helena": {
+      "qid": "Q2189311",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Troides helena"
+    },
+    "Morpho peleides": {
+      "qid": "Q633535",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Morpho peleides"
+    },
+    "Lycaena phlaeas": {
+      "qid": "Q740169",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Lycaena phlaeas"
+    },
+    "Common blue": {
+      "qid": "Q161533",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Common blue"
+    },
+    "Regal fritillary": {
+      "qid": "Q3493073",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Regal fritillary"
+    },
+    "Bicyclus anynana": {
+      "qid": "Q28318785",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Bicyclus anynana"
+    },
+    "Manduca sexta": {
+      "qid": "Q1366539",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Manduca sexta"
+    },
+    "Peppered moth": {
+      "qid": "Q865651",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Peppered moth"
+    },
+    "Helicoverpa armigera": {
+      "qid": "Q811652",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Helicoverpa armigera"
+    },
+    "Fall armyworm": {
+      "qid": "Q2715913",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Fall armyworm"
+    },
+    "Japanese beetle": {
+      "qid": "Q1683382",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Japanese beetle"
+    },
+    "Cockchafer": {
+      "qid": "Q28175",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Cockchafer"
+    },
+    "Lampyris noctiluca": {
+      "qid": "Q852831",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Lampyris noctiluca"
+    },
+    "Asian long-horned beetle": {
+      "qid": "Q312378",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Asian long-horned beetle"
+    },
+    "Pulchriphyllium giganteum": {
+      "qid": "Q695091",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Pulchriphyllium giganteum"
+    },
+    "Magicicada septendecim": {
+      "qid": "Q1949538",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Magicicada septendecim"
+    },
+    "Notonecta glauca": {
+      "qid": "Q266370",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Notonecta glauca"
+    },
+    "Eciton burchellii": {
+      "qid": "Q288145",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Eciton burchellii"
+    },
+    "Oecophylla smaragdina": {
+      "qid": "Q1132830",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Oecophylla smaragdina"
+    },
+    "Formica rufa": {
+      "qid": "Q148769",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q719675",
+      "listedAs": "Formica rufa"
+    },
+    "Apis cerana": {
+      "qid": "Q306939",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Apis cerana"
+    },
+    "Apis dorsata": {
+      "qid": "Q840434",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Apis dorsata"
+    },
+    "Vespula vulgaris": {
+      "qid": "Q260482",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Vespula vulgaris"
+    },
+    "European paper wasp": {
+      "qid": "Q221487",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "European paper wasp"
+    },
+    "Sceliphron caementarium": {
+      "qid": "Q3951783",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Sceliphron caementarium"
+    },
+    "Aedes albopictus": {
+      "qid": "Q477918",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Aedes albopictus"
+    },
+    "Culex pipiens": {
+      "qid": "Q27958",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Culex pipiens"
+    },
+    "Calliphora vomitoria": {
+      "qid": "Q1141108",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Calliphora vomitoria"
+    },
+    "Common green bottle fly": {
+      "qid": "Q603128",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Common green bottle fly"
+    },
+    "Hermetia illucens": {
+      "qid": "Q285029",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Hermetia illucens"
+    },
+    "Episyrphus balteatus": {
+      "qid": "Q1346422",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Episyrphus balteatus"
+    },
+    "Bombylius major": {
+      "qid": "Q1549111",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Bombylius major"
+    },
+    "Beautiful demoiselle": {
+      "qid": "Q248379",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Beautiful demoiselle"
+    },
+    "Forficula auricularia": {
+      "qid": "Q2537221",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Forficula auricularia"
+    },
+    "Giant burrowing cockroach": {
+      "qid": "Q259566",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Giant burrowing cockroach"
+    },
     "Goliath birdeater": {
       "qid": "Q617000",
       "commonName": "enwiki title",
@@ -4731,6 +10741,251 @@
       "scientificName": "P225",
       "status": "no P141 on Wikidata, no IUCN status in taxobox",
       "listedAs": "Armadillidium vulgare"
+    },
+    "Redback spider": {
+      "qid": "Q82544",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Redback spider"
+    },
+    "Phidippus audax": {
+      "qid": "Q134277",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Phidippus audax"
+    },
+    "Misumena vatia": {
+      "qid": "Q742349",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Misumena vatia"
+    },
+    "Arizona bark scorpion": {
+      "qid": "Q666300",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Arizona bark scorpion"
+    },
+    "Red king crab": {
+      "qid": "Q721171",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Red king crab"
+    },
+    "Dungeness crab": {
+      "qid": "Q1936093",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Dungeness crab"
+    },
+    "Cancer pagurus": {
+      "qid": "Q752188",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Cancer pagurus"
+    },
+    "Mangrove horseshoe crab": {
+      "qid": "Q2673503",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q3245245",
+      "listedAs": "Mangrove horseshoe crab"
+    },
+    "Homarus gammarus": {
+      "qid": "Q27690",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Homarus gammarus"
+    },
+    "Procambarus clarkii": {
+      "qid": "Q1133124",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Procambarus clarkii"
+    },
+    "Tasmanian giant freshwater crayfish": {
+      "qid": "Q136116",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q96377276",
+      "listedAs": "Tasmanian giant freshwater crayfish"
+    },
+    "Latrodectus geometricus": {
+      "qid": "Q82243",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Latrodectus geometricus"
+    },
+    "Argiope aurantia": {
+      "qid": "Q2556499",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Argiope aurantia"
+    },
+    "Nephila pilipes": {
+      "qid": "Q286128",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Nephila pilipes"
+    },
+    "Hogna carolinensis": {
+      "qid": "Q2691059",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Hogna carolinensis"
+    },
+    "Pholcus phalangioides": {
+      "qid": "Q1164137",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Pholcus phalangioides"
+    },
+    "Cyrtophora citricola": {
+      "qid": "Q1709546",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Cyrtophora citricola"
+    },
+    "Phalangium opilio": {
+      "qid": "Q21059",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Phalangium opilio"
+    },
+    "Dermacentor variabilis": {
+      "qid": "Q4297977",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Dermacentor variabilis"
+    },
+    "Varroa destructor": {
+      "qid": "Q48564",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Varroa destructor"
+    },
+    "Callinectes sapidus": {
+      "qid": "Q844839",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Callinectes sapidus"
+    },
+    "Carcinus maenas": {
+      "qid": "Q27779",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Carcinus maenas"
+    },
+    "Atlantic ghost crab": {
+      "qid": "Q1465338",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Atlantic ghost crab"
+    },
+    "California spiny lobster": {
+      "qid": "Q452353",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "California spiny lobster"
+    },
+    "Scyllarides latus": {
+      "qid": "Q1493127",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q3245245",
+      "listedAs": "Scyllarides latus"
+    },
+    "Signal crayfish": {
+      "qid": "Q693000",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Signal crayfish"
+    },
+    "Chinese mitten crab": {
+      "qid": "Q823941",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Chinese mitten crab"
+    },
+    "Lysmata amboinensis": {
+      "qid": "Q1661787",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Lysmata amboinensis"
+    },
+    "Penaeus monodon": {
+      "qid": "Q578204",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Penaeus monodon"
+    },
+    "Crangon crangon": {
+      "qid": "Q27765",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Crangon crangon"
+    },
+    "Ligia oceanica": {
+      "qid": "Q638110",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Ligia oceanica"
+    },
+    "Oniscus asellus": {
+      "qid": "Q1573371",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Oniscus asellus"
+    },
+    "Daphnia magna": {
+      "qid": "Q672531",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Daphnia magna"
+    },
+    "Triops longicaudatus": {
+      "qid": "Q135052",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Triops longicaudatus"
+    },
+    "Scutigera coleoptrata": {
+      "qid": "Q367643",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Scutigera coleoptrata"
     },
     "Giant Pacific octopus": {
       "qid": "Q912404",
@@ -4858,6 +11113,188 @@
       "status": "P141 Q211005",
       "listedAs": "Greater argonaut"
     },
+    "Octopus cyanea": {
+      "qid": "Q3791011",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Octopus cyanea"
+    },
+    "Bigfin reef squid": {
+      "qid": "Q1870469",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q3245245",
+      "listedAs": "Bigfin reef squid"
+    },
+    "Firefly squid": {
+      "qid": "Q303718",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Firefly squid"
+    },
+    "Spirula": {
+      "qid": "Q1509955",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Spirula"
+    },
+    "Common periwinkle": {
+      "qid": "Q27935",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Common periwinkle"
+    },
+    "Helix pomatia": {
+      "qid": "Q245314",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Helix pomatia"
+    },
+    "Cornu aspersum": {
+      "qid": "Q22019793",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Cornu aspersum"
+    },
+    "Aliger gigas": {
+      "qid": "Q62603",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Aliger gigas"
+    },
+    "Limax maximus": {
+      "qid": "Q854808",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Limax maximus"
+    },
+    "Cypraea tigris": {
+      "qid": "Q2664666",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Cypraea tigris"
+    },
+    "Blue mussel": {
+      "qid": "Q27855",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Blue mussel"
+    },
+    "Pacific oyster": {
+      "qid": "Q20857",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Pacific oyster"
+    },
+    "Eastern oyster": {
+      "qid": "Q468415",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Eastern oyster"
+    },
+    "Pecten maximus": {
+      "qid": "Q1249634",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Pecten maximus"
+    },
+    "Geoduck": {
+      "qid": "Q1068209",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Geoduck"
+    },
+    "Zebra mussel": {
+      "qid": "Q752130",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Zebra mussel"
+    },
+    "Pinna nobilis": {
+      "qid": "Q536444",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Pinna nobilis"
+    },
+    "Curled octopus": {
+      "qid": "Q3201483",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Curled octopus"
+    },
+    "Cepaea nemoralis": {
+      "qid": "Q114893",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Cepaea nemoralis"
+    },
+    "Pomacea canaliculata": {
+      "qid": "Q2005098",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Pomacea canaliculata"
+    },
+    "Arion ater": {
+      "qid": "Q21113",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Arion ater"
+    },
+    "Spanish slug": {
+      "qid": "Q932364",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q211005",
+      "listedAs": "Spanish slug"
+    },
+    "Mediterranean mussel": {
+      "qid": "Q943341",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Mediterranean mussel"
+    },
+    "Ostrea edulis": {
+      "qid": "Q729678",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Ostrea edulis"
+    },
+    "Common cockle": {
+      "qid": "Q21124",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Common cockle"
+    },
+    "Dog whelk": {
+      "qid": "Q1720317",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Dog whelk"
+    },
     "Chironex fleckeri": {
       "qid": "Q310432",
       "commonName": "enwiki title",
@@ -4948,6 +11385,97 @@
       "scientificName": "P225",
       "status": "no P141 on Wikidata, no IUCN status in taxobox",
       "listedAs": "Scotoplanes globosa"
+    },
+    "Pelagia noctiluca": {
+      "qid": "Q1354572",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Pelagia noctiluca"
+    },
+    "Staghorn coral": {
+      "qid": "Q618452",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Staghorn coral"
+    },
+    "Precious coral": {
+      "qid": "Q531601",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Precious coral"
+    },
+    "Common starfish": {
+      "qid": "Q21120",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Common starfish"
+    },
+    "Pisaster ochraceus": {
+      "qid": "Q2727642",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Pisaster ochraceus"
+    },
+    "Red sea urchin": {
+      "qid": "Q28912671",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Red sea urchin"
+    },
+    "Orange cup coral": {
+      "qid": "Q3940718",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Orange cup coral"
+    },
+    "Bubble-tip anemone": {
+      "qid": "Q881805",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Bubble-tip anemone"
+    },
+    "Strongylocentrotus purpuratus": {
+      "qid": "Q1936405",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Strongylocentrotus purpuratus"
+    },
+    "Diadema setosum": {
+      "qid": "Q2270025",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Diadema setosum"
+    },
+    "Platydemus manokwari": {
+      "qid": "Q2569984",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Platydemus manokwari"
+    },
+    "Taenia solium": {
+      "qid": "Q565708",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Taenia solium"
+    },
+    "Giant barrel sponge": {
+      "qid": "Q2143351",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Giant barrel sponge"
     },
     "Woolly rhinoceros": {
       "qid": "Q188949",
@@ -5067,6 +11595,195 @@
       "scientificName": "P225",
       "status": "P141 Q237350",
       "listedAs": "Schomburgk's deer"
+    },
+    "American lion": {
+      "qid": "Q242358",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P31 Q23038290 (fossil taxon)",
+      "listedAs": "American lion"
+    },
+    "Dire wolf": {
+      "qid": "Q496689",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P31 Q23038290 (fossil taxon)",
+      "listedAs": "Dire wolf"
+    },
+    "Columbian mammoth": {
+      "qid": "Q1698713",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P31 Q23038290 (fossil taxon)",
+      "listedAs": "Columbian mammoth"
+    },
+    "Straight-tusked elephant": {
+      "qid": "Q1377999",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P31 Q23038290 (fossil taxon)",
+      "listedAs": "Straight-tusked elephant"
+    },
+    "Homo floresiensis": {
+      "qid": "Q186266",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P31 Q23038290 (fossil taxon)",
+      "listedAs": "Homo floresiensis"
+    },
+    "North Island giant moa": {
+      "qid": "Q4691773",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P31 Q23038290 (fossil taxon)",
+      "listedAs": "North Island giant moa"
+    },
+    "Laughing owl": {
+      "qid": "Q117254704",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q237350",
+      "listedAs": "Laughing owl"
+    },
+    "Lyall's wren": {
+      "qid": "Q507428",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Lyall's wren"
+    },
+    "Rodrigues solitaire": {
+      "qid": "Q528572",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q237350",
+      "listedAs": "Rodrigues solitaire"
+    },
+    "Réunion ibis": {
+      "qid": "Q18972",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q237350",
+      "listedAs": "Réunion ibis"
+    },
+    "Cuban macaw": {
+      "qid": "Q646994",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q237350",
+      "listedAs": "Cuban macaw"
+    },
+    "Paradise parrot": {
+      "qid": "Q27075029",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q237350",
+      "listedAs": "Paradise parrot"
+    },
+    "Pink-headed duck": {
+      "qid": "Q597144",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Pink-headed duck"
+    },
+    "Northern white rhinoceros": {
+      "qid": "Q1614957",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q219127",
+      "listedAs": "Northern white rhinoceros"
+    },
+    "Barbary lion": {
+      "qid": "Q221094",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
+      "listedAs": "Barbary lion"
+    },
+    "Caspian tiger": {
+      "qid": "Q188535",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q237350",
+      "listedAs": "Caspian tiger"
+    },
+    "Japanese wolf": {
+      "qid": "Q375750",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "enwiki taxobox status (IUCN)",
+      "listedAs": "Japanese wolf"
+    },
+    "Cryptoprocta spelea": {
+      "qid": "Q1716674",
+      "commonName": "P1843 (en)",
+      "scientificName": "P225",
+      "status": "P141 Q237350",
+      "listedAs": "Cryptoprocta spelea"
+    },
+    "Panthera spelaea": {
+      "qid": "Q7395585",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P31 Q23038290 (fossil taxon)",
+      "listedAs": "Panthera spelaea"
+    },
+    "Homo habilis": {
+      "qid": "Q101373",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P31 Q23038290 (fossil taxon)",
+      "listedAs": "Homo habilis"
+    },
+    "Australopithecus afarensis": {
+      "qid": "Q107685",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P31 Q23038290 (fossil taxon)",
+      "listedAs": "Australopithecus afarensis"
+    },
+    "Paranthropus boisei": {
+      "qid": "Q310531",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P31 Q23038290 (fossil taxon)",
+      "listedAs": "Paranthropus boisei"
+    },
+    "Rodrigues starling": {
+      "qid": "Q264854",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q237350",
+      "listedAs": "Rodrigues starling"
+    },
+    "White swamphen": {
+      "qid": "Q1050513",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q237350",
+      "listedAs": "White swamphen"
+    },
+    "Mauritius scops owl": {
+      "qid": "Q616205",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P141 Q237350",
+      "listedAs": "Mauritius scops owl"
+    },
+    "Otodus angustidens": {
+      "qid": "Q99602452",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P31 Q23038290 (fossil taxon)",
+      "listedAs": "Otodus angustidens"
+    },
+    "Edmontosaurus regalis": {
+      "qid": "Q20717881",
+      "commonName": "enwiki title",
+      "scientificName": "P225",
+      "status": "P31 Q23038290 (fossil taxon)",
+      "listedAs": "Edmontosaurus regalis"
     }
   }
 }
