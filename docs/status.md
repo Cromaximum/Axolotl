@@ -35,7 +35,6 @@ the PR merges or is abandoned.
 | Work | Who / where | Branch or PR | Started |
 | --- | --- | --- | --- |
 | Rebuild screens to the concept art (D-010) | Maxwell's agents (iOS programmer thread) | `feature/concept-screens` | 2026-11-06 |
-| Zero-AI-content rule and audit (D-011) | Maxwell's agents | `claude/project-thread-g3dioe` | 2026-11-06 |
 | Live species catalogue (GBIF) and likes | Maxwell's agents (live catalog thread) | `claude/project-thread-x4qt08` | 2026-11-06 |
 
 ## Known issues
