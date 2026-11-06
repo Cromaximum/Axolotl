@@ -74,7 +74,7 @@ enum StartingPoint: String, CaseIterable, Identifiable, Hashable {
         case .amphibians: "Axolotl"
         case .insects: "Hymenopus coronatus"
         case .crustaceans: "Odontodactylus scyllarus"
-        case .fossils: "Smilodon"
+        case .fossils: "Woolly mammoth"
         case .surprise: "Okapi"
         }
     }

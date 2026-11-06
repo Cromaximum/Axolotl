@@ -8,7 +8,6 @@ Snow leopard
 Fishing cat
 Pallas's cat
 Sand cat
-Smilodon
 Maned wolf
 Fennec fox
 Dhole
@@ -44,13 +43,9 @@ South Island giant moa
 Komodo dragon
 Panther chameleon
 Texas horned lizard
-Tuatara
 Alligator snapping turtle
 Pinta Island tortoise
 Gharial
-Tyrannosaurus
-Triceratops
-Stegosaurus
 Axolotl
 Chinese giant salamander
 Golden poison frog
@@ -65,14 +60,11 @@ Largetooth sawfish
 Attacus atlas
 Xerces blue
 Hymenopus coronatus
-Dryococelus
-Meganeuropsis
 Maratus volans
 Diving bell spider
 Odontodactylus scyllarus
 Coconut crab
-Jaekelopterus
-Blanket octopus
+Tremoctopus violaceus
 Opisthoteuthis californiana
 Chambered nautilus
 Parapuzosia seppenradensis
@@ -81,3 +73,305 @@ Scaly-foot gastropod
 Portuguese man o' war
 Turritopsis dohrnii
 Hypsibius dujardini
+# Mammals
+Red panda
+Giant panda
+Polar bear
+Sun bear
+Sloth bear
+Spectacled bear
+Clouded leopard
+Caracal
+Serval
+Ocelot
+Jaguar
+Cheetah
+Aardwolf
+Spotted hyena
+Striped hyena
+Meerkat
+Binturong
+Fossa (animal)
+Honey badger
+Giant otter
+Bat-eared fox
+Arctic fox
+African wild dog
+Ethiopian wolf
+Bush dog
+Walrus
+Leopard seal
+Southern elephant seal
+Hooded seal
+Blue whale
+Sperm whale
+Humpback whale
+Orca
+Beluga whale
+Amazon river dolphin
+Dugong
+West Indian manatee
+Aardvark
+Rock hyrax
+Giant anteater
+Pygmy three-toed sloth
+Nine-banded armadillo
+Pink fairy armadillo
+Star-nosed mole
+Naked mole-rat
+Capybara
+North American beaver
+Crested porcupine
+American pika
+Hispaniolan solenodon
+Lowland streaked tenrec
+Common vampire bat
+Honduran white bat
+Kitti's hog-nosed bat
+Proboscis monkey
+Golden snub-nosed monkey
+Mandrill
+Gelada
+Bornean orangutan
+Bonobo
+Ring-tailed lemur
+Sunda slow loris
+Emperor tamarin
+Hippopotamus
+Pygmy hippopotamus
+Moose
+Reindeer
+Pronghorn
+Takin
+Muskox
+Gerenuk
+Markhor
+Java mouse-deer
+Malayan tapir
+Indian rhinoceros
+Black rhinoceros
+Grévy's zebra
+Bactrian camel
+Vicuña
+North Sulawesi babirusa
+Red kangaroo
+Koala
+Common wombat
+Sugar glider
+Quokka
+Short-beaked echidna
+Goodfellow's tree-kangaroo
+Greater bilby
+# Birds
+Southern cassowary
+Emu
+Common ostrich
+North Island brown kiwi
+Emperor penguin
+Wandering albatross
+Magnificent frigatebird
+Blue-footed booby
+Greater flamingo
+Scarlet ibis
+Harpy eagle
+Philippine eagle
+Bald eagle
+Secretarybird
+Peregrine falcon
+Andean condor
+Snowy owl
+Great grey owl
+Western barn owl
+Hoatzin
+Resplendent quetzal
+Toco toucan
+Rhinoceros hornbill
+Hyacinth macaw
+Sulphur-crested cockatoo
+Superb lyrebird
+Satin bowerbird
+Greater bird-of-paradise
+Wilson's bird-of-paradise
+Indian peafowl
+Mandarin duck
+Common kingfisher
+Bee hummingbird
+Sword-billed hummingbird
+Common swift
+Arctic tern
+Bar-tailed godwit
+Marabou stork
+Kori bustard
+Victoria crowned pigeon
+Common raven
+New Caledonian crow
+Golden pheasant
+Superb fairywren
+Oilbird
+Tawny frogmouth
+Kagu
+# Reptiles
+Saltwater crocodile
+Nile crocodile
+American alligator
+Black caiman
+Leatherback sea turtle
+Green sea turtle
+Mata mata
+Aldabra giant tortoise
+King cobra
+Black mamba
+Green anaconda
+Reticulated python
+Gaboon viper
+Inland taipan
+Eastern diamondback rattlesnake
+Chrysopelea paradisi
+Common basilisk
+Marine iguana
+Green iguana
+Gila monster
+Thorny devil
+Frill-necked lizard
+Common leopard gecko
+Satanic leaf-tailed gecko
+Armadillo girdled lizard
+# Amphibians
+Olm
+Hellbender
+Japanese giant salamander
+Fire salamander
+Great crested newt
+Wallace's flying frog
+Goliath frog
+Purple frog
+Cane toad
+African bullfrog
+Darwin's frog
+Hairy frog
+Strawberry poison-dart frog
+# Fish
+West Indian Ocean coelacanth
+Whale shark
+Great white shark
+Great hammerhead
+Tiger shark
+Greenland shark
+Basking shark
+Megamouth shark
+Frilled shark
+Giant oceanic manta ray
+Atlantic wolffish
+Ocellaris clownfish
+Humphead wrasse
+Red lionfish
+Reef stonefish
+Atlantic bluefin tuna
+Swordfish
+Arapaima gigas
+Red-bellied piranha
+Banded archerfish
+Sockeye salmon
+Atlantic cod
+Humpback anglerfish
+Psychrolutes marcidus
+Pacific hagfish
+Sea lamprey
+Beluga (sturgeon)
+Alligator gar
+American paddlefish
+Australian lungfish
+Weedy seadragon
+Siamese fighting fish
+Mexican tetra
+# Insects
+Monarch butterfly
+Queen Alexandra's birdwing
+Menelaus blue morpho
+Luna moth
+African death's-head hawkmoth
+Hercules beetle
+Goliathus goliatus
+Titan beetle
+Coccinella septempunctata
+Lucanus cervus
+Desert locust
+Deinacrida heteracantha
+Atta cephalotes
+Bullet ant
+Western honey bee
+Asian giant hornet
+Photinus pyralis
+Emperor dragonfly
+Wandering glider
+Emerald cockroach wasp
+Madagascar hissing cockroach
+Bombyx mori
+# Arachnids and other arthropods
+Goliath birdeater
+Phoneutria nigriventer
+Latrodectus mactans
+Darwin's bark spider
+Trichonephila clavipes
+Emperor scorpion
+Deathstalker
+Atlantic horseshoe crab
+Japanese spider crab
+American lobster
+Antarctic krill
+Christmas Island red crab
+Bathynomus giganteus
+Amazonian giant centipede
+Giant African millipede
+Armadillidium vulgare
+# Molluscs
+Giant Pacific octopus
+Mimic octopus
+Common octopus
+Vampire squid
+Colossal squid
+Giant squid
+Humboldt squid
+Common cuttlefish
+Flamboyant cuttlefish
+Giant clam
+Greater blue-ringed octopus
+Geography cone
+Achatina fulica
+Costasiella kuroshimae
+Ocean quahog
+Pacific banana slug
+Elysia crispata
+Greater argonaut
+# Other invertebrates
+Chironex fleckeri
+Lion's mane jellyfish
+Aurelia aurita
+Crown-of-thorns starfish
+Sunflower sea star
+Venus' flower basket
+Elkhorn coral
+Spirobranchus giganteus
+Eunice aphroditois
+Pompeii worm
+Hirudo medicinalis
+Lumbricus terrestris
+Scotoplanes globosa
+# Extinct
+Woolly rhinoceros
+Irish elk
+Steller's sea cow
+Quagga
+Carolina parakeet
+Labrador duck
+Haast's eagle
+Huia
+Bramble Cay melomys
+Cave bear
+Megalania
+Pyrenean ibex
+Bluebuck
+Caribbean monk seal
+Japanese sea lion
+Toolache wallaby
+Schomburgk's deer
