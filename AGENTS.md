@@ -54,7 +54,7 @@ These come from decisions the project owner made. Do not change them without a n
 7. **Do not push to `main`.** All changes go through pull requests (see
    [docs/contributing.md](docs/contributing.md)).
 8. **Pass the architecture review gate.** Post a design note before you start coding, and get
-   architecture sign-off before a PR merges. See "Architecture review gate" below (D-012).
+   architecture sign-off before a PR merges. See "Architecture review gate" below (D-014).
 
 ## Architecture review gate (required for every change)
 

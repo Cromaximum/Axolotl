@@ -13,7 +13,7 @@ from stepping on each other.
 5. Read [architecture-rules.md](architecture-rules.md). For anything bigger than a one-file fix,
    open a draft PR titled "Design review: ..." with a note in `docs/designs/` (from
    [the template](designs/TEMPLATE.md)) and wait for `Architecture review: Design approved`
-   before writing code (D-012).
+   before writing code (D-014).
 
 ## Branches and commits
 

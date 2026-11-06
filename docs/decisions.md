@@ -23,7 +23,7 @@ Template:
 
 ---
 
-## D-012 · Architecture review gate: design before code, sign-off before merge
+## D-014 · Architecture review gate: design before code, sign-off before merge
 - Status: Decided
 - Date: 2026-11-06
 - Decided by: Maxwell Rhinelander

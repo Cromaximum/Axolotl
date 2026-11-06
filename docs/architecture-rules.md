@@ -5,7 +5,7 @@ the map of what exists today. This file is the law for what may be added. The go
 still reads as one design after many agents from different people have worked on it, instead of
 turning into a pile of one-off patches ("AI spaghetti").
 
-Every change goes through the [architecture review gate](#the-review-gate) (D-012). If a rule here
+Every change goes through the [architecture review gate](#the-review-gate) (D-014). If a rule here
 blocks something you need, propose a change to this file in your design note. Don't work around it.
 
 ## Layers
@@ -131,7 +131,7 @@ These are review triggers, not hard failures. Going over one means the design no
 
 ## The review gate
 
-Decision D-012 (Maxwell Rhinelander, 2026-11-06). It applies to every agent and every person,
+Decision D-014 (Maxwell Rhinelander, 2026-11-06). It applies to every agent and every person,
 including collaborators' agents.
 
 ### 1. Design before code

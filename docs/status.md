@@ -22,7 +22,7 @@ build fixes are in progress (see "In flight").
 | AI-image filter | Missing: `ContentPolicy` doesn't yet reject AI-generated Commons files |
 | Fonts (Fredoka, Nunito Sans) | Not bundled. App falls back to the system font. |
 | Concept screens | Twelve screens in `docs/design/` (D-010). App views not yet updated to match. |
-| Architecture review gate | Rules in [architecture-rules.md](architecture-rules.md) (D-012). Every design and PR needs architect sign-off. |
+| Architecture review gate | Rules in [architecture-rules.md](architecture-rules.md) (D-014). Every design and PR needs architect sign-off. |
 | App name | Working title only. Must change before App Store (trademark). |
 | Ads, privacy manifest, App Store assets | Not started |
 
@@ -36,7 +36,7 @@ the PR merges or is abandoned.
 | GitHub Actions CI for iOS build and tests | Maxwell's agents | PR #1, `ci/macos-build` | 2026-11-06 |
 | Fix first-compile build errors on a Mac | Maxwell's agents | TBD | 2026-11-06 |
 | Zero-AI-content rule and audit (D-011) | Maxwell's agents | `claude/project-thread-g3dioe` | 2026-11-06 |
-| Architecture rules and review gate (D-012) | Maxwell's architect agent | `claude/project-thread-0xm4vu` | 2026-11-06 |
+| Architecture rules and review gate (D-014) | Maxwell's architect agent | `claude/project-thread-0xm4vu` | 2026-11-06 |
 
 ## Known issues
 
