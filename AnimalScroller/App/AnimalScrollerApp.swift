@@ -8,11 +8,30 @@ struct AnimalScrollerApp: App {
     private let taxonomy = TaxonomyLoader.loadBundled()
     /// The live species catalogue (D-012). One instance for the app, injected down to the feed.
     private let catalog: SpeciesCatalog = LiveSpeciesCatalog()
+    /// Decoded, downsampled photos with a memory cache (W1). One instance for the app.
+    private let images: ImageLoading
+    /// Wikipedia content behind a memory + disk cache (W1). One instance for the app.
+    private let contentProvider: SpeciesContentProvider
 
     init() {
-        // Generous on-disk cache so scrolling back and re-visiting animals is cheap.
-        URLCache.shared = URLCache(memoryCapacity: 64 * 1024 * 1024,
-                                   diskCapacity: 512 * 1024 * 1024)
+        // The disk cache for raw responses (JSON and image bytes). Decoded images live in the
+        // pipeline's own memory cache, so the URL cache's memory part stays small.
+        let urlCache = URLCache(memoryCapacity: 16 * 1024 * 1024, diskCapacity: 512 * 1024 * 1024)
+        // Still used by the Met grid's AsyncImage until W3 moves it to the pipeline.
+        URLCache.shared = urlCache
+        let configuration = URLSessionConfiguration.default
+        configuration.urlCache = urlCache
+        configuration.requestCachePolicy = .useProtocolCachePolicy
+        let session = URLSession(configuration: configuration)
+
+        images = ImagePipeline(session: session, userAgent: WikiClient.defaultUserAgent)
+
+        var wiki = WikiClient()
+        wiki.session = session
+        let caches = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+        contentProvider = CachingContentProvider(
+            upstream: WikipediaContentProvider(client: wiki),
+            directory: caches.flatMap { CachingContentProvider.prepareDirectory(in: $0, fileManager: .default) })
     }
 
     var body: some Scene {
@@ -21,6 +40,8 @@ struct AnimalScrollerApp: App {
                 .environment(preferences)
                 .environment(met)
                 .environment(likes)
+                .environment(\.imageLoader, images)
+                .environment(\.speciesContentProvider, contentProvider)
                 .preferredColorScheme(.dark)
         }
     }

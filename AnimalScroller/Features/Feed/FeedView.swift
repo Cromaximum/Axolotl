@@ -14,9 +14,10 @@ struct FeedView: View {
     @State private var model: FeedViewModel
     @State private var detailEntry: SpeciesEntry?
 
-    init(taxonomy: Taxon, catalog: SpeciesCatalog) {
+    init(taxonomy: Taxon, catalog: SpeciesCatalog, provider: SpeciesContentProvider, images: ImageLoading) {
         self.taxonomy = taxonomy
-        _model = State(initialValue: FeedViewModel(taxonomy: taxonomy, catalog: catalog))
+        _model = State(initialValue: FeedViewModel(taxonomy: taxonomy, catalog: catalog,
+                                                   provider: provider, images: images))
     }
 
     var body: some View {
@@ -26,7 +27,7 @@ struct FeedView: View {
                     page(for: card)
                 }
                 if model.isLoading || model.cards.isEmpty {
-                    FeedStatusView(isLoading: model.isLoading, message: model.emptyMessage, onRetry: restart)
+                    FeedStatusView(isLoading: model.isLoading, notice: model.notice, onRetry: restart)
                         .containerRelativeFrame([.horizontal, .vertical])
                 }
             }
@@ -75,10 +76,9 @@ struct FeedView: View {
     }
 
     private func context(for card: FeedCard) -> CardContext {
-        let pos = model.positions[card.id] ?? (position: 1, count: 1)
-        return CardContext(
-            position: pos.position,
-            count: pos.count,
+        CardContext(
+            position: card.placement.position,
+            count: card.placement.count,
             isSaved: met.isSaved(card.entry.id),
             isLiked: likes.isLiked(card.entry.id),
             onSave: { toggleSaved(card) },
@@ -94,14 +94,14 @@ struct FeedView: View {
     private func cardAppeared(_ card: FeedCard) {
         model.cardAppeared(card, prefs: prefs, likes: likes)
         if case .intro(let intro) = card {
-            met.recordMet(intro.entry.species, imageURL: intro.hero?.url)
+            met.recordMet(intro.entry, imageURL: intro.hero?.url)
         }
     }
 
     /// Double-tap anywhere on a card likes the species (never unlikes), with a heart burst.
     private func doubleTapLike(_ card: FeedCard) {
         let wasLiked = likes.isLiked(card.entry.id)
-        likes.like(card.entry, imageURL: heroURL(for: card))
+        likes.like(card.entry, imageURL: card.primaryImage?.url)
         if !wasLiked { feedback = FeedFeedback(kind: .liked) }
         burstID = card.id
         Task {
@@ -111,12 +111,12 @@ struct FeedView: View {
     }
 
     private func toggleLike(_ card: FeedCard) {
-        likes.toggle(card.entry, imageURL: heroURL(for: card))
+        likes.toggle(card.entry, imageURL: card.primaryImage?.url)
         feedback = FeedFeedback(kind: likes.isLiked(card.entry.id) ? .liked : .unliked)
     }
 
     private func toggleSaved(_ card: FeedCard) {
-        met.toggleSaved(card.entry.species, imageURL: heroURL(for: card))
+        met.toggleSaved(card.entry, imageURL: card.primaryImage?.url)
         show(FeedFeedback(kind: met.isSaved(card.entry.id) ? .saved : .unsaved))
     }
 
@@ -135,14 +135,6 @@ struct FeedView: View {
             FeedbackToast(message: message, systemImage: feedback?.icon ?? "bookmark")
                 .padding(.bottom, 24)
                 .transition(reduceMotion ? .opacity : .move(edge: .bottom).combined(with: .opacity))
-        }
-    }
-
-    private func heroURL(for card: FeedCard) -> URL? {
-        switch card {
-        case .intro(let c): c.hero?.url
-        case .photo(let c): c.image.url
-        case .fact(let c): c.image?.url
         }
     }
 }

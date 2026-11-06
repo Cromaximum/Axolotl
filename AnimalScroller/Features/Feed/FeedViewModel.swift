@@ -1,46 +1,67 @@
 import Foundation
 import Observation
+import os
+
+/// Why the feed has no card to show right now. `FeedView` turns it into the empty or offline page.
+enum FeedNotice: Equatable {
+    /// The chosen branches and extinct toggles leave nothing to show.
+    case noMatches
+    /// Nothing could be loaded, most likely because Wikipedia couldn't be reached.
+    case offline
+}
 
 @Observable
 @MainActor
 final class FeedViewModel {
     private(set) var cards: [FeedCard] = []
-    private(set) var isLoading = false
-    private(set) var emptyMessage: String?
+    private(set) var notice: FeedNotice?
+    var isLoading: Bool { !loadTasks.isEmpty }
 
     private let taxonomy: Taxon
     private let provider: SpeciesContentProvider
+    private let images: ImageLoading
+    private let catalog: SpeciesCatalog
     private var picker = SpeciesPicker()
     private var sequence = 0
-    private var loadTask: Task<Void, Never>?
+    /// Species loads in flight, by load id. Up to `maxParallelLoads` at once.
+    private var loadTasks: [Int: Task<Void, Never>] = [:]
+    private var nextLoadID = 0
+    private var prefetchTask: Task<Void, Never>?
     /// Bumped on restart so a cancelled load can't touch the new feed.
     private var generation = 0
     private var currentEntry: SpeciesEntry?
+    private var currentIndex = 0
     private var enteredCurrentAt = Date()
+    private var restartedAt = Date()
 
-    /// Keep this many cards queued below the one on screen.
+    /// Start loading more species when this few cards are left below the one on screen.
     private let prefetchDistance = 6
+    /// Species fetched at the same time. Two halves time to first card without hammering Wikipedia.
+    private let maxParallelLoads = 2
+    /// Photos decoded ahead of the card on screen.
+    private let imagePrefetchCount = 3
 
-    /// Position of each card in its species set (1-based) and the set's size.
-    private(set) var positions: [String: (position: Int, count: Int)] = [:]
+    private static let log = Logger(subsystem: "com.cromaximum.animalscroller", category: "feed")
+    private static let signposter = OSSignposter(subsystem: "com.cromaximum.animalscroller", category: "feed")
 
-    private let catalog: SpeciesCatalog
-
-    init(taxonomy: Taxon,
-         catalog: SpeciesCatalog,
-         provider: SpeciesContentProvider = WikipediaContentProvider.shared) {
+    init(taxonomy: Taxon, catalog: SpeciesCatalog, provider: SpeciesContentProvider, images: ImageLoading) {
         self.taxonomy = taxonomy
-        self.provider = provider
         self.catalog = catalog
+        self.provider = provider
+        self.images = images
     }
 
+    // MARK: Intents
+
     func restart(with prefs: PreferencesStore, likes: LikesStore) {
-        loadTask?.cancel()
+        loadTasks.values.forEach { $0.cancel() }
+        loadTasks = [:]
+        prefetchTask?.cancel()
         generation += 1
-        isLoading = false
         cards = []
-        positions = [:]
-        emptyMessage = nil
+        notice = nil
+        currentIndex = 0
+        restartedAt = Date()
         picker.discoveryShare = prefs.surpriseMe ? 0.3 : 0
         loadMore(prefs: prefs, likes: likes)
     }
@@ -53,58 +74,87 @@ final class FeedViewModel {
             currentEntry = card.entry
             enteredCurrentAt = Date()
         }
-        if let index = cards.firstIndex(of: card), cards.count - index <= prefetchDistance {
+        guard let index = cards.firstIndex(of: card) else { return }
+        currentIndex = index
+        prefetchImages(after: index)
+        if cards.count - index <= prefetchDistance {
             loadMore(prefs: prefs, likes: likes)
         }
     }
 
+    // MARK: Loading
+
+    /// Everything one species load needs, captured from the preferences when it starts.
+    private struct LoadPlan {
+        let tailored: [SpeciesEntry]
+        let everything: [SpeciesEntry]
+        let live: Bool
+        let liveInside: [Taxon]
+        let liveOutside: [Taxon]
+        let allowArtwork: Bool
+        let filter: CatalogExtinctFilter
+    }
+
     private func loadMore(prefs: PreferencesStore, likes: LikesStore) {
-        guard !isLoading else { return }
+        guard loadTasks.count < maxParallelLoads else { return }
         // Likes steer tailored picks from the very next species, without restarting the feed.
         picker.likeAffinity = likes.affinity
 
         let everything = taxonomy.allSpecies().filter { prefs.allowsExtinctStatus($0.species) }
         let tailored = taxonomy.species(selectedIDs: prefs.selectedTaxonIDs)
             .filter { prefs.allowsExtinctStatus($0.species) }
-
-        let live = prefs.liveCatalog
         let split = LiveCatalogRules.split(branches: LiveCatalogRules.searchableBranches(in: taxonomy),
                                            root: taxonomy, selectedIDs: prefs.selectedTaxonIDs)
-        let liveInside = split.inside
-        let liveOutside = prefs.surpriseMe ? split.outside : []
+        let plan = LoadPlan(tailored: tailored, everything: everything, live: prefs.liveCatalog,
+                            liveInside: split.inside, liveOutside: prefs.surpriseMe ? split.outside : [],
+                            allowArtwork: prefs.showArtwork, filter: prefs.catalogFilter)
 
-        guard !tailored.isEmpty || (prefs.surpriseMe && !everything.isEmpty) || (live && !liveInside.isEmpty) else {
-            emptyMessage = "No species match these filters yet. Try another branch or turn on extinct species."
+        guard !tailored.isEmpty || (prefs.surpriseMe && !everything.isEmpty)
+                || (plan.live && !plan.liveInside.isEmpty) else {
+            notice = .noMatches
             return
         }
-        let allowArtwork = prefs.showArtwork
-        let filter = prefs.catalogFilter
+        while loadTasks.count < maxParallelLoads {
+            startLoad(plan, prefs: prefs)
+        }
+    }
 
-        isLoading = true
+    private func startLoad(_ plan: LoadPlan, prefs: PreferencesStore) {
+        let id = nextLoadID
+        nextLoadID += 1
         let myGeneration = generation
-        loadTask = Task {
-            defer { if generation == myGeneration { isLoading = false } }
-            // Try a few species in case one has no usable article or images. FeedSourcePlanner
-            // decides which source each attempt uses; this loop only follows it.
-            for attempt in 0..<FeedSourcePlanner.attempts {
-                guard !Task.isCancelled, generation == myGeneration else { return }
-                let bundledPool = tailored.isEmpty ? everything : tailored
-                let sources = FeedSourcePlanner.sources(
-                    attempt: attempt, liveEnabled: live,
-                    bundledExhausted: bundledPool.isEmpty || picker.hasSeenAll(bundledPool),
-                    roll: Double.random(in: 0..<1))
+        // Runs on the main actor; it can't start before this assignment finishes.
+        loadTasks[id] = Task {
+            await loadOneSpecies(plan, prefs: prefs, generation: myGeneration)
+            guard generation == myGeneration else { return }
+            loadTasks[id] = nil
+            if loadTasks.isEmpty, cards.isEmpty, notice == nil { notice = .offline }
+        }
+    }
 
-                var entry: SpeciesEntry?
-                for source in sources where entry == nil {
-                    switch source {
-                    case .live: entry = await nextLive(inside: liveInside, outside: liveOutside, filter: filter, prefs: prefs)
-                    case .bundled: entry = picker.next(tailored: tailored, everything: everything)
-                    }
+    /// Tries a few species in case one has no usable article or images. FeedSourcePlanner
+    /// decides which source each attempt uses; this loop only follows it.
+    private func loadOneSpecies(_ plan: LoadPlan, prefs: PreferencesStore, generation myGeneration: Int) async {
+        for attempt in 0..<FeedSourcePlanner.attempts {
+            guard !Task.isCancelled, generation == myGeneration else { return }
+            let bundledPool = plan.tailored.isEmpty ? plan.everything : plan.tailored
+            let sources = FeedSourcePlanner.sources(
+                attempt: attempt, liveEnabled: plan.live,
+                bundledExhausted: bundledPool.isEmpty || picker.hasSeenAll(bundledPool),
+                roll: Double.random(in: 0..<1))
+
+            var entry: SpeciesEntry?
+            for source in sources where entry == nil {
+                switch source {
+                case .live:
+                    entry = await nextLive(inside: plan.liveInside, outside: plan.liveOutside,
+                                           filter: plan.filter, prefs: prefs)
+                case .bundled:
+                    entry = picker.next(tailored: plan.tailored, everything: plan.everything)
                 }
-                guard let chosen = entry else { continue }
-                if await show(chosen, allowArtwork: allowArtwork, generation: myGeneration) { return }
             }
-            if cards.isEmpty { emptyMessage = "Couldn't reach Wikipedia. Check your connection and pull to retry." }
+            guard let chosen = entry else { continue }
+            if await show(chosen, allowArtwork: plan.allowArtwork, generation: myGeneration) { return }
         }
     }
 
@@ -133,6 +183,8 @@ final class FeedViewModel {
 
     /// Fetches content and appends the species' cards. True when done (shown, or the feed moved on).
     private func show(_ entry: SpeciesEntry, allowArtwork: Bool, generation myGeneration: Int) async -> Bool {
+        let signpost = Self.signposter.beginInterval("Species content", id: Self.signposter.makeSignpostID())
+        defer { Self.signposter.endInterval("Species content", signpost) }
         do {
             let content = try await provider.content(for: entry.species)
             guard !Task.isCancelled, generation == myGeneration else { return true }
@@ -140,14 +192,35 @@ final class FeedViewModel {
                 return false
             }
             sequence += 1
-            let set = FeedComposer.cards(for: entry, content: content,
-                                         sequence: sequence, allowArtwork: allowArtwork)
-            guard !set.isEmpty else { return false }
-            for (i, card) in set.enumerated() { positions[card.id] = (i + 1, set.count) }
+            let composed = FeedComposer.cards(for: entry, content: content,
+                                              sequence: sequence, allowArtwork: allowArtwork)
+            guard !composed.isEmpty else { return false }
+            let set = composed.enumerated().map { i, card in
+                card.placed(CardPlacement(position: i + 1, count: composed.count))
+            }
+            if cards.isEmpty {
+                let ms = Int(Date().timeIntervalSince(restartedAt) * 1000)
+                Self.log.info("Time to first card: \(ms) ms")
+            }
             cards.append(contentsOf: set)
+            // The new set's intro photo is decoded before the user gets there.
+            prefetch(set.prefix(2).compactMap { $0.primaryImage?.url })
+            if cards.count - currentIndex <= imagePrefetchCount + 1 { prefetchImages(after: currentIndex) }
             return true
         } catch {
             return false
         }
+    }
+
+    // MARK: Image prefetch
+
+    private func prefetchImages(after index: Int) {
+        prefetch(cards.dropFirst(index + 1).prefix(imagePrefetchCount).compactMap { $0.primaryImage?.url })
+    }
+
+    private func prefetch(_ urls: [URL]) {
+        guard !urls.isEmpty else { return }
+        let images = images
+        prefetchTask = Task { await images.prefetch(urls, maxPixelSize: images.fullScreenPixelSize) }
     }
 }
