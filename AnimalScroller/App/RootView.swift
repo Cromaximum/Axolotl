@@ -5,11 +5,13 @@ struct RootView: View {
     let taxonomy: Taxon
     let catalog: SpeciesCatalog
     @Environment(PreferencesStore.self) private var prefs
+    @Environment(\.speciesContentProvider) private var contentProvider
+    @Environment(\.imageLoader) private var images
 
     var body: some View {
         if prefs.hasOnboarded {
             TabView {
-                FeedView(taxonomy: taxonomy, catalog: catalog)
+                FeedView(taxonomy: taxonomy, catalog: catalog, provider: contentProvider, images: images)
                     .tabItem { Label("Feed", systemImage: "rectangle.portrait") }
                 TaxonomyPickerView(root: taxonomy)
                     .tabItem { Label("Tree", systemImage: "point.3.connected.trianglepath.dotted") }
