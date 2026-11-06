@@ -4,6 +4,7 @@ import SwiftUI
 struct FactCardView: View {
     let card: FactCard
     let context: CardContext
+    @Environment(\.dynamicTypeSize) private var typeSize
 
     var body: some View {
         GeometryReader { geo in
@@ -43,17 +44,23 @@ struct FactCardView: View {
             Text(heading)
                 .font(Theme.label(11)).tracking(1.2)
                 .foregroundStyle(Theme.amber)
+                .accessibilityLabel(spokenHeading)
+                .accessibilityAddTraits(.isHeader)
             if let number = FactFormatting.leadingNumber(in: card.text) {
                 Text(number)
                     .font(Theme.heading(64))
                     .foregroundStyle(Theme.amber)
                     .minimumScaleFactor(0.5)
                     .lineLimit(1)
+                    .accessibilityHidden(true) // the sentence below says it
             }
             Text(card.text)
                 .font(Theme.heading(22))
                 .foregroundStyle(Theme.parchment)
                 .minimumScaleFactor(0.7)
+                // The board sits below the photo; at huge sizes the fact truncates rather than
+                // pushing into it. The full text is in the detail sheet.
+                .lineLimit(typeSize.isAccessibilitySize ? 6 : nil)
             Spacer(minLength: 8)
             Button(action: context.onInfo) {
                 Text("\(card.entry.species.scientificName) · Source: Wikipedia")
@@ -61,10 +68,15 @@ struct FactCardView: View {
                     .foregroundStyle(Theme.mist)
             }
             .buttonStyle(.plain)
+            .accessibilityHint("Opens species details")
         }
         .padding(.horizontal, 22)
         .padding(.top, 26)
         .padding(.bottom, CardInsets.bottom + 8)
+    }
+
+    private var spokenHeading: String {
+        ["Did you know?", card.topic].compactMap { $0 }.joined(separator: ", ")
     }
 
     private var heading: String {

@@ -26,11 +26,27 @@ Use the `Theme` tokens. Don't add raw colour literals in views.
 ## Type
 
 - Headings: **Fredoka SemiBold** (`Theme.heading`)
-- Body: **Nunito Sans** Regular / Bold (`Theme.body`, `Theme.label`)
-- Both are OFL (Google Fonts). The `.ttf` files are not bundled yet; until they are, the helpers
-  fall back to the system font. To add them, drop the files in `AnimalScroller/Resources/Fonts/`
-  and list them under `UIAppFonts` in `project.yml`.
+- Body: **Nunito Sans** Regular / SemiBold / Bold / ExtraBold (`Theme.body(size, weight:)`,
+  `Theme.label`). Pick the face with `weight:`; `.weight(...)` does nothing on a custom font.
+- Scientific names: system italic (`Theme.scientific`), because the bundled Nunito Sans has no
+  italic face (architect, PR #13).
+- Both are OFL 1.1 and bundled in `AnimalScroller/Resources/Fonts/` with their licences, listed
+  under `UIAppFonts` in `project.yml`. See the README there for where the files came from and
+  their PostScript names (`Theme.FontName`; `ThemeFontTests` checks they load). They are latin
+  subsets: characters outside Latin-1 (ā, ł) fall back to the system font.
 - Fonts use `relativeTo:` so Dynamic Type still scales.
+
+## Motion and feedback
+
+- Durations live in `Theme.Motion` (`pop`, `settle`, `fade`, `shimmer`, `feedbackHold`). Every
+  animation checks Reduce Motion and falls back to a fade.
+- Haptics (`FeedFeedback`): light impact on like, success on save, selection on unsave or unlike.
+  None on page turns.
+- Loading never shows a bare spinner: use `ShimmerFill` for a photo and `BoardPlaceholder` for a
+  whole card.
+- Tap targets are at least 44 pt and scale with Dynamic Type (`@ScaledMetric`).
+- Boards take at most half the card (`CardInsets.maxBoardShare`); at accessibility text sizes
+  they show fewer lines instead of growing over the animal.
 
 ## Card anatomy
 

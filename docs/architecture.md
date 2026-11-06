@@ -38,7 +38,7 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | --- | --- |
 | `App/AnimalScrollerApp.swift` | `@main`. Loads taxonomy, creates `PreferencesStore` and `MetStore`, sets a 64 MB / 512 MB `URLCache`, forces dark mode. |
 | `App/RootView.swift` | Onboarding until `hasOnboarded`, then the Feed / Tree / Met `TabView`. |
-| `App/Theme.swift` | Palette, font helpers (fall back to system font), `BoardPanel` framed sign view, `Color(hex:)`. |
+| `App/Theme.swift` | Palette, bundled font names and helpers (`Theme.FontName`, `heading`, `body(size, weight:)`, `label`, `scientific`), `Theme.Motion` animation constants, `Color(hex:)`. |
 | `Models/Taxon.swift` | `Taxon` tree node, `Species`, `ConservationStatus`, `SpeciesEntry` (species + lineage), tree queries, `TaxonomyLoader`. |
 | `Models/FeedCard.swift` | `Attribution`, `LicensedImage`, `FeedCard` enum (`intro` / `fact` / `photo`) and card payloads. |
 | `Services/WikiClient.swift` | Raw HTTP to Wikipedia REST (summary) and Action API (plain-text extract, article images with `extmetadata`). |
@@ -53,12 +53,17 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Services/LikeAffinity.swift` | Pure: liked lineages → interest per taxon id (genus 2.5, family 2, order 1, class 0.4). |
 | `Services/FeedComposer.swift` | Turns one species' content into intro + up to 8 alternating photo/fact cards. |
 | `Features/Feed/FeedViewModel.swift` | `@MainActor` feed state: restart on filter change, prefetch, dwell tracking, retry up to 4 species per load, each card's position in its set. |
-| `Features/Feed/FeedView.swift` | Paging `ScrollView` under the status bar, pull to refresh, records species met, save (rail or long-press), opens the detail sheet. |
+| `Features/Feed/FeedView.swift` | Paging `ScrollView` under the status bar with a scroll transition, pull to refresh, records species met, like (heart or double-tap) and save (rail or long-press) with haptics and a toast, VoiceOver actions per card, opens the detail sheet. |
+| `Features/Feed/FeedStatusView.swift` | The page after the last card: `BoardPlaceholder` while loading, or the feed's message on a board with Try again. |
+| `Features/Feed/FeedFeedback.swift` | `FeedFeedback` (last like/save → haptic and toast text) and the `FeedbackToast` capsule. |
 | `Features/Feed/CardContext.swift` | Position in set, saved state and Save / Info callbacks passed to each card. |
 | `Features/Feed/IntroCardView.swift` | Full-bleed hero with the zoo-board sign at the bottom. |
 | `Features/Feed/PhotoCardView.swift` | Edge-to-edge photo, name pill, action rail; media tag + scrim caption for extinct species. |
 | `Features/Feed/FactCardView.swift` | Photo on top, fact board below with the stand-out number (`FactFormatting`). |
-| `Features/Components/CardComponents.swift` | `FullBleedImage` (top-anchored fill, or shown whole over blur when wide), `CreditChip` + `AttributionDetail`, `MediaTagChip`, `NamePill`, `ProgressDashes`, `ActionRail`, `DidYouKnowBox`, `ConservationScale`, `LowerThirdScrim`, `CardInsets`. |
+| `Features/Components/CardComponents.swift` | `FullBleedImage` (top-anchored fill, or shown whole over blur when wide), `CreditChip` + `AttributionDetail`, `MediaTagChip`, `NamePill`, `ProgressDashes`, `ActionRail`, `DidYouKnowBox`, `ConservationScale`, `LowerThirdScrim`, `CardInsets` (incl. `maxBoardShare`). |
+| `Resources/Fonts/` | Fredoka and Nunito Sans `.ttf` files with their OFL licences and a README. Registered under `UIAppFonts` in `project.yml`. |
+| `Features/Components/BoardPanel.swift` | `BoardPanel` framed sign view (moved from `Theme.swift`). |
+| `Features/Components/BoardPlaceholder.swift` | `ShimmerFill` (loading fill, static under Reduce Motion) and `BoardPlaceholder` (the intro board drawn as empty bars). |
 | `Features/Detail/SpeciesDetailView.swift` | Species detail sheet; loads `SpeciesContent` through the shared provider. |
 | `Features/Met/MetStore.swift` | `@Observable` species-met collection persisted to `UserDefaults` (`met.v1`). |
 | `Features/Likes/LikesStore.swift` | `@Observable` liked species persisted to `UserDefaults` (`likes.v1`); exposes `affinity` for the picker. Injected into the environment by `AnimalScrollerApp`. |
