@@ -20,6 +20,7 @@ content comes only from Wikipedia and Wikimedia Commons under free licences.
 | Do anything at all | [docs/status.md](docs/status.md) (what works, what's broken, who is working on what) |
 | Change product behaviour or UX | [docs/product.md](docs/product.md) and [docs/decisions.md](docs/decisions.md) |
 | Touch images, text, sources or attribution | [docs/content-and-licensing.md](docs/content-and-licensing.md) (hard rules) |
+| Write any code at all | [docs/architecture-rules.md](docs/architecture-rules.md) (layers, dependency rules, review gate) |
 | Change code structure or add a file | [docs/architecture.md](docs/architecture.md) |
 | Change a model, JSON shape or saved preference | [docs/data-model.md](docs/data-model.md) |
 | Change colours, fonts or card layout | [docs/design.md](docs/design.md) |
@@ -52,6 +53,30 @@ These come from decisions the project owner made. Do not change them without a n
 6. **Do not commit secrets, API keys or personal contact details.**
 7. **Do not push to `main`.** All changes go through pull requests (see
    [docs/contributing.md](docs/contributing.md)).
+8. **Pass the architecture review gate.** Post a design note before you start coding, and get
+   architecture sign-off before a PR merges. See "Architecture review gate" below (D-014).
+
+## Architecture review gate (required for every change)
+
+The project has an architect agent whose job is to keep the code one coherent design instead of
+long-term "AI spaghetti". This applies to every agent and person, including collaborators' agents.
+Full process and rules: [docs/architecture-rules.md](docs/architecture-rules.md#the-review-gate).
+
+1. **Before coding** anything bigger than a one-file fix, open a **draft PR** titled
+   "Design review: ..." whose first commit adds `docs/designs/<yyyy-mm-dd>-<slug>.md` from
+   [docs/designs/TEMPLATE.md](docs/designs/TEMPLATE.md). Wait for a comment starting
+   `Architecture review: Design approved` before writing code.
+2. **Before merging**, the PR needs a comment or review starting `Architecture review: Approved`
+   on its latest commit and green CI. The architect merges approved PRs itself (Maxwell's call,
+   2026-11-06). Other agents: don't merge, and nobody merges without the sign-off.
+3. Follow the layers and dependency rules in
+   [docs/architecture-rules.md](docs/architecture-rules.md). In short: `App/` wires everything,
+   features don't import each other, views are dumb, services hold pure tested logic behind
+   protocols, models are plain values, and animal content only enters through the content
+   pipeline and `ContentPolicy`.
+
+Never write the sign-off marker on your own PR. If the architect hasn't answered in 24 hours,
+ask Maxwell.
 
 ## Keeping the docs current (required for every change)
 
@@ -78,6 +103,8 @@ In the same PR as your code change:
 
 If you find a doc that is wrong, fix it in your PR even if you didn't cause the drift, and note it
 in the changelog. If you are unsure whether something belongs in the docs, put it in.
+
+If you add a design note, keep it in `docs/designs/` and set its status when it is answered.
 
 Before you finish, re-read the "Before you open a PR" checklist in
 [docs/contributing.md](docs/contributing.md). The PR template repeats it.
