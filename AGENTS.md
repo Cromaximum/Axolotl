@@ -38,11 +38,19 @@ These come from decisions the project owner made. Do not change them without a n
    ad-supported), no NoDerivatives (we crop), no fair use, no unknown licences. See
    [docs/content-and-licensing.md](docs/content-and-licensing.md).
 3. **Every card shows its attribution** (author, licence, source link).
-4. **Authentic content only.** No AI-generated images or text presented as fact. Artist
-   reconstructions (paleoart) are allowed only for extinct species, only from reputable sources,
-   and always labelled "Artist reconstruction". Living species only ever show photographs.
-5. **Do not commit secrets, API keys or personal contact details.**
-6. **Do not push to `main`.** All changes go through pull requests (see
+4. **Zero AI-generated content.** Nothing a user sees about an animal may be written, drawn,
+   edited, summarised, paraphrased or translated by AI: no facts, captions, descriptions, names,
+   conservation statuses, images, video or audio. Every piece of content is pulled from an open
+   source (Wikipedia, Wikimedia Commons, Wikidata, or another source approved in
+   [docs/content-and-licensing.md](docs/content-and-licensing.md)) and shown verbatim with its
+   attribution. AI-generated files on Commons are rejected too. Agents may write code and docs,
+   but never content. See
+   [docs/content-and-licensing.md](docs/content-and-licensing.md#zero-ai-generated-content) (D-011).
+5. **Real animals, real images.** Artist reconstructions (paleoart) are allowed only for extinct
+   species, only human-made and from reputable sources, and always labelled "Artist
+   reconstruction". Living species only ever show photographs.
+6. **Do not commit secrets, API keys or personal contact details.**
+7. **Do not push to `main`.** All changes go through pull requests (see
    [docs/contributing.md](docs/contributing.md)).
 
 ## Keeping the docs current (required for every change)
