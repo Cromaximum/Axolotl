@@ -3,35 +3,28 @@ import SwiftUI
 /// First run: a welcome screen, then "Where should we start?" photo tiles.
 /// The full tree of life stays on the Tree tab; these tiles are a quick way in.
 struct OnboardingView: View {
-    let index: TaxonomyIndex
     @Environment(PreferencesStore.self) private var prefs
-    @State private var step = 0
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var model: OnboardingViewModel
+
+    init(index: TaxonomyIndex, provider: any SpeciesContentProvider) {
+        _model = State(initialValue: OnboardingViewModel(index: index, provider: provider))
+    }
 
     var body: some View {
         ZStack {
-            if step == 0 {
-                WelcomeView(index: index) { withAnimation { step = 1 } }
-                    .transition(.opacity)
-            } else {
-                StartingPointView(index: index) { picks in
-                    apply(picks)
-                    prefs.hasOnboarded = true
+            if model.step == 0 {
+                WelcomeView(model: model) {
+                    if reduceMotion { model.step = 1 } else { withAnimation { model.step = 1 } }
                 }
-                .transition(reduceMotion ? .opacity : .move(edge: .trailing))
+                .transition(.opacity)
+            } else {
+                StartingPointView(model: model) { model.finish(into: prefs) }
+                    .transition(reduceMotion ? .opacity : .move(edge: .trailing))
             }
         }
         .background(Theme.forest)
-    }
-
-    private func apply(_ picks: Set<StartingPoint>) {
-        let branches = picks.compactMap(\.taxonID)
-        let wantsFossils = picks.contains(.fossils)
-        prefs.selectedTaxonIDs = Set(branches)
-        prefs.includeExtinct = true
-        // Only "Fossil life" picked: show extinct species from the whole tree.
-        prefs.extinctOnly = wantsFossils && branches.isEmpty && !picks.contains(.surprise)
-        prefs.surpriseMe = true
+        .task { await model.loadHeroes() }
     }
 }
 
@@ -87,41 +80,26 @@ enum StartingPoint: String, CaseIterable, Identifiable, Hashable {
     }
 }
 
-/// Loads the licensed hero photo for a species from the shared content cache.
-struct SpeciesPhoto: View {
-    let wikiTitle: String
-    let index: TaxonomyIndex
-    var allowArtwork = false
-    @State private var image: LicensedImage?
-
-    var body: some View {
-        ZStack {
-            if let image { FullBleedImage(image: image, wideCenter: 0.5) } else { Theme.boardGreen }
-        }
-        .task(id: wikiTitle) {
-            guard let entry = index.entry(forSpecies: wikiTitle),
-                  let content = try? await WikipediaContentProvider.shared.content(for: entry.species)
-            else { return }
-            let usable = content.images.filter { allowArtwork || !$0.isArtwork }
-            image = usable.first { $0.fileTitle == content.leadImageFileTitle } ?? usable.first
-        }
-    }
-}
-
 struct WelcomeView: View {
-    let index: TaxonomyIndex
+    let model: OnboardingViewModel
     let onStart: () -> Void
 
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            SpeciesPhoto(wikiTitle: "Shoebill", index: index)
-                .ignoresSafeArea()
+            Group {
+                if let hero = model.welcomeHero { FullBleedImage(image: hero, wideCenter: 0.5) } else { ShimmerFill() }
+            }
+            .ignoresSafeArea()
             LowerThirdScrim().ignoresSafeArea()
             VStack(alignment: .leading, spacing: 14) {
+                if let hero = model.welcomeHero {
+                    CreditChip(attribution: hero.attribution)
+                }
                 Text("WELCOME").font(Theme.label(12)).tracking(1.5).foregroundStyle(Theme.amber)
                 Text("Meet a new species every swipe.")
                     .font(Theme.heading(40))
                     .foregroundStyle(Theme.parchment)
+                    .accessibilityAddTraits(.isHeader)
                 Text("Real photos and Wikipedia facts, from every branch of the tree of life.")
                     .font(Theme.body(16))
                     .foregroundStyle(Theme.parchment.opacity(0.9))
@@ -142,26 +120,34 @@ struct WelcomeView: View {
 }
 
 struct StartingPointView: View {
-    let index: TaxonomyIndex
-    let onContinue: (Set<StartingPoint>) -> Void
-    @State private var picked: Set<StartingPoint> = []
+    let model: OnboardingViewModel
+    let onContinue: () -> Void
+    @State private var showingCredits = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             Text("Step 1 of 2").font(Theme.body(12)).foregroundStyle(Theme.mist)
             Text("Where should we start?").font(Theme.heading(30)).foregroundStyle(Theme.parchment)
+                .accessibilityAddTraits(.isHeader)
             Text("Pick a few branches. You can change this any time on the Tree tab, and we'll still surprise you now and then.")
                 .font(Theme.body(14)).foregroundStyle(Theme.mist)
             ScrollView {
                 LazyVGrid(columns: [GridItem(.flexible(), spacing: 10), GridItem(.flexible())], spacing: 10) {
                     ForEach(StartingPoint.allCases) { point in
-                        Button { toggle(point) } label: { tile(point) }
-                            .buttonStyle(.plain)
+                        Button { model.toggle(point) } label: {
+                            StartingPointTile(point: point, model: model, selected: model.picked.contains(point))
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
+                Button("Photo credits") { showingCredits = true }
+                    .font(Theme.body(13))
+                    .foregroundStyle(Theme.mist)
+                    .frame(minHeight: 44)
+                    .disabled(model.credits.isEmpty)
             }
-            Button { onContinue(picked) } label: {
-                Text(picked.isEmpty ? "Continue · show me everything" : "Continue · \(picked.count) picked")
+            Button(action: onContinue) {
+                Text(model.picked.isEmpty ? "Continue · show me everything" : "Continue · \(model.picked.count) picked")
                     .font(Theme.label(17))
                     .frame(maxWidth: .infinity, minHeight: 54)
                     .background(Theme.amber, in: RoundedRectangle(cornerRadius: 14))
@@ -171,20 +157,26 @@ struct StartingPointView: View {
         }
         .padding(16)
         .background(Theme.forest)
+        .sheet(isPresented: $showingCredits) { PhotoCreditsList(images: model.credits) }
     }
+}
 
-    private func toggle(_ point: StartingPoint) {
-        if picked.contains(point) { picked.remove(point) } else { picked.insert(point) }
-    }
+private struct StartingPointTile: View {
+    let point: StartingPoint
+    let model: OnboardingViewModel
+    let selected: Bool
 
-    private func tile(_ point: StartingPoint) -> some View {
-        let selected = picked.contains(point)
-        return ZStack(alignment: .bottomLeading) {
-            SpeciesPhoto(wikiTitle: point.photoSpecies, index: index)
+    var body: some View {
+        ZStack(alignment: .bottomLeading) {
+            if let species = model.species(for: point.photoSpecies) {
+                SpeciesThumbnail(species: species)
+            } else {
+                Theme.boardGreen
+            }
             LinearGradient(colors: [.clear, .black.opacity(0.75)], startPoint: .center, endPoint: .bottom)
             VStack(alignment: .leading, spacing: 2) {
-                Text(point.title(in: index)).font(Theme.heading(18)).foregroundStyle(Theme.parchment)
-                Text(point.subtitle(in: index)).font(Theme.body(11)).foregroundStyle(Theme.mist)
+                Text(point.title(in: model.index)).font(Theme.heading(18)).foregroundStyle(Theme.parchment)
+                Text(point.subtitle(in: model.index)).font(Theme.body(11)).foregroundStyle(Theme.mist)
             }
             .padding(10)
             Image(systemName: selected ? "checkmark.circle.fill" : "circle")
@@ -192,11 +184,31 @@ struct StartingPointView: View {
                 .foregroundStyle(selected ? Theme.amber : Theme.parchment)
                 .padding(8)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                .accessibilityHidden(true)
         }
-        .frame(height: 120)
+        .frame(minHeight: 120)
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(selected ? Theme.amber : .clear, lineWidth: 3))
         .accessibilityElement(children: .combine)
-        .accessibilityAddTraits(selected ? .isSelected : [])
+        .accessibilityAddTraits(selected ? [.isButton, .isSelected] : .isButton)
+    }
+}
+
+/// Author, licence and source for each onboarding photo (non-negotiable rule 3).
+private struct PhotoCreditsList: View {
+    let images: [LicensedImage]
+
+    var body: some View {
+        NavigationStack {
+            List(images) { image in
+                CreditChip(attribution: image.attribution)
+                    .listRowBackground(Theme.forest)
+            }
+            .scrollContentBackground(.hidden)
+            .background(Theme.forest)
+            .navigationTitle("Photo credits")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+        .presentationDetents([.medium, .large])
     }
 }

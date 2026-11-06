@@ -32,7 +32,7 @@ struct RootView: View {
                 .toolbarBackground(Theme.forest, for: .tabBar)
                 .toolbarBackground(.visible, for: .tabBar)
             } else {
-                OnboardingView(index: index)
+                OnboardingView(index: index, provider: contentProvider)
             }
         }
         // Saved live species that the bundled tree now covers drop their stored copy (met.v2).

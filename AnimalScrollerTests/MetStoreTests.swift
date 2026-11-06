@@ -27,7 +27,7 @@ final class MetStoreTests: XCTestCase {
 
     func testBundledSpeciesKeepOnlyIDsAndDates() {
         let store = makeStore()
-        store.recordMet(entry("Snow leopard"), imageURL: nil)
+        store.recordMet(entry("Snow leopard"))
         XCTAssertEqual(store.entries.count, 1)
         XCTAssertNil(store.entries[0].live)
         XCTAssertEqual(store.entries[0].firstMet, clock)
@@ -35,19 +35,19 @@ final class MetStoreTests: XCTestCase {
 
     func testLiveSpeciesKeepTheirRecordAndLineage() {
         let store = makeStore()
-        store.recordMet(entry("Clouded leopard", live: true), imageURL: nil)
+        store.recordMet(entry("Clouded leopard", live: true))
         XCTAssertEqual(store.entries[0].live?.lineageIDs, ["animalia", "mammalia"])
         // The deprecated forwarder passes no lineage and must not erase it.
-        store.recordMet(SpeciesEntry(species: entry("Clouded leopard", live: true).species, lineage: []), imageURL: nil)
+        store.recordMet(SpeciesEntry(species: entry("Clouded leopard", live: true).species, lineage: []))
         XCTAssertEqual(store.entries[0].live?.lineageIDs, ["animalia", "mammalia"])
     }
 
     func testToggleSavedKeepsFirstMetAndPersists() {
         let store = makeStore()
-        store.recordMet(entry("Axolotl"), imageURL: nil)
+        store.recordMet(entry("Axolotl"))
         let first = clock
         clock += 100
-        store.toggleSaved(entry("Axolotl"), imageURL: nil)
+        store.toggleSaved(entry("Axolotl"))
         XCTAssertTrue(store.isSaved("Axolotl"))
         XCTAssertEqual(store.entries[0].firstMet, first)
         XCTAssertEqual(store.entries[0].savedAt, clock)
@@ -59,9 +59,9 @@ final class MetStoreTests: XCTestCase {
 
     func testRecordMetUpdatesLastMet() {
         let store = makeStore()
-        store.recordMet(entry("Axolotl"), imageURL: nil)
+        store.recordMet(entry("Axolotl"))
         clock += 60
-        store.recordMet(entry("Axolotl"), imageURL: nil)
+        store.recordMet(entry("Axolotl"))
         XCTAssertEqual(store.entries.count, 1)
         XCTAssertEqual(store.entries[0].lastMet, clock)
         XCTAssertLessThan(store.entries[0].firstMet, store.entries[0].lastMet)
@@ -85,7 +85,6 @@ final class MetStoreTests: XCTestCase {
         XCTAssertEqual(store.entries[0].lastMet, store.entries[0].firstMet)
         XCTAssertEqual(store.entries[1].live?.species.status, .extinct)
         XCTAssertEqual(store.entries[0].live?.species.status, .notEvaluated, "never infer a status")
-        XCTAssertEqual(store.entries[1].imageURL?.host, "upload.wikimedia.org")
 
         store.forgetCopies(of: ["Axolotl"])
         XCTAssertNil(store.entries[0].live)

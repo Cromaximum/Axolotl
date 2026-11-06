@@ -8,7 +8,7 @@ final class MetCollectionTests: XCTestCase {
     private func record(_ id: String, first: TimeInterval, last: TimeInterval? = nil, saved: Bool = false,
                         live: Species? = nil, lineage: [String] = []) -> MetCollection.Record {
         MetCollection.Record(id: id, firstMet: t0 + first, lastMet: t0 + (last ?? first), saved: saved,
-                             savedAt: nil, liveSpecies: live, liveLineageIDs: lineage, imageURL: nil)
+                             savedAt: nil, liveSpecies: live, liveLineageIDs: lineage)
     }
 
     func testResolveUsesBundledDataOverStoredCopy() {
