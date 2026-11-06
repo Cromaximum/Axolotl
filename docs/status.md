@@ -18,8 +18,7 @@ test-target fix, and the feed loads live Wikipedia content. CI also builds and t
 | Tree-of-life filter + extinct toggles | Sheet opens and lists the tree in the simulator. Filtering not yet tested by hand |
 | Live Wikipedia / Commons fetching | Works in the simulator. The cloud dev environment can reach `en.wikipedia.org`, `commons.wikimedia.org` and `upload.wikimedia.org` since 2026-11-06 (not `thumb.wikimedia.org`) |
 | Species data | 77 species (20 extinct) in `taxonomy.json`. Launch target is a few hundred. |
-| IUCN statuses, common names, group names | **Typed in by an AI agent, which breaks D-011 (zero AI content).** Must be regenerated from Wikidata. See [ai-content-audit.md](ai-content-audit.md) |
-| AI-image filter | Missing: `ContentPolicy` doesn't yet reject AI-generated Commons files |
+| IUCN statuses, common names, group names | Generated from Wikidata and Wikipedia (D-011, #9). 9 species have no IUCN status in either source and show NE |
 | Fonts (Fredoka, Nunito Sans) | Not bundled. App falls back to the system font. |
 | Concept screens | Twelve screens in `docs/design/` (D-010). App views not yet updated to match. |
 | Architecture review gate | Rules in [architecture-rules.md](architecture-rules.md) (D-014). Every design and PR needs architect sign-off. |

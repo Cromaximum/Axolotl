@@ -14,7 +14,9 @@ AGENTS.md, CLAUDE.md        Agent entry points (read first)
 README.md                   Human quick start
 project.yml                 XcodeGen spec (targets, bundle ids, Info.plist keys)
 docs/                       Project docs (this folder)
-tools/gen_taxonomy.py       Generates Resources/taxonomy.json from a Python tree literal
+tools/species.txt           The species to include (Wikipedia titles); the only hand-made data input
+tools/gen_taxonomy.py       Builds Resources/taxonomy.json from Wikidata + Wikipedia
+tools/taxonomy-sources.json Generated provenance for every taxonomy value
 AnimalScroller/
   App/                      App entry point, Theme (palette, fonts, BoardPanel)
   Models/                   Taxon, Species, ConservationStatus, SpeciesEntry, FeedCard types
@@ -91,6 +93,6 @@ PreferencesStore (filters) ──────────┤
   [data-model.md](data-model.md).
 - A new content source: implement `SpeciesContentProvider`, inject it into `FeedViewModel`,
   and update [content-and-licensing.md](content-and-licensing.md) first.
-- New species: edit `tools/gen_taxonomy.py`, run
-  `python3 tools/gen_taxonomy.py AnimalScroller/Resources/taxonomy.json`, update the species count
+- New species: add its English Wikipedia title to `tools/species.txt`, run
+  `python3 tools/gen_taxonomy.py`, update the species count
   in [status.md](status.md).

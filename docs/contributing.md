@@ -38,8 +38,10 @@ from stepping on each other.
 
 ## Species data
 
-- Edit `tools/gen_taxonomy.py`, then run
-  `python3 tools/gen_taxonomy.py AnimalScroller/Resources/taxonomy.json`. Commit both.
+- Add or remove English Wikipedia titles in `tools/species.txt`, then run
+  `python3 tools/gen_taxonomy.py`. Commit `species.txt`, `taxonomy.json` and
+  `taxonomy-sources.json` together. The script pulls every value from Wikidata; it is slow
+  because Wikidata rate-limits, and caches in `tools/.cache/`.
 - Every species must be one specific species with an English Wikipedia article.
 - Never type names, statuses or other values from memory (D-011). Every value must come from
   Wikidata or Wikipedia.

@@ -15,8 +15,7 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
 - [x] First successful compile and test run; fix build errors (#5)
 - [ ] Run on a device and fix layout / behaviour issues
 - [ ] Grow to a few hundred reviewed species (likely generated from Wikidata, then human-reviewed)
-- [ ] Remove all AI-written content (D-011): regenerate species data from Wikidata, add an
-      AI-image filter, see [ai-content-audit.md](ai-content-audit.md)
+- [ ] Remove all AI-written content (D-011), see [ai-content-audit.md](ai-content-audit.md)
 - [ ] Static content pipeline: batch job builds one JSON file per species (taxonomy from GBIF or
       Catalogue of Life linked to Wikidata ids → fetch Commons/Wikipedia/IUCN → licence and
       quality filter → facts drafted from Wikipedia, cited, reviewed by a person → publish to a

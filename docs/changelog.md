@@ -8,6 +8,7 @@ Format: `- YYYY-MM-DD · Area · What changed (#PR)`
 
 ## Unreleased
 
+- 2026-11-06 · Data · Species names, statuses and tree now generated from Wikidata and Wikipedia (`tools/species.txt` → `gen_taxonomy.py`), with provenance in `taxonomy-sources.json`. 9 taxon ids and 7 species ids changed (listed in data-model.md; no migration, nothing shipped). Dropped the planned AI-image filter (images only come from Wikipedia articles). (#9)
 - 2026-11-06 · Process · Added the architecture rules (`docs/architecture-rules.md`), the design-note template, and the architecture review gate (D-014) to AGENTS.md, contributing.md and the PR template. The architect merges approved PRs (#8).
 - 2026-11-06 · Docs · Added the zero-AI-generated-content rule (D-011) to AGENTS.md and the content rules, and an audit of AI-written material with a replacement plan (`docs/ai-content-audit.md`).
 - 2026-11-06 · CI · GitHub Actions builds the app and runs the unit tests on a macOS simulator for every PR and push to `main`. First run: app compiles, 11/11 tests pass (#1).

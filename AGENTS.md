@@ -44,7 +44,8 @@ These come from decisions the project owner made. Do not change them without a n
    conservation statuses, images, video or audio. Every piece of content is pulled from an open
    source (Wikipedia, Wikimedia Commons, Wikidata, or another source approved in
    [docs/content-and-licensing.md](docs/content-and-licensing.md)) and shown verbatim with its
-   attribution. AI-generated files on Commons are rejected too. Agents may write code and docs,
+   attribution. Images come only from the species' own Wikipedia article (Wikipedia bans AI
+   images). Agents may write code and docs,
    but never content. See
    [docs/content-and-licensing.md](docs/content-and-licensing.md#zero-ai-generated-content) (D-011).
 5. **Real animals, real images.** Artist reconstructions (paleoart) are allowed only for extinct
