@@ -8,6 +8,7 @@ Format: `- YYYY-MM-DD · Area · What changed (#PR)`
 
 ## Unreleased
 
+- 2026-11-06 · Process · Architecture review gate (D-014) suspended at Maxwell's request: no design approval or architect sign-off; PR authors merge once CI is green. Architecture rules still apply.
 - 2026-11-06 · App · Onboarding, the species detail sheet and the Met grid now load through the injected content provider and image loader (no more `WikipediaContentProvider.shared` or `AsyncImage`); Met tiles decode at tile size. Detail sheet in sections (About, More facts, Classification, Sources) with "Read the full article on Wikipedia" and Try again. Onboarding gets a photo credit on the welcome screen and a "Photo credits" list for the tiles. Met entries drop the transitional `imageURL`. New pure `HeroImage` (one hero rule outside the feed) and `SpeciesThumbnail` component (W3 PR B).
 - 2026-11-06 · Feed · Fixed the next card peeking out under the tab bar (pages now fill the screen), and "Species met", dwell time and prefetch now follow the card actually on screen instead of cards the feed builds ahead of time. A filter change starts the new feed at its top. Ported from #15 onto the current `FeedView`.
 - 2026-11-06 · Code · Moved `PreferencesStore`, `MetStore` and `LikesStore` to `Stores/` (file moves only, Phase 1.5 W1 step 5). Removed the stale "stores under Features/" known issue.

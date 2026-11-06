@@ -14,8 +14,8 @@ Rules for keeping them current are in [../AGENTS.md](../AGENTS.md#keeping-the-do
 | [decisions.md](decisions.md) | Decision log: what was decided, by whom, and why | A real choice is made |
 | [ai-content-audit.md](ai-content-audit.md) | AI-written material still in the repo and the plan to replace it | An item is fixed or found |
 | [content-and-licensing.md](content-and-licensing.md) | Licence allowlist, attribution, paleoart and source rules | Content rules or sources change |
-| [architecture-rules.md](architecture-rules.md) | Layers, dependency rules, naming, where new code goes, and the architecture review gate | The rules change (needs architect review) |
-| [designs/](designs/TEMPLATE.md) | Design notes posted before coding (D-014) | Every new piece of work |
+| [architecture-rules.md](architecture-rules.md) | Layers, dependency rules, naming, where new code goes, and the (suspended) architecture review gate | The rules change |
+| [designs/](designs/TEMPLATE.md) | Optional design notes for bigger work | Every new piece of work |
 | [architecture.md](architecture.md) | Code map, data flow, extension points | Files or responsibilities change |
 | [data-model.md](data-model.md) | Swift models, `taxonomy.json` shape, saved preferences | Any persisted or decoded shape changes |
 | [design.md](design.md) | Zoo-board visual language: palette, fonts, card anatomy | Look and feel changes |

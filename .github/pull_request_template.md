@@ -11,7 +11,6 @@
 - Design note: <!-- docs/designs/<file>.md or the draft PR where it was approved. "Small fix, no design note" only for one-file fixes. -->
 - Layers touched: <!-- App / Features / Stores / Services / Models / Data -->
 - [ ] Follows [docs/architecture-rules.md](../docs/architecture-rules.md) (downward dependencies, no new singletons, dumb views, no hard-coded animal content)
-- [ ] Waiting for a comment starting `Architecture review: Approved` on the latest commit. **Do not merge without it.**
 
 ## How it was tested
 

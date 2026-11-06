@@ -37,7 +37,7 @@ Template:
   Wikipedia has a species article for them.
 
 ## D-014 · Architecture review gate: design before code, sign-off before merge
-- Status: Decided
+- Status: Suspended (Maxwell Rhinelander, 2026-11-06: "remove the architect role for now, have bots just proceed with best intentions"). No design-note wait or sign-off; PR authors merge once CI is green. The rules in architecture-rules.md still apply.
 - Date: 2026-11-06
 - Decided by: Maxwell Rhinelander
 - Context: Several people's AI agents write code in this repo. Maxwell asked for "a bot that functions as the programming architect" so that new code is confirmed to fit the program's architecture before it starts and before it reaches `main`, "to avoid any long term AI spaghetti code difficulties".
