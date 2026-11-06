@@ -12,6 +12,7 @@ Rules for keeping them current are in [../AGENTS.md](../AGENTS.md#keeping-the-do
 | [changelog.md](changelog.md) | Every merged change, newest first | Every PR |
 | [product.md](product.md) | Product requirements and how the app should behave | User-visible behaviour changes |
 | [decisions.md](decisions.md) | Decision log: what was decided, by whom, and why | A real choice is made |
+| [ai-content-audit.md](ai-content-audit.md) | AI-written material still in the repo and the plan to replace it | An item is fixed or found |
 | [content-and-licensing.md](content-and-licensing.md) | Licence allowlist, attribution, paleoart and source rules | Content rules or sources change |
 | [architecture.md](architecture.md) | Code map, data flow, extension points | Files or responsibilities change |
 | [data-model.md](data-model.md) | Swift models, `taxonomy.json` shape, saved preferences | Any persisted or decoded shape changes |
