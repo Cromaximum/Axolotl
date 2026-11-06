@@ -64,6 +64,18 @@ format of an endless vertical feed. Every item is about **one specific species**
 - **Like** a species with the heart (on the photo rail, the intro card's top row and the fact
   card's top row) or by double-tapping any card, which pops an amber heart. Double-tap only
   likes; tap the heart again to unlike. Likes steer the feed (see below) and persist.
+- **Feedback:** a light tap of haptics on like, a success haptic and a "Saved to Met" toast on
+  save, and a selection haptic plus "Removed from Met" on unsave. No haptic on page turns. Cards
+  shrink and dim slightly as they scroll away (off under Reduce Motion; the like heart fades
+  instead of popping).
+- **Loading and empty states:** while the next species loads, the feed shows an empty zoo board
+  with a soft shimmer instead of a spinner. If nothing can be shown (filters match nothing, or
+  Wikipedia can't be reached) a board explains why, with a **Try again** button. Pull to refresh
+  still restarts the feed.
+- **Accessibility:** VoiceOver users get Like, Save and Species details as actions on every card
+  (no gestures needed); the intro sign reads as one button that opens details. At the
+  accessibility text sizes the sign shows fewer lines and drops the IUCN bar so it never grows
+  past half the screen and over the animal (D-010); the full text is in the detail sheet.
 
 ### Species detail sheet
 
