@@ -50,10 +50,11 @@ and it is always tagged "Artist reconstruction". Living species only ever show p
 
 ## Seed data
 
-`taxonomy.json` holds 77 hand-picked species (20 extinct), leaning towards lesser-known
-animals. The species are listed in `tools/species.txt`; `tools/gen_taxonomy.py` pulls their
-names, statuses and place in the tree from Wikidata and Wikipedia (D-011: nothing hand-typed). Some fossil animals use a genus
-article (e.g. Smilodon) because Wikipedia covers them that way.
+`taxonomy.json` holds 361 hand-picked species (29 extinct) across 27 classes, from big cats to
+sponges. The species are listed in `tools/species.txt`; `tools/gen_taxonomy.py` pulls their
+names, statuses and place in the tree from Wikidata and Wikipedia (D-011: nothing hand-typed). Every entry must be a single species or
+subspecies on Wikidata (the script refuses genus articles such as Smilodon). Run
+`python3 tools/gen_taxonomy.py --lint` (offline, also in CI) after editing the list.
 
 ## Known gaps / next steps
 

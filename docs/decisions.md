@@ -106,7 +106,7 @@ Template:
 - Date: 2026-11-06
 - Decided by: Maxwell Rhinelander
 - Context: How big the species set must be before launch.
-- Decision: A few hundred species, each reviewed. Currently 77.
+- Decision: A few hundred species, each reviewed. Currently 361 (W4, 2026-11-06).
 - Consequences: Needs a generation pipeline (likely Wikidata) plus human review.
 
 ## D-005 · Paleoart allowed for extinct species, reputable sources only, always labelled

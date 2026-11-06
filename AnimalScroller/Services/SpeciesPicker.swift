@@ -154,8 +154,10 @@ struct SpeciesPicker {
         return varied.contains { $0 > 0 } ? varied : weights
     }
 
+    /// Deepest node of this rank: Wikidata nests some classes (birds, Aves, sit inside Reptilia),
+    /// and the narrower one is the meaningful group for variety.
     private static func id(of rank: Taxon.Rank, in entry: SpeciesEntry) -> String? {
-        entry.lineage.first { $0.rank == rank }?.id
+        entry.lineage.last { $0.rank == rank }?.id
     }
 
     private static func roll<T, R: RandomNumberGenerator>(_ pool: [T], weights: [Double], using rng: inout R) -> T {
