@@ -23,6 +23,14 @@ Template:
 
 ---
 
+## D-016 · Achievements: tiers from one ladder, scaled by group size
+- Status: Decided (feature); tier rules Proposed
+- Date: 2026-11-06
+- Decided by: Maxwell Rhinelander asked for "an achievement system, ie something sort of like (visit 50 avians, 100 avians, 150...etc.) for all range of different applicable options". Tier rules proposed by the achievements agent.
+- Context: Groups differ a lot in size (one bundled tardigrade, 126 mammals) and the bundled list is growing, and the live catalogue lets users meet more species than the bundled list holds.
+- Decision: Achievements for all species, each IUCN status EX to LC, and each phylum, class and order with 3+ bundled species, counted by lineage node id. Targets come from the ladder 1, 5, 10, 25, 50, then every 50, starting near a twentieth of the group's bundled size, plus the group size itself when no ladder value is within 20%. Tiers are open-ended. No thresholds are hard-coded per group, so a regenerated `taxonomy.json` rescales them. Badges are SF Symbols and typography only (D-011). Only "tiers seen" is stored (`achievements.v1`); progress is recomputed.
+- Consequences: Families and genera get no achievements (too many, too small). A tier above the bundled group size needs the full catalogue. Changing the ladder can lower someone's tier number; acceptable while nothing has shipped.
+
 ## D-015 · Subspecies count as one specific animal
 - Status: Proposed (agent, W4 content quality, 2026-11-06)
 - Date: 2026-11-06

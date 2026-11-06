@@ -10,7 +10,9 @@ keep them true after you change something.
 **Animal Scroller** (working title "Animal Instagram") is an iOS app (SwiftUI, iOS 17) that works
 like a doom-scroll feed for meeting one specific animal species at a time. Each species opens with
 a zoo-information-board style intro card, then a paced mix of photos and "Did you know?" fact
-cards. Users filter by the scientific tree of life, with toggles for extinct species. Phase 1
+cards. Users filter by the scientific tree of life, with toggles for extinct species. A Met tab
+collects every species seen, and an Awards tab gives tiered achievements for them (D-016:
+tiers are computed from the bundled tree, never hard-coded per group). Phase 1
 content comes only from Wikipedia and Wikimedia Commons under free licences.
 
 ## Read before you work
