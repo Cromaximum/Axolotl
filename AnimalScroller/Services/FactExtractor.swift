@@ -39,7 +39,7 @@ enum FactExtractor {
         "as a result", "as such", "thus", "therefore", "hence", "consequently", "similarly",
         "likewise", "instead", "in contrast", "by contrast", "on the other hand", "nevertheless",
         "nonetheless", "despite this", "because of this", "for example", "for instance",
-        "in this ", "at this ", "after this", "before this", "later", "afterwards", "then ",
+        "in this ", "at this ", "after this", "before this", "later ", "later,", "afterwards", "then ",
         "the two ", "which ", "and ", "but ", "or ", "so ", "yet ",
     ]
 
