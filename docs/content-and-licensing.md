@@ -51,7 +51,7 @@ The current audit of AI-written material in the repo, and the plan to replace it
 | Taxonomy and common names | Wikidata (parent taxon P171, English labels / common names P1843) | CC0. **Currently typed in by hand; must be replaced** |
 | Live catalogue: species list, scientific names, classification | GBIF Backbone Taxonomy (`api.gbif.org`, built on the Catalogue of Life) | CC BY 4.0. Credited on the species detail sheet with a link to the GBIF species page |
 | Live catalogue: common name | The species' English Wikipedia article title, verbatim (a trailing "(animal)"-style disambiguator is dropped) | CC BY-SA 4.0 (part of the article credit) |
-| Live catalogue: conservation status | Wikidata P141 on the article's Wikidata item | CC0. No value → shown as Not Evaluated. Never GBIF's `iucnRedListCategory` endpoint: that IUCN data is NonCommercial |
+| Live catalogue: conservation status | Wikidata P141 on the article's Wikidata item, else Extinct only if GBIF flags the species extinct | CC0. No sourced value → shown as Not Evaluated, never guessed from keywords. Never GBIF's `iucnRedListCategory` endpoint: that IUCN data is NonCommercial |
 
 The live catalogue (D-012) never adds a new content source: GBIF supplies only which species
 exist and where they sit in the tree. Every live species must have an English Wikipedia article

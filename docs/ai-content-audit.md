@@ -26,7 +26,8 @@ written by an AI agent and must be replaced with sourced values.
 ## What already complies
 
 - Live-catalogue species (D-012): common name = English Wikipedia article title, scientific
-  name and lineage = GBIF Backbone, IUCN status = Wikidata P141 (else Not Evaluated). Nodes not in
+  name and lineage = GBIF Backbone, IUCN status = Wikidata P141, else Extinct only when GBIF flags it, else Not Evaluated (never
+  inferred from keywords). Nodes not in
   the bundled tree show only their scientific name. Nothing is typed in.
 - `FactExtractor` picks whole sentences from the plain-text article and never rewrites them.
 - `WikipediaContentProvider.lead` keeps the first one or two whole sentences of the summary.

@@ -25,13 +25,10 @@ final class FeedViewModel {
     private(set) var positions: [String: (position: Int, count: Int)] = [:]
 
     private let catalog: SpeciesCatalog
-    /// Share of picks that come from the live catalogue while bundled species in scope are still
-    /// unseen. Once the user has met every bundled species in scope, every pick is live.
-    private let liveShare = 0.5
 
     init(taxonomy: Taxon,
-         provider: SpeciesContentProvider = WikipediaContentProvider.shared,
-         catalog: SpeciesCatalog = LiveSpeciesCatalog.shared) {
+         catalog: SpeciesCatalog,
+         provider: SpeciesContentProvider = WikipediaContentProvider.shared) {
         self.taxonomy = taxonomy
         self.provider = provider
         self.catalog = catalog
@@ -87,19 +84,22 @@ final class FeedViewModel {
         let myGeneration = generation
         loadTask = Task {
             defer { if generation == myGeneration { isLoading = false } }
-            // Try a few species in case one has no usable article or images.
-            for attempt in 0..<6 {
+            // Try a few species in case one has no usable article or images. FeedSourcePlanner
+            // decides which source each attempt uses; this loop only follows it.
+            for attempt in 0..<FeedSourcePlanner.attempts {
                 guard !Task.isCancelled, generation == myGeneration else { return }
                 let bundledPool = tailored.isEmpty ? everything : tailored
-                let bundledDone = bundledPool.isEmpty || picker.hasSeenAll(bundledPool)
-                let tryLive = live && attempt < 5 && (bundledDone || Double.random(in: 0..<1) < liveShare)
+                let sources = FeedSourcePlanner.sources(
+                    attempt: attempt, liveEnabled: live,
+                    bundledExhausted: bundledPool.isEmpty || picker.hasSeenAll(bundledPool),
+                    roll: Double.random(in: 0..<1))
 
                 var entry: SpeciesEntry?
-                if tryLive {
-                    entry = await nextLive(inside: liveInside, outside: liveOutside, filter: filter, prefs: prefs)
-                }
-                if entry == nil, !(tryLive && bundledDone && attempt < 4) {
-                    entry = picker.next(tailored: tailored, everything: everything)
+                for source in sources where entry == nil {
+                    switch source {
+                    case .live: entry = await nextLive(inside: liveInside, outside: liveOutside, filter: filter, prefs: prefs)
+                    case .bundled: entry = picker.next(tailored: tailored, everything: everything)
+                    }
                 }
                 guard let chosen = entry else { continue }
                 if await show(chosen, allowArtwork: allowArtwork, generation: myGeneration) { return }
@@ -136,11 +136,8 @@ final class FeedViewModel {
         do {
             let content = try await provider.content(for: entry.species)
             guard !Task.isCancelled, generation == myGeneration else { return true }
-            if entry.species.isLive {
-                // Live species weren't reviewed by a person, so they must bring at least one usable
-                // image and a couple of facts, or we skip them.
-                let usable = content.images.filter { !$0.isArtwork || (entry.species.isExtinct && allowArtwork) }
-                guard !usable.isEmpty, content.facts.count >= 2 else { return false }
+            guard LiveCatalogRules.isShowable(content, species: entry.species, allowArtwork: allowArtwork) else {
+                return false
             }
             sequence += 1
             let set = FeedComposer.cards(for: entry, content: content,

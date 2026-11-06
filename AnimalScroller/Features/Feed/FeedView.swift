@@ -11,9 +11,9 @@ struct FeedView: View {
     @State private var model: FeedViewModel
     @State private var detailEntry: SpeciesEntry?
 
-    init(taxonomy: Taxon) {
+    init(taxonomy: Taxon, catalog: SpeciesCatalog) {
         self.taxonomy = taxonomy
-        _model = State(initialValue: FeedViewModel(taxonomy: taxonomy))
+        _model = State(initialValue: FeedViewModel(taxonomy: taxonomy, catalog: catalog))
     }
 
     var body: some View {

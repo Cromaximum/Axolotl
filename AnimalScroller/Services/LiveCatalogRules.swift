@@ -50,7 +50,7 @@ enum LiveCatalogRules {
     }
 
     /// Wikipedia's own short description sometimes marks fossil species ("Extinct species of
-    /// shark"). Used so a fossil isn't shown as living when Wikidata has no IUCN value.
+    /// shark"). Only a *filter* signal (keeps fossils out of "Living only"); never shown as a status.
     static func looksExtinct(shortDescription: String?) -> Bool {
         guard let d = shortDescription?.lowercased() else { return false }
         return d.contains("extinct") || d.contains("fossil") || d.contains("prehistoric")
@@ -71,14 +71,22 @@ enum LiveCatalogRules {
         }
     }
 
-    /// Status to show, from the sources in order of trust. Never guessed: no source → Not Evaluated.
-    static func resolvedStatus(wikidata: ConservationStatus?, gbifExtinct: Bool?, shortDescription: String?,
+    /// Status shown on the IUCN bar. Only sourced values: Wikidata P141 first, then GBIF's extinct
+    /// flag (on the record, or because we asked GBIF for `isExtinct=true`). Otherwise Not Evaluated.
+    /// Never derived from keywords (D-011).
+    static func resolvedStatus(wikidata: ConservationStatus?, gbifExtinct: Bool?,
                                requestedExtinctOnly: Bool) -> ConservationStatus {
         if let wikidata { return wikidata }
-        if gbifExtinct == true || requestedExtinctOnly || looksExtinct(shortDescription: shortDescription) {
-            return .extinct
-        }
+        if gbifExtinct == true || requestedExtinctOnly { return .extinct }
         return .notEvaluated
+    }
+
+    /// Live species weren't reviewed by a person, so their content must carry at least one image
+    /// the card may show and two facts, or the species is skipped. Bundled species always show.
+    static func isShowable(_ content: SpeciesContent, species: Species, allowArtwork: Bool) -> Bool {
+        guard species.isLive else { return true }
+        let usable = content.images.filter { !$0.isArtwork || (species.isExtinct && allowArtwork) }
+        return !usable.isEmpty && content.facts.count >= 2
     }
 
     /// Lineage for a live species: the bundled path down to the branch we searched, then any

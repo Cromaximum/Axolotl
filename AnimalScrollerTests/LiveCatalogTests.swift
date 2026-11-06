@@ -54,13 +54,48 @@ final class LiveCatalogTests: XCTestCase {
         XCTAssertEqual(LiveCatalogRules.status(wikidataItem: "Q237350"), .extinct)
         XCTAssertNil(LiveCatalogRules.status(wikidataItem: "Q42"))
         XCTAssertEqual(LiveCatalogRules.resolvedStatus(wikidata: .endangered, gbifExtinct: nil,
-                                                       shortDescription: nil, requestedExtinctOnly: false), .endangered)
+                                                       requestedExtinctOnly: false), .endangered)
         XCTAssertEqual(LiveCatalogRules.resolvedStatus(wikidata: nil, gbifExtinct: nil,
-                                                       shortDescription: "Species of big cat", requestedExtinctOnly: false), .notEvaluated)
-        XCTAssertEqual(LiveCatalogRules.resolvedStatus(wikidata: nil, gbifExtinct: nil,
-                                                       shortDescription: "Extinct species of shark", requestedExtinctOnly: false), .extinct)
+                                                       requestedExtinctOnly: false), .notEvaluated)
         XCTAssertEqual(LiveCatalogRules.resolvedStatus(wikidata: nil, gbifExtinct: true,
-                                                       shortDescription: nil, requestedExtinctOnly: false), .extinct)
+                                                       requestedExtinctOnly: false), .extinct)
+        XCTAssertEqual(LiveCatalogRules.resolvedStatus(wikidata: nil, gbifExtinct: nil,
+                                                       requestedExtinctOnly: true), .extinct,
+                       "species GBIF returned for isExtinct=true")
+    }
+
+    func testShortDescriptionIsOnlyAFilterSignal() {
+        // "Extinct" in Wikipedia's short description keeps a fossil out of Living only, but is
+        // never shown as an IUCN category (D-011: shown values must be sourced).
+        XCTAssertTrue(LiveCatalogRules.looksExtinct(shortDescription: "Extinct species of shark"))
+        XCTAssertFalse(LiveCatalogRules.looksExtinct(shortDescription: "Species of big cat"))
+    }
+
+    func testQualityGateOnlyAppliesToLiveSpecies() {
+        let photo = LicensedImage(fileTitle: "File:A.jpg", url: URL(string: "https://example.org/a.jpg")!, width: 1080,
+                                  height: 1440, caption: nil,
+                                  attribution: Attribution(title: "A", author: "A", license: "CC BY 4.0", licenseURL: nil,
+                                                           sourceURL: URL(string: "https://example.org")!),
+                                  isArtwork: false)
+        let art = LicensedImage(fileTitle: "File:B.jpg", url: photo.url, width: 1080, height: 1440, caption: nil,
+                                attribution: photo.attribution, isArtwork: true)
+        func content(images: [LicensedImage], facts: Int) -> SpeciesContent {
+            SpeciesContent(title: "X", tagline: nil, lead: "", pageURL: URL(string: "https://en.wikipedia.org/wiki/X")!,
+                           leadImageFileTitle: nil,
+                           facts: (0..<facts).map { FactExtractor.Fact(topic: nil, text: "Fact \($0).") },
+                           images: images)
+        }
+        let bundled = Species(wikiTitle: "X", commonName: "X", scientificName: "X x", status: .leastConcern)
+        let live = Species(wikiTitle: "X", commonName: "X", scientificName: "X x", status: .leastConcern, gbifKey: 1)
+        let fossil = Species(wikiTitle: "X", commonName: "X", scientificName: "X x", status: .extinct, gbifKey: 2)
+
+        XCTAssertTrue(LiveCatalogRules.isShowable(content(images: [], facts: 0), species: bundled, allowArtwork: true))
+        XCTAssertTrue(LiveCatalogRules.isShowable(content(images: [photo], facts: 2), species: live, allowArtwork: true))
+        XCTAssertFalse(LiveCatalogRules.isShowable(content(images: [photo], facts: 1), species: live, allowArtwork: true))
+        XCTAssertFalse(LiveCatalogRules.isShowable(content(images: [art], facts: 3), species: live, allowArtwork: true),
+                       "living species never show artwork, so artwork alone doesn't count")
+        XCTAssertTrue(LiveCatalogRules.isShowable(content(images: [art], facts: 3), species: fossil, allowArtwork: true))
+        XCTAssertFalse(LiveCatalogRules.isShowable(content(images: [art], facts: 3), species: fossil, allowArtwork: false))
     }
 
     func testLineageReusesBundledNodesThenAddsGBIFNodes() {

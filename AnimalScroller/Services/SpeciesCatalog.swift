@@ -27,9 +27,9 @@ protocol SpeciesCatalog: Sendable {
 ///
 /// Per call: one GBIF search for a random page of ~40 accepted species under the branch, then one
 /// batched Wikipedia query for all 40 names. Two cheap requests usually yield a few good species.
+///
+/// Created once in `AnimalScrollerApp` and injected (no singleton), so tests can pass a fake.
 actor LiveSpeciesCatalog: SpeciesCatalog {
-    static let shared = LiveSpeciesCatalog()
-
     private let gbif: GBIFClient
     private let wiki: WikiClient
     /// Bundled taxon id → GBIF key (nil when GBIF has no exact match).
@@ -77,8 +77,7 @@ actor LiveSpeciesCatalog: SpeciesCatalog {
                 return nil
             }
             let provisional = LiveCatalogRules.resolvedStatus(
-                wikidata: nil, gbifExtinct: usage.extinct, shortDescription: probe.shortDescription,
-                requestedExtinctOnly: extinctOnly)
+                wikidata: nil, gbifExtinct: usage.extinct, requestedExtinctOnly: extinctOnly)
             let species = Species(wikiTitle: title,
                                   commonName: LiveCatalogRules.commonName(articleTitle: title),
                                   scientificName: name, status: provisional, gbifKey: usage.key)
@@ -96,8 +95,7 @@ actor LiveSpeciesCatalog: SpeciesCatalog {
         }
         let s = candidate.entry.species
         let status = LiveCatalogRules.resolvedStatus(
-            wikidata: wikidata, gbifExtinct: candidate.gbifExtinct,
-            shortDescription: candidate.shortDescription, requestedExtinctOnly: filter == .extinctOnly)
+            wikidata: wikidata, gbifExtinct: candidate.gbifExtinct, requestedExtinctOnly: filter == .extinctOnly)
         let species = Species(wikiTitle: s.wikiTitle, commonName: s.commonName,
                               scientificName: s.scientificName, status: status, gbifKey: s.gbifKey)
         return SpeciesEntry(species: species, lineage: candidate.entry.lineage)
