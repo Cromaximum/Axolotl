@@ -34,6 +34,7 @@ the PR merges or is abandoned.
 
 | Work | Who / where | Branch or PR | Started |
 | --- | --- | --- | --- |
+| W3: Tree search, Met filters and sort, slim Met saves (`met.v2`), onboarding and detail view models | Claude, thread "Improve onboarding, tree and saves" | `claude/project-thread-i5urhz` (design review) | 2026-11-06 |
 
 ## Known issues
 
