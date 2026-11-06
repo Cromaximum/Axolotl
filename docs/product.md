@@ -13,8 +13,9 @@ format of an endless vertical feed. Every item is about **one specific species**
 
 1. **Welcome**: one full-bleed photo (a shoebill), "Meet a new species every swipe.", a
    "Start exploring" button.
-2. **Where should we start?**: photo tiles for Mammals, Birds, Reptiles, Amphibians, Insects,
-   Crustaceans, Fossil life and Surprise me. Picking tiles selects those tree branches; "Fossil
+2. **Where should we start?**: photo tiles for six classes (mammals, birds, reptiles, amphibians,
+   insects, crustaceans; tile names and scientific names are read from the taxonomy), plus
+   Fossil life and Surprise me. Picking tiles selects those tree branches; "Fossil
    life" alone switches to extinct-only; picking nothing means the whole kingdom. Surprise picks
    stay on either way. Shown once (`hasOnboarded`).
 

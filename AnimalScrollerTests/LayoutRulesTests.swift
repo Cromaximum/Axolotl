@@ -4,11 +4,12 @@ import XCTest
 /// Logic behind the D-010 layout rules and the new stores.
 final class LayoutRulesTests: XCTestCase {
     private func image(_ title: String, w: Int = 1080, h: Int = 1440, artwork: Bool = false, caption: String? = nil) -> LicensedImage {
+        let fossil = ContentPolicy.isFossil(fileTitle: title, description: caption)
         LicensedImage(fileTitle: title, url: URL(string: "https://example.org/x.jpg")!, width: w, height: h,
                       caption: caption,
                       attribution: Attribution(title: title, author: "A", license: "CC BY 4.0", licenseURL: nil,
                                                sourceURL: URL(string: "https://example.org")!),
-                      isArtwork: artwork)
+                      isArtwork: artwork, isFossil: fossil)
     }
 
     private let living = Species(wikiTitle: "Okapi", commonName: "Okapi", scientificName: "Okapia johnstoni", status: .endangered)

@@ -109,7 +109,8 @@ enum ContentPolicy {
                     licenseURL: info.licenseURL,
                     sourceURL: info.descriptionURL
                 ),
-                isArtwork: isArtwork(fileTitle: info.fileTitle, description: description)
+                isArtwork: isArtwork(fileTitle: info.fileTitle, description: description),
+                isFossil: isFossil(fileTitle: info.fileTitle, description: description)
             )
         }
     }

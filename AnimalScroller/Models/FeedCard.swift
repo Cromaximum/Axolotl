@@ -37,6 +37,8 @@ struct LicensedImage: Hashable, Codable, Identifiable {
     let attribution: Attribution
     /// Drawing, painting, life restoration, model, etc. rather than a photograph.
     let isArtwork: Bool
+    /// Fossil, skeleton, mount or other real specimen. Set at ingestion by `ContentPolicy`.
+    var isFossil: Bool = false
 
     var id: String { fileTitle }
 
@@ -65,7 +67,7 @@ enum MediaTag: Hashable {
     static func tag(for image: LicensedImage, species: Species) -> MediaTag? {
         if image.isArtwork { return .reconstruction }
         guard species.isExtinct else { return nil }
-        if ContentPolicy.isFossil(fileTitle: image.fileTitle, description: image.caption) { return .realFossil }
+        if image.isFossil { return .realFossil }
         return .historicalPhoto
     }
 }

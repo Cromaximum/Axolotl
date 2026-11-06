@@ -16,6 +16,11 @@ Goal: TestFlight beta with open-licensed images and Wikipedia facts.
 - [x] CI: build and test on every PR (PR #1)
 - [x] First successful compile and test run; fix build errors (#5)
 - [ ] Run on a device and fix layout / behaviour issues
+- [ ] Architecture follow-ups from the #4 review: inject one content provider from `App/`
+      instead of `WikipediaContentProvider.shared`, with a small view model for onboarding tiles;
+      move `MetStore` and `PreferencesStore` to `Stores/` and store only ids/dates/flags in
+      `MetStore.Entry` (look names up when shown); put set position/count on the card payload
+      instead of `FeedViewModel.positions`
 - [ ] Grow to a few hundred reviewed species (likely generated from Wikidata, then human-reviewed)
 - [ ] Remove all AI-written content (D-011): regenerate species data from Wikidata, add an
       AI-image filter, see [ai-content-audit.md](ai-content-audit.md)

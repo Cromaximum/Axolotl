@@ -44,7 +44,8 @@ Notes:
 | `SpeciesEntry` | same | Species + lineage (root → parent). Not persisted. |
 | `Attribution` | `Models/FeedCard.swift` | Required on every card. `wikipediaText(...)` builds the CC BY-SA text credit. |
 | `LicensedImage` | same | Commons image that passed `ContentPolicy`; `isArtwork` flags reconstructions; `isWide` (> 1.15 : 1) picks the shown-whole layout. |
-| `MediaTag` | same | `historicalPhoto` / `realFossil` / `reconstruction`, derived (never stored) from the image and species: artwork → reconstruction; extinct + fossil keywords → real fossil; other extinct → historical photo; living → none. |
+| `LicensedImage.isFossil` | same | Set at ingestion by `ContentPolicy.isFossil` (fossil, skeleton, specimen, mount... keywords). Models never call services. |
+| `MediaTag` | same | `historicalPhoto` / `realFossil` / `reconstruction`, derived (never stored) from the image and species: artwork → reconstruction; extinct + `isFossil` → real fossil; other extinct → historical photo; living → none. |
 | `FactCard.image` | same | Photo shown above the fact board. `FeedComposer` cycles through the set's images, hero first. |
 | `FeedCard` | same | `.intro(IntroCard)`, `.fact(FactCard)`, `.photo(PhotoCard)`. Ids include species id and session `sequence` so a species can reappear. |
 | `SpeciesContent` | `Services/SpeciesContent.swift` | `Codable`. The contract between any content source and the feed. A future static JSON file per species should decode straight into this. |
