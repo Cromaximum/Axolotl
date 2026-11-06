@@ -46,7 +46,7 @@ a Mac.
 
 ## Checklist
 
-- [ ] 1 to 4: Regenerate `taxonomy.json` from Wikidata (in review: `docs/designs/2026-11-06-wikidata-species-data.md`)
+- [x] 1 to 4: Regenerated `taxonomy.json` from Wikidata and Wikipedia (#9)
 - [ ] 5: Species list approved by a human
 - [x] 6: Not needed; images only from the species' Wikipedia article
 - [ ] 7: Verbatim text in concept mockups

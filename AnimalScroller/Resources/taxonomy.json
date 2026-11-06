@@ -54,7 +54,7 @@
                     },
                     {
                       "wikiTitle": "Smilodon",
-                      "commonName": "Smilodon",
+                      "commonName": "Saber-toothed tiger",
                       "scientificName": "Smilodon",
                       "status": "EX"
                     }
@@ -608,7 +608,7 @@
                       "wikiTitle": "Tuatara",
                       "commonName": "Tuatara",
                       "scientificName": "Sphenodon",
-                      "status": "NE"
+                      "status": "LC"
                     }
                   ]
                 }
@@ -808,7 +808,7 @@
                   "species": [
                     {
                       "wikiTitle": "Hyalinobatrachium fleischmanni",
-                      "commonName": "Hyalinobatrachium fleischmanni",
+                      "commonName": "Fleischmann's Glass Frog",
                       "scientificName": "Hyalinobatrachium fleischmanni",
                       "status": "LC"
                     }
@@ -994,7 +994,7 @@
                   "species": [
                     {
                       "wikiTitle": "Attacus atlas",
-                      "commonName": "Attacus atlas",
+                      "commonName": "Atlas moth",
                       "scientificName": "Attacus atlas",
                       "status": "NE"
                     }
@@ -1030,7 +1030,7 @@
                   "species": [
                     {
                       "wikiTitle": "Hymenopus coronatus",
-                      "commonName": "Hymenopus coronatus",
+                      "commonName": "Orchid mantis",
                       "scientificName": "Hymenopus coronatus",
                       "status": "NE"
                     }
@@ -1054,7 +1054,7 @@
                       "wikiTitle": "Dryococelus",
                       "commonName": "Dryococelus",
                       "scientificName": "Dryococelus",
-                      "status": "NE"
+                      "status": "CR"
                     }
                   ]
                 }
@@ -1120,7 +1120,7 @@
                       "wikiTitle": "Diving bell spider",
                       "commonName": "Diving bell spider",
                       "scientificName": "Argyroneta aquatica",
-                      "status": "NE"
+                      "status": "NT"
                     }
                   ]
                 }
@@ -1268,7 +1268,7 @@
                       "wikiTitle": "Chambered nautilus",
                       "commonName": "Chambered nautilus",
                       "scientificName": "Nautilus pompilius",
-                      "status": "NE"
+                      "status": "VU"
                     }
                   ]
                 }
@@ -1318,7 +1318,7 @@
                   "species": [
                     {
                       "wikiTitle": "Glaucus atlanticus",
-                      "commonName": "Glaucus atlanticus",
+                      "commonName": "Blue dragon",
                       "scientificName": "Glaucus atlanticus",
                       "status": "NE"
                     }

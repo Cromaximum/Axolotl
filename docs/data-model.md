@@ -19,9 +19,9 @@ with `JSONDecoder` into `Taxon`.
   "species": [                   // optional; normally on family (or genus) nodes
     {
       "wikiTitle": "Snow leopard",      // English Wikipedia article title; also the species id
-      "commonName": "Snow leopard",     // = article title (D-011: no hand-typed names)
+      "commonName": "Snow leopard",     // article title, or Wikidata P1843 if the title is scientific
       "scientificName": "Panthera uncia",
-      "status": "VU"                    // Wikidata P141; EX for fossil taxa; NE if Wikidata has none
+      "status": "VU"                    // Wikidata P141; EX for fossil taxa; else taxobox IUCN status; else NE
     }
   ]
 }
@@ -34,6 +34,20 @@ Notes:
 - Species `id` is `wikiTitle`. Some fossil animals use a genus article (for example "Smilodon")
   because Wikipedia covers them that way.
 - `EX` drives `Species.isExtinct`, which gates the extinct filters and artwork.
+
+### ID changes in the Wikidata rebuild (2026-11-06, PR #9)
+
+No migration is needed: nothing has shipped, so no saved preferences or species-met data use the
+old ids.
+
+- Taxon ids removed (Wikidata's tree differs): `actinopterygii`, `cetacea`, `dictynidae`,
+  `dinosauria`, `eurypterida-2`, `neomphalina`, `pachydiscidae`, `phasmatodea`, `urodela`.
+- Taxon ids added: `actinopteri`, `caudata`, `cybaeidae`, `desmoceratidae`, `myrmecobiidae`,
+  `neomphalida`, `nestoridae`, `ornithischia`, `phasmida`, `raphidae`, `teleostei`.
+- Species ids (`wikiTitle`) changed to the canonical article title: Hairy frogfish → Striated
+  frogfish, Otodus megalodon → Megalodon, Atlas moth → Attacus atlas, Orchid mantis →
+  Hymenopus coronatus, Dryococelus australis → Dryococelus, Chrysomallon squamiferum →
+  Scaly-foot gastropod, Hypsibius exemplaris → Hypsibius dujardini.
 
 ## Swift types
 

@@ -2,7 +2,7 @@
 
 - Author: Claude (thread "Keep app content free of AI"), asked for by Maxwell Rhinelander
 - Date: 2026-11-06
-- Status: Draft
+- Status: Design approved (architect, PR #9)
 
 ## Problem
 
@@ -32,9 +32,11 @@ species.txt → enwiki API (redirects, wikibase_item) → Wikidata wbgetentities
     enwiki sitelink titles → taxonomy.json (+ taxonomy-sources.json)
 ```
 
-- Common name = English Wikipedia article title. Group name = the taxon's English Wikipedia
+- Common name = English Wikipedia article title; when that title is just the scientific name,
+  the first English Wikidata P1843 (taxon common name) instead. Group name = the taxon's English Wikipedia
   title (disambiguator stripped), else its P225. Same convention as the live catalogue thread.
 - Status = P141 mapped to LC/NT/VU/EN/CR/EW/EX/DD. No P141 and P31 = fossil taxon → EX.
+  Else the IUCN status in the article's taxobox (`status` with `status_system = IUCN…`).
   Otherwise NE.
 - Tree keeps kingdom, phylum, class, order, family. Species hang under the nearest kept rank.
 - The script checks the English labels of every Wikidata id it hard-codes (ranks, statuses,
@@ -49,11 +51,11 @@ None in Swift. `taxonomy.json` keeps its shape (`Taxon` / `Species` decode uncha
 
 ## Effect on the data (77 species, 124 taxa)
 
-- 15 statuses change. 13 species have no P141 on Wikidata and become `NE` (e.g. Tuatara,
-  Chambered nautilus, Portuguese man o' war). Extinct count stays 20 (10 via P141, 10 via fossil
-  taxon).
-- 13 common names change to the article title, which for invertebrates is often the scientific
-  name ("Orchid mantis" → "Hymenopus coronatus", "Water bear" → "Hypsibius dujardini").
+- 4 statuses change. 9 species have no IUCN status in either Wikidata or the taxobox and show
+  `NE`. 4 more (Tuatara, Dryococelus, Diving bell spider, Chambered nautilus) get theirs from the
+  taxobox. Extinct count stays 20 (10 via P141, 10 via fossil taxon).
+- 11 common names change: to the article title, or to P1843 where the title is scientific
+  ("Orchid mantis" stays, from P1843; "Water bear" → "Hypsibius dujardini", which has no P1843).
 - 12 scientific names change; fossil animals whose article is about the genus now show the genus
   ("Tyrannosaurus rex" → "Tyrannosaurus").
 - Group names become Wikipedia titles ("Mammals" → "Mammal", "Cats" → "Felidae").
@@ -76,6 +78,9 @@ committed or CI gets access. Swift tests are unaffected: `FeedComposerTests` bui
 `Taxon`.
 
 ## Open questions
+
+Both are implemented as recommended and waiting on Maxwell's confirmation; either is a one-line
+revert in `gen_taxonomy.py`.
 
 1. **Common names for invertebrates.** Wikidata P1843 (taxon common name, English) would give
    "orchid mantis", "water bear" instead of scientific names. It's sourced too, but often has

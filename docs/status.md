@@ -18,7 +18,7 @@ test-target fix, and the feed loads live Wikipedia content. CI also builds and t
 | Tree-of-life filter + extinct toggles | Sheet opens and lists the tree in the simulator. Filtering not yet tested by hand |
 | Live Wikipedia / Commons fetching | Works in the simulator. The cloud dev environment can reach `en.wikipedia.org`, `commons.wikimedia.org` and `upload.wikimedia.org` since 2026-11-06 (not `thumb.wikimedia.org`) |
 | Species data | 77 species (20 extinct) in `taxonomy.json`. Launch target is a few hundred. |
-| IUCN statuses, common names, group names | Typed in by an AI agent (breaks D-011). Wikidata rebuild in design review: [designs/2026-11-06-wikidata-species-data.md](designs/2026-11-06-wikidata-species-data.md) |
+| IUCN statuses, common names, group names | Generated from Wikidata and Wikipedia (D-011, #9). 9 species have no IUCN status in either source and show NE |
 | Fonts (Fredoka, Nunito Sans) | Not bundled. App falls back to the system font. |
 | Concept screens | Twelve screens in `docs/design/` (D-010). App views not yet updated to match. |
 | App name | Working title only. Must change before App Store (trademark). |
@@ -31,7 +31,6 @@ the PR merges or is abandoned.
 
 | Work | Who / where | Branch or PR | Started |
 | --- | --- | --- | --- |
-| Rebuild species data from Wikidata (D-011) | Maxwell's agents | `claude/project-thread-g3dioe` | 2026-11-06 |
 
 ## Known issues
 

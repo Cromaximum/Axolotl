@@ -777,7 +777,7 @@
     },
     "Smilodon": {
       "qid": "Q188717",
-      "commonName": "enwiki title",
+      "commonName": "P1843 (en)",
       "scientificName": "P225",
       "status": "P31 Q23038290 (fossil taxon)",
       "listedAs": "Smilodon"
@@ -1031,7 +1031,7 @@
       "qid": "Q163283",
       "commonName": "enwiki title",
       "scientificName": "P225",
-      "status": "no P141 on Wikidata",
+      "status": "enwiki taxobox status (IUCN)",
       "listedAs": "Tuatara"
     },
     "Alligator snapping turtle": {
@@ -1106,7 +1106,7 @@
     },
     "Hyalinobatrachium fleischmanni": {
       "qid": "Q612124",
-      "commonName": "enwiki title",
+      "commonName": "P1843 (en)",
       "scientificName": "P225",
       "status": "P141 Q211005",
       "listedAs": "Hyalinobatrachium fleischmanni"
@@ -1155,9 +1155,9 @@
     },
     "Attacus atlas": {
       "qid": "Q167435",
-      "commonName": "enwiki title",
+      "commonName": "P1843 (en)",
       "scientificName": "P225",
-      "status": "no P141 on Wikidata",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
       "listedAs": "Attacus atlas"
     },
     "Xerces blue": {
@@ -1169,16 +1169,16 @@
     },
     "Hymenopus coronatus": {
       "qid": "Q137890",
-      "commonName": "enwiki title",
+      "commonName": "P1843 (en)",
       "scientificName": "P225",
-      "status": "no P141 on Wikidata",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
       "listedAs": "Hymenopus coronatus"
     },
     "Dryococelus": {
       "qid": "Q14626919",
       "commonName": "enwiki title",
       "scientificName": "P225",
-      "status": "no P141 on Wikidata",
+      "status": "enwiki taxobox status (IUCN)",
       "listedAs": "Dryococelus"
     },
     "Meganeuropsis": {
@@ -1192,21 +1192,21 @@
       "qid": "Q312182",
       "commonName": "enwiki title",
       "scientificName": "P225",
-      "status": "no P141 on Wikidata",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
       "listedAs": "Maratus volans"
     },
     "Diving bell spider": {
       "qid": "Q119195",
       "commonName": "enwiki title",
       "scientificName": "P225",
-      "status": "no P141 on Wikidata",
+      "status": "enwiki taxobox status (IUCN)",
       "listedAs": "Diving bell spider"
     },
     "Odontodactylus scyllarus": {
       "qid": "Q43735",
       "commonName": "enwiki title",
       "scientificName": "P225",
-      "status": "no P141 on Wikidata",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
       "listedAs": "Odontodactylus scyllarus"
     },
     "Coconut crab": {
@@ -1227,7 +1227,7 @@
       "qid": "Q1417783",
       "commonName": "enwiki title",
       "scientificName": "P225",
-      "status": "no P141 on Wikidata",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
       "listedAs": "Blanket octopus"
     },
     "Opisthoteuthis californiana": {
@@ -1241,7 +1241,7 @@
       "qid": "Q872853",
       "commonName": "enwiki title",
       "scientificName": "P225",
-      "status": "no P141 on Wikidata",
+      "status": "enwiki taxobox status (IUCN)",
       "listedAs": "Chambered nautilus"
     },
     "Parapuzosia seppenradensis": {
@@ -1253,9 +1253,9 @@
     },
     "Glaucus atlanticus": {
       "qid": "Q131757",
-      "commonName": "enwiki title",
+      "commonName": "P1843 (en)",
       "scientificName": "P225",
-      "status": "no P141 on Wikidata",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
       "listedAs": "Glaucus atlanticus"
     },
     "Scaly-foot gastropod": {
@@ -1269,21 +1269,21 @@
       "qid": "Q202526",
       "commonName": "enwiki title",
       "scientificName": "P225",
-      "status": "no P141 on Wikidata",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
       "listedAs": "Portuguese man o' war"
     },
     "Turritopsis dohrnii": {
       "qid": "Q3322541",
       "commonName": "enwiki title",
       "scientificName": "P225",
-      "status": "no P141 on Wikidata",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
       "listedAs": "Turritopsis dohrnii"
     },
     "Hypsibius dujardini": {
       "qid": "Q4140844",
       "commonName": "enwiki title",
       "scientificName": "P225",
-      "status": "no P141 on Wikidata",
+      "status": "no P141 on Wikidata, no IUCN status in taxobox",
       "listedAs": "Hypsibius dujardini"
     }
   }

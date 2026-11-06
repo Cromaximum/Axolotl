@@ -5,10 +5,12 @@ The only hand-made input is tools/species.txt, the list of English Wikipedia art
 that decides WHICH species appear. Everything shown about them comes from open sources, so no
 value is typed in by a person or an AI (decision D-011):
 
-    common name       English Wikipedia article title (after redirects)
+    common name       English Wikipedia article title (after redirects); if that title is the
+                      scientific name, the English Wikidata P1843 (taxon common name) instead
     scientific name   Wikidata P225 (taxon name)
     status            Wikidata P141 (IUCN conservation status); if absent and the item is a
-                      fossil taxon (P31 = Q23038290), EX; otherwise NE
+                      fossil taxon (P31 = Q23038290), EX; else the IUCN
+                      status in the article's taxobox; otherwise NE
     tree              Wikidata P171 (parent taxon) chain, keeping kingdom, phylum, class, order
                       and family (P105 taxon rank)
     group names       English Wikipedia article title of each taxon, else its P225
@@ -180,6 +182,36 @@ def resolve_titles(titles):
     return out
 
 
+def english_common_name(entity):
+    """First English value of Wikidata P1843 (taxon common name), with its first letter capitalised."""
+    for c in entity.get("claims", {}).get("P1843", []):
+        if c.get("rank") == "deprecated" or c.get("mainsnak", {}).get("snaktype") != "value":
+            continue
+        v = c["mainsnak"]["datavalue"]["value"]
+        if v.get("language") in ("en", "en-gb", "en-us", "en-ca") and v.get("text"):
+            t = v["text"].strip()
+            return t[0].upper() + t[1:]
+    return None
+
+
+IUCN_CODES = {"LC", "NT", "VU", "EN", "CR", "EW", "EX", "DD"}
+
+
+def infobox_status(title):
+    """IUCN status from the species' English Wikipedia taxobox (status + status_system = IUCN)."""
+    data = fetch(ENWIKI_API, {"action": "query", "prop": "revisions", "titles": title,
+                              "rvprop": "content", "rvslots": "main", "redirects": "1"})
+    pages = data["query"].get("pages", [])
+    if not pages or "revisions" not in pages[0]:
+        return None
+    text = pages[0]["revisions"][0]["slots"]["main"]["content"]
+    status = re.search(r"\|\s*status\s*=\s*([A-Z]{2})\b", text)
+    system = re.search(r"\|\s*status_system\s*=\s*([^\n|]+)", text)
+    if status and system and "iucn" in system.group(1).lower() and status.group(1) in IUCN_CODES:
+        return status.group(1)
+    return None
+
+
 def enwiki_title(entity):
     return entity.get("sitelinks", {}).get("enwiki", {}).get("title")
 
@@ -290,15 +322,24 @@ def main():
             status, status_src = STATUSES[status_q[0]][0], f"P141 {status_q[0]}"
         elif FOSSIL_TAXON[0] in best_values(ent, "P31"):
             status, status_src = "EX", f"P31 {FOSSIL_TAXON[0]} (fossil taxon)"
+        elif infobox_status(final_title):
+            status, status_src = infobox_status(final_title), "enwiki taxobox status (IUCN)"
         else:
-            status, status_src = "NE", "no P141 on Wikidata"
+            status, status_src = "NE", "no P141 on Wikidata, no IUCN status in taxobox"
+        # Common name: the article title, unless that is just the scientific name and Wikidata
+        # has an English common name (P1843).
+        common, common_src = final_title, "enwiki title"
+        if final_title.lower() in {n.lower() for n in sci}:
+            p1843 = english_common_name(ent)
+            if p1843:
+                common, common_src = p1843, "P1843 (en)"
         parent.setdefault("species", []).append({
             "wikiTitle": final_title,
-            "commonName": final_title,
+            "commonName": common,
             "scientificName": sci[0],
             "status": status,
         })
-        sources["species"][final_title] = {"qid": qid, "commonName": "enwiki title",
+        sources["species"][final_title] = {"qid": qid, "commonName": common_src,
                                            "scientificName": "P225", "status": status_src,
                                            "listedAs": original}
 
