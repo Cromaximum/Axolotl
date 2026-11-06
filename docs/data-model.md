@@ -31,9 +31,23 @@ Notes:
 
 - Taxon `id`s are persisted in user preferences (`selectedTaxonIDs`). Renaming an id silently
   drops that selection for existing users.
-- Species `id` is `wikiTitle`. Some fossil animals use a genus article (for example "Smilodon")
-  because Wikipedia covers them that way.
+- Species `id` is `wikiTitle`. Every entry is a species or subspecies on Wikidata (P105);
+  `gen_taxonomy.py` refuses genus articles such as "Smilodon" (AGENTS.md rule 1, D-015).
 - `EX` drives `Species.isExtinct`, which gates the extinct filters and artwork.
+
+### ID changes in the W4 species expansion (2026-11-06, PR #12)
+
+The list grew from 77 to 361 species. Genus-level entries were dropped because the generator
+now refuses anything that isn't a species or subspecies on Wikidata. No migration: nothing has
+shipped. Saved selections or Met entries with these ids simply stop matching.
+
+- Species ids removed: `Smilodon`, `Tyrannosaurus`, `Triceratops`, `Stegosaurus`, `Tuatara`,
+  `Dryococelus`, `Meganeuropsis`, `Jaekelopterus`, `Blanket octopus` (now the species
+  `Common blanket octopus`). The onboarding fossils tile moves off `Smilodon` (W3).
+- Taxon ids removed (no species left under them): `ceratopsidae`, `eurypterida`,
+  `meganeuridae`, `meganisoptera`, `ornithischia`, `phasmatidae`, `phasmida`, `pterygotidae`,
+  `rhynchocephalia`, `sphenodontidae`, `stegosauridae`, `tyrannosauridae`.
+- No existing taxon id was renamed; all other changes are additions.
 
 ### ID changes in the Wikidata rebuild (2026-11-06, PR #9)
 

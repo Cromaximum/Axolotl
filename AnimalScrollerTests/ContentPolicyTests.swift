@@ -29,4 +29,30 @@ final class ContentPolicyTests: XCTestCase {
     func testStripsHTMLFromCommonsMetadata() {
         XCTAssertEqual(HTMLText.plain("<a href=\"x\">Jane &amp; Joe</a>\n Smith"), "Jane & Joe Smith")
     }
+
+    func testDropsSmallAndStripImages() {
+        XCTAssertTrue(ContentPolicy.isSharpEnough(width: 1080, height: 720))
+        XCTAssertTrue(ContentPolicy.isSharpEnough(width: 1080, height: 1440))
+        XCTAssertTrue(ContentPolicy.isSharpEnough(width: nil, height: nil))
+        XCTAssertFalse(ContentPolicy.isSharpEnough(width: 320, height: 240))   // tiny original
+        XCTAssertFalse(ContentPolicy.isSharpEnough(width: 1080, height: 300))  // panorama strip
+        XCTAssertFalse(ContentPolicy.isSharpEnough(width: 700, height: 2000))  // tall strip
+    }
+
+    private func image(_ title: String) -> LicensedImage {
+        LicensedImage(fileTitle: title, url: URL(string: "https://example.org/x.jpg")!,
+                      width: 1080, height: 720, caption: nil,
+                      attribution: Attribution(title: title, author: nil, license: "CC BY 4.0",
+                                               licenseURL: nil, sourceURL: URL(string: "https://example.org")!),
+                      isArtwork: false)
+    }
+
+    func testDropsCropsAndReencodesButKeepsTheLead() {
+        let images = ["File:Snow leopard.jpg", "File:Snow leopard (cropped).jpg", "File:Snow_leopard.png",
+                      "File:Snow leopard 2.jpg", "File:Snow leopard cub.jpg"].map(image)
+        let kept = ContentPolicy.distinctImages(images, preferring: "File:Snow leopard (cropped).jpg").map(\.fileTitle)
+        XCTAssertEqual(kept, ["File:Snow leopard (cropped).jpg", "File:Snow leopard 2.jpg", "File:Snow leopard cub.jpg"])
+        let noLead = ContentPolicy.distinctImages(images, preferring: nil).map(\.fileTitle)
+        XCTAssertEqual(noLead, ["File:Snow leopard.jpg", "File:Snow leopard 2.jpg", "File:Snow leopard cub.jpg"])
+    }
 }

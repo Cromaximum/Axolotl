@@ -17,6 +17,9 @@ struct SpeciesPicker {
     private(set) var branchMisses: [String: Int] = [:]
     private var recent: [String] = []
     private let recentWindow = 12
+    /// Lineage ids of the species shown last, so the next pick can avoid its family and order.
+    private var lastFamilyID: String?
+    private var lastOrderID: String?
 
     init(discoveryShare: Double = 0.3) {
         self.discoveryShare = discoveryShare
@@ -47,6 +50,8 @@ struct SpeciesPicker {
         seenCounts[entry.id, default: 0] += 1
         recent.append(entry.id)
         if recent.count > recentWindow { recent.removeFirst() }
+        lastFamilyID = Self.id(of: .family, in: entry)
+        lastOrderID = Self.id(of: .order, in: entry)
     }
 
     /// Has the user been shown every species in this pool at least once?
@@ -81,9 +86,10 @@ struct SpeciesPicker {
         let recentSet = Set(recent)
         let fresh = candidates.filter { !recentSet.contains($0.entry.id) }
         guard !fresh.isEmpty else { return nil }
-        let weights = fresh.map { c in
+        let base = fresh.map { c in
             weight(for: c.entry, tailored: tailored) * LiveCatalogRules.popularity(articleLength: c.articleLength)
         }
+        let weights = withVariety(base, entries: fresh.map(\.entry), tailored: tailored)
         return Self.roll(fresh, weights: weights, using: &rng)
     }
 
@@ -122,11 +128,45 @@ struct SpeciesPicker {
 
     private func weightedPick<R: RandomNumberGenerator>(from pool: [SpeciesEntry], tailored: Bool, using rng: inout R) -> SpeciesEntry {
         let recentSet = Set(recent)
-        let weights = pool.map { entry -> Double in
+        // Discovery spreads across the tree: each class gets a share that grows only with the
+        // square root of its size, so a small class isn't drowned out by one with many species.
+        let classSizes: [String: Int] = tailored ? [:] : Dictionary(pool.map { (Self.id(of: .class, in: $0) ?? "", 1) }, uniquingKeysWith: +)
+        let base = pool.map { entry -> Double in
             if recentSet.contains(entry.id) && pool.count > recentSet.count { return 0 }
-            return weight(for: entry, tailored: tailored)
+            let spread = tailored ? 1 : 1 / Double(classSizes[Self.id(of: .class, in: entry) ?? "", default: 1]).squareRoot()
+            return weight(for: entry, tailored: tailored) * spread
         }
-        return Self.roll(pool, weights: weights, using: &rng)
+        return Self.roll(pool, weights: withVariety(base, entries: pool, tailored: tailored), using: &rng)
+    }
+
+    /// Penalty for the same order as the last species.
+    static let sameOrderFactor = 0.5
+
+    /// No two species from the same family back to back, and fewer from the same order. Falls
+    /// back to the plain weights only when every candidate shares the last family.
+    ///
+    /// Likes win over variety (D-013): on tailored picks a family or order the user liked is
+    /// exempt, so liking a cat can still bring two cats in a row. Discovery picks ignore likes,
+    /// so the rule always applies there.
+    func withVariety(_ weights: [Double], entries: [SpeciesEntry], tailored: Bool) -> [Double] {
+        func isLiked(_ id: String?) -> Bool {
+            guard tailored, let id else { return false }
+            return likeAffinity[id, default: 0] > 0
+        }
+        let varied = zip(weights, entries).map { w, entry -> Double in
+            let family = Self.id(of: .family, in: entry)
+            let order = Self.id(of: .order, in: entry)
+            if let lastFamilyID, family == lastFamilyID, !isLiked(family) { return 0 }
+            if let lastOrderID, order == lastOrderID, !isLiked(order) { return w * Self.sameOrderFactor }
+            return w
+        }
+        return varied.contains { $0 > 0 } ? varied : weights
+    }
+
+    /// Deepest node of this rank: Wikidata nests some classes (birds, Aves, sit inside Reptilia),
+    /// and the narrower one is the meaningful group for variety.
+    private static func id(of rank: Taxon.Rank, in entry: SpeciesEntry) -> String? {
+        entry.lineage.last { $0.rank == rank }?.id
     }
 
     private static func roll<T, R: RandomNumberGenerator>(_ pool: [T], weights: [Double], using rng: inout R) -> T {

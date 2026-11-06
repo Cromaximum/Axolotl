@@ -17,6 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Lint species data
+        run: python3 tools/gen_taxonomy.py --lint
+
       - name: Show Xcode version
         run: xcodebuild -version
 
