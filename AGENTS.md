@@ -56,30 +56,28 @@ These come from decisions the project owner made. Do not change them without a n
 6. **Do not commit secrets, API keys or personal contact details.**
 7. **Do not push to `main`.** All changes go through pull requests (see
    [docs/contributing.md](docs/contributing.md)).
-8. **Pass the architecture review gate.** Post a design note before you start coding, and get
-   architecture sign-off before a PR merges. See "Architecture review gate" below (D-014).
+8. **Follow the architecture rules.** The architecture review gate (D-014) is **suspended**
+   (Maxwell, 2026-11-06): no design-note wait and no architect sign-off. Keep the code to
+   [docs/architecture-rules.md](docs/architecture-rules.md) on your own judgement. See below.
 
-## Architecture review gate (required for every change)
+## Architecture rules (review gate suspended)
 
-The project has an architect agent whose job is to keep the code one coherent design instead of
-long-term "AI spaghetti". This applies to every agent and person, including collaborators' agents.
-Full process and rules: [docs/architecture-rules.md](docs/architecture-rules.md#the-review-gate).
+**The architect review gate (D-014) is suspended as of 2026-11-06 (Maxwell's call).** There is no
+architect agent watching PRs. Agents proceed with best intentions:
 
-1. **Before coding** anything bigger than a one-file fix, open a **draft PR** titled
-   "Design review: ..." whose first commit adds `docs/designs/<yyyy-mm-dd>-<slug>.md` from
-   [docs/designs/TEMPLATE.md](docs/designs/TEMPLATE.md). Wait for a comment starting
-   `Architecture review: Design approved` before writing code.
-2. **Before merging**, the PR needs a comment or review starting `Architecture review: Approved`
-   on its latest commit and green CI. The architect merges approved PRs itself (Maxwell's call,
-   2026-11-06). Other agents: don't merge, and nobody merges without the sign-off.
-3. Follow the layers and dependency rules in
+1. **No waiting for a design approval.** For anything bigger than a one-file fix, a short note in
+   `docs/designs/<yyyy-mm-dd>-<slug>.md` (from [docs/designs/TEMPLATE.md](docs/designs/TEMPLATE.md))
+   is still welcome so others can see the plan, but start coding straight away.
+2. **Merging:** the agent or person who opened a PR merges it once CI is green and the docs are
+   updated. Merge `main` into your branch first if it conflicts. The `Architecture review:` marker
+   comments are no longer needed.
+3. **Still follow the layers and dependency rules** in
    [docs/architecture-rules.md](docs/architecture-rules.md). In short: `App/` wires everything,
    features don't import each other, views are dumb, services hold pure tested logic behind
    protocols, models are plain values, and animal content only enters through the content
-   pipeline and `ContentPolicy`.
+   pipeline and `ContentPolicy`. The non-negotiable rules above are unchanged.
 
-Never write the sign-off marker on your own PR. If the architect hasn't answered in 24 hours,
-ask Maxwell.
+If Maxwell turns the gate back on, this section will say so.
 
 ## Keeping the docs current (required for every change)
 
