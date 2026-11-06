@@ -114,8 +114,11 @@ Key: `likes.v1`. JSON array of `LikesStore.Entry`, newest first:
 | `commonName`, `scientificName` | `String` | Copied at like time |
 | `isExtinct` | `Bool` | |
 | `lineage` | `[LikeAffinity.Step]` | `{id, rank}` for each ancestor, so live species (not in the bundled tree) still steer the feed after relaunch. Ids may be bundled ids (`felidae`) or GBIF-only ids (`gbif-genus-panthera`) |
-| `imageURL` | `URL?` | Hero image at like time |
 | `likedAt` | `Date` | |
+
+No image is stored (stores keep ids, not content); a screen that shows a liked species looks its
+photo up through the injected `SpeciesContentProvider`. Entries saved earlier with an `imageURL`
+field still decode (the decoder ignores unknown keys), so the key stays `likes.v1`.
 
 Separate from saves (`met.v2`): a save is a bookmark, a like is a feed signal.
 

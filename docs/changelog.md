@@ -8,6 +8,7 @@ Format: `- YYYY-MM-DD · Area · What changed (#PR)`
 
 ## Unreleased
 
+- 2026-11-06 · Code · `LikesStore.Entry` no longer stores an image URL (old `likes.v1` data still decodes). `like(_:)` / `toggle(_:)` replace the `imageURL:` versions, which stay as deprecated forwarders until `FeedView` switches (W1).
 - 2026-11-06 · Feed · Fixed the next card peeking out under the tab bar (pages now fill the screen), and "Species met", dwell time and prefetch now follow the card actually on screen instead of cards the feed builds ahead of time. A filter change starts the new feed at its top. Ported from #15 onto the current `FeedView`.
 - 2026-11-06 · Code · Moved `PreferencesStore`, `MetStore` and `LikesStore` to `Stores/` (file moves only, Phase 1.5 W1 step 5). Removed the stale "stores under Features/" known issue.
 - 2026-11-06 · App · Feed uses `FeedCard.placement`, `primaryImage` and `FeedNotice` (W2 step 5): separate "no matches" and "offline" boards, Try again only when offline. FeedView calls the `SpeciesEntry` versions of `MetStore.recordMet`/`toggleSaved`. Removed the `emptyMessage` and `positions` compatibility accessors from `FeedViewModel` (agreed with W1).
