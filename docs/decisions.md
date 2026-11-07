@@ -61,6 +61,22 @@ Template:
   larger (up to 3840 px wide, originals capped at 15 MB). `tools/gen_taxonomy.py`'s build-time
   photo check should mirror the new size floors.
 
+## D-017 · The intro card is a short fact sheet, from Wikidata with a Wikipedia-sentence fallback
+- Status: Decided
+- Date: 2026-11-06
+- Decided by: Maxwell Rhinelander
+- Context: Maxwell: "the first screen should really be a fact sheet with core details and
+  attributes about the animal without being overwhelming or verbose ... ie, diet, range, size".
+  Wikidata covers range for about 45% of bundled species, weight 22%, size 15%, diet 13%.
+- Decision: The intro board shows up to four rows (Lives in, Eats, size, Weight), only with
+  sourced data. Wikidata values first; where Wikidata has none, one whole sentence of at most
+  90 characters from the article's matching section (Maxwell chose this option on 2026-11-06).
+  With no data at all the intro falls back to "Did you know?" / the lead.
+- Consequences: New `SpeciesProfile` on `SpeciesContent` (cache schema v3), `WikidataClient`,
+  pure `SpeciesProfileBuilder`. Fact sets are also capped at 4 cards after the intro, never
+  repeat an image, and highlight a fact's number inside its sentence instead of showing it alone
+  (same feedback round).
+
 ## D-016 · Achievements: tiers from one ladder, scaled by group size
 - Status: Decided (feature); tier rules Proposed
 - Date: 2026-11-06

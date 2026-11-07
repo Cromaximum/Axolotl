@@ -49,19 +49,24 @@ format of an endless vertical feed. Every item is about **one specific species**
   [content-and-licensing.md](content-and-licensing.md#photo-ranking-photoquality).
 - Content comes in **species sets**. Each set is:
   1. **Intro card**: the hero photo full-bleed, with a zoo-board sign at the bottom: common name,
-     scientific name, taxonomic path, a "Did you know?" box (or the lead if there are no facts),
-     and the IUCN status bar (LC › NT › VU › EN › CR › EW › EX). Progress dashes and the photo
+     scientific name, taxonomic path, a short **fact sheet** (up to four rows: Lives in, Eats,
+     Length / Height / Wingspan / Size, Weight; only rows with sourced data, see
+     [content-and-licensing.md](content-and-licensing.md#intro-fact-sheet)), and the IUCN status
+     bar (LC › NT › VU › EN › CR › EW › EX). Progress dashes and the photo
      credit sit at the top. Tapping the sign opens the species detail sheet.
-  2. Then **up to 8 items**, alternating photos and fact cards. Two fact cards never sit next to
-     each other and no more than two photo cards follow each other. Leftover facts are dropped;
-     leftover photos are used above fact boards instead. Near-duplicate files (crops, edits and
-     re-encodes of one photo) are shown once, keeping the article's lead image.
+     With no sheet data the intro shows a "Did you know?" box (or the lead) instead.
+  2. Then **up to 4 items** (so at most 5 screens per animal; Maxwell found 9 too long),
+     alternating photos and fact cards. Two fact cards never sit next to each other and no more
+     than two photo cards follow each other. **No image appears twice in a set**: every fact
+     card needs its own unused photo, so animals with few photos get fewer fact cards.
+     Near-duplicate files (crops, edits and re-encodes of one photo) are shown once, keeping the
+     article's lead image.
      - **Photo card**: animal only, with a "Name · n of N" pill, a credit chip and a Like / Save /
        Info / Share rail. Extinct species add a media tag and a caption on the scrim.
-     - **Fact card**: a photo of the species on the top half (never the same photo as the card
-       just before or after), and a board below with "Did you
-       know? · Topic", the fact's stand-out number in large type (years are skipped), the
-       sentence, and the source line.
+     - **Fact card**: a photo of the species on the top half (not shown anywhere else in the
+       set), and a board below with "Did you know? · Topic", the sentence with its first number
+       and the word after it highlighted in amber ("**40 metres**"; years are skipped), and the
+       source line. There is no stand-alone big number: it meant nothing without its words.
 - Extinct-species media is tagged **Historical photo**, **Real fossil** or amber
   **Reconstruction in frame**. Living species are never tagged (they only show photos).
 - Then the next species. The feed prefetches so it never runs dry (keeps about 6 cards queued).

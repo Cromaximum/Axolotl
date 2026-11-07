@@ -54,14 +54,16 @@ Implemented to match the concept screens (shared pieces in `Features/Components/
 
 - **Intro card** (screen 3/7): hero full-bleed; zoo-board sign at the bottom (green panel,
   6 pt wood border, 22 pt corners) with common name, scientific name in amber italic, lineage in
-  mist, parchment "Did you know?" box, IUCN bar with status label and "IUCN Red List". Progress
+  mist, parchment fact sheet (amber-on-parchment labels "LIVES IN", "EATS", size, "WEIGHT" in a
+  two-column grid, values in Nunito Sans semibold, a small "Sources:" line; two rows at
+  accessibility sizes) or, without sheet data, the "Did you know?" box, IUCN bar with status label and "IUCN Red List". Progress
   dashes or the media tag top-left, credit chip top-right.
 - **Photo card** (screen 4/6/8/9): animal only. "Name · n of N" pill top-left, credit chip
   bottom-left, Save / Info / Share rail on the right. Extinct: media tag top-left, credit
   top-right, amber "SCIENTIFIC NAME · n OF N" and the caption on a lower-third scrim.
 - **Fact card** (screen 5): photo in the top 52% with its credit; forest board below with a
-  5 pt wood rule, "DID YOU KNOW? · TOPIC" in amber, the stand-out number at 64 pt, the sentence
-  in Fredoka, and "Scientific name · Source: Wikipedia".
+  5 pt wood rule, "DID YOU KNOW? · TOPIC" in amber, the sentence in Fredoka with its first
+  number and following word in bold amber (no separate big number, Maxwell 2026-11-06), and "Scientific name · Source: Wikipedia".
 - **Species detail** (screen 10), **Tree** (screen 11), **Species met** (screen 12), **Welcome**
   and **Starting point** (screens 1–2).
 - **Credit chip** on every photo; opens a credit sheet.

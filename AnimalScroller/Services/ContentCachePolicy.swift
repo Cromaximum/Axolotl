@@ -5,9 +5,10 @@ enum ContentCachePolicy {
     /// Bump with `directoryName` whenever `SpeciesContent` changes shape (data-model.md), or
     /// when what goes into it changes enough that cached copies should be refetched.
     /// 2: photos ranked by `PhotoQuality` and pointed at 1920/3840 px renditions (2026-11-06).
-    static let schema = 2
+    /// 3: optional `profile` (intro fact sheet) added to `SpeciesContent` (2026-11-07).
+    static let schema = 3
     /// Folder under the app's Caches directory. iOS may purge it; nothing breaks if it does.
-    static let directoryName = "species-content.v2"
+    static let directoryName = "species-content.v3"
     /// Older cache folders, deleted on launch.
     static let directoryPrefix = "species-content.v"
     /// Cached content is refetched after a week so corrected articles reach the device (D-011).

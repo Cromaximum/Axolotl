@@ -1,7 +1,8 @@
 import SwiftUI
 
 /// The opening card of each species set: the animal full-bleed, and a zoo-board sign at the
-/// bottom with its names, lineage, a "Did you know?" fact and the IUCN status bar (D-003, D-010).
+/// bottom with its names, lineage, a short fact sheet (or, without one, a "Did you know?" fact) and
+/// the IUCN status bar (D-003, D-010).
 struct IntroCardView: View {
     let card: IntroCard
     let context: CardContext
@@ -59,7 +60,9 @@ struct IntroCardView: View {
                 .font(Theme.body(12))
                 .foregroundStyle(Theme.mist)
                 .lineLimit(compact ? 1 : 2)
-            if let fact = card.didYouKnow {
+            if let profile = card.profile {
+                FactSheet(profile: profile, maxRows: compact ? 2 : 4, lineLimit: compact ? 1 : 2)
+            } else if let fact = card.didYouKnow {
                 DidYouKnowBox(text: fact, lineLimit: compact ? 2 : 4)
             } else if !card.lead.isEmpty {
                 Text(card.lead).font(Theme.body(15)).foregroundStyle(Theme.parchment).lineLimit(compact ? 2 : 4)

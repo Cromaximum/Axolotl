@@ -147,6 +147,8 @@ struct IntroCard: Hashable {
     let hero: LicensedImage?
     let textAttribution: Attribution
     var placement: CardPlacement = .single
+    /// Short fact sheet shown on the board instead of the lead and "Did you know?" box.
+    var profile: SpeciesProfile? = nil
 }
 
 struct FactCard: Hashable {

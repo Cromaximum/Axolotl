@@ -142,16 +142,8 @@ enum FactExtractor {
     /// changes their text (D-011).
     static func score(_ sentence: String) -> Double? {
         let length = sentence.count
-        guard (60...230).contains(length) else { return nil }
+        guard (60...230).contains(length), isStandalone(sentence) else { return nil }
         let lower = sentence.lowercased()
-        if danglingOpeners.contains(where: { lower.hasPrefix($0) }) { return nil }
-        guard sentence.first.map({ $0.isUppercase || $0.isNumber }) == true else { return nil }
-        guard sentence.last.map({ ".!".contains($0) }) == true else { return nil }
-        if sentence.contains("[") || sentence.contains("{") || sentence.contains("^") { return nil }
-        if sentence.filter({ $0 == "(" }).count > 1 { return nil }
-        if referenceMarkers.contains(where: { lower.contains($0) }) { return nil }
-        if taxonomyPhrases.contains(where: { lower.contains($0) }) { return nil }
-        if isListLike(sentence) { return nil }
 
         var score = 0.0
         if sentence.rangeOfCharacter(from: .decimalDigits) != nil { score += 1.5 } // sizes, speeds, ages
@@ -165,6 +157,20 @@ enum FactExtractor {
         if hedges.contains(where: { lower.contains($0) }) { score -= 0.75 }
         if (90...170).contains(length) { score += 0.5 } // fits a card comfortably
         return score
+    }
+
+    /// Reads on its own: no context-dependent opener, citation residue, taxonomy restatement or
+    /// list, and a whole sentence. Length is up to the caller.
+    static func isStandalone(_ sentence: String) -> Bool {
+        let lower = sentence.lowercased()
+        if danglingOpeners.contains(where: { lower.hasPrefix($0) }) { return false }
+        guard sentence.first.map({ $0.isUppercase || $0.isNumber }) == true else { return false }
+        guard sentence.last.map({ ".!".contains($0) }) == true else { return false }
+        if sentence.contains("[") || sentence.contains("{") || sentence.contains("^") { return false }
+        if sentence.filter({ $0 == "(" }).count > 1 { return false }
+        if referenceMarkers.contains(where: { lower.contains($0) }) { return false }
+        if taxonomyPhrases.contains(where: { lower.contains($0) }) { return false }
+        return !isListLike(sentence)
     }
 
     /// Enumerations ("a, b, c, d and e") and anything introduced by a colon read badly on a card.

@@ -44,9 +44,12 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Models/Taxon.swift` | `Taxon` tree node, `Species`, `ConservationStatus`, `SpeciesEntry` (species + lineage), tree queries, `TaxonomyLoader`. |
 | `Models/Achievement.swift` | `Achievement` (kind: overall, a tree node, or an IUCN status; name from the taxonomy or the status label; bundled group size; `group` for sectioning) and `AchievementProgress` (met count, reached targets = tier, next target). |
 | `Models/FeedCard.swift` | `Attribution`, `LicensedImage`, `FeedCard` enum (`intro` / `fact` / `photo`) and card payloads. |
-| `Services/WikiClient.swift` | Raw HTTP to Wikipedia REST (summary) and Action API (plain-text extract, article images with `extmetadata`). |
+| `Models/SpeciesProfile.swift` | `SpeciesProfile`: the intro fact sheet rows (lives in, eats, length/height/wingspan/size, weight), each tagged Wikidata or Wikipedia; `Attribution.wikidata(itemID:)`. |
+| `Services/WikiClient.swift` | Raw HTTP to Wikipedia REST (summary, incl. the article's Wikidata item) and Action API (plain-text extract, article images with `extmetadata`). |
+| `Services/WikidataClient.swift` | Raw HTTP to Wikidata `wbgetentities`: fact-sheet statements (P9714, P183, P1034, P2043, P2048, P2050, P2067) and English labels of the items they name. |
+| `Services/SpeciesProfileBuilder.swift` | Pure: Wikidata statements (+ the article's sections) → `SpeciesProfile`. Up to three places/foods, adult min–max quantities with unit symbols, and one verbatim sentence of at most 90 characters from the matching Wikipedia section when Wikidata has nothing. |
 | `Services/SpeciesContent.swift` | `SpeciesContent` value type, `SpeciesContentProvider` protocol, `WikipediaContentProvider` (live fetch only, client injected). `.shared` is deprecated and still used by onboarding tiles and the detail sheet until W3 switches them to the environment provider; delete it then. |
-| `Services/CachingContentProvider.swift` | Decorator over any `SpeciesContentProvider`: memory cache, disk cache (`Caches/species-content.v1/`), one shared in-flight fetch per species, stale copy when offline. |
+| `Services/CachingContentProvider.swift` | Decorator over any `SpeciesContentProvider`: memory cache, disk cache (`Caches/species-content.v3/`), one shared in-flight fetch per species, stale copy when offline. |
 | `Services/ContentCachePolicy.swift` | Pure rules for that cache: 7-day freshness, schema, file names (FNV-1a hash of the title), outdated folders. |
 | `Services/ImagePipeline.swift` | `ImageLoading` protocol and `ImagePipeline` actor: fetch through the injected session, downsample with ImageIO off the main thread, cost-limited memory cache of decoded images, shared fetches, prefetch. |
 | `Services/ImageSizing.swift` | Pure sizing: full-screen decode size, Wikimedia thumbnail width (1920, a standard Wikimedia step), cache keys and costs. |
@@ -64,7 +67,7 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Services/AchievementTiers.swift` | Pure: tier targets for a group size. Ladder 1, 5, 10, 25, 50, then every 50; starts at about a twentieth of the group; adds the group size as a "met them all" target unless a ladder value is within 20%; never runs out. |
 | `Services/AchievementBoard.swift` | Pure: the achievements the bundled tree offers (every species; each phylum, class and order with 3+ bundled species; each IUCN status from EX to LC that some bundled species has), progress from a list of met `SpeciesEntry`s (counted by lineage node id, so live species count through their bundled branches), sections, newly reached tiers, unseen tiers. |
 | `Services/MetCollection.swift` | Pure: resolves stored Met records to `SpeciesEntry` values (bundled data wins; live records only for species not in the tree), then filters (All / Saved / Liked / Extinct) and sorts (recently seen, first met, name, group). |
-| `Services/FeedComposer.swift` | Turns one species' content into intro + up to 8 alternating photo/fact cards. |
+| `Services/FeedComposer.swift` | Turns one species' content into intro + up to 4 photo/fact cards; every image once per set; with a fact sheet, every fact gets its own card. |
 | `Features/Feed/FeedViewModel.swift` | `@MainActor` feed state: restart on filter change, up to two species loads in flight, image prefetch for the next 3 cards, dwell tracking, retry up to 4 species per load, stamps `CardPlacement` on each set, `FeedNotice` (no matches / offline). Logs time to first card and a signpost per species fetch (`os`, category `feed`). |
 | `Features/Feed/FeedView.swift` | Paging `ScrollView` with full-screen pages (content padded above the tab bar) and a scroll transition. Tracks the card on screen with `scrollPosition(id:)`, which drives dwell, prefetch and species met; a restart scrolls back to the top. Pull to refresh, like (heart or double-tap) and save (rail or long-press) with haptics and a toast, VoiceOver actions per card, opens the detail sheet. |
 | `Features/Feed/FeedStatusView.swift` | The page after the last card: `BoardPlaceholder` while loading, or a board for the `FeedNotice`: no matches (points to the Tree tab) or offline (with Try again). |
@@ -72,7 +75,7 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Features/Feed/CardContext.swift` | Position in set, saved state and Save / Info callbacks passed to each card. |
 | `Features/Feed/IntroCardView.swift` | Full-bleed hero with the zoo-board sign at the bottom. |
 | `Features/Feed/PhotoCardView.swift` | Edge-to-edge photo, name pill, action rail; media tag + scrim caption for extinct species. |
-| `Features/Feed/FactCardView.swift` | Photo on top, fact board below with the stand-out number (`FactFormatting`). |
+| `Features/Feed/FactCardView.swift` | Photo on top, fact board below; the first number and its word are highlighted in the sentence (`FactFormatting`). |
 | `Features/Components/FullBleedImage.swift` | Full-bleed photo (top-anchored fill, or shown whole over blur when wide), drawn from the injected `ImageLoading` through `RemoteImageModel`; `ShimmerFill` while loading. |
 | `Features/Components/RemoteImageModel.swift` | `@MainActor` state for one remote image; shows a prefetched image without a placeholder flash. |
 | `Features/Components/AppEnvironment.swift` | `imageLoader` and `speciesContentProvider` environment values. Defaults fail and log a fault instead of reaching the network. |
@@ -80,6 +83,7 @@ AnimalScrollerTests/        XCTest unit tests for the pure-logic services
 | `Resources/Fonts/` | Fredoka and Nunito Sans `.ttf` files with their OFL licences and a README. Registered under `UIAppFonts` in `project.yml`. |
 | `Features/Components/SpeciesThumbnail.swift` | A species' hero photo cropped into a small tile (Met grid, onboarding tiles), decoded at tile size; decorative. |
 | `Features/Components/SpeciesThumbnailModel.swift` | `@MainActor` state for one thumbnail: content from the injected provider → `HeroImage` → image loader at `ImageSizing.maxPixelSize`. |
+| `Features/Components/FactSheet.swift` | The intro board's fact sheet: label/value grid from a `SpeciesProfile`, with a sources line. |
 | `Features/Components/BoardPanel.swift` | `BoardPanel` framed sign view (moved from `Theme.swift`). |
 | `Features/Components/BoardPlaceholder.swift` | `ShimmerFill` (loading fill, static under Reduce Motion) and `BoardPlaceholder` (the intro board drawn as empty bars). |
 | `Features/Detail/SpeciesDetailView.swift` | Species detail sheet in sections: header photo with credit, names, quick facts, Did you know?, About, More facts, "Read the full article on Wikipedia", Sources, Classification. Try again on failure. |

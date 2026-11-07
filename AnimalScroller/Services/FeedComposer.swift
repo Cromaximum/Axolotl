@@ -1,15 +1,18 @@
 import Foundation
 
-/// Turns one species' content into a "species set": an intro board followed by
-/// up to 8 photos and facts, alternating so two facts never sit back to back and no more
-/// than two photos follow each other.
+/// Turns one species' content into a "species set": an intro board followed by up to
+/// `maxItems` photos and facts. Two facts never sit back to back, no more than two photos follow
+/// each other, and no image appears twice in a set (Maxwell's feedback, 2026-11-06).
 enum FeedComposer {
-    static let maxItems = 8
-    /// Never more than this many photo cards back to back (W4: no three photos in a row).
+    /// Cards after the intro. Kept short so the feed moves on to the next animal quickly.
+    static let maxItems = 4
+    /// Never more than this many photo cards back to back (no three photos in a row).
     static let maxPhotoRun = 2
 
     private enum Slot {
-        case photo(LicensedImage), fact(FactExtractor.Fact)
+        case photo(LicensedImage)
+        /// A fact with its own photo above the board (D-010), never shown elsewhere in the set.
+        case fact(FactExtractor.Fact, backdrop: LicensedImage)
 
         var isFact: Bool {
             if case .fact = self { return true }
@@ -37,14 +40,18 @@ enum FeedComposer {
         let photos = usable.filter { $0 != hero }
 
         let textCredit = Attribution.wikipediaText(title: content.title, pageURL: content.pageURL)
-        // The lead is already on the intro board, so drop facts that repeat it.
+        let profile = content.profile.flatMap { $0.rows.isEmpty ? nil : $0 }
+        let sheetTexts = Set(profile?.rows.map(\.text) ?? [])
+        // Drop facts that repeat the lead or a fact-sheet row.
         var facts = content.facts.filter {
             $0.text != content.lead && !FactExtractor.isNearDuplicate($0.text, content.lead)
+                && !sheetTexts.contains($0.text)
         }
-        // The intro board's "Did you know?" box gets the first fact.
-        let headlineFact = facts.isEmpty ? nil : facts.removeFirst()
+        // With a fact sheet the intro shows the sheet, and every fact gets its own card.
+        // Without one, the intro board's "Did you know?" box gets the first fact as before.
+        let headlineFact = (profile != nil || facts.isEmpty) ? nil : facts.removeFirst()
 
-        var cards: [FeedCard] = [.intro(IntroCard(
+        var intro = IntroCard(
             entry: entry,
             sequence: sequence,
             tagline: content.tagline,
@@ -52,78 +59,53 @@ enum FeedComposer {
             didYouKnow: headlineFact?.text,
             hero: hero,
             textAttribution: textCredit
-        ))]
+        )
+        intro.profile = profile
+        var cards: [FeedCard] = [.intro(intro)]
 
         let plan = plan(photos: photos, facts: facts)
-        let backdrops = factBackdrops(plan: plan, hero: hero, photos: photos)
         let factTotal = plan.filter(\.isFact).count
         var factIndex = 0
-        for (position, slot) in plan.enumerated() {
+        for slot in plan {
             switch slot {
             case .photo(let image):
                 cards.append(.photo(PhotoCard(entry: entry, sequence: sequence, image: image)))
-            case .fact(let fact):
+            case .fact(let fact, let backdrop):
                 factIndex += 1
                 cards.append(.fact(FactCard(entry: entry, sequence: sequence, index: factIndex,
                                             total: factTotal, topic: fact.topic, text: fact.text,
-                                            attribution: textCredit, image: backdrops[position])))
+                                            attribution: textCredit, image: backdrop)))
             }
         }
         return cards
     }
 
-    /// Photo, fact, photo, fact... Two facts never touch, and once facts run out at most
-    /// `maxPhotoRun` photos follow each other. Photos that don't fit become fact backdrops.
+    /// Every photo is used once: as a photo card or above one fact. k facts need k backdrops and
+    /// k - 1 photo cards between them, so spare photos cap the number of fact cards. Any photo
+    /// left over opens the set (so it starts on a photo) and then closes it, at most
+    /// `maxPhotoRun` in a row, within `maxItems`.
     private static func plan(photos: [LicensedImage], facts: [FactExtractor.Fact]) -> [Slot] {
-        var photos = photos[...]
-        var facts = facts[...]
+        let maxFactsByLength = (maxItems + 1) / 2      // fact, photo, fact... fits in maxItems
+        let factCount = min(facts.count, (photos.count + 1) / 2, maxFactsByLength)
+        var images = photos[...]
         var plan: [Slot] = []
-        var lastWasFact = false
-        var photoRun = 0
-        while plan.count < maxItems {
-            let wantPhoto = lastWasFact || plan.isEmpty   // start on a photo when there is one
-            if wantPhoto, let photo = photos.popFirst() {
-                plan.append(.photo(photo)); photoRun += 1; lastWasFact = false
-            } else if !lastWasFact, let fact = facts.popFirst() {
-                plan.append(.fact(fact)); photoRun = 0; lastWasFact = true
-            } else if !lastWasFact, photoRun < maxPhotoRun, let photo = photos.popFirst() {
-                plan.append(.photo(photo)); photoRun += 1
-            } else {
-                break
-            }
+
+        // Lead with a photo card when there is a spare one beyond what the facts need.
+        let needed = factCount == 0 ? 0 : 2 * factCount - 1
+        if images.count > needed, needed + 1 <= maxItems, let first = images.popFirst() {
+            plan.append(.photo(first))
+        }
+        for (i, fact) in facts.prefix(factCount).enumerated() {
+            if i > 0, let between = images.popFirst() { plan.append(.photo(between)) }
+            guard let backdrop = images.popFirst() else { break }
+            plan.append(.fact(fact, backdrop: backdrop))
+        }
+        // Trailing photos: never more than maxPhotoRun in a row, counting a leading run.
+        var run = plan.reversed().prefix { !$0.isFact }.count
+        while plan.count < maxItems, run < maxPhotoRun, let photo = images.popFirst() {
+            plan.append(.photo(photo))
+            run += 1
         }
         return plan
-    }
-
-    /// Photo kept above each fact board (D-010), keyed by plan position. Prefers the hero and
-    /// photos that got no card of their own, spreads them out, and never repeats the photo of
-    /// the card right before or after.
-    private static func factBackdrops(plan: [Slot], hero: LicensedImage?,
-                                      photos: [LicensedImage]) -> [Int: LicensedImage] {
-        let placed = plan.compactMap { slot -> LicensedImage? in
-            if case .photo(let image) = slot { return image }
-            return nil
-        }
-        let placedSet = Set(placed)
-        let pool = [hero].compactMap { $0 } + photos.filter { !placedSet.contains($0) } + placed
-        var uses: [LicensedImage: Int] = [:]
-        var out: [Int: LicensedImage] = [:]
-        for (position, slot) in plan.enumerated() {
-            guard case .fact = slot else { continue }
-            let neighbours = Set([position - 1, position + 1].compactMap { i -> LicensedImage? in
-                guard plan.indices.contains(i), case .photo(let image) = plan[i] else { return nil }
-                return image
-            })
-            let candidates = pool.filter { !neighbours.contains($0) }
-            let choice = (candidates.isEmpty ? pool : candidates)
-                .enumerated()
-                .min { (uses[$0.element, default: 0], $0.offset) < (uses[$1.element, default: 0], $1.offset) }?
-                .element
-            if let choice {
-                uses[choice, default: 0] += 1
-                out[position] = choice
-            }
-        }
-        return out
     }
 }
