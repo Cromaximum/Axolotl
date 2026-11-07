@@ -5,6 +5,7 @@ struct AnimalScrollerApp: App {
     @State private var preferences = PreferencesStore()
     @State private var met = MetStore()
     @State private var likes = LikesStore()
+    @State private var achievements = AchievementsStore()
     private let taxonomy = TaxonomyLoader.loadBundled()
     /// The live species catalogue (D-012). One instance for the app, injected down to the feed.
     private let catalog: SpeciesCatalog = LiveSpeciesCatalog()
@@ -14,7 +15,7 @@ struct AnimalScrollerApp: App {
     private let contentProvider: SpeciesContentProvider
 
     init() {
-        // Photos are never written to the phone's storage (Maxwell, 2026-11-06, D-016). HTTP
+        // Photos are never written to the phone's storage (Maxwell, 2026-11-06, D-020). HTTP
         // responses are cached in memory only, decoded photos live in the image pipeline's memory
         // cache, and the disk cache from earlier builds (which held image bytes) is wiped on launch.
         // Species text (no image files) is still cached on disk by CachingContentProvider.
@@ -42,6 +43,7 @@ struct AnimalScrollerApp: App {
                 .environment(preferences)
                 .environment(met)
                 .environment(likes)
+                .environment(achievements)
                 .environment(\.imageLoader, images)
                 .environment(\.speciesContentProvider, contentProvider)
                 .preferredColorScheme(.dark)

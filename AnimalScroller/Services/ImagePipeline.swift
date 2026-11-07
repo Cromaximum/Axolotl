@@ -15,7 +15,7 @@ protocol ImageLoading: Sendable {
     func prefetch(_ urls: [URL], maxPixelSize: Int) async
 }
 
-/// Fetches images through an injected `URLSession` (memory-only cache: photos never touch disk, D-016),
+/// Fetches images through an injected `URLSession` (memory-only cache: photos never touch disk, D-020),
 /// downsamples them off the main thread with ImageIO, keeps decoded images in a cost-limited
 /// memory cache that iOS trims under memory pressure, and shares one fetch per image.
 actor ImagePipeline: ImageLoading {

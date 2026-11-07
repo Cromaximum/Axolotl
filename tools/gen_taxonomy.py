@@ -22,10 +22,14 @@ Usage:
     python3 tools/gen_taxonomy.py --check        # exits 1 if taxonomy.json is out of date
     python3 tools/gen_taxonomy.py --lint         # offline: species.txt, taxonomy.json and
                                                  # taxonomy-sources.json agree (runs in CI)
+    python3 tools/gen_taxonomy.py --screen FILE  # which titles in FILE meet the bar for new
+                                                 # species (D-019); edits nothing
 
 Every listed title must be a single species (Wikidata P105 = species or subspecies), never a genus or wider
 group (AGENTS.md rule 1). Titles whose article has no free lead image or is shorter than
-MIN_ARTICLE_LENGTH are reported as warnings: they make thin feed sets.
+MIN_ARTICLE_LENGTH are reported as warnings: they make thin feed sets. New titles should pass
+--screen first (longer article, free lead image, MIN_SHARP_PHOTOS sharp photos under a mirror of
+the app's ContentPolicy/PhotoQuality rules).
 
 Responses are cached in tools/.cache/ (git-ignored) so re-runs don't hit the APIs again.
 Delete that folder to refresh from live data.
@@ -74,6 +78,10 @@ FOSSIL_TAXON = ("Q23038290", "fossil taxon")
 SPECIES_RANK = ("Q7432", "species")
 SUBSPECIES_RANK = ("Q68947", "subspecies")  # narrower than a species, still one specific animal
 MIN_ARTICLE_LENGTH = 5000  # same bar as LiveCatalogRules.minArticleLength in the app
+# Bar for adding a species (--screen): a solid article to pull facts from, and enough sharp
+# photos that the app's photo rules (ContentPolicy, PR #24) leave a real set to show.
+SCREEN_MIN_ARTICLE_LENGTH = 12000
+APP_IMAGE_LIMIT = 40  # first 40 files only; the app now reads 80 (WikiClient.images), so this is stricter
 ANIMALIA = ("Q729", "animal")  # P225 of this item is also checked to be "Animalia"
 
 _last_request = 0.0
@@ -245,6 +253,161 @@ def read_species_list():
     return titles
 
 
+# ---- Photo check: a Python port of ContentPolicy.licensedImages (keep the two in step) ----
+
+ALLOWED_MIMES = {"image/jpeg", "image/png", "image/webp"}
+# Junk rules as in PR #24 (ContentPolicy.isJunk): phrases anywhere in the lower-cased title with
+# "_" read as a space, whole-word tokens, and Commons category tokens.
+JUNK_PHRASES = [
+    "distribution", "status iucn", "phylogen", "cladogram", "skull comparison", "size comparison",
+    "commons-logo", "wikispecies", "wiktionary", "red pencil", "question book", "ambox",
+    "range map", "life cycle", "lifecycle", "anatomy", "x-ray", "ct scan", "diagram", "scale bar",
+]
+JUNK_TOKENS = {
+    "map", "maps", "range", "logo", "icon", "flag", "stamp", "stamps", "coin", "coins", "banknote",
+    "symbol", "chart", "graph", "infographic", "xray", "radiograph", "micrograph",
+}
+JUNK_CATEGORY_TOKENS = {
+    "map", "maps", "diagram", "diagrams", "cladogram", "cladograms", "chart", "charts", "graphs",
+    "banknote", "banknotes", "stamp", "stamps", "coin", "coins", "logo", "logos", "icon", "icons",
+    "flag", "flags", "infographics", "screenshots", "radiographs", "micrographs",
+}
+MIN_LONG_SIDE, MIN_SHORT_SIDE, MAX_ASPECT = 640, 400, 2.6   # hard floor
+SHARP_LONG_SIDE, SHARP_SHORT_SIDE = 1200, 800                # "sharp" (PR #24)
+MIN_SHARP_PHOTOS = 3  # "a few" photos; with 2+ sharp ones the app drops the soft ones, so count sharp only
+
+
+def allowed_license(short):
+    """ContentPolicy.isAllowedLicense: PD, CC0, CC BY, CC BY-SA; never NC, ND or fair use."""
+    name = (short or "").strip().lower()
+    if not name:
+        return False
+    if "-nc" in name or " nc" in name or "noncommercial" in name:
+        return False
+    if "-nd" in name or " nd" in name or "noderiv" in name:
+        return False
+    if "fair use" in name or "non-free" in name:
+        return False
+    if name == "cc0" or name.startswith("cc0 ") or "cc zero" in name:
+        return True
+    if name.startswith("public domain") or name == "pd" or name.startswith(("pd-", "pd ")):
+        return True
+    return name.startswith(("cc by", "cc-by"))
+
+
+def is_junk(title, categories):
+    t = title.lower().replace("_", " ")
+    if any(p in t for p in JUNK_PHRASES):
+        return True
+    if JUNK_TOKENS & set(re.split(r"[^a-z0-9]+", t)):
+        return True
+    cats = set(re.split(r"[^a-z0-9]+", (categories or "").lower()))
+    return bool(JUNK_CATEGORY_TOKENS & cats)
+
+
+def photo_grade(info):
+    """None if the app would never show the file, else "sharp" or "soft". Uses the original
+    width and height (never thumbwidth, PR #24)."""
+    w, h = info.get("width") or 0, info.get("height") or 0
+    if info.get("mime") not in ALLOWED_MIMES or not allowed_license(info.get("license")):
+        return None
+    if is_junk(info["title"], info.get("categories")) or not w or not h:
+        return None
+    long_side, short_side = max(w, h), min(w, h)
+    if long_side < MIN_LONG_SIDE or short_side < MIN_SHORT_SIDE or long_side / short_side > MAX_ASPECT:
+        return None
+    return "sharp" if long_side >= SHARP_LONG_SIDE and short_side >= SHARP_SHORT_SIDE else "soft"
+
+
+def article_files(titles):
+    """Canonical article title -> its first APP_IMAGE_LIMIT file titles, sorted like the app's
+    generator=images query."""
+    out = {t: [] for t in titles}
+    for batch in chunks(titles, 50):
+        cont = {}
+        while True:
+            data = fetch(ENWIKI_API, dict({"action": "query", "titles": "|".join(batch),
+                                           "prop": "images", "imlimit": "max"}, **cont))
+            for page in data.get("query", {}).get("pages", []):
+                out.setdefault(page["title"], []).extend(i["title"] for i in page.get("images", []))
+            if "continue" not in data:
+                break
+            cont = {k: v for k, v in data["continue"].items()}
+    return {t: sorted(set(v))[:APP_IMAGE_LIMIT] for t, v in out.items()}
+
+
+def file_infos(files):
+    """File title -> {title, mime, width, height, license} from Commons/enwiki imageinfo."""
+    out = {}
+    for batch in chunks(sorted(set(files)), 50):
+        data = fetch(ENWIKI_API, {"action": "query", "titles": "|".join(batch), "prop": "imageinfo",
+                                  "iiprop": "mime|size|extmetadata",
+                                  "iiextmetadatafilter": "LicenseShortName|Categories"})
+        q = data.get("query", {})
+        back = {n["to"]: n["from"] for n in q.get("normalized", [])}
+        for page in q.get("pages", []):
+            ii = (page.get("imageinfo") or [{}])[0]
+            meta = ii.get("extmetadata", {})
+            lic = meta.get("LicenseShortName", {}).get("value")
+            cats = meta.get("Categories", {}).get("value")
+            info = {"title": page["title"], "mime": ii.get("mime"), "width": ii.get("width"),
+                    "height": ii.get("height"), "license": lic if isinstance(lic, str) else None,
+                    "categories": cats if isinstance(cats, str) else ""}
+            out[page["title"]] = info
+            out[back.get(page["title"], page["title"])] = info
+    return out
+
+
+def sharp_photo_counts(titles):
+    """Canonical article title -> number of sharp photos the app would show from it."""
+    files = article_files(titles)
+    infos = file_infos([f for fs in files.values() for f in fs])
+    return {t: sum(1 for f in fs if f in infos and photo_grade(infos[f]) == "sharp")
+            for t, fs in files.items()}
+
+
+def screen(path):
+    """Report which candidate titles meet the bar for species.txt. Prints passing titles to
+    stdout (ready to paste) and the reason for each rejection to stderr. Never edits files."""
+    with open(path) as f:
+        cands = [l.strip() for l in f if l.strip() and not l.startswith("#")]
+    listed = read_species_list()
+    page_info = {}
+    have = resolve_titles(listed, {})
+    have_articles = {final for final, _ in have.values()}
+    resolved = resolve_titles(cands, page_info)
+    entities = get_entities([q for _, q in resolved.values()])
+    finals = sorted({resolved[c][0] for c in cands if c in resolved})
+    photos = sharp_photo_counts(finals)
+    seen = set()
+    for c in cands:
+        if c not in resolved:
+            print(f"reject {c}: no article / Wikidata item", file=sys.stderr); continue
+        final, qid = resolved[c]
+        ent = entities.get(qid, {})
+        info = page_info.get(final, {})
+        why = None
+        if final in have_articles:
+            why = "already listed"
+        elif final in seen:
+            why = "duplicate candidate"
+        elif not {SPECIES_RANK[0], SUBSPECIES_RANK[0]} & set(best_values(ent, "P105")):
+            why = "not a single species on Wikidata"
+        elif not best_values(ent, "P225"):
+            why = "no P225 scientific name"
+        elif not info.get("freeImage"):
+            why = "no free lead image"
+        elif info.get("length", 0) < SCREEN_MIN_ARTICLE_LENGTH:
+            why = f"article too short ({info.get('length', 0)} bytes)"
+        elif photos.get(final, 0) < MIN_SHARP_PHOTOS:
+            why = f"only {photos.get(final, 0)} sharp photos"
+        if why:
+            print(f"reject {c} -> {final}: {why}", file=sys.stderr)
+            continue
+        seen.add(final)
+        print(f"{c}\t{final}\t{info.get('length')}\t{photos[final]}")
+
+
 def lint():
     """Offline consistency check for CI: no network, no cache needed."""
     titles = read_species_list()
@@ -285,6 +448,9 @@ def lint():
 def main():
     if "--lint" in sys.argv:
         lint()
+        return
+    if "--screen" in sys.argv:
+        screen(sys.argv[sys.argv.index("--screen") + 1])
         return
     check = "--check" in sys.argv
     titles = read_species_list()

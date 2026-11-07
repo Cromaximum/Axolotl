@@ -21,7 +21,8 @@ format of an endless vertical feed. Every item is about **one specific species**
 
 ### Tabs
 
-**Feed**, **Tree** (the tree-of-life filters) and **Met** (the species collection).
+**Feed**, **Tree** (the tree-of-life filters), **Met** (the species collection) and **Awards**
+(achievements for species met).
 
 ### Tree
 
@@ -41,6 +42,11 @@ format of an endless vertical feed. Every item is about **one specific species**
 - Layout rule (D-010): the animal gets the frame. Photos run edge to edge; text only sits in the
   bottom zoo-board panel or on a lower-third scrim; chips hug the top and bottom edges. Tall
   photos are top-anchored so the head stays high; wide photos are shown whole over a blurred copy.
+- Photo quality: each species' photos are ranked best first and shown in that order. Commons
+  Featured, Quality and Valued images, big originals, portrait frames that fill the screen and
+  close-ups of the animal come first; habitat shots, specimens and soft files come last or are
+  dropped. Photos load at a resolution that stays sharp on the largest iPhone. Rules in
+  [content-and-licensing.md](content-and-licensing.md#photo-ranking-photoquality).
 - Content comes in **species sets**. Each set is:
   1. **Intro card**: the hero photo full-bleed, with a zoo-board sign at the bottom: common name,
      scientific name, taxonomic path, a "Did you know?" box (or the lead if there are no facts),
@@ -91,6 +97,24 @@ Extinct. Sort: recently seen (default), first met, name A to Z, or group (class,
 show a heart when liked and a bookmark when saved. Tap any tile, including species from the full
 catalogue, for the detail sheet. Persisted across launches; names are looked up from the current
 species data when shown, so updated names appear on old saves.
+
+### Awards (achievements)
+
+Tiered goals for the species you have met (every species in Met counts, bundled and from the
+full catalogue). One achievement for all species, one per conservation status from Extinct to
+Least Concern, and one per phylum, class and order in the tree that has at least 3 bundled
+species. A species counts towards every branch above it (a bird counts for Bird, Reptile and
+Chordate, because the tree nests birds in reptiles). Names are the tree's names, never written for
+the badge.
+
+Tier targets come from one ladder, 1, 5, 10, 25, 50, then every 50 (100, 150, 200, ...), scaled
+to the group: the first target is about a twentieth of the group's bundled species, and the
+group's size is added as a "met them all" target unless a ladder value is within 20% of it. For
+the 1,090-species list (254 birds) that gives birds 25, 50, 100, 150, 200, 250 and so on. Tiers never run out,
+because the full catalogue has more species than the bundled list. Badges are an SF Symbol
+rosette with the tier number (bronze, silver, gold, then amber), no artwork. Reaching a tier
+shows a short banner at the top for 3 seconds (tap to dismiss); the Awards tab badge counts tiers
+you haven't looked at yet, and those rows are marked NEW until the next visit.
 
 ### Choosing the next species
 

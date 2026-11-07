@@ -55,14 +55,18 @@ struct WikipediaContentProvider: SpeciesContentProvider {
         let text = (try? await article) ?? ""
         let infos = (try? await imageInfos) ?? []
 
+        let leadImage = s.originalimage.map { Self.fileTitle(fromUploadURL: $0.source) }
         return SpeciesContent(
             title: s.title,
             tagline: s.description,
             lead: Self.lead(from: s.extract),
             pageURL: s.pageURL,
-            leadImageFileTitle: s.originalimage.map { Self.fileTitle(fromUploadURL: $0.source) },
+            leadImageFileTitle: leadImage,
             facts: FactExtractor.facts(from: text),
-            images: ContentPolicy.licensedImages(from: infos)
+            // Best photos first (PhotoQuality); the feed uses them in this order.
+            images: ContentPolicy.licensedImages(
+                from: infos, leadFileTitle: leadImage,
+                subjectNames: [species.scientificName, species.commonName, s.title])
         )
     }
 

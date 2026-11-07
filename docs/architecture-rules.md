@@ -5,8 +5,9 @@ the map of what exists today. This file is the law for what may be added. The go
 still reads as one design after many agents from different people have worked on it, instead of
 turning into a pile of one-off patches ("AI spaghetti").
 
-Every change goes through the [architecture review gate](#the-review-gate) (D-014). If a rule here
-blocks something you need, propose a change to this file in your design note. Don't work around it.
+The [architecture review gate](#the-review-gate) (D-014) is **suspended** since 2026-11-06: there
+is no architect sign-off, so every agent applies these rules itself. If a rule here blocks
+something you need, change this file in the same PR and say why. Don't work around it.
 
 ## Layers
 
@@ -131,7 +132,11 @@ These are review triggers, not hard failures. Going over one means the design no
 
 ## The review gate
 
-Decision D-014 (Maxwell Rhinelander, 2026-11-06). It applies to every agent and every person,
+> **Suspended (Maxwell Rhinelander, 2026-11-06).** The gate below is not in force. Agents don't
+> wait for a design approval or an `Architecture review: Approved` marker, and the PR author
+> merges once CI is green. The process is kept here in case it is turned back on.
+
+Decision D-014 (Maxwell Rhinelander, 2026-11-06). It applied to every agent and every person,
 including collaborators' agents.
 
 ### 1. Design before code

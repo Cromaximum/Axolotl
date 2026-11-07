@@ -12,6 +12,12 @@ final class TaxonomyIndexTests: XCTestCase {
         XCTAssertEqual(index.speciesCount("missing"), 0)
     }
 
+    func testTaxaByRankAndAllEntriesInTreeOrder() {
+        XCTAssertEqual(index.taxa(rank: .class).map(\.id), ["mammalia", "amphibia"])
+        XCTAssertEqual(index.taxa(rank: .family).map(\.id), ["felidae", "canidae", "ambystomatidae"])
+        XCTAssertEqual(index.allEntries.map(\.id), ["Snow leopard", "Smilodon fatalis", "Fennec fox", "Axolotl"])
+    }
+
     func testPathAndLookup() {
         XCTAssertEqual(index.path(to: "felidae").map(\.id), ["animalia", "mammalia", "carnivora", "felidae"])
         XCTAssertEqual(index.path(to: "missing"), [])

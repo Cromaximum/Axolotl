@@ -115,11 +115,53 @@ It prefers sentences with numbers and units (sizes, weights, ages) and marks dow
 `ContentPolicy.licensedImages` also drops:
 
 - Non-photo MIME types (only JPEG, PNG, WebP).
-- Images narrower than 640 px (Commons scales to at most 1080 px wide, so narrower means a small
-  original), with a short side under 400 px, or with an aspect ratio beyond 2.6:1 (panoramas
-  and strips).
-- "Junk" files whose names suggest maps, range maps, status icons, logos, stamps, coins,
-  charts, cladograms, size comparisons, and Wikimedia UI icons.
+- Originals whose long side is under 640 px or short side under 400 px, or with an aspect ratio
+  beyond 2.6:1 (panoramas and strips). Sizes are always the **original file's** pixels: Commons
+  reports the requested thumbnail width even when it serves a smaller original, which used to
+  let 600 px files through.
+- "Soft" originals (long side under 1200 px or short side under 800 px) whenever the species
+  has at least 2 photos above that bar. With fewer, the soft ones stay, ranked last.
+- "Junk" files: names with maps, range maps, distribution, status icons, logos, stamps, coins,
+  banknotes, charts, graphs, cladograms, diagrams, anatomy, x-rays, size comparisons or
+  Wikimedia UI icons, and files in Commons categories for maps, diagrams, cladograms, charts,
+  banknotes, stamps, coins, logos, icons, flags or screenshots. Short words ("map", "range",
+  "graph") match whole words only, so "Orange-bellied parrot" and "photograph" are kept.
+
+Commons categories also mark artwork: files in categories for illustrations, drawings,
+paintings, woodcuts, engravings, lithographs, paleoart, restorations, reconstructions,
+sculptures or statues count as artwork (so living species never show them).
+
+### Photo ranking (`PhotoQuality`)
+
+The photos that pass are ranked best first, and the feed uses them in that order (after the
+article's lead image as the intro hero). A score only reorders allowed photos; it never lets in
+anything the rules above drop. What raises a photo:
+
+- Commons community assessments: Featured (+40), Quality (+25), Valued (+15), Picture of the
+  Day/Year (+10).
+- Resolution: up to +30 as the short side grows from 800 to 3000 px.
+- Shape: portrait (+25) and near-square (+15) photos fill the phone screen; wide photos (shown
+  whole over a blur) get 0 and panoramas -15.
+- Close-up signals in the file name, description or categories ("head", "portrait",
+  "close-up", "looking at viewer", "front view", "macro"): +15.
+- The species' scientific name, genus or common name in the file name, description or
+  categories: +15 (no mention while the file has categories: -10, usually a habitat shot).
+- The article's lead image: +20 (Wikipedia editors chose it).
+
+What lowers it: distant or context shots ("habitat", "landscape", "flock", "herd", "colony",
+"white background" cut-outs, eggs, tracks, droppings, trophies) -15; specimens ("skull",
+"skeleton", "taxidermy", "museum", "dead") -20; Commons problem categories (bad JPEG
+compression, blurry, watermark, YouTube stills, screenshots) -20; PNG -5. Words that are part
+of the species' own name never count ("Northern fur seal" is not a pelt).
+
+### Download size
+
+Wikimedia only serves standard thumbnail widths (others answer HTTP 400; see
+[Common thumbnail sizes](https://www.mediawiki.org/wiki/Common_thumbnail_sizes)). The app asks
+for 1920 px and uses Commons' 2x rendition (3840 px, or the original when it is smaller and
+under 15 MB) when a photo that fills the screen would otherwise be upscaled by more than about
+10% on the largest iPhone (1320 × 2868 px). Wide photos are shown across the screen's width,
+so 1920 px is always enough for them. `PhotoQuality.displayURL` makes the choice.
 
 ## Paleoart and reconstructions
 
@@ -132,7 +174,8 @@ Decision D-005. Rules:
 3. Always labelled "Artist reconstruction" on the card.
 4. Users can turn them off ("Show artist reconstructions").
 
-Artwork is detected by keywords in the file name and description (`ContentPolicy.isArtwork`).
+Artwork is detected by keywords in the file name and description, and by Commons categories
+(`ContentPolicy.isArtwork`).
 It is imperfect: when in doubt, treat an image as artwork.
 
 ## Wikimedia API etiquette
@@ -141,7 +184,7 @@ It is imperfect: when in doubt, treat an image as artwork.
   (https://meta.wikimedia.org/wiki/User-Agent_policy). The current value in `WikiClient` has a
   placeholder contact that must be replaced before release.
 - Cache sensibly and don't hammer the API: species text is cached on disk for 7 days; photos are
-  cached in memory only and never written to the phone (D-016).
+  cached in memory only and never written to the phone (D-020).
 
 ## Future content (not allowed yet)
 
