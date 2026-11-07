@@ -54,7 +54,12 @@ Template:
   a group name shared by other species ("Crab spider", "Horseshoe Crab", "Caveman" for Homo
   erectus) are left out by hand. Species listed before 2026-11-06 are kept even if they fall
   short.
-- Consequences: 729 of about 2,200 candidates passed. Vertebrates pass far more often than
+- Consequences: 729 of about 2,200 candidates passed in round 1 (2026-11-06) and 376 of about
+  3,400 in round 2 (2026-11-07, Maxwell: "we also need to continue expanding species"; aimed at
+  reptiles, amphibians, fish and invertebrates). In round 2 the article-length rule rejected about
+  2,000 candidates, mostly invertebrates. Lophius piscatorius ("Anglerfish"), Tachypleus gigas
+  ("Horseshoe Crab") and Merluccius merluccius ("Cornish Salmon") were dropped for the
+  group-name rule. Vertebrates pass far more often than
   invertebrates (short articles, few sharp photos), so the tree stays vertebrate-heavy. If
   `PhotoQuality` thresholds change, change the mirror in `gen_taxonomy.py` too.
 
@@ -185,7 +190,7 @@ Template:
 - Date: 2026-11-06
 - Decided by: Maxwell Rhinelander
 - Context: How big the species set must be before launch.
-- Decision: A few hundred species, each reviewed. Currently 1,090 (roster expansion, 2026-11-06; Maxwell asked to "expand the species roster", see D-019).
+- Decision: A few hundred species, each reviewed. Currently 1,466 (roster expansion, 2026-11-06 and 2026-11-07; Maxwell asked to "expand the species roster", see D-019).
 - Consequences: Needs a generation pipeline (likely Wikidata) plus human review.
 
 ## D-005 · Paleoart allowed for extinct species, reputable sources only, always labelled

@@ -683,6 +683,90 @@ Asian water monitor
 Nile monitor
 Perentie
 Lace monitor
+# Added 2026-11-07 (roster expansion round 2; passed gen_taxonomy.py --screen)
+Freshwater crocodile
+Siamese crocodile
+Morelet's crocodile
+New Guinea crocodile
+Philippine crocodile
+Broad-snouted caiman
+Cuvier's dwarf caiman
+Smooth-fronted caiman
+Red-footed tortoise
+Yellow-footed tortoise
+Angonoka tortoise
+Greek tortoise
+Central Asian tortoise
+Desert tortoise
+Pancake tortoise
+Common box turtle
+Wood turtle
+Spotted turtle
+European pond turtle
+Blanding's turtle
+Diamondback terrapin
+Sternotherus odoratus
+Eastern mud turtle
+Eastern long-necked turtle
+Arrau turtle
+Hickatee
+Chinese pond turtle
+Black-necked spitting cobra
+Monocled cobra
+Cape cobra
+Common krait
+Jameson's mamba
+Micrurus fulvius
+Vipera ammodytes
+Vipera aspis
+Bothrops asper
+Crotalus cerastes
+Western diamondback rattlesnake
+Crotalus viridis
+Crotalus oreganus
+Sistrurus miliarius
+Eastern massasauga
+Eastern copperhead
+Bothriechis schlegelii
+Central African rock python
+Indian python
+Children's python
+Lampropeltis getula
+California kingsnake
+Common watersnake
+Eastern racer
+Masticophis flagellum
+Pituophis catenifer
+Smooth green snake
+Ring-necked snake
+Brown tree snake
+Aesculapian snake
+Smooth snake
+Malagasy giant chameleon
+Cyclura nubila
+Blue iguana
+Lesser Antillean iguana
+Ctenosaura similis
+Common collared lizard
+Desert horned lizard
+Western fence lizard
+Common side-blotched lizard
+Stokes's skink
+Solomon Islands skink
+Plestiodon fasciatus
+Western skink
+Italian wall lizard
+Sheltopusik
+Chinese crocodile lizard
+Emerald tree monitor
+Sand goanna
+Bengal monitor
+Spiny-tailed monitor
+Argentine black and white tegu
+Common house gecko
+Rhacodactylus leachianus
+Phelsuma grandis
+Strophurus williamsi
 # Amphibians
 Olm
 Hellbender
@@ -736,6 +820,35 @@ Yellow-bellied toad
 Mimic poison frog
 Green and golden bell frog
 Banded bullfrog
+# Added 2026-11-07 (roster expansion round 2; passed gen_taxonomy.py --screen)
+California slender salamander
+Palmate newt
+Southern leopard frog
+Northern red-legged frog
+Foothill yellow-legged frog
+Mountain yellow-legged frog
+Oregon spotted frog
+Moor frog
+Agile frog
+Edible frog
+Cope's gray treefrog
+Squirrel tree frog
+Dryophytes gratiosus
+Pacific tree frog
+Cuban tree frog
+Dendropsophus ebraccatus
+Western toad
+Anaxyrus fowleri
+Houston toad
+Yosemite toad
+Duttaphrynus melanostictus
+Kihansi spray toad
+Hula painted frog
+Mexican burrowing toad
+Calyptocephalella
+Gastrophryne carolinensis
+Northern sheep frog
+Archey's frog
 # Fish
 West Indian Ocean coelacanth
 Whale shark
@@ -836,6 +949,101 @@ Red-lipped batfish
 Giant trevally
 Asian arowana
 Bluespotted ribbontail ray
+# Added 2026-11-07 (roster expansion round 2; passed gen_taxonomy.py --screen)
+Longcomb sawfish
+Salmon shark
+Bluntnose sixgill shark
+Silky shark
+Blacktip shark
+School shark
+Leopard shark
+Whitespotted bamboo shark
+Squatina squatina
+Rhina ancylostomus
+Giant guitarfish
+Cownose ray
+Reef manta ray
+Devil fish
+White sturgeon
+Pallid sturgeon
+Polypterus senegalus
+Japanese eel
+European conger
+European anchovy
+Milkfish
+Coho salmon
+Chum salmon
+Pink salmon
+Cutthroat trout
+Brook trout
+Lake trout
+Bull trout
+Arctic grayling
+Capelin
+Silver carp
+Bighead carp
+Black carp
+Tench
+Squalius cephalus
+Fathead minnow
+Harlequin rasbora
+Bigmouth buffalo
+Walking catfish
+Redtail catfish
+Tambaqui
+Hydrocynus goliath
+Houndfish
+Lined seahorse
+Big-belly seahorse
+Three-spined stickleback
+French angelfish
+Paracanthurus
+Valentin's sharpnose puffer
+Giant sunfish
+Thalassoma bifasciatum
+Ballan wrasse
+Epinephelus marginatus
+Leopard coral grouper
+Atlantic blue marlin
+Pacific bluefin tuna
+Bigeye tuna
+Albacore
+King mackerel
+Mozambique tilapia
+Cichla temensis
+Texas cichlid
+Giant mudskipper
+Round goby
+Anableps anableps
+Poecilia sphenops
+Sailfin molly
+Southern platyfish
+Yellow perch
+Zander
+Smallmouth bass
+Pumpkinseed
+Black crappie
+Barramundi
+European seabass
+Bigeye trevally
+Yellowtail amberjack
+Alaska pollock
+Haddock
+Pollachius virens
+Common ling
+Burbot
+Orange roughy
+John Dory
+Orange clownfish
+Pink skunk clownfish
+Maroon clownfish
+Whitetail dascyllus
+Garibaldi (fish)
+Common bluestripe snapper
+Gilt-head bream
+Bluefish
+Cobia
+Patagonian toothfish
 # Insects
 Monarch butterfly
 Queen Alexandra's birdwing
@@ -941,6 +1149,106 @@ Bombylius major
 Beautiful demoiselle
 Forficula auricularia
 Giant burrowing cockroach
+# Added 2026-11-07 (roster expansion round 2; passed gen_taxonomy.py --screen)
+Papilio demoleus
+Papilio troilus
+Papilio cresphontes
+Papilio polyxenes
+Apollo (butterfly)
+Zerynthia polyxena
+Graphium sarpedon
+Graphium agamemnon
+Pachliopta aristolochiae
+Ornithoptera priamus
+Anthocharis cardamines
+Colias croceus
+Colias eurytheme
+Catopsilia pomona
+Leptidea sinapis
+Dryas iulia
+Gulf fritillary
+Queen (butterfly)
+Euploea core
+Polygonia c-album
+Australian painted lady
+Junonia orithya
+Kallima inachus
+Hypolimnas bolina
+Hypolimnas misippus
+Limenitis arthemis
+Charaxes jasius
+Small pearl-bordered fritillary
+Marsh fritillary
+Glanville fritillary
+Speckled wood (butterfly)
+Small heath (butterfly)
+Grayling (butterfly)
+Large copper
+Chalkhill blue
+Silver-studded blue
+Hamearis lucina
+Hesperia comma
+Dingy skipper
+Epargyreus clarus
+Pyrgus malvae
+Callosamia promethea
+Eacles imperialis
+Gonimbrasia belina
+Hyles lineata
+Manduca quinquemaculata
+Utetheisa ornatrix
+Cabbage looper
+Helicoverpa zea
+Spodoptera litura
+Oak processionary
+Pine processionary
+Brown-tail moth
+Eastern tent caterpillar
+Dendrolimus pini
+Hornet moth
+European corn borer
+Cydalima perspectalis
+Tuta absoluta
+Tineola bisselliella
+Ghost moth
+Winter moth
+Oryctes rhinoceros
+Protaetia cuprea
+Cotinis nitida
+Phanaeus vindex
+Agriotes lineatus
+Cardinal beetle
+Alphitobius diaperinus
+Adalia bipunctata
+Psyllobora vigintiduopunctata
+Hippodamia convergens
+Harlequin beetle
+Clytus arietis
+Rhynchophorus ferrugineus
+Boll weevil
+New Zealand giraffe weevil
+European spruce bark beetle
+Mountain pine beetle
+Hierodula patellifera
+Iris oratoria
+Dissosteira carolina
+Taeniopoda eques
+Hemideina crassidens
+Hemideina thoracica
+Gryllus pennsylvanicus
+Magicicada cassini
+Thopha saccata
+Silverleaf whitefly
+Phylloxera
+Cochineal
+Nezara viridula
+Brown marmorated stink bug
+Spined soldier bug
+Western conifer seed bug
+Large milkweed bug
+Arilus cristatus
+Zelus renardii
+Reticulitermes flavipes
 # Arachnids and other arthropods
 Goliath birdeater
 Phoneutria nigriventer
@@ -994,6 +1302,43 @@ Oniscus asellus
 Daphnia magna
 Triops longicaudatus
 Scutigera coleoptrata
+# Added 2026-11-07 (roster expansion round 2; passed gen_taxonomy.py --screen)
+Mediterranean recluse spider
+Latrodectus hesperus
+Katipō
+Theridion grallator
+Argyrodes elevatus
+Argiope keyserlingi
+Gasteracantha fornicata
+Zygiella x-notata
+Pisaura mirabilis
+Thomisus spectabilis
+Phidippus clarus
+Argiope argentata
+Desis marina
+Erigone atra
+Dermanyssus gallinae
+Velvet crab
+Florida stone crab
+Gecarcinus ruricola
+Hemigrapsus oregonensis
+Johngarthia lagostoma
+Maja squinado
+Chionoecetes opilio
+Paralithodes platypus
+Neolithodes grimaldii
+Nephrops norvegicus
+Metanephrops challengeri
+Jasus edwardsii
+Rusty crayfish
+Macrobrachium rosenbergii
+Neocaridina davidi
+Caprella mutica
+Alicella
+Asellus aquaticus
+Cymothoa exigua
+Lepidurus apus
+Peripatoides novaezealandiae
 # Molluscs
 Giant Pacific octopus
 Mimic octopus
@@ -1040,6 +1385,34 @@ Mediterranean mussel
 Ostrea edulis
 Common cockle
 Dog whelk
+# Added 2026-11-07 (roster expansion round 2; passed gen_taxonomy.py --screen)
+Octopus tetricus
+Octopus sinensis
+Amphioctopus fangsiao
+Stauroteuthis syrtensis
+Haliotis kamtschatkana
+Theodoxus fluviatilis
+Littoraria irrorata
+Pomacea maculata
+Tonna galea
+Hexaplex trunculus
+Rapana venosa
+Bursatella leachii
+Berghia stephanieae
+Fiona pinnata
+Physella acuta
+Planorbarius corneus
+Theba pisana
+Arianta arbustorum
+Paryphanta busbyi
+Deroceras laeve
+Arion ater rufus
+Kerry slug
+Perna viridis
+Perna canaliculus
+Limnoperna fortunei
+Plebidonax deltoides
+Corbicula fluminea
 # Other invertebrates
 Chironex fleckeri
 Lion's mane jellyfish
@@ -1068,6 +1441,16 @@ Diadema setosum
 Platydemus manokwari
 Taenia solium
 Giant barrel sponge
+# Added 2026-11-07 (roster expansion round 2; passed gen_taxonomy.py --screen)
+Chrysaora hysoscella
+Jelly blubber
+Asterias amurensis
+Acanthaster brevispinus
+Ophiocoma scolopendrina
+Astroboa nuda
+Toxopneustes pileolus
+Evechinus chloroticus
+Echinocardium cordatum
 # Extinct
 Woolly rhinoceros
 Irish elk

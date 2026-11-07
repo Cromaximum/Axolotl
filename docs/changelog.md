@@ -8,6 +8,8 @@ Format: `- YYYY-MM-DD · Area · What changed (#PR)`
 
 ## Unreleased
 
+- 2026-11-07 · Data · Species roster round 2: 1,090 → 1,466 species (376 added: 99 insects, 96 fish, 83 reptiles, 37 other arthropods, 28 amphibians, 27 molluscs, 6 other invertebrates), all through `gen_taxonomy.py --screen` (D-019). Now 10 phyla, 34 classes, 194 orders, 576 families. No existing ids changed.
+
 - 2026-11-07 · App · Core feed UX round (D-021, proposed): a "Next: <animal>" chip on every card jumps past the rest of a species' set to the next animal's intro; the intro board shows "New to you · No. N met" the first time you meet a species; pinch to zoom photo cards (springs back, chips fade while zooming); a one-time "Swipe up for more" hint on the first card (`hasSeenSwipeHint` in `preferences.v1`). New pure `FeedNavigation`, `PinchToZoom` modifier, `MetStore.hasMet`, `FeedCard.sequence`, with tests. `FeedView` now records meetings with `recordMet(_:)` instead of the deprecated `imageURL:` forwarder.
 - 2026-11-06 · Data · Species roster grown from 361 to 1,090 (55 extinct), across 33 classes, 175 orders and 474 families. New `gen_taxonomy.py --screen` checks candidate titles against the bar for new species (D-019, proposed): Wikidata species or subspecies, 12,000+ byte article, free lead image, 3+ sharp photos under a Python mirror of the app's photo rules (D-018). No existing ids changed. Fixed the bird tier example in product.md for the new group sizes.
 
