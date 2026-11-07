@@ -96,6 +96,15 @@ enum FeedCard: Identifiable, Hashable {
         }
     }
 
+    /// Which species set this card belongs to. Every card of one set shares it.
+    var sequence: Int {
+        switch self {
+        case .intro(let c): c.sequence
+        case .fact(let c): c.sequence
+        case .photo(let c): c.sequence
+        }
+    }
+
     /// Where this card sits in its species set, e.g. card 2 of 7.
     var placement: CardPlacement {
         switch self {

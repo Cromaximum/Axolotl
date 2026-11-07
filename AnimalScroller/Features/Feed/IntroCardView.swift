@@ -19,17 +19,31 @@ struct IntroCardView: View {
                 if let hero = card.hero {
                     FullBleedImage(image: hero, wideCenter: 0.3)
                 }
-                board
-                    .frame(maxHeight: geo.size.height * CardInsets.maxBoardShare, alignment: .bottom)
-                    .padding(.horizontal, 10)
-                    .padding(.bottom, CardInsets.bottom)
-                    .onTapGesture(perform: context.onInfo)
+                VStack(spacing: 12) {
+                    if context.showsSwipeHint { SwipeHint() }
+                    board
+                        .frame(maxHeight: geo.size.height * CardInsets.maxBoardShare, alignment: .bottom)
+                        .onTapGesture(perform: context.onInfo)
+                }
+                .padding(.horizontal, 10)
+                .padding(.bottom, CardInsets.bottom)
             }
         }
         .overlay(alignment: .top) { topRow }
     }
 
     private var topRow: some View {
+        VStack(alignment: .trailing, spacing: 4) {
+            chips
+            if let onSkip = context.onSkip {
+                NextAnimalChip(name: context.nextSpeciesName, action: onSkip)
+            }
+        }
+        .padding(.horizontal, CardInsets.side)
+        .padding(.top, CardInsets.top)
+    }
+
+    private var chips: some View {
         HStack(alignment: .top) {
             if let hero = card.hero, let tag = MediaTag.tag(for: hero, species: species) {
                 MediaTagChip(tag: tag)
@@ -41,12 +55,13 @@ struct IntroCardView: View {
             if let hero = card.hero { CreditChip(attribution: hero.attribution) }
             LikeButton(isLiked: context.isLiked, action: context.onLike)
         }
-        .padding(.horizontal, CardInsets.side)
-        .padding(.top, CardInsets.top)
     }
 
     private var board: some View {
         VStack(alignment: .leading, spacing: 10) {
+            if let number = context.firstMeetingNumber, !compact {
+                FirstMeetingBadge(number: number)
+            }
             Text(species.commonName)
                 .font(Theme.heading(36))
                 .foregroundStyle(Theme.parchment)

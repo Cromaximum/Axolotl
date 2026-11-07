@@ -94,7 +94,7 @@ struct FeedView: View {
     }
 
     private func context(for card: FeedCard) -> CardContext {
-        CardContext(
+        var context = CardContext(
             position: card.placement.position,
             count: card.placement.count,
             isSaved: met.isSaved(card.entry.id),
@@ -103,6 +103,20 @@ struct FeedView: View {
             onLike: { toggleLike(card) },
             onInfo: { detailEntry = card.entry }
         )
+        if let next = model.nextSetStart(after: card) {
+            context.nextSpeciesName = next.entry.species.commonName
+            context.onSkip = { skip(to: next) }
+        }
+        if case .intro = card {
+            context.firstMeetingNumber = model.firstMeetingNumber(for: card, met: met)
+            context.showsSwipeHint = !prefs.hasSeenSwipeHint && card.id == model.cards.first?.id
+        }
+        return context
+    }
+
+    /// "Next animal": scrolls past the rest of this species' set to the next intro.
+    private func skip(to next: FeedCard) {
+        withAnimation(reduceMotion ? nil : Theme.Motion.settle) { visibleCardID = next.id }
     }
 
     private func restart() {
@@ -113,7 +127,9 @@ struct FeedView: View {
     /// past a species' intro card.
     private func cardBecameVisible(_ card: FeedCard) {
         model.cardAppeared(card, prefs: prefs, likes: likes)
-        met.recordMet(card.entry, imageURL: card.primaryImage?.url)
+        model.recordMeeting(card, in: met)
+        // The first swipe (or skip) past the first card retires the "Swipe up" hint for good.
+        if !prefs.hasSeenSwipeHint, card.id != model.cards.first?.id { prefs.hasSeenSwipeHint = true }
     }
 
     /// Double-tap anywhere on a card likes the species (never unlikes), with a heart burst.

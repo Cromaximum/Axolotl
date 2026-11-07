@@ -33,6 +33,8 @@ final class FeedViewModel {
     private var currentIndex = 0
     private var enteredCurrentAt = Date()
     private var restartedAt = Date()
+    /// "No. N met" badge numbers handed out this session, by species set (`setKey`).
+    private var firstMeetings: [String: Int] = [:]
 
     /// Start loading more species when this few cards are left below the one on screen.
     private let prefetchDistance = 6
@@ -81,6 +83,32 @@ final class FeedViewModel {
             loadMore(prefs: prefs, likes: likes)
         }
     }
+
+    /// Adds the species to Met. If this is the first time, remembers its "No. N met" number so
+    /// the intro keeps its badge after the meeting is recorded.
+    func recordMeeting(_ card: FeedCard, in met: MetStore) {
+        let key = Self.setKey(card)
+        if let number = FeedNavigation.firstMeetingNumber(for: key, known: firstMeetings,
+                                                          alreadyMet: met.hasMet(card.entry.id),
+                                                          metCount: met.entries.count) {
+            firstMeetings[key] = number
+        }
+        met.recordMet(card.entry)
+    }
+
+    /// The "No. N met" number for a species set the user is meeting for the first time, or nil.
+    func firstMeetingNumber(for card: FeedCard, met: MetStore) -> Int? {
+        FeedNavigation.firstMeetingNumber(for: Self.setKey(card), known: firstMeetings,
+                                          alreadyMet: met.hasMet(card.entry.id),
+                                          metCount: met.entries.count)
+    }
+
+    /// Where "Next animal" jumps to: the next species' intro, once it has loaded.
+    func nextSetStart(after card: FeedCard) -> FeedCard? {
+        FeedNavigation.nextSetStart(after: card.id, in: cards)
+    }
+
+    private static func setKey(_ card: FeedCard) -> String { "\(card.entry.id)#\(card.sequence)" }
 
     // MARK: Loading
 

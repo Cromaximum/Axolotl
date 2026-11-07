@@ -70,6 +70,17 @@ format of an endless vertical feed. Every item is about **one specific species**
 - Extinct-species media is tagged **Historical photo**, **Real fossil** or amber
   **Reconstruction in frame**. Living species are never tagged (they only show photos).
 - Then the next species. The feed prefetches so it never runs dry (keeps about 6 cards queued).
+- **Next animal:** every card has a "Next: <name> ›" chip under its top row (D-021). Tapping it
+  skips the rest of this species' set and lands on the next animal's intro. It names the next
+  animal once its cards have loaded, and is hidden until then. Skipping counts as a short dwell,
+  so the feed leans away from what you skip.
+- **New to you:** the first time you meet a species, its intro board carries an amber "New to you ·
+  No. N met" badge (N is your Met count with it). Species you have met before get no badge. It is
+  left out at accessibility text sizes to keep the board small.
+- **Pinch to zoom:** two fingers zoom into a photo card (up to 4x, around the pinch); it springs
+  back on release, and the chips and rail fade while you zoom so the animal fills the screen.
+- **First-run hint:** the very first intro card shows "Swipe up for more" above the board until
+  the first swipe, then never again (`hasSeenSwipeHint`).
 - Every card has an attribution chip; tapping it opens a credit sheet (author, licence, source).
 - **Save** a species with the bookmark on the rail or by long-pressing any card.
 - **Like** a species with the heart (on the photo rail, the intro card's top row and the fact
