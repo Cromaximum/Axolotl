@@ -5603,6 +5603,30 @@
                       "status": "LC"
                     },
                     {
+                      "wikiTitle": "Emerald tree monitor",
+                      "commonName": "Emerald tree monitor",
+                      "scientificName": "Varanus prasinus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Sand goanna",
+                      "commonName": "Sand goanna",
+                      "scientificName": "Varanus gouldii",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Bengal monitor",
+                      "commonName": "Bengal monitor",
+                      "scientificName": "Varanus bengalensis",
+                      "status": "NT"
+                    },
+                    {
+                      "wikiTitle": "Spiny-tailed monitor",
+                      "commonName": "Spiny-tailed monitor",
+                      "scientificName": "Varanus acanthurus",
+                      "status": "LC"
+                    },
+                    {
                       "wikiTitle": "Megalania",
                       "commonName": "Megalania",
                       "scientificName": "Varanus priscus",
@@ -5639,6 +5663,12 @@
                       "commonName": "Parson's chameleon",
                       "scientificName": "Calumma parsonii",
                       "status": "NT"
+                    },
+                    {
+                      "wikiTitle": "Malagasy giant chameleon",
+                      "commonName": "Malagasy giant chameleon",
+                      "scientificName": "Furcifer oustaleti",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -5652,6 +5682,24 @@
                       "wikiTitle": "Texas horned lizard",
                       "commonName": "Texas horned lizard",
                       "scientificName": "Phrynosoma cornutum",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Desert horned lizard",
+                      "commonName": "Desert horned lizard",
+                      "scientificName": "Phrynosoma platyrhinos",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Western fence lizard",
+                      "commonName": "Western fence lizard",
+                      "scientificName": "Sceloporus occidentalis",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Common side-blotched lizard",
+                      "commonName": "Common side-blotched lizard",
+                      "scientificName": "Uta stansburiana",
                       "status": "LC"
                     }
                   ]
@@ -5727,6 +5775,42 @@
                       "commonName": "Yellow-lipped sea krait",
                       "scientificName": "Laticauda colubrina",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Black-necked spitting cobra",
+                      "commonName": "Black-necked spitting cobra",
+                      "scientificName": "Naja nigricollis",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Monocled cobra",
+                      "commonName": "Monocled cobra",
+                      "scientificName": "Naja kaouthia",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Cape cobra",
+                      "commonName": "Cape cobra",
+                      "scientificName": "Naja nivea",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Common krait",
+                      "commonName": "Common krait",
+                      "scientificName": "Bungarus caeruleus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Jameson's mamba",
+                      "commonName": "Jameson's mamba",
+                      "scientificName": "Dendroaspis jamesoni",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Micrurus fulvius",
+                      "commonName": "Harlequin Coralsnake",
+                      "scientificName": "Micrurus fulvius",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -5778,6 +5862,24 @@
                       "wikiTitle": "Morelia spilota",
                       "commonName": "Carpet python",
                       "scientificName": "Morelia spilota",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Central African rock python",
+                      "commonName": "Central African rock python",
+                      "scientificName": "Python sebae",
+                      "status": "NT"
+                    },
+                    {
+                      "wikiTitle": "Indian python",
+                      "commonName": "Indian python",
+                      "scientificName": "Python molurus",
+                      "status": "NT"
+                    },
+                    {
+                      "wikiTitle": "Children's python",
+                      "commonName": "Children's python",
+                      "scientificName": "Antaresia childreni",
                       "status": "LC"
                     }
                   ]
@@ -5835,6 +5937,72 @@
                       "commonName": "Cottonmouth",
                       "scientificName": "Agkistrodon piscivorus",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Vipera ammodytes",
+                      "commonName": "Nose-horned Viper",
+                      "scientificName": "Vipera ammodytes",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Vipera aspis",
+                      "commonName": "Asp Viper",
+                      "scientificName": "Vipera aspis",
+                      "status": "VU"
+                    },
+                    {
+                      "wikiTitle": "Bothrops asper",
+                      "commonName": "Bothrops asper",
+                      "scientificName": "Bothrops asper",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Crotalus cerastes",
+                      "commonName": "Sidewinder",
+                      "scientificName": "Crotalus cerastes",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Western diamondback rattlesnake",
+                      "commonName": "Western diamondback rattlesnake",
+                      "scientificName": "Crotalus atrox",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Crotalus viridis",
+                      "commonName": "Prairie Rattlesnake",
+                      "scientificName": "Crotalus viridis",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Crotalus oreganus",
+                      "commonName": "Western Rattlesnake",
+                      "scientificName": "Crotalus oreganus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Sistrurus miliarius",
+                      "commonName": "Pygmy Rattlesnake",
+                      "scientificName": "Sistrurus miliarius",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Eastern massasauga",
+                      "commonName": "Eastern massasauga",
+                      "scientificName": "Sistrurus catenatus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Eastern copperhead",
+                      "commonName": "Eastern copperhead",
+                      "scientificName": "Agkistrodon contortrix",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Bothriechis schlegelii",
+                      "commonName": "Bothriechis schlegelii",
+                      "scientificName": "Bothriechis schlegelii",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -5884,6 +6052,72 @@
                       "wikiTitle": "Opheodrys aestivus",
                       "commonName": "Greensnake",
                       "scientificName": "Opheodrys aestivus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Lampropeltis getula",
+                      "commonName": "Common Kingsnake",
+                      "scientificName": "Lampropeltis getula",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "California kingsnake",
+                      "commonName": "California kingsnake",
+                      "scientificName": "Lampropeltis californiae",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Common watersnake",
+                      "commonName": "Common watersnake",
+                      "scientificName": "Nerodia sipedon",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Eastern racer",
+                      "commonName": "Eastern racer",
+                      "scientificName": "Coluber constrictor",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Masticophis flagellum",
+                      "commonName": "Masticophis flagellum",
+                      "scientificName": "Masticophis flagellum",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Pituophis catenifer",
+                      "commonName": "Bullsnake",
+                      "scientificName": "Pituophis catenifer",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Smooth green snake",
+                      "commonName": "Smooth green snake",
+                      "scientificName": "Opheodrys vernalis",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Ring-necked snake",
+                      "commonName": "Ring-necked snake",
+                      "scientificName": "Diadophis punctatus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Brown tree snake",
+                      "commonName": "Brown tree snake",
+                      "scientificName": "Boiga irregularis",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Aesculapian snake",
+                      "commonName": "Aesculapian snake",
+                      "scientificName": "Zamenis longissimus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Smooth snake",
+                      "commonName": "Smooth snake",
+                      "scientificName": "Coronella austriaca",
                       "status": "LC"
                     }
                   ]
@@ -5937,6 +6171,30 @@
                       "commonName": "Galápagos land iguana",
                       "scientificName": "Conolophus subcristatus",
                       "status": "VU"
+                    },
+                    {
+                      "wikiTitle": "Cyclura nubila",
+                      "commonName": "Cayman Islands ground iguana",
+                      "scientificName": "Cyclura nubila",
+                      "status": "VU"
+                    },
+                    {
+                      "wikiTitle": "Blue iguana",
+                      "commonName": "Blue iguana",
+                      "scientificName": "Cyclura lewisi",
+                      "status": "EN"
+                    },
+                    {
+                      "wikiTitle": "Lesser Antillean iguana",
+                      "commonName": "Lesser Antillean iguana",
+                      "scientificName": "Iguana delicatissima",
+                      "status": "CR"
+                    },
+                    {
+                      "wikiTitle": "Ctenosaura similis",
+                      "commonName": "Black Iguana",
+                      "scientificName": "Ctenosaura similis",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -6035,6 +6293,18 @@
                       "commonName": "Mediterranean house gecko",
                       "scientificName": "Hemidactylus turcicus",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Common house gecko",
+                      "commonName": "Common house gecko",
+                      "scientificName": "Hemidactylus frenatus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Phelsuma grandis",
+                      "commonName": "Giant Madagascar Day Gecko",
+                      "scientificName": "Phelsuma grandis",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -6097,6 +6367,30 @@
                       "commonName": "Shingleback lizard",
                       "scientificName": "Tiliqua rugosa",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Stokes's skink",
+                      "commonName": "Stokes's skink",
+                      "scientificName": "Egernia stokesii",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Solomon Islands skink",
+                      "commonName": "Solomon Islands skink",
+                      "scientificName": "Corucia zebrata",
+                      "status": "NT"
+                    },
+                    {
+                      "wikiTitle": "Plestiodon fasciatus",
+                      "commonName": "Common five-lined skink",
+                      "scientificName": "Plestiodon fasciatus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Western skink",
+                      "commonName": "Western skink",
+                      "scientificName": "Plestiodon skiltonianus",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -6123,6 +6417,12 @@
                       "commonName": "Common wall lizard",
                       "scientificName": "Podarcis muralis",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Italian wall lizard",
+                      "commonName": "Italian wall lizard",
+                      "scientificName": "Podarcis siculus",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -6136,6 +6436,74 @@
                       "wikiTitle": "Common slow worm",
                       "commonName": "Common slow worm",
                       "scientificName": "Anguis fragilis",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Sheltopusik",
+                      "commonName": "Sheltopusik",
+                      "scientificName": "Pseudopus apodus",
+                      "status": "LC"
+                    }
+                  ]
+                },
+                {
+                  "id": "crotaphytidae",
+                  "name": "Crotaphytidae",
+                  "scientificName": "Crotaphytidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Common collared lizard",
+                      "commonName": "Common collared lizard",
+                      "scientificName": "Crotaphytus collaris",
+                      "status": "LC"
+                    }
+                  ]
+                },
+                {
+                  "id": "shinisauridae",
+                  "name": "Shinisauridae",
+                  "scientificName": "Shinisauridae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Chinese crocodile lizard",
+                      "commonName": "Chinese crocodile lizard",
+                      "scientificName": "Shinisaurus crocodilurus",
+                      "status": "EN"
+                    }
+                  ]
+                },
+                {
+                  "id": "teiidae",
+                  "name": "Teiidae",
+                  "scientificName": "Teiidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Argentine black and white tegu",
+                      "commonName": "Argentine black and white tegu",
+                      "scientificName": "Salvator merianae",
+                      "status": "LC"
+                    }
+                  ]
+                },
+                {
+                  "id": "diplodactylidae",
+                  "name": "Diplodactylidae",
+                  "scientificName": "Diplodactylidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Rhacodactylus leachianus",
+                      "commonName": "New Caledonian Giant Gecko",
+                      "scientificName": "Rhacodactylus leachianus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Strophurus williamsi",
+                      "commonName": "Strophurus williamsi",
+                      "scientificName": "Strophurus williamsi",
                       "status": "LC"
                     }
                   ]
@@ -6227,6 +6595,48 @@
                       "commonName": "Gopher tortoise",
                       "scientificName": "Gopherus polyphemus",
                       "status": "VU"
+                    },
+                    {
+                      "wikiTitle": "Red-footed tortoise",
+                      "commonName": "Red-footed tortoise",
+                      "scientificName": "Chelonoidis carbonaria",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Yellow-footed tortoise",
+                      "commonName": "Yellow-footed tortoise",
+                      "scientificName": "Chelonoidis denticulatus",
+                      "status": "VU"
+                    },
+                    {
+                      "wikiTitle": "Angonoka tortoise",
+                      "commonName": "Angonoka tortoise",
+                      "scientificName": "Astrochelys yniphora",
+                      "status": "CR"
+                    },
+                    {
+                      "wikiTitle": "Greek tortoise",
+                      "commonName": "Greek tortoise",
+                      "scientificName": "Testudo graeca",
+                      "status": "VU"
+                    },
+                    {
+                      "wikiTitle": "Central Asian tortoise",
+                      "commonName": "Central Asian tortoise",
+                      "scientificName": "Testudo horsfieldii",
+                      "status": "VU"
+                    },
+                    {
+                      "wikiTitle": "Desert tortoise",
+                      "commonName": "Desert tortoise",
+                      "scientificName": "Gopherus agassizii",
+                      "status": "CR"
+                    },
+                    {
+                      "wikiTitle": "Pancake tortoise",
+                      "commonName": "Pancake tortoise",
+                      "scientificName": "Malacochersus tornieri",
+                      "status": "CR"
                     }
                   ]
                 },
@@ -6299,6 +6709,12 @@
                       "commonName": "Amazon mata mata",
                       "scientificName": "Chelus fimbriatus",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Eastern long-necked turtle",
+                      "commonName": "Eastern long-necked turtle",
+                      "scientificName": "Chelodina longicollis",
+                      "status": "NE"
                     }
                   ]
                 },
@@ -6324,6 +6740,42 @@
                       "wikiTitle": "Eastern box turtle",
                       "commonName": "Eastern box turtle",
                       "scientificName": "Terrapene carolina carolina",
+                      "status": "VU"
+                    },
+                    {
+                      "wikiTitle": "Common box turtle",
+                      "commonName": "Common box turtle",
+                      "scientificName": "Terrapene carolina",
+                      "status": "VU"
+                    },
+                    {
+                      "wikiTitle": "Wood turtle",
+                      "commonName": "Wood turtle",
+                      "scientificName": "Glyptemys insculpta",
+                      "status": "EN"
+                    },
+                    {
+                      "wikiTitle": "Spotted turtle",
+                      "commonName": "Spotted turtle",
+                      "scientificName": "Clemmys guttata",
+                      "status": "EN"
+                    },
+                    {
+                      "wikiTitle": "European pond turtle",
+                      "commonName": "European pond turtle",
+                      "scientificName": "Emys orbicularitosa",
+                      "status": "NT"
+                    },
+                    {
+                      "wikiTitle": "Blanding's turtle",
+                      "commonName": "Blanding's turtle",
+                      "scientificName": "Emydoidea blandingii",
+                      "status": "EN"
+                    },
+                    {
+                      "wikiTitle": "Diamondback terrapin",
+                      "commonName": "Diamondback terrapin",
+                      "scientificName": "Malaclemys terrapin",
                       "status": "VU"
                     }
                   ]
@@ -6359,6 +6811,68 @@
                       "commonName": "Spiny softshell turtle",
                       "scientificName": "Apalone spinifera",
                       "status": "LC"
+                    }
+                  ]
+                },
+                {
+                  "id": "kinosternidae",
+                  "name": "Kinosternidae",
+                  "scientificName": "Kinosternidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Sternotherus odoratus",
+                      "commonName": "Common Musk Turtle",
+                      "scientificName": "Sternotherus odoratus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Eastern mud turtle",
+                      "commonName": "Eastern mud turtle",
+                      "scientificName": "Kinosternon subrubrum",
+                      "status": "LC"
+                    }
+                  ]
+                },
+                {
+                  "id": "podocnemididae",
+                  "name": "Podocnemididae",
+                  "scientificName": "Podocnemididae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Arrau turtle",
+                      "commonName": "Arrau turtle",
+                      "scientificName": "Podocnemis expansa",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "dermatemydidae",
+                  "name": "Dermatemydidae",
+                  "scientificName": "Dermatemydidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Hickatee",
+                      "commonName": "Hickatee",
+                      "scientificName": "Dermatemys mawii",
+                      "status": "CR"
+                    }
+                  ]
+                },
+                {
+                  "id": "geoemydidae",
+                  "name": "Geoemydidae",
+                  "scientificName": "Geoemydidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Chinese pond turtle",
+                      "commonName": "Chinese pond turtle",
+                      "scientificName": "Mauremys reevesii",
+                      "status": "EN"
                     }
                   ]
                 }
@@ -6431,6 +6945,36 @@
                       "commonName": "Dwarf crocodile",
                       "scientificName": "Osteolaemus tetraspis",
                       "status": "VU"
+                    },
+                    {
+                      "wikiTitle": "Freshwater crocodile",
+                      "commonName": "Freshwater crocodile",
+                      "scientificName": "Crocodylus johnsoni",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Siamese crocodile",
+                      "commonName": "Siamese crocodile",
+                      "scientificName": "Crocodylus siamensis",
+                      "status": "CR"
+                    },
+                    {
+                      "wikiTitle": "Morelet's crocodile",
+                      "commonName": "Morelet's crocodile",
+                      "scientificName": "Crocodylus moreletii",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "New Guinea crocodile",
+                      "commonName": "New Guinea crocodile",
+                      "scientificName": "Crocodylus novaeguineae",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Philippine crocodile",
+                      "commonName": "Philippine crocodile",
+                      "scientificName": "Crocodylus mindorensis",
+                      "status": "CR"
                     }
                   ]
                 },
@@ -6468,6 +7012,24 @@
                       "wikiTitle": "Yacare caiman",
                       "commonName": "Yacare caiman",
                       "scientificName": "Caiman yacare",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Broad-snouted caiman",
+                      "commonName": "Broad-snouted caiman",
+                      "scientificName": "Caiman latirostris",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Cuvier's dwarf caiman",
+                      "commonName": "Cuvier's dwarf caiman",
+                      "scientificName": "Paleosuchus palpebrosus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Smooth-fronted caiman",
+                      "commonName": "Smooth-fronted caiman",
+                      "scientificName": "Paleosuchus trigonatus",
                       "status": "LC"
                     }
                   ]
@@ -6635,6 +7197,12 @@
                       "commonName": "Japanese fire-bellied newt",
                       "scientificName": "Cynops pyrrhogaster",
                       "status": "NT"
+                    },
+                    {
+                      "wikiTitle": "Palmate newt",
+                      "commonName": "Palmate newt",
+                      "scientificName": "Lissotriton helveticus",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -6654,6 +7222,12 @@
                       "wikiTitle": "Arboreal salamander",
                       "commonName": "Arboreal salamander",
                       "scientificName": "Aneides lugubris",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "California slender salamander",
+                      "commonName": "California slender salamander",
+                      "scientificName": "Batrachoseps attenuatus",
                       "status": "LC"
                     }
                   ]
@@ -6745,6 +7319,42 @@
                       "commonName": "Colorado River toad",
                       "scientificName": "Incilius alvarius",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Western toad",
+                      "commonName": "Western toad",
+                      "scientificName": "Anaxyrus boreas",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Anaxyrus fowleri",
+                      "commonName": "Fowler's Toad",
+                      "scientificName": "Anaxyrus fowleri",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Houston toad",
+                      "commonName": "Houston toad",
+                      "scientificName": "Anaxyrus houstonensis",
+                      "status": "CR"
+                    },
+                    {
+                      "wikiTitle": "Yosemite toad",
+                      "commonName": "Yosemite toad",
+                      "scientificName": "Anaxyrus canorus",
+                      "status": "VU"
+                    },
+                    {
+                      "wikiTitle": "Duttaphrynus melanostictus",
+                      "commonName": "Asian common toad",
+                      "scientificName": "Duttaphrynus melanostictus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Kihansi spray toad",
+                      "commonName": "Kihansi spray toad",
+                      "scientificName": "Nectophrynoides asperginis",
+                      "status": "EW"
                     }
                   ]
                 },
@@ -6893,6 +7503,54 @@
                       "commonName": "Pool frog",
                       "scientificName": "Pelophylax lessonae",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Southern leopard frog",
+                      "commonName": "Southern leopard frog",
+                      "scientificName": "Lithobates sphenocephalus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Northern red-legged frog",
+                      "commonName": "Northern red-legged frog",
+                      "scientificName": "Rana aurora",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Foothill yellow-legged frog",
+                      "commonName": "Foothill yellow-legged frog",
+                      "scientificName": "Rana boylii",
+                      "status": "NT"
+                    },
+                    {
+                      "wikiTitle": "Mountain yellow-legged frog",
+                      "commonName": "Mountain yellow-legged frog",
+                      "scientificName": "Rana muscosa",
+                      "status": "EN"
+                    },
+                    {
+                      "wikiTitle": "Oregon spotted frog",
+                      "commonName": "Oregon spotted frog",
+                      "scientificName": "Rana pretiosa",
+                      "status": "VU"
+                    },
+                    {
+                      "wikiTitle": "Moor frog",
+                      "commonName": "Moor frog",
+                      "scientificName": "Rana arvalis",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Agile frog",
+                      "commonName": "Agile frog",
+                      "scientificName": "Rana dalmatina",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Edible frog",
+                      "commonName": "Edible frog",
+                      "scientificName": "Pelophylax esculentus",
+                      "status": "NE"
                     }
                   ]
                 },
@@ -6937,6 +7595,42 @@
                       "commonName": "Green and golden bell frog",
                       "scientificName": "Litoria aurea",
                       "status": "NT"
+                    },
+                    {
+                      "wikiTitle": "Cope's gray treefrog",
+                      "commonName": "Cope's gray treefrog",
+                      "scientificName": "Hyla chrysoscelis",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Squirrel tree frog",
+                      "commonName": "Squirrel tree frog",
+                      "scientificName": "Dryophytes squirellus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Dryophytes gratiosus",
+                      "commonName": "Dryophytes gratiosus",
+                      "scientificName": "Hyla gratiosa",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Pacific tree frog",
+                      "commonName": "Pacific tree frog",
+                      "scientificName": "Pseudacris regilla",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Cuban tree frog",
+                      "commonName": "Cuban tree frog",
+                      "scientificName": "Osteopilus septentrionalis",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Dendropsophus ebraccatus",
+                      "commonName": "Hourglass Treefrog",
+                      "scientificName": "Dendropsophus ebraccatus",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -7005,6 +7699,74 @@
                       "commonName": "Banded bullfrog",
                       "scientificName": "Kaloula pulchra",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Gastrophryne carolinensis",
+                      "commonName": "Eastern narrowmouth toad",
+                      "scientificName": "Gastrophryne carolinensis",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Northern sheep frog",
+                      "commonName": "Northern sheep frog",
+                      "scientificName": "Hypopachus variolosus",
+                      "status": "LC"
+                    }
+                  ]
+                },
+                {
+                  "id": "alytidae",
+                  "name": "Alytidae",
+                  "scientificName": "Alytidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Hula painted frog",
+                      "commonName": "Hula painted frog",
+                      "scientificName": "Latonia nigriventer",
+                      "status": "CR"
+                    }
+                  ]
+                },
+                {
+                  "id": "rhinophrynidae",
+                  "name": "Rhinophrynidae",
+                  "scientificName": "Rhinophrynidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Mexican burrowing toad",
+                      "commonName": "Mexican burrowing toad",
+                      "scientificName": "Rhinophrynus dorsalis",
+                      "status": "LC"
+                    }
+                  ]
+                },
+                {
+                  "id": "calyptocephalellidae",
+                  "name": "Calyptocephalellidae",
+                  "scientificName": "Calyptocephalellidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Calyptocephalella",
+                      "commonName": "Calyptocephalella",
+                      "scientificName": "Calyptocephalella gayi",
+                      "status": "VU"
+                    }
+                  ]
+                },
+                {
+                  "id": "leiopelmatidae",
+                  "name": "Leiopelmatidae",
+                  "scientificName": "Leiopelmatidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Archey's frog",
+                      "commonName": "Archey's frog",
+                      "scientificName": "Leiopelma archeyi",
+                      "status": "CR"
                     }
                   ]
                 }
@@ -7087,6 +7849,12 @@
                   "commonName": "Ocean sunfish",
                   "scientificName": "Mola mola",
                   "status": "VU"
+                },
+                {
+                  "wikiTitle": "Giant sunfish",
+                  "commonName": "Giant sunfish",
+                  "scientificName": "Mola ramsayi",
+                  "status": "NE"
                 }
               ]
             },
@@ -7114,6 +7882,20 @@
                   "wikiTitle": "Yellow boxfish",
                   "commonName": "Yellow boxfish",
                   "scientificName": "Ostracion cubicus",
+                  "status": "LC"
+                }
+              ]
+            },
+            {
+              "id": "tetraodontidae",
+              "name": "Tetraodontidae",
+              "scientificName": "Tetraodontidae",
+              "rank": "family",
+              "species": [
+                {
+                  "wikiTitle": "Valentin's sharpnose puffer",
+                  "commonName": "Valentin's sharpnose puffer",
+                  "scientificName": "Canthigaster valentini",
                   "status": "LC"
                 }
               ]
@@ -7155,6 +7937,18 @@
                           "commonName": "Common seadragon",
                           "scientificName": "Phyllopteryx taeniolatus",
                           "status": "VU"
+                        },
+                        {
+                          "wikiTitle": "Lined seahorse",
+                          "commonName": "Lined seahorse",
+                          "scientificName": "Hippocampus erectus",
+                          "status": "VU"
+                        },
+                        {
+                          "wikiTitle": "Big-belly seahorse",
+                          "commonName": "Big-belly seahorse",
+                          "scientificName": "Hippocampus abdominalis",
+                          "status": "LC"
                         }
                       ]
                     },
@@ -7219,6 +8013,12 @@
                           "commonName": "Queen angelfish",
                           "scientificName": "Holacanthus ciliaris",
                           "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "French angelfish",
+                          "commonName": "French angelfish",
+                          "scientificName": "Pomacanthus paru",
+                          "status": "LC"
                         }
                       ]
                     },
@@ -7247,6 +8047,12 @@
                           "commonName": "Yellow tang",
                           "scientificName": "Zebrasoma flavescens",
                           "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Paracanthurus",
+                          "commonName": "Paracanthurus",
+                          "scientificName": "Paracanthurus hepatus",
+                          "status": "LC"
                         }
                       ]
                     },
@@ -7267,6 +8073,18 @@
                           "commonName": "Atlantic goliath grouper",
                           "scientificName": "Epinephelus itajara",
                           "status": "VU"
+                        },
+                        {
+                          "wikiTitle": "Epinephelus marginatus",
+                          "commonName": "Dusky grouper",
+                          "scientificName": "Epinephelus marginatus",
+                          "status": "VU"
+                        },
+                        {
+                          "wikiTitle": "Leopard coral grouper",
+                          "commonName": "Leopard coral grouper",
+                          "scientificName": "Plectropomus leopardus",
+                          "status": "LC"
                         }
                       ]
                     },
@@ -7301,6 +8119,74 @@
                           "commonName": "Walleye",
                           "scientificName": "Sander vitreus",
                           "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Yellow perch",
+                          "commonName": "Yellow perch",
+                          "scientificName": "Perca flavescens",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Zander",
+                          "commonName": "Zander",
+                          "scientificName": "Sander lucioperca",
+                          "status": "LC"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "gasterosteidae",
+                      "name": "Stickleback",
+                      "scientificName": "Gasterosteidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Three-spined stickleback",
+                          "commonName": "Three-spined stickleback",
+                          "scientificName": "Gasterosteus aculeatus",
+                          "status": "LC"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "latidae",
+                      "name": "Latidae",
+                      "scientificName": "Latidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Barramundi",
+                          "commonName": "Barramundi",
+                          "scientificName": "Lates calcarifer",
+                          "status": "LC"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "moronidae",
+                      "name": "Moronidae",
+                      "scientificName": "Moronidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "European seabass",
+                          "commonName": "European seabass",
+                          "scientificName": "Dicentrarchus labrax",
+                          "status": "NT"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "nototheniidae",
+                      "name": "Nototheniidae",
+                      "scientificName": "Nototheniidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Patagonian toothfish",
+                          "commonName": "Patagonian toothfish",
+                          "scientificName": "Dissostichus eleginoides",
+                          "status": "NE"
                         }
                       ]
                     }
@@ -7322,6 +8208,36 @@
                           "wikiTitle": "Ocellaris clownfish",
                           "commonName": "Ocellaris clownfish",
                           "scientificName": "Amphiprion ocellaris",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Orange clownfish",
+                          "commonName": "Orange clownfish",
+                          "scientificName": "Amphiprion percula",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Pink skunk clownfish",
+                          "commonName": "Pink skunk clownfish",
+                          "scientificName": "Amphiprion perideraion",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Maroon clownfish",
+                          "commonName": "Maroon clownfish",
+                          "scientificName": "Premnas biaculeatus",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Whitetail dascyllus",
+                          "commonName": "Whitetail dascyllus",
+                          "scientificName": "Dascyllus aruanus",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Garibaldi (fish)",
+                          "commonName": "Garibaldi (fish)",
+                          "scientificName": "Hypsypops rubicundus",
                           "status": "LC"
                         }
                       ]
@@ -7349,6 +8265,24 @@
                           "commonName": "Convict cichlid",
                           "scientificName": "Amatitlania nigrofasciata",
                           "status": "DD"
+                        },
+                        {
+                          "wikiTitle": "Mozambique tilapia",
+                          "commonName": "Mozambique tilapia",
+                          "scientificName": "Oreochromis mossambicus",
+                          "status": "VU"
+                        },
+                        {
+                          "wikiTitle": "Cichla temensis",
+                          "commonName": "Speckled peacock bass",
+                          "scientificName": "Cichla temensis",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Texas cichlid",
+                          "commonName": "Texas cichlid",
+                          "scientificName": "Herichthys cyanoguttatus",
+                          "status": "LC"
                         }
                       ]
                     }
@@ -7383,6 +8317,18 @@
                           "commonName": "Green humphead parrotfish",
                           "scientificName": "Bolbometopon muricatum",
                           "status": "VU"
+                        },
+                        {
+                          "wikiTitle": "Thalassoma bifasciatum",
+                          "commonName": "Bluehead wrasse",
+                          "scientificName": "Thalassoma bifasciatum",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Ballan wrasse",
+                          "commonName": "Ballan wrasse",
+                          "scientificName": "Labrus bergylta",
+                          "status": "LC"
                         }
                       ]
                     }
@@ -7459,6 +8405,44 @@
                           "commonName": "Atlantic mackerel",
                           "scientificName": "Scomber scombrus",
                           "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Pacific bluefin tuna",
+                          "commonName": "Pacific bluefin tuna",
+                          "scientificName": "Thunnus orientalis",
+                          "status": "NT"
+                        },
+                        {
+                          "wikiTitle": "Bigeye tuna",
+                          "commonName": "Bigeye tuna",
+                          "scientificName": "Thunnus obesus",
+                          "status": "VU"
+                        },
+                        {
+                          "wikiTitle": "Albacore",
+                          "commonName": "Albacore",
+                          "scientificName": "Thunnus alalunga",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "King mackerel",
+                          "commonName": "King mackerel",
+                          "scientificName": "Scomberomorus cavalla",
+                          "status": "LC"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "pomatomidae",
+                      "name": "Pomatomidae",
+                      "scientificName": "Pomatomidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Bluefish",
+                          "commonName": "Bluefish",
+                          "scientificName": "Pomatomus saltatrix",
+                          "status": "VU"
                         }
                       ]
                     }
@@ -7481,6 +8465,20 @@
                           "commonName": "Swordfish",
                           "scientificName": "Xiphias gladius",
                           "status": "NT"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "istiophoridae",
+                      "name": "Istiophoridae",
+                      "scientificName": "Istiophoridae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Atlantic blue marlin",
+                          "commonName": "Atlantic blue marlin",
+                          "scientificName": "Makaira nigricans",
+                          "status": "VU"
                         }
                       ]
                     }
@@ -7539,6 +8537,12 @@
                           "commonName": "Red-bellied piranha",
                           "scientificName": "Pygocentrus nattereri",
                           "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Tambaqui",
+                          "commonName": "Tambaqui",
+                          "scientificName": "Colossoma macropomum",
+                          "status": "NT"
                         }
                       ]
                     },
@@ -7558,6 +8562,20 @@
                           "wikiTitle": "Neon tetra",
                           "commonName": "Neon tetra",
                           "scientificName": "Paracheirodon innesi",
+                          "status": "LC"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "alestidae",
+                      "name": "Alestidae",
+                      "scientificName": "Alestidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Hydrocynus goliath",
+                          "commonName": "Goliath tigerfish",
+                          "scientificName": "Hydrocynus goliath",
                           "status": "LC"
                         }
                       ]
@@ -7624,6 +8642,54 @@
                           "wikiTitle": "Arctic char",
                           "commonName": "Arctic char",
                           "scientificName": "Salvelinus alpinus",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Coho salmon",
+                          "commonName": "Coho salmon",
+                          "scientificName": "Oncorhynchus kisutch",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Chum salmon",
+                          "commonName": "Chum salmon",
+                          "scientificName": "Oncorhynchus keta",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Pink salmon",
+                          "commonName": "Pink salmon",
+                          "scientificName": "Oncorhynchus gorbuscha",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Cutthroat trout",
+                          "commonName": "Cutthroat trout",
+                          "scientificName": "Oncorhynchus clarkii",
+                          "status": "NE"
+                        },
+                        {
+                          "wikiTitle": "Brook trout",
+                          "commonName": "Brook trout",
+                          "scientificName": "Salvelinus fontinalis",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Lake trout",
+                          "commonName": "Lake trout",
+                          "scientificName": "Salvelinus namaycush",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Bull trout",
+                          "commonName": "Bull trout",
+                          "scientificName": "Salvelinus confluentus",
+                          "status": "VU"
+                        },
+                        {
+                          "wikiTitle": "Arctic grayling",
+                          "commonName": "Arctic grayling",
+                          "scientificName": "Thymallus arcticus",
                           "status": "LC"
                         }
                       ]
@@ -7703,6 +8769,12 @@
                           "commonName": "Californian anchovy",
                           "scientificName": "Engraulis mordax",
                           "status": "DD"
+                        },
+                        {
+                          "wikiTitle": "European anchovy",
+                          "commonName": "European anchovy",
+                          "scientificName": "Engraulis encrasicolus",
+                          "status": "LC"
                         }
                       ]
                     }
@@ -7765,6 +8837,70 @@
                           "commonName": "Grass carp",
                           "scientificName": "Ctenopharyngodon idella",
                           "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Black carp",
+                          "commonName": "Black carp",
+                          "scientificName": "Mylopharyngodon piceus",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Tench",
+                          "commonName": "Tench",
+                          "scientificName": "Tinca tinca",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Squalius cephalus",
+                          "commonName": "Chub",
+                          "scientificName": "Squalius cephalus",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Fathead minnow",
+                          "commonName": "Fathead minnow",
+                          "scientificName": "Pimephales promelas",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Harlequin rasbora",
+                          "commonName": "Harlequin rasbora",
+                          "scientificName": "Trigonostigma heteromorpha",
+                          "status": "LC"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "xenocyprididae",
+                      "name": "Xenocyprididae",
+                      "scientificName": "Xenocyprididae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Silver carp",
+                          "commonName": "Silver carp",
+                          "scientificName": "Hypophthalmichthys molitrix",
+                          "status": "NT"
+                        },
+                        {
+                          "wikiTitle": "Bighead carp",
+                          "commonName": "Bighead carp",
+                          "scientificName": "Hypophthalmichthys nobilis",
+                          "status": "DD"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "catostomidae",
+                      "name": "Catostomidae",
+                      "scientificName": "Catostomidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Bigmouth buffalo",
+                          "commonName": "Bigmouth buffalo",
+                          "scientificName": "Ictiobus cyprinellus",
+                          "status": "LC"
                         }
                       ]
                     }
@@ -7815,6 +8951,34 @@
                           "commonName": "Mekong giant catfish",
                           "scientificName": "Pangasianodon gigas",
                           "status": "CR"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "clariidae",
+                      "name": "Airbreathing catfish",
+                      "scientificName": "Clariidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Walking catfish",
+                          "commonName": "Walking catfish",
+                          "scientificName": "Clarias batrachus",
+                          "status": "LC"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "pimelodidae",
+                      "name": "Pimelodidae",
+                      "scientificName": "Pimelodidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Redtail catfish",
+                          "commonName": "Redtail catfish",
+                          "scientificName": "Phractocephalus hemioliopterus",
+                          "status": "LC"
                         }
                       ]
                     }
@@ -7873,6 +9037,32 @@
                           "commonName": "Giant trevally",
                           "scientificName": "Caranx ignobilis",
                           "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Bigeye trevally",
+                          "commonName": "Bigeye trevally",
+                          "scientificName": "Caranx sexfasciatus",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Yellowtail amberjack",
+                          "commonName": "Yellowtail amberjack",
+                          "scientificName": "Seriola lalandi",
+                          "status": "LC"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "rachycentridae",
+                      "name": "Rachycentridae",
+                      "scientificName": "Rachycentridae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Cobia",
+                          "commonName": "Cobia",
+                          "scientificName": "Rachycentron canadum",
+                          "status": "LC"
                         }
                       ]
                     }
@@ -7919,6 +9109,26 @@
                           "status": "LC"
                         }
                       ]
+                    },
+                    {
+                      "id": "gobiidae",
+                      "name": "Gobiidae",
+                      "scientificName": "Gobiidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Giant mudskipper",
+                          "commonName": "Giant mudskipper",
+                          "scientificName": "Periophthalmodon schlosseri",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Round goby",
+                          "commonName": "Round goby",
+                          "scientificName": "Neogobius melanostomus",
+                          "status": "LC"
+                        }
+                      ]
                     }
                   ]
                 },
@@ -7944,6 +9154,192 @@
                           "wikiTitle": "Bluegill",
                           "commonName": "Bluegill",
                           "scientificName": "Lepomis macrochirus",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Smallmouth bass",
+                          "commonName": "Smallmouth bass",
+                          "scientificName": "Micropterus dolomieu",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Pumpkinseed",
+                          "commonName": "Pumpkinseed",
+                          "scientificName": "Lepomis gibbosus",
+                          "status": "LC"
+                        },
+                        {
+                          "wikiTitle": "Black crappie",
+                          "commonName": "Black crappie",
+                          "scientificName": "Pomoxis nigromaculatus",
+                          "status": "LC"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "anguilliformes",
+                  "name": "Eel",
+                  "scientificName": "Anguilliformes",
+                  "rank": "order",
+                  "children": [
+                    {
+                      "id": "anguillidae",
+                      "name": "Anguillidae",
+                      "scientificName": "Anguillidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Japanese eel",
+                          "commonName": "Japanese eel",
+                          "scientificName": "Anguilla japonica",
+                          "status": "EN"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "congridae",
+                      "name": "Congridae",
+                      "scientificName": "Congridae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "European conger",
+                          "commonName": "European conger",
+                          "scientificName": "Conger conger",
+                          "status": "LC"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "gonorynchiformes",
+                  "name": "Gonorynchiformes",
+                  "scientificName": "Gonorynchiformes",
+                  "rank": "order",
+                  "children": [
+                    {
+                      "id": "chanidae",
+                      "name": "Chanidae",
+                      "scientificName": "Chanidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Milkfish",
+                          "commonName": "Milkfish",
+                          "scientificName": "Chanos chanos",
+                          "status": "LC"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "osmeriformes",
+                  "name": "Osmeriformes",
+                  "scientificName": "Osmeriformes",
+                  "rank": "order",
+                  "children": [
+                    {
+                      "id": "osmeridae",
+                      "name": "Smelt",
+                      "scientificName": "Osmeridae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Capelin",
+                          "commonName": "Capelin",
+                          "scientificName": "Mallotus villosus",
+                          "status": "NE"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "beryciformes",
+                  "name": "Beryciformes",
+                  "scientificName": "Beryciformes",
+                  "rank": "order",
+                  "children": [
+                    {
+                      "id": "trachichthyidae",
+                      "name": "Slimehead",
+                      "scientificName": "Trachichthyidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Orange roughy",
+                          "commonName": "Orange roughy",
+                          "scientificName": "Hoplostethus atlanticus",
+                          "status": "VU"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "zeiformes",
+                  "name": "Zeiformes",
+                  "scientificName": "Zeiformes",
+                  "rank": "order",
+                  "children": [
+                    {
+                      "id": "zeidae",
+                      "name": "Zeidae",
+                      "scientificName": "Zeidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "John Dory",
+                          "commonName": "John Dory",
+                          "scientificName": "Zeus faber",
+                          "status": "DD"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "lutjaniformes",
+                  "name": "Lutjaniformes",
+                  "scientificName": "Lutjaniformes",
+                  "rank": "order",
+                  "children": [
+                    {
+                      "id": "lutjanidae",
+                      "name": "Lutjanidae",
+                      "scientificName": "Lutjanidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Common bluestripe snapper",
+                          "commonName": "Common bluestripe snapper",
+                          "scientificName": "Lutjanus kasmira",
+                          "status": "LC"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "spariformes",
+                  "name": "Spariformes",
+                  "scientificName": "Spariformes",
+                  "rank": "order",
+                  "children": [
+                    {
+                      "id": "sparidae",
+                      "name": "Sparidae",
+                      "scientificName": "Sparidae",
+                      "rank": "family",
+                      "species": [
+                        {
+                          "wikiTitle": "Gilt-head bream",
+                          "commonName": "Gilt-head bream",
+                          "scientificName": "Sparus aurata",
                           "status": "LC"
                         }
                       ]
@@ -8061,6 +9457,12 @@
                       "commonName": "Shortfin mako shark",
                       "scientificName": "Isurus oxyrinchus",
                       "status": "EN"
+                    },
+                    {
+                      "wikiTitle": "Salmon shark",
+                      "commonName": "Salmon shark",
+                      "scientificName": "Lamna ditropis",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -8131,6 +9533,32 @@
                       "commonName": "Smalltooth sawfish",
                       "scientificName": "Pristis pectinata",
                       "status": "CR"
+                    },
+                    {
+                      "wikiTitle": "Longcomb sawfish",
+                      "commonName": "Longcomb sawfish",
+                      "scientificName": "Pristis zijsron",
+                      "status": "CR"
+                    }
+                  ]
+                },
+                {
+                  "id": "rhinidae",
+                  "name": "Wedgefish",
+                  "scientificName": "Rhinidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Rhina ancylostomus",
+                      "commonName": "Rhina ancylostomus",
+                      "scientificName": "Rhina ancylostoma",
+                      "status": "CR"
+                    },
+                    {
+                      "wikiTitle": "Giant guitarfish",
+                      "commonName": "Giant guitarfish",
+                      "scientificName": "Rhynchobatus djiddensis",
+                      "status": "CR"
                     }
                   ]
                 }
@@ -8195,6 +9623,20 @@
                       "commonName": "Tasselled wobbegong",
                       "scientificName": "Eucrossorhinus dasypogon",
                       "status": "LC"
+                    }
+                  ]
+                },
+                {
+                  "id": "hemiscylliidae",
+                  "name": "Hemiscylliidae",
+                  "scientificName": "Hemiscylliidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Whitespotted bamboo shark",
+                      "commonName": "Whitespotted bamboo shark",
+                      "scientificName": "Chiloscyllium plagiosum",
+                      "status": "NT"
                     }
                   ]
                 }
@@ -8269,6 +9711,38 @@
                       "commonName": "Grey reef shark",
                       "scientificName": "Carcharhinus amblyrhynchos",
                       "status": "EN"
+                    },
+                    {
+                      "wikiTitle": "Silky shark",
+                      "commonName": "Silky shark",
+                      "scientificName": "Carcharhinus falciformis",
+                      "status": "VU"
+                    },
+                    {
+                      "wikiTitle": "Blacktip shark",
+                      "commonName": "Blacktip shark",
+                      "scientificName": "Carcharhinus limbatus",
+                      "status": "VU"
+                    }
+                  ]
+                },
+                {
+                  "id": "triakidae",
+                  "name": "Houndshark",
+                  "scientificName": "Triakidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "School shark",
+                      "commonName": "School shark",
+                      "scientificName": "Galeorhinus galeus",
+                      "status": "CR"
+                    },
+                    {
+                      "wikiTitle": "Leopard shark",
+                      "commonName": "Leopard shark",
+                      "scientificName": "Triakis semifasciata",
+                      "status": "LC"
                     }
                   ]
                 }
@@ -8315,6 +9789,20 @@
                       "status": "LC"
                     }
                   ]
+                },
+                {
+                  "id": "hexanchidae",
+                  "name": "Cow shark",
+                  "scientificName": "Hexanchidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Bluntnose sixgill shark",
+                      "commonName": "Bluntnose sixgill shark",
+                      "scientificName": "Hexanchus griseus",
+                      "status": "NT"
+                    }
+                  ]
                 }
               ]
             },
@@ -8335,6 +9823,18 @@
                       "commonName": "Giant oceanic manta ray",
                       "scientificName": "Mobula birostris",
                       "status": "EN"
+                    },
+                    {
+                      "wikiTitle": "Cownose ray",
+                      "commonName": "Cownose ray",
+                      "scientificName": "Rhinoptera bonasus",
+                      "status": "VU"
+                    },
+                    {
+                      "wikiTitle": "Devil fish",
+                      "commonName": "Devil fish",
+                      "scientificName": "Mobula mobular",
+                      "status": "CR"
                     }
                   ]
                 },
@@ -8371,6 +9871,20 @@
                       "status": "LC"
                     }
                   ]
+                },
+                {
+                  "id": "mobulidae",
+                  "name": "Mobulidae",
+                  "scientificName": "Mobulidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Reef manta ray",
+                      "commonName": "Reef manta ray",
+                      "scientificName": "Manta alfredi",
+                      "status": "VU"
+                    }
+                  ]
                 }
               ]
             },
@@ -8391,6 +9905,28 @@
                       "commonName": "Horn shark",
                       "scientificName": "Heterodontus francisci",
                       "status": "LC"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "squatiniformes",
+              "name": "Squatiniformes",
+              "scientificName": "Squatiniformes",
+              "rank": "order",
+              "children": [
+                {
+                  "id": "squatinidae",
+                  "name": "Squatinidae",
+                  "scientificName": "Squatinidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Squatina squatina",
+                      "commonName": "Angel shark",
+                      "scientificName": "Squatina squatina",
+                      "status": "CR"
                     }
                   ]
                 }
@@ -8437,6 +9973,36 @@
                   "commonName": "Atlantic cod",
                   "scientificName": "Gadus morhua",
                   "status": "VU"
+                },
+                {
+                  "wikiTitle": "Alaska pollock",
+                  "commonName": "Alaska pollock",
+                  "scientificName": "Theragra chalcogramma",
+                  "status": "NT"
+                },
+                {
+                  "wikiTitle": "Haddock",
+                  "commonName": "Haddock",
+                  "scientificName": "Melanogrammus aeglefinus",
+                  "status": "VU"
+                },
+                {
+                  "wikiTitle": "Pollachius virens",
+                  "commonName": "Saithe",
+                  "scientificName": "Pollachius virens",
+                  "status": "NE"
+                },
+                {
+                  "wikiTitle": "Common ling",
+                  "commonName": "Common ling",
+                  "scientificName": "Molva molva",
+                  "status": "LC"
+                },
+                {
+                  "wikiTitle": "Burbot",
+                  "commonName": "Burbot",
+                  "scientificName": "Lota lota",
+                  "status": "LC"
                 }
               ]
             }
@@ -8519,6 +10085,18 @@
                   "commonName": "Beluga (sturgeon)",
                   "scientificName": "Huso huso",
                   "status": "CR"
+                },
+                {
+                  "wikiTitle": "White sturgeon",
+                  "commonName": "White sturgeon",
+                  "scientificName": "Acipenser transmontanus",
+                  "status": "VU"
+                },
+                {
+                  "wikiTitle": "Pallid sturgeon",
+                  "commonName": "Pallid sturgeon",
+                  "scientificName": "Scaphirhynchus albus",
+                  "status": "CR"
                 }
               ]
             },
@@ -8583,6 +10161,24 @@
                   "commonName": "Guppy",
                   "scientificName": "Poecilia reticulata",
                   "status": "LC"
+                },
+                {
+                  "wikiTitle": "Poecilia sphenops",
+                  "commonName": "Poecilia sphenops",
+                  "scientificName": "Poecilia sphenops",
+                  "status": "LC"
+                },
+                {
+                  "wikiTitle": "Sailfin molly",
+                  "commonName": "Sailfin molly",
+                  "scientificName": "Poecilia latipinna",
+                  "status": "LC"
+                },
+                {
+                  "wikiTitle": "Southern platyfish",
+                  "commonName": "Southern platyfish",
+                  "scientificName": "Xiphophorus maculatus",
+                  "status": "DD"
                 }
               ]
             },
@@ -8597,6 +10193,64 @@
                   "commonName": "Devils Hole pupfish",
                   "scientificName": "Cyprinodon diabolis",
                   "status": "CR"
+                }
+              ]
+            },
+            {
+              "id": "anablepidae",
+              "name": "Anablepidae",
+              "scientificName": "Anablepidae",
+              "rank": "family",
+              "species": [
+                {
+                  "wikiTitle": "Anableps anableps",
+                  "commonName": "Anableps anableps",
+                  "scientificName": "Anableps anableps",
+                  "status": "LC"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "polypteriformes",
+          "name": "Polypteriformes",
+          "scientificName": "Polypteriformes",
+          "rank": "order",
+          "children": [
+            {
+              "id": "polypteridae",
+              "name": "Bichir",
+              "scientificName": "Polypteridae",
+              "rank": "family",
+              "species": [
+                {
+                  "wikiTitle": "Polypterus senegalus",
+                  "commonName": "Gray bichir",
+                  "scientificName": "Polypterus senegalus",
+                  "status": "LC"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "beloniformes",
+          "name": "Beloniformes",
+          "scientificName": "Beloniformes",
+          "rank": "order",
+          "children": [
+            {
+              "id": "belonidae",
+              "name": "Needlefish",
+              "scientificName": "Belonidae",
+              "rank": "family",
+              "species": [
+                {
+                  "wikiTitle": "Houndfish",
+                  "commonName": "Houndfish",
+                  "scientificName": "Tylosurus crocodilus",
+                  "status": "LC"
                 }
               ]
             }
@@ -8657,6 +10311,24 @@
                       "commonName": "Io Moth",
                       "scientificName": "Automeris io",
                       "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Callosamia promethea",
+                      "commonName": "Promethea Moth",
+                      "scientificName": "Callosamia promethea",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Eacles imperialis",
+                      "commonName": "Imperial Moth",
+                      "scientificName": "Eacles imperialis",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Gonimbrasia belina",
+                      "commonName": "Gonimbrasia belina",
+                      "scientificName": "Gonimbrasia belina",
+                      "status": "NE"
                     }
                   ]
                 },
@@ -8695,6 +10367,24 @@
                       "commonName": "Common blue",
                       "scientificName": "Polyommatus icarus",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Large copper",
+                      "commonName": "Large copper",
+                      "scientificName": "Lycaena dispar",
+                      "status": "NT"
+                    },
+                    {
+                      "wikiTitle": "Chalkhill blue",
+                      "commonName": "Chalkhill blue",
+                      "scientificName": "Lysandra coridon",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Silver-studded blue",
+                      "commonName": "Silver-studded blue",
+                      "scientificName": "Plebejus argus",
+                      "status": "NE"
                     }
                   ]
                 },
@@ -8799,6 +10489,114 @@
                       "commonName": "Bicyclus anynana",
                       "scientificName": "Bicyclus anynana",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Dryas iulia",
+                      "commonName": "Julia Heliconian",
+                      "scientificName": "Dryas iulia",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Gulf fritillary",
+                      "commonName": "Gulf fritillary",
+                      "scientificName": "Dione vanillae",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Queen (butterfly)",
+                      "commonName": "Queen (butterfly)",
+                      "scientificName": "Danaus gilippus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Euploea core",
+                      "commonName": "Euploea core",
+                      "scientificName": "Euploea core",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Polygonia c-album",
+                      "commonName": "Comma",
+                      "scientificName": "Polygonia c-album",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Australian painted lady",
+                      "commonName": "Australian painted lady",
+                      "scientificName": "Vanessa kershawi",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Junonia orithya",
+                      "commonName": "Blue pansy",
+                      "scientificName": "Junonia orithya",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Kallima inachus",
+                      "commonName": "Kallima inachus",
+                      "scientificName": "Kallima inachus",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Hypolimnas bolina",
+                      "commonName": "Hypolimnas bolina",
+                      "scientificName": "Hypolimnas bolina",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Hypolimnas misippus",
+                      "commonName": "Danaid Eggfly",
+                      "scientificName": "Hypolimnas misippus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Limenitis arthemis",
+                      "commonName": "White Admiral",
+                      "scientificName": "Limenitis arthemis",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Charaxes jasius",
+                      "commonName": "Charaxes jasius",
+                      "scientificName": "Charaxes jasius",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Small pearl-bordered fritillary",
+                      "commonName": "Small pearl-bordered fritillary",
+                      "scientificName": "Boloria selene",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Marsh fritillary",
+                      "commonName": "Marsh fritillary",
+                      "scientificName": "Euphydryas aurinia",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Glanville fritillary",
+                      "commonName": "Glanville fritillary",
+                      "scientificName": "Melitaea cinxia",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Speckled wood (butterfly)",
+                      "commonName": "Speckled wood (butterfly)",
+                      "scientificName": "Pararge aegeria",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Small heath (butterfly)",
+                      "commonName": "Small heath (butterfly)",
+                      "scientificName": "Coenonympha pamphilus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Grayling (butterfly)",
+                      "commonName": "Grayling (butterfly)",
+                      "scientificName": "Hipparchia semele",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -8843,6 +10641,66 @@
                       "commonName": "Common birdwing",
                       "scientificName": "Troides helena",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Papilio demoleus",
+                      "commonName": "Lime butterfly",
+                      "scientificName": "Papilio demoleus",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Papilio troilus",
+                      "commonName": "Spicebush swallowtail",
+                      "scientificName": "Papilio troilus",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Papilio cresphontes",
+                      "commonName": "Eastern Giant Swallowtail",
+                      "scientificName": "Papilio cresphontes",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Papilio polyxenes",
+                      "commonName": "Black Swallowtail",
+                      "scientificName": "Papilio polyxenes",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Apollo (butterfly)",
+                      "commonName": "Apollo (butterfly)",
+                      "scientificName": "Parnassius apollo",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Zerynthia polyxena",
+                      "commonName": "Zerynthia polyxena",
+                      "scientificName": "Zerynthia polyxena",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Graphium sarpedon",
+                      "commonName": "Graphium sarpedon",
+                      "scientificName": "Graphium sarpedon",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Graphium agamemnon",
+                      "commonName": "Graphium agamemnon",
+                      "scientificName": "Graphium agamemnon",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Pachliopta aristolochiae",
+                      "commonName": "Pachliopta aristolochiae",
+                      "scientificName": "Pachliopta aristolochiae",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Ornithoptera priamus",
+                      "commonName": "Ornithoptera priamus",
+                      "scientificName": "Ornithoptera priamus",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -8874,6 +10732,18 @@
                       "wikiTitle": "Manduca sexta",
                       "commonName": "Carolina sphinx",
                       "scientificName": "Manduca sexta",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Hyles lineata",
+                      "commonName": "White-lined Sphinx Moth",
+                      "scientificName": "Hyles lineata",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Manduca quinquemaculata",
+                      "commonName": "Five-spotted Hawk Moth",
+                      "scientificName": "Manduca quinquemaculata",
                       "status": "NE"
                     }
                   ]
@@ -8922,6 +10792,18 @@
                       "wikiTitle": "Lymantria dispar",
                       "commonName": "Gypsy Moth",
                       "scientificName": "Lymantria dispar",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Utetheisa ornatrix",
+                      "commonName": "Ornate Bella Moth",
+                      "scientificName": "Utetheisa ornatrix",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Brown-tail moth",
+                      "commonName": "Brown-tail moth",
+                      "scientificName": "Euproctis chrysorrhoea",
                       "status": "NE"
                     }
                   ]
@@ -8977,6 +10859,36 @@
                       "commonName": "Cabbage butterfly",
                       "scientificName": "Pieris brassicae",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Anthocharis cardamines",
+                      "commonName": "Orange tip",
+                      "scientificName": "Anthocharis cardamines",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Colias croceus",
+                      "commonName": "Common clouded yellow",
+                      "scientificName": "Colias croceus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Colias eurytheme",
+                      "commonName": "Orange Sulphur",
+                      "scientificName": "Colias eurytheme",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Catopsilia pomona",
+                      "commonName": "Catopsilia pomona",
+                      "scientificName": "Catopsilia pomona",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Leptidea sinapis",
+                      "commonName": "Wood White",
+                      "scientificName": "Leptidea sinapis",
+                      "status": "NE"
                     }
                   ]
                 },
@@ -8990,6 +10902,12 @@
                       "wikiTitle": "Peppered moth",
                       "commonName": "Peppered moth",
                       "scientificName": "Biston betularia",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Winter moth",
+                      "commonName": "Winter moth",
+                      "scientificName": "Operophtera brumata",
                       "status": "NE"
                     }
                   ]
@@ -9010,6 +10928,186 @@
                       "wikiTitle": "Fall armyworm",
                       "commonName": "Fall armyworm",
                       "scientificName": "Spodoptera frugiperda",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Cabbage looper",
+                      "commonName": "Cabbage looper",
+                      "scientificName": "Trichoplusia ni",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Helicoverpa zea",
+                      "commonName": "Corn Earworm",
+                      "scientificName": "Helicoverpa zea",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Spodoptera litura",
+                      "commonName": "Spodoptera litura",
+                      "scientificName": "Spodoptera litura",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "riodinidae",
+                  "name": "Riodinidae",
+                  "scientificName": "Riodinidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Hamearis lucina",
+                      "commonName": "Duke of burgundy fritillary",
+                      "scientificName": "Hamearis lucina",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "hesperiidae",
+                  "name": "Skipper",
+                  "scientificName": "Hesperiidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Hesperia comma",
+                      "commonName": "Silver-spotted skipper",
+                      "scientificName": "Hesperia comma",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Dingy skipper",
+                      "commonName": "Dingy skipper",
+                      "scientificName": "Erynnis tages",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Epargyreus clarus",
+                      "commonName": "Epargyreus clarus",
+                      "scientificName": "Epargyreus clarus",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Pyrgus malvae",
+                      "commonName": "Grizzled skipper",
+                      "scientificName": "Pyrgus malvae",
+                      "status": "LC"
+                    }
+                  ]
+                },
+                {
+                  "id": "notodontidae",
+                  "name": "Notodontidae",
+                  "scientificName": "Notodontidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Oak processionary",
+                      "commonName": "Oak processionary",
+                      "scientificName": "Thaumetopoea processionea",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Pine processionary",
+                      "commonName": "Pine processionary",
+                      "scientificName": "Thaumetopoea pityocampa",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "lasiocampidae",
+                  "name": "Lasiocampidae",
+                  "scientificName": "Lasiocampidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Eastern tent caterpillar",
+                      "commonName": "Eastern tent caterpillar",
+                      "scientificName": "Malacosoma americanum",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Dendrolimus pini",
+                      "commonName": "Pine-tree Lappet",
+                      "scientificName": "Dendrolimus pini",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "sesiidae",
+                  "name": "Sesiidae",
+                  "scientificName": "Sesiidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Hornet moth",
+                      "commonName": "Hornet moth",
+                      "scientificName": "Sesia apiformis",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "crambidae",
+                  "name": "Crambidae",
+                  "scientificName": "Crambidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "European corn borer",
+                      "commonName": "European corn borer",
+                      "scientificName": "Ostrinia nubilalis",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Cydalima perspectalis",
+                      "commonName": "Cydalima perspectalis",
+                      "scientificName": "Cydalima perspectalis",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "gelechiidae",
+                  "name": "Gelechiidae",
+                  "scientificName": "Gelechiidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Tuta absoluta",
+                      "commonName": "Tuta absoluta",
+                      "scientificName": "Tuta absoluta",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "tineidae",
+                  "name": "Tineidae",
+                  "scientificName": "Tineidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Tineola bisselliella",
+                      "commonName": "Clothing moth",
+                      "scientificName": "Tineola bisselliella",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "hepialidae",
+                  "name": "Hepialidae",
+                  "scientificName": "Hepialidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Ghost moth",
+                      "commonName": "Ghost moth",
+                      "scientificName": "Hepialus humuli",
                       "status": "NE"
                     }
                   ]
@@ -9053,6 +11151,18 @@
                       "commonName": "Chinese mantis",
                       "scientificName": "Tenodera sinensis",
                       "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Hierodula patellifera",
+                      "commonName": "Giant Asian Mantis",
+                      "scientificName": "Hierodula patellifera",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Iris oratoria",
+                      "commonName": "Mediterranean Mantis",
+                      "scientificName": "Iris oratoria",
+                      "status": "LC"
                     }
                   ]
                 }
@@ -9099,6 +11209,30 @@
                       "commonName": "Cockchafer",
                       "scientificName": "Melolontha melolontha",
                       "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Oryctes rhinoceros",
+                      "commonName": "Asian rhinoceros beetle",
+                      "scientificName": "Oryctes rhinoceros",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Protaetia cuprea",
+                      "commonName": "Protaetia cuprea",
+                      "scientificName": "Protaetia cuprea",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Cotinis nitida",
+                      "commonName": "Green June Beetle",
+                      "scientificName": "Cotinis nitida",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Phanaeus vindex",
+                      "commonName": "Rainbow Scarab",
+                      "scientificName": "Phanaeus vindex",
+                      "status": "NE"
                     }
                   ]
                 },
@@ -9119,6 +11253,18 @@
                       "commonName": "Asian long-horned beetle",
                       "scientificName": "Anoplophora glabripennis",
                       "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Harlequin beetle",
+                      "commonName": "Harlequin beetle",
+                      "scientificName": "Acrocinus longimanus",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Clytus arietis",
+                      "commonName": "Wasp beetle",
+                      "scientificName": "Clytus arietis",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -9138,6 +11284,24 @@
                       "wikiTitle": "Harmonia axyridis",
                       "commonName": "Harmonia axyridis",
                       "scientificName": "Harmonia axyridis",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Adalia bipunctata",
+                      "commonName": "2-spot ladybird",
+                      "scientificName": "Adalia bipunctata",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Psyllobora vigintiduopunctata",
+                      "commonName": "Psyllobora vigintiduopunctata",
+                      "scientificName": "Psyllobora vigintiduopunctata",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Hippodamia convergens",
+                      "commonName": "Convergent Lady Beetle",
+                      "scientificName": "Hippodamia convergens",
                       "status": "NE"
                     }
                   ]
@@ -9201,6 +11365,12 @@
                       "commonName": "Mealworm",
                       "scientificName": "Tenebrio molitor",
                       "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Alphitobius diaperinus",
+                      "commonName": "Lesser mealworm beetle",
+                      "scientificName": "Alphitobius diaperinus",
+                      "status": "NE"
                     }
                   ]
                 },
@@ -9214,6 +11384,88 @@
                       "wikiTitle": "Emerald ash borer",
                       "commonName": "Emerald ash borer",
                       "scientificName": "Agrilus planipennis",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "elateridae",
+                  "name": "Click beetle",
+                  "scientificName": "Elateridae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Agriotes lineatus",
+                      "commonName": "Lined Click Beetle",
+                      "scientificName": "Agriotes lineatus",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "pyrochroidae",
+                  "name": "Fire-coloured beetle",
+                  "scientificName": "Pyrochroidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Cardinal beetle",
+                      "commonName": "Cardinal beetle",
+                      "scientificName": "Pyrochroa coccinea",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "dryophthoridae",
+                  "name": "Dryophthoridae",
+                  "scientificName": "Dryophthoridae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Rhynchophorus ferrugineus",
+                      "commonName": "Red palm weevil",
+                      "scientificName": "Rhynchophorus ferrugineus",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "curculionidae",
+                  "name": "Curculionidae",
+                  "scientificName": "Curculionidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Boll weevil",
+                      "commonName": "Boll weevil",
+                      "scientificName": "Anthonomus grandis",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "European spruce bark beetle",
+                      "commonName": "European spruce bark beetle",
+                      "scientificName": "Ips typographus",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Mountain pine beetle",
+                      "commonName": "Mountain pine beetle",
+                      "scientificName": "Dendroctonus ponderosae",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "brentidae",
+                  "name": "Brentidae",
+                  "scientificName": "Brentidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "New Zealand giraffe weevil",
+                      "commonName": "New Zealand giraffe weevil",
+                      "scientificName": "Lasiorhynchus barbicornis",
                       "status": "NE"
                     }
                   ]
@@ -9243,6 +11495,12 @@
                       "commonName": "Migratory locust",
                       "scientificName": "Locusta migratoria",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Dissosteira carolina",
+                      "commonName": "Carolina Grasshopper",
+                      "scientificName": "Dissosteira carolina",
+                      "status": "NE"
                     }
                   ]
                 },
@@ -9257,6 +11515,46 @@
                       "commonName": "Wetapunga",
                       "scientificName": "Deinacrida heteracantha",
                       "status": "VU"
+                    },
+                    {
+                      "wikiTitle": "Hemideina crassidens",
+                      "commonName": "Wellington tree wētā",
+                      "scientificName": "Hemideina crassidens",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Hemideina thoracica",
+                      "commonName": "Auckland tree wētā",
+                      "scientificName": "Hemideina thoracica",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "romaleidae",
+                  "name": "Romaleidae",
+                  "scientificName": "Romaleidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Taeniopoda eques",
+                      "commonName": "Horse Lubber",
+                      "scientificName": "Taeniopoda eques",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "gryllidae",
+                  "name": "Gryllidae",
+                  "scientificName": "Gryllidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Gryllus pennsylvanicus",
+                      "commonName": "Fall Field Cricket",
+                      "scientificName": "Gryllus pennsylvanicus",
+                      "status": "NE"
                     }
                   ]
                 }
@@ -9495,6 +11793,20 @@
                       "status": "NE"
                     }
                   ]
+                },
+                {
+                  "id": "rhinotermitidae",
+                  "name": "Rhinotermitidae",
+                  "scientificName": "Rhinotermitidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Reticulitermes flavipes",
+                      "commonName": "Eastern Subterranean Termite",
+                      "scientificName": "Reticulitermes flavipes",
+                      "status": "NE"
+                    }
+                  ]
                 }
               ]
             },
@@ -9565,6 +11877,18 @@
                       "commonName": "Decim periodical cicada",
                       "scientificName": "Magicicada septendecim",
                       "status": "NT"
+                    },
+                    {
+                      "wikiTitle": "Magicicada cassini",
+                      "commonName": "Cassini periodical cicada",
+                      "scientificName": "Magicicada cassini",
+                      "status": "NT"
+                    },
+                    {
+                      "wikiTitle": "Thopha saccata",
+                      "commonName": "Thopha saccata",
+                      "scientificName": "Thopha saccata",
+                      "status": "NE"
                     }
                   ]
                 },
@@ -9578,6 +11902,122 @@
                       "wikiTitle": "Notonecta glauca",
                       "commonName": "Water boatman",
                       "scientificName": "Notonecta glauca",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "aleyrodidae",
+                  "name": "Whitefly",
+                  "scientificName": "Aleyrodidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Silverleaf whitefly",
+                      "commonName": "Silverleaf whitefly",
+                      "scientificName": "Bemisia tabaci",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "phylloxeridae",
+                  "name": "Phylloxeridae",
+                  "scientificName": "Phylloxeridae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Phylloxera",
+                      "commonName": "Phylloxera",
+                      "scientificName": "Daktulosphaira vitifoliae",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "dactylopiidae",
+                  "name": "Dactylopiidae",
+                  "scientificName": "Dactylopiidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Cochineal",
+                      "commonName": "Cochineal",
+                      "scientificName": "Dactylopius coccus",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "pentatomidae",
+                  "name": "Pentatomidae",
+                  "scientificName": "Pentatomidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Nezara viridula",
+                      "commonName": "Southern green stink bug",
+                      "scientificName": "Nezara viridula",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Brown marmorated stink bug",
+                      "commonName": "Brown marmorated stink bug",
+                      "scientificName": "Halyomorpha halys",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Spined soldier bug",
+                      "commonName": "Spined soldier bug",
+                      "scientificName": "Podisus maculiventris",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "coreidae",
+                  "name": "Coreidae",
+                  "scientificName": "Coreidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Western conifer seed bug",
+                      "commonName": "Western conifer seed bug",
+                      "scientificName": "Leptoglossus occidentalis",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "lygaeidae",
+                  "name": "Lygaeidae",
+                  "scientificName": "Lygaeidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Large milkweed bug",
+                      "commonName": "Large milkweed bug",
+                      "scientificName": "Oncopeltus fasciatus",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "reduviidae",
+                  "name": "Reduviidae",
+                  "scientificName": "Reduviidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Arilus cristatus",
+                      "commonName": "Wheel Bug",
+                      "scientificName": "Arilus cristatus",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Zelus renardii",
+                      "commonName": "Leafhopper Assassin Bug",
+                      "scientificName": "Zelus renardii",
                       "status": "NE"
                     }
                   ]
@@ -9763,6 +12203,12 @@
                       "commonName": "Bold Jumper",
                       "scientificName": "Phidippus audax",
                       "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Phidippus clarus",
+                      "commonName": "Phidippus clarus",
+                      "scientificName": "Phidippus clarus",
+                      "status": "NE"
                     }
                   ]
                 },
@@ -9831,6 +12277,30 @@
                       "commonName": "Brown button spider",
                       "scientificName": "Latrodectus geometricus",
                       "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Latrodectus hesperus",
+                      "commonName": "Western Black Widow spider",
+                      "scientificName": "Latrodectus hesperus",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Katipō",
+                      "commonName": "Katipō",
+                      "scientificName": "Latrodectus katipo",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Theridion grallator",
+                      "commonName": "Theridion grallator",
+                      "scientificName": "Theridion grallator",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Argyrodes elevatus",
+                      "commonName": "Argyrodes elevatus",
+                      "scientificName": "Argyrodes elevatus",
+                      "status": "NE"
                     }
                   ]
                 },
@@ -9869,6 +12339,30 @@
                       "commonName": "Tropical tent-web spider",
                       "scientificName": "Cyrtophora citricola",
                       "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Argiope keyserlingi",
+                      "commonName": "St Andrews cross spider",
+                      "scientificName": "Argiope keyserlingi",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Gasteracantha fornicata",
+                      "commonName": "Gasteracantha fornicata",
+                      "scientificName": "Gasteracantha fornicata",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Zygiella x-notata",
+                      "commonName": "Zygiella x-notata",
+                      "scientificName": "Zygiella x-notata",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Argiope argentata",
+                      "commonName": "Silver Argiope",
+                      "scientificName": "Argiope argentata",
+                      "status": "NE"
                     }
                   ]
                 },
@@ -9882,6 +12376,12 @@
                       "wikiTitle": "Misumena vatia",
                       "commonName": "Crab spider",
                       "scientificName": "Misumena vatia",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Thomisus spectabilis",
+                      "commonName": "Thomisus spectabilis",
+                      "scientificName": "Thomisus spectabilis",
                       "status": "NE"
                     }
                   ]
@@ -9910,6 +12410,62 @@
                       "wikiTitle": "Pholcus phalangioides",
                       "commonName": "Long-bodied Cellar Spider",
                       "scientificName": "Pholcus phalangioides",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "sicariidae",
+                  "name": "Sicariidae",
+                  "scientificName": "Sicariidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Mediterranean recluse spider",
+                      "commonName": "Mediterranean recluse spider",
+                      "scientificName": "Loxosceles rufescens",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "pisauridae",
+                  "name": "Nursery web spider",
+                  "scientificName": "Pisauridae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Pisaura mirabilis",
+                      "commonName": "Nursery-web spider",
+                      "scientificName": "Pisaura mirabilis",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "desidae",
+                  "name": "Desidae",
+                  "scientificName": "Desidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Desis marina",
+                      "commonName": "Desis marina",
+                      "scientificName": "Desis marina",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "linyphiidae",
+                  "name": "Linyphiidae",
+                  "scientificName": "Linyphiidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Erigone atra",
+                      "commonName": "Erigone atra",
+                      "scientificName": "Erigone atra",
                       "status": "NE"
                     }
                   ]
@@ -10021,6 +12577,20 @@
                       "status": "NE"
                     }
                   ]
+                },
+                {
+                  "id": "dermanyssidae",
+                  "name": "Dermanyssidae",
+                  "scientificName": "Dermanyssidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Dermanyssus gallinae",
+                      "commonName": "Dermanyssus gallinae",
+                      "scientificName": "Dermanyssus gallinae",
+                      "status": "NE"
+                    }
+                  ]
                 }
               ]
             }
@@ -10105,6 +12675,18 @@
                       "commonName": "Common lobster",
                       "scientificName": "Homarus gammarus",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Nephrops norvegicus",
+                      "commonName": "Norway Lobster",
+                      "scientificName": "Nephrops norvegicus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Metanephrops challengeri",
+                      "commonName": "Deep-water Scampi",
+                      "scientificName": "Metanephrops challengeri",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -10119,6 +12701,18 @@
                       "commonName": "Christmas Island red crab",
                       "scientificName": "Gecarcoidea natalis",
                       "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Gecarcinus ruricola",
+                      "commonName": "Gecarcinus ruricola",
+                      "scientificName": "Gecarcinus ruricola",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Johngarthia lagostoma",
+                      "commonName": "Johngarthia lagostoma",
+                      "scientificName": "Johngarthia lagostoma",
+                      "status": "NE"
                     }
                   ]
                 },
@@ -10132,6 +12726,18 @@
                       "wikiTitle": "Red king crab",
                       "commonName": "Red king crab",
                       "scientificName": "Paralithodes camtschaticus",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Paralithodes platypus",
+                      "commonName": "Paralithodes platypus",
+                      "scientificName": "Paralithodes platypus",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Neolithodes grimaldii",
+                      "commonName": "Neolithodes grimaldii",
+                      "scientificName": "Neolithodes grimaldii",
                       "status": "NE"
                     }
                   ]
@@ -10166,6 +12772,12 @@
                       "wikiTitle": "Procambarus clarkii",
                       "commonName": "Louisiana crawfish",
                       "scientificName": "Procambarus clarkii",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Rusty crayfish",
+                      "commonName": "Rusty crayfish",
+                      "scientificName": "Faxonius rusticus",
                       "status": "LC"
                     }
                   ]
@@ -10229,6 +12841,12 @@
                       "commonName": "California spiny lobster",
                       "scientificName": "Panulirus interruptus",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Jasus edwardsii",
+                      "commonName": "Red Rock Lobster",
+                      "scientificName": "Jasus edwardsii",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -10271,6 +12889,12 @@
                       "commonName": "Chinese mitten crab",
                       "scientificName": "Eriocheir sinensis",
                       "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Hemigrapsus oregonensis",
+                      "commonName": "Green Shore Crab",
+                      "scientificName": "Hemigrapsus oregonensis",
+                      "status": "NE"
                     }
                   ]
                 },
@@ -10312,6 +12936,90 @@
                       "wikiTitle": "Crangon crangon",
                       "commonName": "Common shrimp",
                       "scientificName": "Crangon crangon",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "polybiidae",
+                  "name": "Polybiidae",
+                  "scientificName": "Polybiidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Velvet crab",
+                      "commonName": "Velvet crab",
+                      "scientificName": "Necora puber",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "menippidae",
+                  "name": "Menippidae",
+                  "scientificName": "Menippidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Florida stone crab",
+                      "commonName": "Florida stone crab",
+                      "scientificName": "Menippe mercenaria",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "majidae",
+                  "name": "Majidae",
+                  "scientificName": "Majidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Maja squinado",
+                      "commonName": "Maja squinado",
+                      "scientificName": "Maja squinado",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "oregoniidae",
+                  "name": "Oregoniidae",
+                  "scientificName": "Oregoniidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Chionoecetes opilio",
+                      "commonName": "Chionoecetes opilio",
+                      "scientificName": "Chionoecetes opilio",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "palaemonidae",
+                  "name": "Palaemonidae",
+                  "scientificName": "Palaemonidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Macrobrachium rosenbergii",
+                      "commonName": "Giant Freshwater Prawn",
+                      "scientificName": "Macrobrachium rosenbergii",
+                      "status": "LC"
+                    }
+                  ]
+                },
+                {
+                  "id": "atyidae",
+                  "name": "Atyidae",
+                  "scientificName": "Atyidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Neocaridina davidi",
+                      "commonName": "Neocaridina davidi",
+                      "scientificName": "Neocaridina davidi",
                       "status": "NE"
                     }
                   ]
@@ -10398,6 +13106,70 @@
                       "wikiTitle": "Oniscus asellus",
                       "commonName": "Common woodlouse",
                       "scientificName": "Oniscus asellus",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "asellidae",
+                  "name": "Asellidae",
+                  "scientificName": "Asellidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Asellus aquaticus",
+                      "commonName": "Water hoglouse",
+                      "scientificName": "Asellus aquaticus",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "cymothoidae",
+                  "name": "Cymothoidae",
+                  "scientificName": "Cymothoidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Cymothoa exigua",
+                      "commonName": "Cymothoa exigua",
+                      "scientificName": "Cymothoa exigua",
+                      "status": "NE"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "amphipoda",
+              "name": "Amphipoda",
+              "scientificName": "Amphipoda",
+              "rank": "order",
+              "children": [
+                {
+                  "id": "caprellidae",
+                  "name": "Caprellidae",
+                  "scientificName": "Caprellidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Caprella mutica",
+                      "commonName": "Caprella mutica",
+                      "scientificName": "Caprella mutica",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "alicellidae",
+                  "name": "Alicellidae",
+                  "scientificName": "Alicellidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Alicella",
+                      "commonName": "Alicella",
+                      "scientificName": "Alicella gigantea",
                       "status": "NE"
                     }
                   ]
@@ -10569,6 +13341,12 @@
                       "commonName": "Triops longicaudatus",
                       "scientificName": "Triops longicaudatus",
                       "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Lepidurus apus",
+                      "commonName": "Tadpole shrimp",
+                      "scientificName": "Lepidurus apus",
+                      "status": "NE"
                     }
                   ]
                 }
@@ -10659,6 +13437,24 @@
                       "commonName": "Octopus cyanea",
                       "scientificName": "Octopus cyanea",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Octopus tetricus",
+                      "commonName": "Octopus tetricus",
+                      "scientificName": "Octopus tetricus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Octopus sinensis",
+                      "commonName": "Octopus sinensis",
+                      "scientificName": "Octopus sinensis",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Amphioctopus fangsiao",
+                      "commonName": "Amphioctopus fangsiao",
+                      "scientificName": "Amphioctopus fangsiao",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -10687,6 +13483,20 @@
                       "commonName": "Curled octopus",
                       "scientificName": "Eledone cirrhosa",
                       "status": "LC"
+                    }
+                  ]
+                },
+                {
+                  "id": "stauroteuthidae",
+                  "name": "Stauroteuthidae",
+                  "scientificName": "Stauroteuthidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Stauroteuthis syrtensis",
+                      "commonName": "Stauroteuthis syrtensis",
+                      "scientificName": "Stauroteuthis syrtensis",
+                      "status": "DD"
                     }
                   ]
                 }
@@ -10921,6 +13731,34 @@
                       "status": "NE"
                     }
                   ]
+                },
+                {
+                  "id": "aeolidiidae",
+                  "name": "Aeolidiidae",
+                  "scientificName": "Aeolidiidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Berghia stephanieae",
+                      "commonName": "Berghia stephanieae",
+                      "scientificName": "Berghia stephanieae",
+                      "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "fionidae",
+                  "name": "Fionidae",
+                  "scientificName": "Fionidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Fiona pinnata",
+                      "commonName": "Fiona pinnata",
+                      "scientificName": "Fiona pinnata",
+                      "status": "NE"
+                    }
+                  ]
                 }
               ]
             },
@@ -10977,6 +13815,18 @@
                       "commonName": "Dog whelk",
                       "scientificName": "Nucella lapillus",
                       "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Hexaplex trunculus",
+                      "commonName": "Hexaplex trunculus",
+                      "scientificName": "Hexaplex trunculus",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Rapana venosa",
+                      "commonName": "Veined rapa whelk",
+                      "scientificName": "Rapana venosa",
+                      "status": "NE"
                     }
                   ]
                 }
@@ -11025,6 +13875,18 @@
                       "commonName": "Spanish slug",
                       "scientificName": "Arion vulgaris",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Arion ater rufus",
+                      "commonName": "Arion ater rufus",
+                      "scientificName": "Arion rufus",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Kerry slug",
+                      "commonName": "Kerry slug",
+                      "scientificName": "Geomalacus maculosus",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -11051,6 +13913,18 @@
                       "commonName": "Grove snail",
                       "scientificName": "Cepaea nemoralis",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Theba pisana",
+                      "commonName": "Theba pisana",
+                      "scientificName": "Theba pisana",
+                      "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Arianta arbustorum",
+                      "commonName": "Copse Snail",
+                      "scientificName": "Arianta arbustorum",
+                      "status": "LC"
                     }
                   ]
                 },
@@ -11065,6 +13939,34 @@
                       "commonName": "Leopard slug",
                       "scientificName": "Limax maximus",
                       "status": "LC"
+                    }
+                  ]
+                },
+                {
+                  "id": "rhytididae",
+                  "name": "Rhytididae",
+                  "scientificName": "Rhytididae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Paryphanta busbyi",
+                      "commonName": "Kauri Snail",
+                      "scientificName": "Paryphanta busbyi",
+                      "status": "NT"
+                    }
+                  ]
+                },
+                {
+                  "id": "agriolimacidae",
+                  "name": "Agriolimacidae",
+                  "scientificName": "Agriolimacidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Deroceras laeve",
+                      "commonName": "Deroceras laeve",
+                      "scientificName": "Deroceras laeve",
+                      "status": "NE"
                     }
                   ]
                 }
@@ -11115,6 +14017,12 @@
                       "commonName": "Common periwinkle",
                       "scientificName": "Littorina littorea",
                       "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Littoraria irrorata",
+                      "commonName": "Littoraria irrorata",
+                      "scientificName": "Littoraria irrorata",
+                      "status": "NE"
                     }
                   ]
                 },
@@ -11145,6 +14053,20 @@
                       "status": "NE"
                     }
                   ]
+                },
+                {
+                  "id": "tonnidae",
+                  "name": "Tonnidae",
+                  "scientificName": "Tonnidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Tonna galea",
+                      "commonName": "Giant tun",
+                      "scientificName": "Tonna galea",
+                      "status": "NE"
+                    }
+                  ]
                 }
               ]
             },
@@ -11165,8 +14087,108 @@
                       "commonName": "Channeled Applesnail",
                       "scientificName": "Pomacea canaliculata",
                       "status": "LC"
+                    },
+                    {
+                      "wikiTitle": "Pomacea maculata",
+                      "commonName": "Pomacea maculata",
+                      "scientificName": "Pomacea maculata",
+                      "status": "NE"
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "id": "lepetellida",
+              "name": "Lepetellida",
+              "scientificName": "Lepetellida",
+              "rank": "order",
+              "children": [
+                {
+                  "id": "haliotidae",
+                  "name": "Haliotidae",
+                  "scientificName": "Haliotidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Haliotis kamtschatkana",
+                      "commonName": "Northern abalone",
+                      "scientificName": "Haliotis kamtschatkana",
+                      "status": "EN"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "cycloneritida",
+              "name": "Cycloneritida",
+              "scientificName": "Cycloneritida",
+              "rank": "order",
+              "children": [
+                {
+                  "id": "neritidae",
+                  "name": "Neritidae",
+                  "scientificName": "Neritidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Theodoxus fluviatilis",
+                      "commonName": "Theodoxus fluviatilis",
+                      "scientificName": "Theodoxus fluviatilis",
+                      "status": "LC"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "anaspidea",
+              "name": "Anaspidea",
+              "scientificName": "Anaspidea",
+              "rank": "order",
+              "children": [
+                {
+                  "id": "aplysiidae",
+                  "name": "Aplysiidae",
+                  "scientificName": "Aplysiidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Bursatella leachii",
+                      "commonName": "Bursatella leachii",
+                      "scientificName": "Bursatella leachii",
+                      "status": "NE"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "physidae",
+              "name": "Physidae",
+              "scientificName": "Physidae",
+              "rank": "family",
+              "species": [
+                {
+                  "wikiTitle": "Physella acuta",
+                  "commonName": "Physella acuta",
+                  "scientificName": "Physella acuta",
+                  "status": "LC"
+                }
+              ]
+            },
+            {
+              "id": "planorbidae",
+              "name": "Planorbidae",
+              "scientificName": "Planorbidae",
+              "rank": "family",
+              "species": [
+                {
+                  "wikiTitle": "Planorbarius corneus",
+                  "commonName": "Great Ram's Horn Snail",
+                  "scientificName": "Planorbarius corneus",
+                  "status": "LC"
                 }
               ]
             }
@@ -11203,6 +14225,20 @@
                       "status": "NE"
                     }
                   ]
+                },
+                {
+                  "id": "psammobiidae",
+                  "name": "Psammobiidae",
+                  "scientificName": "Psammobiidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Plebidonax deltoides",
+                      "commonName": "Plebidonax deltoides",
+                      "scientificName": "Plebidonax deltoides",
+                      "status": "NE"
+                    }
+                  ]
                 }
               ]
             },
@@ -11223,6 +14259,20 @@
                       "commonName": "Ocean quahog",
                       "scientificName": "Arctica islandica",
                       "status": "NE"
+                    }
+                  ]
+                },
+                {
+                  "id": "corbiculidae",
+                  "name": "Corbiculidae",
+                  "scientificName": "Corbiculidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Corbicula fluminea",
+                      "commonName": "Golden Freshwater Clam",
+                      "scientificName": "Corbicula fluminea",
+                      "status": "LC"
                     }
                   ]
                 }
@@ -11251,6 +14301,24 @@
                       "commonName": "Mediterranean mussel",
                       "scientificName": "Mytilus galloprovincialis",
                       "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Perna viridis",
+                      "commonName": "Perna viridis",
+                      "scientificName": "Perna viridis",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Perna canaliculus",
+                      "commonName": "Perna canaliculus",
+                      "scientificName": "Perna canaliculus",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Limnoperna fortunei",
+                      "commonName": "Golden mussel",
+                      "scientificName": "Limnoperna fortunei",
+                      "status": "LC"
                     }
                   ]
                 }
@@ -11513,6 +14581,34 @@
                       "commonName": "Mauve stinger",
                       "scientificName": "Pelagia noctiluca",
                       "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Chrysaora hysoscella",
+                      "commonName": "Compass jellyfish",
+                      "scientificName": "Chrysaora hysoscella",
+                      "status": "NE"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "rhizostomeae",
+              "name": "Rhizostomeae",
+              "scientificName": "Rhizostomeae",
+              "rank": "order",
+              "children": [
+                {
+                  "id": "catostylidae",
+                  "name": "Catostylidae",
+                  "scientificName": "Catostylidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Jelly blubber",
+                      "commonName": "Jelly blubber",
+                      "scientificName": "Catostylus mosaicus",
+                      "status": "NE"
                     }
                   ]
                 }
@@ -11663,6 +14759,28 @@
       ]
     },
     {
+      "id": "onychophora",
+      "name": "Onychophora",
+      "scientificName": "Onychophora",
+      "rank": "phylum",
+      "children": [
+        {
+          "id": "peripatopsidae",
+          "name": "Peripatopsidae",
+          "scientificName": "Peripatopsidae",
+          "rank": "family",
+          "species": [
+            {
+              "wikiTitle": "Peripatoides novaezealandiae",
+              "commonName": "Peripatoides novaezealandiae",
+              "scientificName": "Peripatoides novaezealandiae",
+              "status": "NE"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "echinodermata",
       "name": "Echinoderm",
       "scientificName": "Echinodermata",
@@ -11690,6 +14808,12 @@
                       "wikiTitle": "Crown-of-thorns starfish",
                       "commonName": "Crown-of-thorns starfish",
                       "scientificName": "Acanthaster planci",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Acanthaster brevispinus",
+                      "commonName": "Acanthaster brevispinus",
+                      "scientificName": "Acanthaster brevispinus",
                       "status": "NE"
                     }
                   ]
@@ -11724,6 +14848,12 @@
                       "wikiTitle": "Pisaster ochraceus",
                       "commonName": "Pisaster ochraceus",
                       "scientificName": "Pisaster ochraceus",
+                      "status": "NE"
+                    },
+                    {
+                      "wikiTitle": "Asterias amurensis",
+                      "commonName": "Northern Pacific sea star",
+                      "scientificName": "Asterias amurensis",
                       "status": "NE"
                     }
                   ]
@@ -11793,6 +14923,20 @@
                       "status": "NE"
                     }
                   ]
+                },
+                {
+                  "id": "echinometridae",
+                  "name": "Echinometridae",
+                  "scientificName": "Echinometridae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Evechinus chloroticus",
+                      "commonName": "Kina",
+                      "scientificName": "Evechinus chloroticus",
+                      "status": "NE"
+                    }
+                  ]
                 }
               ]
             },
@@ -11812,6 +14956,102 @@
                       "wikiTitle": "Diadema setosum",
                       "commonName": "Long-spined sea urchin",
                       "scientificName": "Diadema setosum",
+                      "status": "NE"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "camarodonta",
+              "name": "Camarodonta",
+              "scientificName": "Camarodonta",
+              "rank": "order",
+              "children": [
+                {
+                  "id": "toxopneustidae",
+                  "name": "Toxopneustidae",
+                  "scientificName": "Toxopneustidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Toxopneustes pileolus",
+                      "commonName": "Toxopneustes pileolus",
+                      "scientificName": "Toxopneustes pileolus",
+                      "status": "NE"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "spatangoida",
+              "name": "Spatangoida",
+              "scientificName": "Spatangoida",
+              "rank": "order",
+              "children": [
+                {
+                  "id": "loveniidae",
+                  "name": "Loveniidae",
+                  "scientificName": "Loveniidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Echinocardium cordatum",
+                      "commonName": "Sea potato",
+                      "scientificName": "Echinocardium cordatum",
+                      "status": "NE"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ophiuroidea",
+          "name": "Brittle star",
+          "scientificName": "Ophiuroidea",
+          "rank": "class",
+          "children": [
+            {
+              "id": "ophiacanthida",
+              "name": "Ophiacanthida",
+              "scientificName": "Ophiacanthida",
+              "rank": "order",
+              "children": [
+                {
+                  "id": "ophiocomidae",
+                  "name": "Ophiocomidae",
+                  "scientificName": "Ophiocomidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Ophiocoma scolopendrina",
+                      "commonName": "Ophiocoma scolopendrina",
+                      "scientificName": "Ophiocoma scolopendrina",
+                      "status": "NE"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "phrynophiurida",
+              "name": "Phrynophiurida",
+              "scientificName": "Phrynophiurida",
+              "rank": "order",
+              "children": [
+                {
+                  "id": "gorgonocephalidae",
+                  "name": "Gorgonocephalidae",
+                  "scientificName": "Gorgonocephalidae",
+                  "rank": "family",
+                  "species": [
+                    {
+                      "wikiTitle": "Astroboa nuda",
+                      "commonName": "Astroboa nuda",
+                      "scientificName": "Astroboa nuda",
                       "status": "NE"
                     }
                   ]

@@ -37,7 +37,7 @@ Notes:
 
 ### Roster expansion (2026-11-06)
 
-The list grew from 361 to 1,090 species. Additions only: no existing species or taxon id
+The list grew from 361 to 1,090 species, then to 1,466 on 2026-11-07 (round 2). Additions only: no existing species or taxon id
 changed or was removed (checked against the previous `taxonomy.json`). 300-odd new taxon nodes
 were added, so achievement group sizes (D-016) grew too.
 

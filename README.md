@@ -50,7 +50,7 @@ and it is always tagged "Artist reconstruction". Living species only ever show p
 
 ## Seed data
 
-`taxonomy.json` holds 1,090 hand-picked species (55 extinct) across 33 classes, from big cats to
+`taxonomy.json` holds 1,466 hand-picked species (55 extinct) across 34 classes, from big cats to
 sponges. The species are listed in `tools/species.txt`; `tools/gen_taxonomy.py` pulls their
 names, statuses and place in the tree from Wikidata and Wikipedia (D-011: nothing hand-typed). Every entry must be a single species or
 subspecies on Wikidata (the script refuses genus articles such as Smilodon). Screen new
