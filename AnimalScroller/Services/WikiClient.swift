@@ -74,25 +74,37 @@ struct WikiClient {
 
     struct ImageInfo {
         let fileTitle: String
+        /// Rendition to load at `ImageSizing.wikimediaThumbWidth` (1920 px), or the original
+        /// when the original is smaller.
         let url: URL
+        /// Commons' 2x rendition (3840 px, or the original when that is smaller), if any.
+        let largeURL: URL?
+        /// Size in pixels of the original file. Commons reports the requested width as
+        /// `thumbwidth` even when it serves a smaller original, so only these are trustworthy.
         let width: Int?
         let height: Int?
+        /// Size in bytes of the original file.
+        let bytes: Int?
         let mime: String
         let descriptionURL: URL
         let licenseShortName: String?
         let licenseURL: URL?
         let artistHTML: String?
         let descriptionHTML: String?
+        /// Commons assessments ("quality|featured|valued|potd|poty"), raw.
+        var assessments: String? = nil
+        /// Commons categories ("A|B|C"), raw.
+        var categories: String? = nil
     }
 
-    func images(onArticle title: String, limit: Int = 40,
+    func images(onArticle title: String, limit: Int = 80,
                 thumbWidth: Int = ImageSizing.wikimediaThumbWidth) async throws -> [ImageInfo] {
         let response = try await action(ImagesResponse.self, [
             "action": "query", "generator": "images", "titles": title, "redirects": "1",
             "gimlimit": String(limit),
             "prop": "imageinfo", "iiprop": "url|mime|size|extmetadata",
             "iiurlwidth": String(thumbWidth),
-            "iiextmetadatafilter": "LicenseShortName|LicenseUrl|Artist|ImageDescription|UsageTerms",
+            "iiextmetadatafilter": "LicenseShortName|LicenseUrl|Artist|ImageDescription|UsageTerms|Assessments|Categories",
         ])
         return (response.query?.pages ?? []).compactMap { page in
             guard let info = page.imageinfo?.first else { return nil }
@@ -100,14 +112,18 @@ struct WikiClient {
             return ImageInfo(
                 fileTitle: page.title,
                 url: info.thumburl ?? info.url,
-                width: info.thumbwidth ?? info.width,
-                height: info.thumbheight ?? info.height,
+                largeURL: info.responsiveUrls?.urls["2"],
+                width: info.width,
+                height: info.height,
+                bytes: info.size,
                 mime: info.mime ?? "",
                 descriptionURL: info.descriptionurl,
                 licenseShortName: meta["LicenseShortName"]?.value,
                 licenseURL: meta["LicenseUrl"]?.value.flatMap(URL.init(string:)),
                 artistHTML: meta["Artist"]?.value,
-                descriptionHTML: meta["ImageDescription"]?.value
+                descriptionHTML: meta["ImageDescription"]?.value,
+                assessments: meta["Assessments"]?.value,
+                categories: meta["Categories"]?.value
             )
         }
     }
@@ -120,10 +136,19 @@ struct WikiClient {
             let url: URL
             let thumburl: URL?
             let width: Int?, height: Int?
-            let thumbwidth: Int?, thumbheight: Int?
+            let size: Int?
+            /// Higher-density renditions keyed by scale ("2" → 3840 px or the original).
+            let responsiveUrls: Renditions?
             let mime: String?
             let descriptionurl: URL
             let extmetadata: [String: MetaValue]?
+        }
+        /// MediaWiki writes an empty map as `[]`; tolerate that and anything else odd.
+        struct Renditions: Decodable {
+            let urls: [String: URL]
+            init(from decoder: Decoder) throws {
+                urls = (try? decoder.singleValueContainer().decode([String: URL].self)) ?? [:]
+            }
         }
         /// extmetadata values are usually strings but occasionally numbers; tolerate both.
         struct MetaValue: Decodable {

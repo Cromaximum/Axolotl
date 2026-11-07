@@ -23,6 +23,44 @@ Template:
 
 ---
 
+## D-019 · Bar for adding a bundled species
+- Status: Proposed (by Claude, thread "Expand the species roster"); the expansion itself was
+  Maxwell Rhinelander's ask ("expand the species roster", 2026-11-06)
+- Date: 2026-11-06
+- Context: growing `species.txt` from 361 to about 1,000 species needed a repeatable test for
+  "a solid article, a few usable free photos, sourced facts", instead of judging titles by eye.
+- Decision: a title joins `species.txt` only if `gen_taxonomy.py --screen` passes it: a Wikidata
+  species or subspecies with a P225 name, not already listed, an English article of at least
+  12,000 bytes, a free lead image, and at least 3 sharp photos (allowed licence, not junk, at
+  least 1200 × 800 on the original) among the first 40 files on the article (the app reads 80, so this is stricter), using the same
+  rules as `ContentPolicy` and `PhotoQuality` (D-018). Titles whose sourced common name is just
+  a group name shared by other species ("Crab spider", "Horseshoe Crab", "Caveman" for Homo
+  erectus) are left out by hand. Species listed before 2026-11-06 are kept even if they fall
+  short.
+- Consequences: 729 of about 2,200 candidates passed. Vertebrates pass far more often than
+  invertebrates (short articles, few sharp photos), so the tree stays vertebrate-heavy. If
+  `PhotoQuality` thresholds change, change the mirror in `gen_taxonomy.py` too.
+
+## D-018 · Rank photos for quality and screen fit; load them at full-screen resolution
+- Status: Decided
+- Date: 2026-11-06
+- Decided by: Maxwell Rhinelander ("really put some work into making sure we are selecting high
+  quality photos, close ups, UHD, screen filling images"); thresholds and weights chosen by the
+  agent (thread "Pick high-quality, screen-filling photos")
+- Context: photos were used in the article's order at 1280 px, and Commons reports the requested
+  thumbnail width for small originals, so 600 px files passed the size check and looked soft
+  full screen.
+- Decision: `PhotoQuality` ranks the allowed photos (Commons Featured/Quality/Valued, resolution,
+  portrait fit, close-up and species-name signals up; habitat, specimen and flawed files down).
+  Soft originals (under 1200 × 800) are dropped when a species has 2+ sharp photos. Photos load
+  at 1920 px or Wikimedia's 3840 px/original rendition, whichever stays sharp on the largest
+  iPhone. The article's lead image stays the intro hero when it passes. Rules in
+  content-and-licensing.md.
+- Consequences: licensing and the zero-AI rule are unchanged (ranking only reorders allowed
+  photos). Some species with only small photos show fewer photo cards. Tall photos download
+  larger (up to 3840 px wide, originals capped at 15 MB). `tools/gen_taxonomy.py`'s build-time
+  photo check should mirror the new size floors.
+
 ## D-017 · The intro card is a short fact sheet, from Wikidata with a Wikipedia-sentence fallback
 - Status: Decided
 - Date: 2026-11-06
@@ -34,10 +72,18 @@ Template:
   sourced data. Wikidata values first; where Wikidata has none, one whole sentence of at most
   90 characters from the article's matching section (Maxwell chose this option on 2026-11-06).
   With no data at all the intro falls back to "Did you know?" / the lead.
-- Consequences: New `SpeciesProfile` on `SpeciesContent` (cache schema v2), `WikidataClient`,
+- Consequences: New `SpeciesProfile` on `SpeciesContent` (cache schema v3), `WikidataClient`,
   pure `SpeciesProfileBuilder`. Fact sets are also capped at 4 cards after the intro, never
   repeat an image, and highlight a fact's number inside its sentence instead of showing it alone
   (same feedback round).
+
+## D-016 · Achievements: tiers from one ladder, scaled by group size
+- Status: Decided (feature); tier rules Proposed
+- Date: 2026-11-06
+- Decided by: Maxwell Rhinelander asked for "an achievement system, ie something sort of like (visit 50 avians, 100 avians, 150...etc.) for all range of different applicable options". Tier rules proposed by the achievements agent.
+- Context: Groups differ a lot in size (one bundled tardigrade, 126 mammals) and the bundled list is growing, and the live catalogue lets users meet more species than the bundled list holds.
+- Decision: Achievements for all species, each IUCN status EX to LC, and each phylum, class and order with 3+ bundled species, counted by lineage node id. Targets come from the ladder 1, 5, 10, 25, 50, then every 50, starting near a twentieth of the group's bundled size, plus the group size itself when no ladder value is within 20%. Tiers are open-ended. No thresholds are hard-coded per group, so a regenerated `taxonomy.json` rescales them. Badges are SF Symbols and typography only (D-011). Only "tiers seen" is stored (`achievements.v1`); progress is recomputed.
+- Consequences: Families and genera get no achievements (too many, too small). A tier above the bundled group size needs the full catalogue. Changing the ladder can lower someone's tier number; acceptable while nothing has shipped.
 
 ## D-015 · Subspecies count as one specific animal
 - Status: Proposed (agent, W4 content quality, 2026-11-06)
@@ -122,7 +168,7 @@ Template:
 - Date: 2026-11-06
 - Decided by: Maxwell Rhinelander
 - Context: How big the species set must be before launch.
-- Decision: A few hundred species, each reviewed. Currently 361 (W4, 2026-11-06).
+- Decision: A few hundred species, each reviewed. Currently 1,090 (roster expansion, 2026-11-06; Maxwell asked to "expand the species roster", see D-019).
 - Consequences: Needs a generation pipeline (likely Wikidata) plus human review.
 
 ## D-005 · Paleoart allowed for extinct species, reputable sources only, always labelled

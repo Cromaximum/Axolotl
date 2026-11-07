@@ -113,6 +113,8 @@ Owns: `Services/FactExtractor.swift`, `Services/ContentPolicy.swift`,
        references, and lists; prefer sentences with numbers. Verbatim only (D-011).
 2. [x] Better photos: skip near-duplicates and low-resolution files, prefer the lead image,
        and pace the feed (no three photos in a row).
+6. [x] Photo quality pass (D-018): rank photos by Commons assessments, resolution, portrait fit
+       and close-up signals; drop soft originals; load 1920/3840 px renditions (`PhotoQuality`).
 3. [x] Grow `tools/species.txt` toward a few hundred species, and add class/order/family
        branches so the live catalogue searches more of the tree.
 4. [x] Tune the picker and likes so the feed feels varied: no same family back to back,
@@ -120,7 +122,16 @@ Owns: `Services/FactExtractor.swift`, `Services/ContentPolicy.swift`,
 5. [x] Offline `gen_taxonomy.py --lint` in CI (species list, taxonomy.json and sources agree).
        A full `--check` still needs the API cache committed or a CI-friendly Wikidata dump.
 
+### Roster expansion (done 2026-11-06)
+
+- [x] Grow the bundled roster to about 1,000 species with a repeatable screen
+      (`gen_taxonomy.py --screen`, D-019). Now 1,090. Next: more invertebrate and fossil species
+      as their Wikipedia articles and photos improve.
+
 ### Not assigned yet
+
+- [x] Achievements: tiered awards for species met per branch and status (Awards tab, 2026-11-06)
+- [ ] Achievements: check the Awards tab and toast by hand in the simulator
 
 - [ ] Run on a physical iPhone and fix device-only issues
 - [ ] Real support contact in the Wikimedia `User-Agent`

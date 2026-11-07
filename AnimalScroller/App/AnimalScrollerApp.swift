@@ -5,6 +5,7 @@ struct AnimalScrollerApp: App {
     @State private var preferences = PreferencesStore()
     @State private var met = MetStore()
     @State private var likes = LikesStore()
+    @State private var achievements = AchievementsStore()
     private let taxonomy = TaxonomyLoader.loadBundled()
     /// The live species catalogue (D-012). One instance for the app, injected down to the feed.
     private let catalog: SpeciesCatalog = LiveSpeciesCatalog()
@@ -40,6 +41,7 @@ struct AnimalScrollerApp: App {
                 .environment(preferences)
                 .environment(met)
                 .environment(likes)
+                .environment(achievements)
                 .environment(\.imageLoader, images)
                 .environment(\.speciesContentProvider, contentProvider)
                 .preferredColorScheme(.dark)
