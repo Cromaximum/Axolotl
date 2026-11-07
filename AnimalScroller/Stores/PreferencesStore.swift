@@ -17,6 +17,8 @@ final class PreferencesStore {
     var hasOnboarded: Bool { didSet { save() } }
     /// Look beyond the bundled list: find species in the GBIF Backbone and build their cards live.
     var liveCatalog: Bool { didSet { save() } }
+    /// Set after the first swipe in the feed, so the "Swipe up for more" hint shows only once.
+    var hasSeenSwipeHint: Bool { didSet { save() } }
 
     private let defaults: UserDefaults
     private static let key = "preferences.v1"
@@ -29,6 +31,7 @@ final class PreferencesStore {
         var surpriseMe = true
         var hasOnboarded = false
         var liveCatalog = true
+        var hasSeenSwipeHint = false
 
         init() {}
 
@@ -43,6 +46,7 @@ final class PreferencesStore {
             surpriseMe = try c.decodeIfPresent(Bool.self, forKey: .surpriseMe) ?? d.surpriseMe
             hasOnboarded = try c.decodeIfPresent(Bool.self, forKey: .hasOnboarded) ?? d.hasOnboarded
             liveCatalog = try c.decodeIfPresent(Bool.self, forKey: .liveCatalog) ?? d.liveCatalog
+            hasSeenSwipeHint = try c.decodeIfPresent(Bool.self, forKey: .hasSeenSwipeHint) ?? d.hasSeenSwipeHint
         }
     }
 
@@ -57,6 +61,7 @@ final class PreferencesStore {
         surpriseMe = stored.surpriseMe
         hasOnboarded = stored.hasOnboarded
         liveCatalog = stored.liveCatalog
+        hasSeenSwipeHint = stored.hasSeenSwipeHint
     }
 
     /// The three-way switch on the Tree screen, stored as the two existing flags.
@@ -132,6 +137,7 @@ final class PreferencesStore {
         stored.surpriseMe = surpriseMe
         stored.hasOnboarded = hasOnboarded
         stored.liveCatalog = liveCatalog
+        stored.hasSeenSwipeHint = hasSeenSwipeHint
         if let data = try? JSONEncoder().encode(stored) { defaults.set(data, forKey: Self.key) }
     }
 }

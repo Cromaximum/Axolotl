@@ -107,6 +107,7 @@ Key: `preferences.v1`. JSON-encoded `PreferencesStore.Stored`:
 | `surpriseMe` | `Bool` | `true` |
 | `hasOnboarded` | `Bool` | `false` (added with the concept screens) |
 | `liveCatalog` | `Bool` | `true` ("Explore the full species catalogue", D-012) |
+| `hasSeenSwipeHint` | `Bool` | `false` (set after the first swipe in the feed; hides the "Swipe up for more" hint, D-021) |
 
 Every field is decoded with `decodeIfPresent`, so data saved before a field existed still loads.
 `PreferencesStore.extinctMode` (Living only / Include extinct / Extinct only) is a computed view

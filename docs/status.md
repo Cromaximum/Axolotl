@@ -1,6 +1,6 @@
 # Current status
 
-_Last updated: 2026-11-06. Update this file whenever what works, what's broken or what's in
+_Last updated: 2026-11-07. Update this file whenever what works, what's broken or what's in
 flight changes._
 
 ## Summary
@@ -12,10 +12,11 @@ test-target fix, and the feed loads live Wikipedia content. CI also builds and t
 | Area | State |
 | --- | --- |
 | Build | Builds clean with Xcode 26.6 locally and in CI (macos-15) |
-| Unit tests | 137 tests in `AnimalScrollerTests/` (counted 2026-11-06, including the achievements and `PhotoQuality` tests), run in CI on every PR |
+| Unit tests | 150 tests in `AnimalScrollerTests/` (counted 2026-11-07, including `FeedNavigationTests`), run in CI on every PR |
 | CI | `.github/workflows/ios.yml`: XcodeGen + `xcodebuild test` on macos-15 (first available iPhone simulator) for every PR and push to `main`. Results bundle and log uploaded as an artifact. |
 | Feed (intro, photo and fact cards) | The original cards worked in the iPhone 17 simulator. The cards rebuilt to the concept art (`feature/concept-screens`) pass CI but have not been checked by hand yet |
 | Intro fact sheet (D-017) | Lives in / Eats / size / Weight from Wikidata, short Wikipedia sentence fallback (#20). Unit-tested in CI only; needs a simulator check. The cloud dev environment is rate-limited by Wikidata |
+| Core feed UX round (D-021) | Next-animal chip, "New to you" badge, pinch zoom on photo cards, first-run swipe hint. Unit-tested in CI only (`FeedNavigationTests`); needs a simulator check |
 | Tree-of-life filter + extinct toggles | Now the Tree tab, with search, species counts per branch, a "Showing" summary and "Reset to everything" (W3, #11; CI only, not yet checked by hand). The earlier sheet version listed the tree in the simulator |
 | Photo selection | Photos ranked best first by `PhotoQuality` (Commons assessments, resolution, portrait fit, close-ups), soft originals dropped when a species has 2+ sharp ones, 1920 px or 3840 px renditions (2026-11-06). CI only, not yet checked by hand in the simulator |
 | Live Wikipedia / Commons fetching | Works in the simulator. The cloud dev environment can reach `en.wikipedia.org`, `commons.wikimedia.org` and `upload.wikimedia.org` since 2026-11-06 (not `thumb.wikimedia.org`) |

@@ -243,3 +243,69 @@ enum CardInsets {
     /// (D-010). Boards drop detail at accessibility text sizes to fit under it.
     static let maxBoardShare: CGFloat = 0.5
 }
+
+/// "Next: Shoebill ›" under the top row of every card: jumps past the rest of this species' set
+/// to the next animal's intro. Names the next animal once it has loaded.
+struct NextAnimalChip: View {
+    let name: String?
+    let action: () -> Void
+    @ScaledMetric(relativeTo: .body) private var hitSize: CGFloat = 44
+
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 6) {
+                if let name {
+                    (Text("Next: ").font(Theme.body(12)) + Text(name).font(Theme.label(12)))
+                        .lineLimit(1)
+                } else {
+                    Text("Next animal").font(Theme.label(12))
+                }
+                Image(systemName: "forward.fill").font(.system(size: 10, weight: .bold))
+            }
+            .padding(.horizontal, 12).padding(.vertical, 6)
+            .background(.black.opacity(0.55), in: Capsule())
+            .foregroundStyle(Theme.parchment)
+            .frame(maxWidth: 220, alignment: .trailing)
+            .frame(minHeight: hitSize)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(name.map { "Skip to the next animal, \($0)" } ?? "Skip to the next animal")
+    }
+}
+
+/// "New to you · No. 143 met" on the intro board the first time the user meets a species.
+struct FirstMeetingBadge: View {
+    let number: Int
+
+    var body: some View {
+        Label {
+            Text("New to you · No. \(number) met".uppercased())
+        } icon: {
+            Image(systemName: "sparkles")
+        }
+        .font(Theme.label(11)).tracking(1.1)
+        .labelStyle(.titleAndIcon)
+        .lineLimit(1)
+        .padding(.horizontal, 9).padding(.vertical, 4)
+        .background(Theme.amber, in: Capsule())
+        .foregroundStyle(Theme.ink)
+        .accessibilityLabel("New to you. Species number \(number) met")
+    }
+}
+
+/// First run only: a small cue above the first intro board that the feed scrolls up.
+struct SwipeHint: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    var body: some View {
+        Label("Swipe up for more", systemImage: "chevron.up")
+            .font(Theme.label(13))
+            .symbolEffect(.pulse, isActive: !reduceMotion)
+            .padding(.horizontal, 14).padding(.vertical, 8)
+            .background(.black.opacity(0.6), in: Capsule())
+            .foregroundStyle(Theme.parchment)
+            .frame(maxWidth: .infinity)
+            .allowsHitTesting(false)
+    }
+}

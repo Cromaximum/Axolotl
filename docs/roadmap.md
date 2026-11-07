@@ -128,6 +128,16 @@ Owns: `Services/FactExtractor.swift`, `Services/ContentPolicy.swift`,
       (`gen_taxonomy.py --screen`, D-019). Now 1,090. Next: more invertebrate and fossil species
       as their Wikipedia articles and photos improve.
 
+### Core feed UX round (2026-11-07, D-021)
+
+- [x] "Next: <animal>" skip chip on every card
+- [x] "New to you · No. N met" badge on first meetings
+- [x] Pinch to zoom photo cards
+- [x] One-time "Swipe up for more" hint
+- [ ] Check all four by hand in the simulator
+- [ ] Later: resume the feed where you left off after a relaunch; tap a photo to hide its chips;
+      treat a skip as a stronger "less of this" signal than a short dwell
+
 ### Not assigned yet
 
 - [x] Achievements: tiered awards for species met per branch and status (Awards tab, 2026-11-06)

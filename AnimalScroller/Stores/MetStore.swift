@@ -70,6 +70,9 @@ final class MetStore {
 
     func isSaved(_ id: String) -> Bool { entries.first { $0.id == id }?.saved ?? false }
 
+    /// True once a species has been met (any card of it shown), before or in this session.
+    func hasMet(_ id: String) -> Bool { entries.contains { $0.id == id } }
+
     /// Called when a species' intro card is shown. Keeps the first-met date and saved flag.
     func recordMet(_ entry: SpeciesEntry) {
         let date = now()

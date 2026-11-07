@@ -23,6 +23,23 @@ Template:
 
 ---
 
+## D-021 · Core feed UX round: Next chip, first-meeting badge, pinch zoom, swipe hint
+- Status: Proposed (by Claude, thread "Improve core feed experience"); Maxwell Rhinelander asked
+  for the round ("brainstorm ways we can improve core user experience ... and then implement
+  them", 2026-11-07)
+- Date: 2026-11-07
+- Context: Sets run up to 5 screens, so an animal the user doesn't care about costs five swipes.
+  The Met and Awards collection had no moment in the feed itself. Photos couldn't be inspected.
+- Decision: A "Next: <name>" chip on every card jumps to the next species' intro (shown only once
+  that species has loaded). The intro board shows "New to you · No. N met" on first meetings.
+  Photo cards pinch-zoom up to 4x and spring back. A one-time "Swipe up for more" hint shows on
+  the first card. All chrome only: no new content, names come from the species data (D-011).
+- Consequences: Each card's top row grows by one chip on the trailing side; the photo rail stays
+  where it is. Skips are not a separate signal yet; they count as a short dwell. Parked for
+  later: resuming the feed after relaunch, persisted dwell, tap to hide chrome.
+
+---
+
 ## D-019 · Bar for adding a bundled species
 - Status: Proposed (by Claude, thread "Expand the species roster"); the expansion itself was
   Maxwell Rhinelander's ask ("expand the species roster", 2026-11-06)
