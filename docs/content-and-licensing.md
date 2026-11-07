@@ -183,7 +183,8 @@ It is imperfect: when in doubt, treat an image as artwork.
 - Send a descriptive `User-Agent` with a way to contact the developer
   (https://meta.wikimedia.org/wiki/User-Agent_policy). The current value in `WikiClient` has a
   placeholder contact that must be replaced before release.
-- Cache aggressively (the app sets a 512 MB `URLCache`) and don't hammer the API.
+- Cache sensibly and don't hammer the API: species text is cached on disk for 7 days; photos are
+  cached in memory only and never written to the phone (D-020).
 
 ## Future content (not allowed yet)
 

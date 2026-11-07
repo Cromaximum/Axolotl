@@ -26,6 +26,16 @@ struct WikipediaContentProvider: SpeciesContentProvider {
 
     init(client: WikiClient) { self.client = client }
 
+    func content(for species: Species) async throws -> SpeciesContent
+}
+
+/// Fetches content live from Wikipedia and Wikimedia Commons. Caching (memory, disk, shared
+/// in-flight fetches) is `CachingContentProvider`'s job; `App/` wraps this provider in one.
+struct WikipediaContentProvider: SpeciesContentProvider {
+    private let client: WikiClient
+
+    init(client: WikiClient) { self.client = client }
+
     /// Transitional: `OnboardingView` and `SpeciesDetailView` still reach for this until W3 moves
     /// them to the injected `speciesContentProvider` (Phase 1.5 W3 step 4). It shares the disk
     /// cache folder with the app's provider. Delete it right after W3's switch lands.

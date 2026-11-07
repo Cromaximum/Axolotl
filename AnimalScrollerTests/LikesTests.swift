@@ -65,14 +65,14 @@ final class LikesTests: XCTestCase {
         let defaults = UserDefaults(suiteName: "LikesTests-\(UUID().uuidString)")!
         let store = LikesStore(defaults: defaults)
         let entry = entries("felidae", 1)[0]
-        store.like(entry, imageURL: nil)
-        store.like(entry, imageURL: nil)
+        store.like(entry)
+        store.like(entry)
         XCTAssertEqual(store.entries.count, 1)
         XCTAssertEqual(store.affinity["felidae"], LikeAffinity.weight(for: .family))
 
         let reloaded = LikesStore(defaults: defaults)
         XCTAssertTrue(reloaded.isLiked(entry.id))
-        reloaded.toggle(entry, imageURL: nil)
+        reloaded.toggle(entry)
         XCTAssertFalse(reloaded.isLiked(entry.id))
         XCTAssertTrue(reloaded.affinity.isEmpty)
     }
@@ -113,5 +113,16 @@ final class LikesTests: XCTestCase {
             XCTAssertNotEqual(family, last, "discovery picks never repeat a family back to back, liked or not")
             last = family
         }
+    }
+
+    func testOldEntriesWithImageURLStillDecode() throws {
+        let defaults = UserDefaults(suiteName: "LikesTests-\(UUID().uuidString)")!
+        let old = """
+        [{"id":"Test species","commonName":"Test species","scientificName":"Testus testus",
+          "isExtinct":false,"lineage":[],"imageURL":"https://example.org/a.jpg","likedAt":0}]
+        """
+        defaults.set(Data(old.utf8), forKey: LikesStore.key)
+        let store = LikesStore(defaults: defaults)
+        XCTAssertTrue(store.isLiked("Test species"))
     }
 }

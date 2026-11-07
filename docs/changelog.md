@@ -8,6 +8,8 @@ Format: `- YYYY-MM-DD · Area · What changed (#PR)`
 
 ## Unreleased
 
+- 2026-11-06 · App · Animal photos are no longer stored on the phone: the HTTP cache is memory-only and the old 512 MB disk cache is wiped on launch (D-020, Maxwell).
+- 2026-11-06 · Code · `LikesStore.Entry` no longer stores an image URL (old `likes.v1` data still decodes). `like(_:)` / `toggle(_:)` replace the `imageURL:` versions, which stay as deprecated forwarders until `FeedView` switches. Deleted `WikipediaContentProvider.shared` and the global `URLCache.shared` override now that every screen uses the injected provider and image loader (W1).
 - 2026-11-06 · Data · Species roster grown from 361 to 1,090 (55 extinct), across 33 classes, 175 orders and 474 families. New `gen_taxonomy.py --screen` checks candidate titles against the bar for new species (D-019, proposed): Wikidata species or subspecies, 12,000+ byte article, free lead image, 3+ sharp photos under a Python mirror of the app's photo rules (D-018). No existing ids changed. Fixed the bird tier example in product.md for the new group sizes.
 
 - 2026-11-06 · App · Achievements (D-016): new Awards tab with tiered goals for species met, for every species, each IUCN status and each phylum, class and order with 3+ bundled species. Targets 1, 5, 10, 25, 50, then every 50, scaled to each group's size; SF Symbol rosette medals; a banner when a tier is reached and a tab badge for unseen tiers. New pure `AchievementTiers` and `AchievementBoard`, `AchievementsStore` (`achievements.v1`), `TaxonomyIndex.taxa(rank:)` and `allEntries`, with tests.
